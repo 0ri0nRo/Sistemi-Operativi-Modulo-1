@@ -516,13 +516,53 @@ Esisono diversi scheduler (che in un sistema efficiente utilizza un mix tra ques
 Il \textbf{Context Switch} procedura utilizzata dalla CPU per sospendere il processo attualmente in esecuzione al fine di eseguirne uno pronto. È un'operazione molto costosa in quanto l'arresto del processo in corso implica il salvataggio di tutto il suo stato interno (PC, SP, altri registri, ecc.) al suo PCB e l'avvio di un processo pronto consiste nel caricare tutto il suo stato interno (PC, SP, altri registri, ecc.) dal suo PCB. \\
 Il Context Switch si usa quando ci sono delle chiamate \texttt{TRAP}\footnote{richiesta di un servizio dell'OS, svolte in modo sincrono e innescate dai software} come system call, eccezioni, o interruzioni hardware. Ogni volta che arriva una \texttt{TRAP} la CPU ha il compito di creare uno stato di salvataggio dello stato corrente dei processi attivi. Passare alla modalità kernel per gestire l'interrupt ed eseguire un ripristino dello stato del processo interrotto. \\
 Per evitare che i processi legati alla CPU monopolizzino la CPU, anche il Context Switch viene attivato tramite interrupt del timer hardware (\textbf{slice}).
-Il \textbf{slice}
-
+Il \textbf{slice} ha quantità massima di tempo tra due cambi di contesto per garantire che si verifichi almeno un cambio di contesto. Può accadere più frequentemente di così (ad esempio, a causa di richieste di I/O). Lo slice è facilmente implementabile in hardware tramite interrupt timer. E' un meccanismo utilizzato dai moderni sistemi operativi multitasking time-sharing per aumentare la reattività del sistema (pseudo-parallelismo). \\
+\subsubsection*{Il tempo nel Context Switch}
+Il tempo impiegato per completare un cambio di contesto è solo tempo di CPU sprecato. Un intervallo di tempo inferiore comporta cambi di contesto più frequenti. Un intervallo di tempo maggiore comporta cambi di contesto meno frequenti. Ha anche il compito di minimizzare lo spreco di tempo della CPU, massimizzando quindi l'utilizzo e la reattività della CPU. 
 \subsection{Communicazione dei processi}
 
+I processi possono essere \textbf{indipendenti} o \textbf{cooperanti}:
+\begin{itemize}
+    \item Processi indipendenti operano contemporaneamente su un sistema e possono né influenzare né essere influenzati da altri processi
+    \item I processi cooperanti possono influenzare o essere influenzati da altri processi al fine di raggiungere un compito comune
+\end{itemize}
 
+Possono esserci diversi processi che richiedono l'accesso allo stesso file (ad es pipeline). Abbiamo bisogno di questa cooperazione tra processi e ci sono diverse caratteristiche importanti. Abbiamo la \textbf{velocità} di calcolo è un problema che può essere risolta più velocemente se può essere suddiviso in sotto-attività da risolvere simultaneamente. La \textbf{modularità} definisce l'architettura più efficiente può essere quella di scomporre un sistema in moduli cooperanti. Infine abbiamo la \textbf{convenienza} infatti anche un singolo utente può essere multi-tasking, come modificare, compilare, stampare ed eseguire lo stesso codice in finestre diverse.
+Ci sono due modi possibili per comunicare tra processi cooperanti:
+\begin{itemize}
+    \item \textbf{Memoria condivisa}
+    \begin{itemize}
+        \item Più veloce una volta configurato, poiché non sono necessarie chiamate di sistema
+        \item Più complicato da configurare e non funziona altrettanto bene su più computer
+        \item Preferibile quando (una grande quantità) di informazioni deve essere condivisa sullo stesso computer
+    \end{itemize}
+    \item \textbf{Scambio di messaggi} 
+    \begin{itemize}
+        \item Più lento in quanto richiede chiamate di sistema (syscall) per ogni trasferimento di messaggi
+        \item Più semplice da configurare e funziona bene su più computer
+        \item Preferibile quando la quantità e/o la frequenza dei trasferimenti di dati è piccola o quando sono multipli i computer sono coinvolti
+    \end{itemize}
+\end{itemize}
 
+La memoria da condividere è inizialmente all'interno dello spazio degli indirizzi di un particolare processo e biasogna effettuare chiamate di sistema per rendere quella memoria pubblicamente disponibile ad altri processi. Altri processi devono effettuare le proprie chiamate di sistema per collegare la memoria condivisa al proprio spazio degli indirizzi. 
+Il \textbf{Message Passing Systems} deve supportare almeno chiamate di sistema per l'invio e la ricezione di messaggi e stabilire un collegamento di comunicazione tra i cooperanti processi prima che i messaggi possano essere inviati
+Esistono però tre problemi chiave da risolvere e nello scambio di messaggi è necessario:
+\begin{itemize}
+    \item comunicazione diretta o indiretta (es. naming) 
+    \begin{itemize}
+        \item Nella \textbf{Comunicazione diretta} il mittente deve conoscere il nome del destinatario a cui desidera inviare un messaggio. Deve conoscere anche il collegamento uno a uno tra ogni coppia mittente-destinatario per la comunicazione simmetrica e il destinatario deve conoscere anche il nome del mittente
+        \item La \textbf{Comunicazione indiretta} utilizza mailbox o porte condivise dove più processi possono condividere la stessa mailbox o porta. Solo un processo può leggere un determinato messaggio in una mailbox. Il sistema operativo deve fornire chiamate di sistema per creare ed eliminare mailbox e per inviare e ricevere messaggi da/per mailbox. 
+    \end{itemize}
+    \item comunicazione sincrona o asincrona 
+    \item buffering automatico o esplicito
+\end{itemize}
+Scegliere se utilizzare o meno una queue per i messaggi:
 
+\begin{itemize}
+    \item \textbf{Zero capacity}, dove i messaggi non possono essere salvati in una queue, dunque il mittente rimane bloccato finché il destinatario non riceve il messaggio
+    \item \textbf{Bounded capacity}, dove vi è una queue di capienza predefinita, permettendo ai mittenti di non bloccarsi a meno che la queue non sia piena
+    \item \textbf{Unbounded capacity}, dove la queue ha teoricamente capienza infinita, implicando che i mittenti non debbano mai bloccarsi
+\end{itemize}
 %-------------------------------------------------------%
 \pagebreak
 
