@@ -17,11 +17,11 @@
 \contentsline {subsection}{\numberline {2.1}Stato di esecuzione del processo}{9}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Process Control Block (PCB)}{10}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Creazione di processi}{11}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Terminazione di processi}{11}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Scheduling dei processi}{11}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Communicazione dei processi}{11}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Sincronizzazione tra Processi/Thread}{12}{section.3}%
-\contentsline {section}{\numberline {4}Gestione della Memoria}{13}{section.4}%
-\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{14}{section.5}%
-\contentsline {section}{\numberline {6}File System}{15}{section.6}%
-\contentsline {section}{\numberline {7}Advanced Topics}{16}{section.7}%
+\contentsline {subsection}{\numberline {2.4}Terminazione di processi}{15}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Scheduling dei processi}{15}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Communicazione dei processi}{16}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Sincronizzazione tra Processi/Thread}{17}{section.3}%
+\contentsline {section}{\numberline {4}Gestione della Memoria}{18}{section.4}%
+\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{19}{section.5}%
+\contentsline {section}{\numberline {6}File System}{20}{section.6}%
+\contentsline {section}{\numberline {7}Advanced Topics}{21}{section.7}%

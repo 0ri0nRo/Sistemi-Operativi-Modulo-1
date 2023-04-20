@@ -7,10 +7,12 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{sectsty}
+\usepackage{listings}
 %\usepackage[light]{CormorantGaramond}
 \usepackage{fancyhdr}
 \usepackage{footnote}
 \usepackage{tgadventor}
+%\lstset{language=C}
 \renewcommand\bfdefault{bx}
 \sectionfont{\fontsize{20.74}{15}\selectfont}
 \subsectionfont{\fontsize{17.28}{15}\selectfont}
@@ -140,7 +142,7 @@ Il sistema operativo carica i rigistri di base e limite all'avvio del programma 
 Per ottenere servizi dall'OS un programma utente deve fare una \textbf{system call (chiamata di sistema)} che entra nel kernel e richiama l'OS. Quando il lavoro è stato completato il controllo è restituito al programma utente.\\
 L'istruzione \texttt{TRAP} cambia la modalità da utente a kernel e avvia l'OS. 
 \begin{itemize}
-    \item System call (software trap), ossia la richiesta di un servizio dell'OS, svolte in modo sincrono e innescate dai software
+    \item System call (software \texttt{TRAP}), ossia la richiesta di un servizio dell'OS, svolte in modo sincrono e innescate dai software
     \item Exception (fault), ossia la gestione di errori dovuti ad eventi inattesi, svolte in modo sincrono e innescate dai software
     \item Interrupt, ossia il completamento di una richiesta in attesa, svolte in modo asincrono e innescate dall'hardware
 \end{itemize}
@@ -353,13 +355,169 @@ Abbiamo due possibilità per lo spazio degli indirizzi del figlio rispetto al ge
 \end{itemize}
 
 \subsubsection*{Esecuzione del padre vs figlio}
+Abbiamo due opzioni per il processo genitore dopo aver creato il figlio:
+\begin{itemize} 
+    \item Attendere che il processo figlio termini prima di procedere emettendo un \texttt{wait} chiamata di sistema, per un figlio specifico o per qualsiasi figlio
+    \item Oppure eseguire contemporaneamente al figlio, continuando l'elaborazione senza essere bloccato (quando una shell UNIX esegue un processo come attività in background utilizzando "\&")
+\end{itemize}
+\pagebreak
+
+Consideriamo ora questo esempio:
+\begin{lstlisting}
+    #include <sys/types.h>
+    #include <stdio.h>
+    #include <unistd.h>
+    int main(){
+        pid_t pid;
+        /* fork a child process */
+        pid = fork();
+        if (pid < 0) { 
+            /* if the returned PID is < 0, an error occurred */
+            fprintf(stderr, "Fork Failed");
+            exit(-1); 
+        }
+        else if (pid == 0) {
+        /* execute child process code */
+            execlp("/bin/ls", "ls", NULL);
+        }
+        else {
+        /* execute parent process code */
+            ...
+            /* wait for child to terminate */
+            wait(NULL)
+            printf("Child terminated");
+            exit(0); 
+    }
+}
+\end{lstlisting}
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/p1}}
+        \caption{Albero decisionale del primo esempio}    
+    \end{center}
+    \end{figure}
+\pagebreak
+Consideriamo ora quest'altro esempio:
+\begin{lstlisting}
+    int pid = fork();
+    if(pid == 0) {      // A's child (B)
+        pid = fork();
+        
+    if(pid == 0) {      // B's child (C)
+        ...
+        execlp(...);
+    }
+    else { // B 
+        ...
+    } 
+}
+else { // A 
+    ...
+}
+\end{lstlisting}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.15\textwidth,keepaspectratio]{{im/p2}}
+        \caption{Albero decisionale del secondo esempio}    
+    \end{center}
+\end{figure}
+
+\pagebreak
+
+Consideriamo ora questo esempio:
+\begin{lstlisting}
+    int pid = fork();
+    if(pid == 0) {          // A's child (B)
+        ...
+        execlp(...);
+    }
+    else { // A
+        pid = fork();
+        if(pid == 0) {      // A's child (C)
+            ...
+            execlp(...);
+        }
+    }
+\end{lstlisting}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.25\textwidth,keepaspectratio]{{im/p3}}
+        \caption{Albero decisionale del secondo esempio}    
+    \end{center}
+\end{figure}
+
+Consideriamo ora quest'altro esempio:
+\begin{lstlisting}
+    for(int i=0;i<n;i++) {
+        if(fork() == 0) { // A0's child
+            ...
+            execlp(...);
+        }
+  }
+  // back in the parent A0
+  // wait for all children to terminate
+
+  for(int i=0;i<n;i++) {
+      wait(NULL);
+  }
+\end{lstlisting}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.2\textwidth,keepaspectratio]{{im/p4}}
+        \caption{Albero decisionale del secondo esempio}    
+    \end{center}
+\end{figure}
+Riepilogo delle chiamate di sistema viste:
+\begin{itemize}
+    \item \texttt{fork}  genera un nuovo processo figlio come copia esatta del genitore 
+    \item \texttt{execlp}  sostituisce il programma del processo corrente con il
+    inserire il programma denominato
+    \item \texttt{sleep}  sospende l'esecuzione per un certo numero di secondi
+    \item \texttt{wait}/\texttt{waitpid}  attende che uno o più processi specifici terminino l'esecuzione
+\end{itemize}
 
 
-
+\pagebreak
 
 \subsection{Terminazione di processi}
+I processi possono richiedere la propria terminazione effettuando la chiamata di sistema \texttt{exit}, tipicamente restituendo un \textit{int}. Questo \textit{int} viene passato al genitore se sta eseguendo un'attesa. Solitamente è 0 in caso di completamento con successo e un po' diverso da zero in caso di problemi.\\
+I processi possono anche essere terminati dal sistema per una serie di motivi: 
+\begin{itemize} 
+    \item L'incapacità del sistema di fornire le risorse di sistema necessarie
+    \item In risposta a un comando kill o ad un altro interrupt di processo non gestito
+\end{itemize}
+Un genitore può uccidere i suoi figli se il compito loro assegnato non è più necessario, il sistema però può consentire (o meno) al figlio di continuare senza un genitore. Sui sistemi UNIX, i processi orfani sono generalmente ereditati da \texttt{init}, che poi li uccide.\\
+
+Quando un processo termina, tutte le sue risorse di sistema vengono liberate, i file aperti svuotati e chiusi, ecc. Lo stato di terminazione del processo dei tempi di esecuzione vengono restituiti al genitore se questo è in attesa che il figlio termini o eventualmente \texttt{init} se il processo diventa orfano. \\
+I processi che stanno tentando di terminare ma non possono perché il loro genitore non li sta aspettando sono chiamati zombie eventualmente ereditati da \texttt{init} come orfani e uccisi.
 
 \subsection{Scheduling dei processi}
+
+Gli obiettivi principali del sistema di schedulazione dei processi:
+\begin{itemize} 
+    \item mantenere la CPU sempre occupata
+    \item fornire tempi di risposta "accettabili" per tutti i programmi, in particolare per quelli interattivi
+\end{itemize}
+Lo scheduler del processo deve soddisfare questi obiettivi implementando politiche adeguate per lo scambio dei processi dentro e fuori la CPU. Questi obiettivi però possono essere contrastanti, e ogni volta che il sistema operativo interviene per scambiare i processi, impiega tempo sulla CPU per farlo, che viene quindi "perso" dal fare qualsiasi lavoro produttivo utile.\\
+
+Il sistema operativo mantiene i PCB di tutti i processi nelle code di stato. C'è una coda per ciascuno dei 5 stati in cui può trovarsi un processo e una per ogni dispositivo I/O (dove i processi attendono che un dispositivo diventi disponibile o consegni i dati). Quando il sistema operativo cambia lo stato di un processo, il PCB viene scollegato dalla coda corrente e spostato in quella nuova. Il sistema operativo può utilizzare criteri diversi per gestire ciascuna coda di stato. \\
+
+La coda di esecuzione è vincolata dal numero di core disponibili sul sistema. Ogni volta, è possibile eseguire un solo processo su una CPU. Non esiste un limite teorico al numero di processi negli stati \texttt{new/ready/waiting/terminated}.\\
+
+Esisono diversi scheduler (che in un sistema efficiente utilizza un mix tra questi):
+\begin{itemize}
+    \item Uno scheduler a lungo termine viene eseguito raramente ed è tipico di un sistema batch o di un sistema molto carico
+    \item Uno scheduler a breve termine viene eseguito molto frequentemente (circa ogni 100 millisecondi) e deve sostituire molto rapidamente un processo dalla CPU e inserirne un altro
+    \item Alcuni sistemi utilizzano anche uno scheduler a medio termine: quando i carichi del sistema diventano elevati, questo scheduler consente ai lavori più piccoli e più veloci di terminare rapidamente e liberare il sistema
+\end{itemize}
+
+\subsubsection*{Il Context Switch}
+Il \textbf{Context Switch} procedura utilizzata dalla CPU per sospendere il processo attualmente in esecuzione al fine di eseguirne uno pronto. È un'operazione molto costosa in quanto l'arresto del processo in corso implica il salvataggio di tutto il suo stato interno (PC, SP, altri registri, ecc.) al suo PCB e l'avvio di un processo pronto consiste nel caricare tutto il suo stato interno (PC, SP, altri registri, ecc.) dal suo PCB. \\
+Il Context Switch si usa quando ci sono delle chiamate \texttt{TRAP}\footnote{richiesta di un servizio dell'OS, svolte in modo sincrono e innescate dai software} come system call, eccezioni, o interruzioni hardware. Ogni volta che arriva una \texttt{TRAP} la CPU ha il compito di creare uno stato di salvataggio dello stato corrente dei processi attivi. Passare alla modalità kernel per gestire l'interrupt ed eseguire un ripristino dello stato del processo interrotto. \\
+Per evitare che i processi legati alla CPU monopolizzino la CPU, anche il Context Switch viene attivato tramite interrupt del timer hardware (\textbf{slice}).
+Il \textbf{slice}
+
 \subsection{Communicazione dei processi}
 
 
