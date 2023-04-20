@@ -341,7 +341,7 @@ Sui tipici sistemi UNIX lo scheduler del processo è denominato \texttt{sched} e
         \caption{Process Creation: UNIX/Linux}    
     \end{center}
     \end{figure}
-\subsubsection*{Creazione del processo: risorse del padre vs figlio}
+\subsubsection*{Risorse del padre vs figlio}
 Abbiamo due possibilità per lo spazio degli indirizzi del figlio rispetto al genitore:
 \begin{itemize}
     \item Il bambino può essere un duplicato esatto del genitore, condividendo lo stesso programma e gli stessi segmenti di dati in memoria
@@ -351,6 +351,8 @@ Abbiamo due possibilità per lo spazio degli indirizzi del figlio rispetto al ge
     \item Questo è il comportamento delle chiamate di sistema di spawn in Windows
     \item I sistemi UNIX implementano ciò come secondo passaggio, utilizzando la chiamata di sistema \texttt{exec}.
 \end{itemize}
+
+\subsubsection*{Esecuzione del padre vs figlio}
 
 
 
