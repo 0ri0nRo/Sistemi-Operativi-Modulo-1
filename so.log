@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  20 APR 2023 21:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  21 APR 2023 09:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -401,137 +401,172 @@ File: im/ring.png Graphic file (type png)
 <use im/ring.png>
 Package pdftex.def Info: im/ring.png  used on input line 129.
 (pdftex.def)             Requested size: 241.84843pt x 154.49379pt.
- [4 <./im/ring.png>] [5]
-<im/ivt.png, id=175, 676.5275pt x 293.095pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+
+ []
+
+[4 <./im/ring.png>] [5]
+<im/ivt.png, id=179, 676.5275pt x 293.095pt>
 File: im/ivt.png Graphic file (type png)
 <use im/ivt.png>
-Package pdftex.def Info: im/ivt.png  used on input line 196.
+Package pdftex.def Info: im/ivt.png  used on input line 192.
 (pdftex.def)             Requested size: 435.32422pt x 188.6043pt.
-<im/virtualm.png, id=176, 245.91875pt x 293.095pt>
+<im/virtualm.png, id=180, 245.91875pt x 293.095pt>
 File: im/virtualm.png Graphic file (type png)
 <use im/virtualm.png>
-Package pdftex.def Info: im/virtualm.png  used on input line 212.
+Package pdftex.def Info: im/virtualm.png  used on input line 208.
 (pdftex.def)             Requested size: 145.11053pt x 172.95584pt.
  [6 <./im/ivt.png>] [7 <./im/virtualm.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 246--247
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
  []
 
-<im/virtualaddress.png, id=191, 517.935pt x 748.7975pt>
+<im/virtualaddress.png, id=195, 517.935pt x 748.7975pt>
 File: im/virtualaddress.png Graphic file (type png)
 <use im/virtualaddress.png>
-Package pdftex.def Info: im/virtualaddress.png  used on input line 259.
+Package pdftex.def Info: im/virtualaddress.png  used on input line 255.
 (pdftex.def)             Requested size: 145.11053pt x 209.78755pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
 
  []
 
-<im/ebp.png, id=192, 485.815pt x 390.45876pt>
+<im/ebp.png, id=196, 485.815pt x 390.45876pt>
 File: im/ebp.png Graphic file (type png)
 <use im/ebp.png>
-Package pdftex.def Info: im/ebp.png  used on input line 275.
+Package pdftex.def Info: im/ebp.png  used on input line 271.
 (pdftex.def)             Requested size: 241.84843pt x 194.3769pt.
 [8 <./im/virtualaddress.png>]
-<im/diagramma.png, id=199, 474.77374pt x 191.71625pt>
+<im/diagramma.png, id=203, 474.77374pt x 191.71625pt>
 File: im/diagramma.png Graphic file (type png)
 <use im/diagramma.png>
-Package pdftex.def Info: im/diagramma.png  used on input line 291.
+Package pdftex.def Info: im/diagramma.png  used on input line 288.
 (pdftex.def)             Requested size: 338.58632pt x 136.72795pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
 
  []
 
 [9 <./im/ebp.png> <./im/diagramma.png>]
-<im/PCB.png, id=209, 197.73875pt x 309.155pt>
+<im/PCB.png, id=213, 197.73875pt x 309.155pt>
 File: im/PCB.png Graphic file (type png)
 <use im/PCB.png>
-Package pdftex.def Info: im/PCB.png  used on input line 330.
+Package pdftex.def Info: im/PCB.png  used on input line 327.
 (pdftex.def)             Requested size: 96.73788pt x 151.24669pt.
  [10 <./im/PCB.png>]
-<im/creazioneProcessi.png, id=217, 584.1825pt x 311.1625pt>
+<im/creazioneProcessi.png, id=221, 584.1825pt x 311.1625pt>
 File: im/creazioneProcessi.png Graphic file (type png)
 <use im/creazioneProcessi.png>
-Package pdftex.def Info: im/creazioneProcessi.png  used on input line 342.
+Package pdftex.def Info: im/creazioneProcessi.png  used on input line 339.
 (pdftex.def)             Requested size: 338.58632pt x 180.35092pt.
  [11 <./im/creazioneProcessi.png>]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 367.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 364.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 367.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 370.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 364.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 367.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 370.
-<im/p1.png, id=226, 649.42625pt x 133.49875pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 367.
+<im/p1.png, id=230, 649.42625pt x 133.49875pt>
 File: im/p1.png Graphic file (type png)
 <use im/p1.png>
-Package pdftex.def Info: im/p1.png  used on input line 396.
+Package pdftex.def Info: im/p1.png  used on input line 393.
 (pdftex.def)             Requested size: 338.58632pt x 69.60306pt.
  [12 <./im/p1.png>]
-<im/p2.png, id=260, 123.46124pt x 273.02pt>
+<im/p2.png, id=263, 123.46124pt x 273.02pt>
 File: im/p2.png Graphic file (type png)
 <use im/p2.png>
-Package pdftex.def Info: im/p2.png  used on input line 421.
+Package pdftex.def Info: im/p2.png  used on input line 418.
 (pdftex.def)             Requested size: 72.55157pt x 160.44717pt.
  [13 <./im/p2.png>]
-<im/p3.png, id=284, 187.70125pt x 137.51375pt>
+<im/p3.png, id=287, 187.70125pt x 137.51375pt>
 File: im/p3.png Graphic file (type png)
 <use im/p3.png>
-Package pdftex.def Info: im/p3.png  used on input line 445.
+Package pdftex.def Info: im/p3.png  used on input line 442.
 (pdftex.def)             Requested size: 120.92421pt x 88.59392pt.
-<im/p4.png, id=285, 515.9275pt x 235.88126pt>
+<im/p4.png, id=288, 515.9275pt x 235.88126pt>
 File: im/p4.png Graphic file (type png)
 <use im/p4.png>
-Package pdftex.def Info: im/p4.png  used on input line 467.
+Package pdftex.def Info: im/p4.png  used on input line 464.
 (pdftex.def)             Requested size: 96.73788pt x 44.22762pt.
  [14 <./im/p3.png> <./im/p4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 490--491
+Underfull \hbox (badness 10000) in paragraph at lines 487--488
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--503
+Underfull \hbox (badness 10000) in paragraph at lines 499--500
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
+Underfull \hbox (badness 10000) in paragraph at lines 501--502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 516--520
+Underfull \hbox (badness 10000) in paragraph at lines 513--517
 
  []
 
-[15] [16] [17] [18] [19] [20] [21] [22] (./so.aux)
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 544--550
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--550
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--550
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--550
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--550
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 551--552
+
+ []
+
+[16] [17] [18] [19] [20] [21] [22] (./so.aux)
 Package rerunfilecheck Info: File `so.out' has not changed.
 (rerunfilecheck)             Checksum: 4B30D518BC1913FC9DBB22AE250831AB;4816.
  ) 
 Here is how much of TeX's memory you used:
- 14051 strings out of 476025
- 225126 string characters out of 5790017
- 1878388 words of memory out of 5000000
- 34198 multiletter control sequences out of 15000+600000
+ 14056 strings out of 476025
+ 225187 string characters out of 5790017
+ 1879388 words of memory out of 5000000
+ 34201 multiletter control sequences out of 15000+600000
  518952 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,77p,791b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on so.pdf (22 pages, 2434389 bytes).
+Output written on so.pdf (22 pages, 2437075 bytes).
 PDF statistics:
- 457 PDF objects out of 1000 (max. 8388607)
- 371 compressed objects within 4 object streams
- 137 named destinations out of 1000 (max. 500000)
+ 462 PDF objects out of 1000 (max. 8388607)
+ 376 compressed objects within 4 object streams
+ 139 named destinations out of 1000 (max. 500000)
  266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -637,7 +637,6 @@ INPUT ./im/virtualm.png
 INPUT im/virtualm.png
 INPUT ./im/virtualm.png
 INPUT ./im/virtualm.png
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./im/virtualaddress.png
 INPUT im/virtualaddress.png
 INPUT ./im/virtualaddress.png
@@ -682,6 +681,7 @@ INPUT ./im/p4.png
 INPUT im/p4.png
 INPUT ./im/p4.png
 INPUT ./im/p4.png
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT so.aux
 INPUT ./so.out
 INPUT ./so.out
