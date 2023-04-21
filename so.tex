@@ -298,7 +298,7 @@ La maggior parte delle chiamate di sistema (ad esempio quelle di I/O) sono blocc
     \item impostare il processo corrente in uno stato di attesa (ovvero, in attesa del ritorno della chiamata di sistema)
     \item  pianifica un diverso processo pronto per evitare che la CPU sia inattiva
 \end{itemize} 
-Una volta che la chiamata di sistema ritorna, il processo precedentemente bloccato è pronto per essere schedulato nuovamente per l'esecuzione.\footnote{NOTA: l'intero sistema non è bloccato, solo il processo che ha richiesto la chiamata bloccata è!}\\
+Una volta che la chiamata di sistema ritorna, il processo precedentemente bloccato è pronto per essere schedulato nuovamente per l'esecuzione.\footnote{NOTA: l'intero sistema non è bloccato, solo il processo che ha richiesto la chiamata bloccata è!\\}\\
 Lo stato del processo è costituito da: 
 \begin{itemize}
     \item il codice del programma in esecuzione
@@ -311,7 +311,7 @@ Lo stato del processo è costituito da:
 \end{itemize}
 
 \subsection{Process Control Block (PCB)}
-Il \textbf{PCB} (o detto anche Tabella dei Processi), è la struttura dati principale utilizzata dal sistema operativo per tenere traccia di qualsiasi processo. Il PCB tiene traccia dello stato di esecuzione e della posizione di un processo. Il sistema operativo assegna un nuovo PCB alla creazione di un processo e lo inserisce in una coda di stato e viene deallocato non appena termina il processo associato. \\Associata a ogni classe di I/O c'è una posizione (solitamente in una collocazione fissa vicino alla base della memoria) chiamata \textbf{vettore di interrupt}. Contiene l'indirizzo della procedura di servizio dell'interrupt. 
+Il \textbf{PCB} (o detto anche Tabella dei Processi), è la struttura dati principale utilizzata dal sistema operativo per tenere traccia di qualsiasi processo. Il PCB tiene traccia dello stato di esecuzione e della posizione di un processo. Il sistema operativo assegna un nuovo PCB alla creazione di un processo e lo inserisce in una coda di stato e viene deallocato non appena termina il processo associato. \\Associata a ogni classe di I/O c'è una posizione (solitamente in una collocazione fissa vicino alla base della memoria) chiamata \textbf{vettore di interrupt}\footnote{In informatica, un interrupt vector (vettore delle interruzioni) è un indirizzo di memoria del gestore di interrupt, oppure un indice ad un array, chiamato interrupt vector table, il quale può essere implementato tramite una dispatch table. La tabella degli interrupt vector contiene gli indirizzi di memoria dei gestori di interrupt. Quando si genera una interruzione, il processore salva il suo stato di esecuzione con il context switch, ed inizia l'esecuzione del gestore di interruzione all'interrupt vector (questo procedimento avviene quando l'interruzione ha carattere sincrono). Infatti vi è una wait instruction (istruzione d'attesa) che obbliga la CPU ad effettuare cicli vuoti fino a che non arriva il prossimo interrupt. Nel caso in cui si dovesse verificare una interruzione asincrona il programma provvede a lanciare un interrupt con la richiesta di I/O e nell'attesa del dato continua ad effettuare operazioni logico-aritmetiche. Quando arriverà nel momento in cui gli servirà il risultato si fermerà e inizierà ad aspettare. L'I/O asincrono serve a far sì che alcuni programmi possano anticipare la richiesta di un dato così nel caso in cui esso dovesse servire lo possono già utilizzare. Fonte: Wikipedia}. Contiene l'indirizzo della procedura di servizio dell'interrupt. Ad ogni interrupt il computer salta all'indirizzo specificato nel vettore dell'interrupt. 
 Il PCB contiene:
 \begin{itemize}
     \item Stato del processo pronto, in attesa, in esecuzione, ecc.
@@ -328,7 +328,7 @@ Il PCB contiene:
         \caption{Process Execution State Diagram}    
     \end{center}
     \end{figure}
-
+\pagebreak
 \subsection{Creazione di processi}
 I processi possono creare altri processi tramite specifiche chiamate di sistema. Il processo creatore è chiamato genitore del nuovo processo, chiamato figlio. Il genitore condivide risorse e privilegi con i suoi figli. Un genitore può aspettare che un figlio finisca o continuare in parallelo.\\
 A ogni processo viene assegnato un identificatore intero (noto anche come identificatore di processo o PID) e per ogni processo viene memorizzato anche il PID genitore (PPID).\\
@@ -358,7 +358,6 @@ Abbiamo due opzioni per il processo genitore dopo aver creato il figlio:
     \item Attendere che il processo figlio termini prima di procedere emettendo un \texttt{wait} chiamata di sistema, per un figlio specifico o per qualsiasi figlio
     \item Oppure eseguire contemporaneamente al figlio, continuando l'elaborazione senza essere bloccato (quando una shell UNIX esegue un processo come attività in background utilizzando "\&")
 \end{itemize}
-\pagebreak
 
 Consideriamo ora questo esempio:
 \begin{lstlisting}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  21 APR 2023 13:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  21 APR 2023 14:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -449,99 +449,98 @@ Underfull \hbox (badness 10000) in paragraph at lines 293--294
  []
 
 [9 <./im/ebp.png> <./im/diagramma.png>]
-<im/PCB.png, id=213, 197.73875pt x 309.155pt>
+<im/PCB.png, id=214, 197.73875pt x 309.155pt>
 File: im/PCB.png Graphic file (type png)
 <use im/PCB.png>
 Package pdftex.def Info: im/PCB.png  used on input line 327.
 (pdftex.def)             Requested size: 96.73788pt x 151.24669pt.
-
+ [10]
 Underfull \hbox (badness 10000) in paragraph at lines 333--336
 
  []
 
-[10 <./im/PCB.png>]
 <im/creazioneProcessi.png, id=221, 584.1825pt x 311.1625pt>
 File: im/creazioneProcessi.png Graphic file (type png)
 <use im/creazioneProcessi.png>
 Package pdftex.def Info: im/creazioneProcessi.png  used on input line 340.
 (pdftex.def)             Requested size: 338.58632pt x 180.35092pt.
- [11 <./im/creazioneProcessi.png>]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 365.
+[11 <./im/PCB.png> <./im/creazioneProcessi.png>]
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 364.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 365.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 368.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 364.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 367.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 368.
-<im/p1.png, id=230, 649.42625pt x 133.49875pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 367.
+<im/p1.png, id=231, 649.42625pt x 133.49875pt>
 File: im/p1.png Graphic file (type png)
 <use im/p1.png>
-Package pdftex.def Info: im/p1.png  used on input line 394.
+Package pdftex.def Info: im/p1.png  used on input line 393.
 (pdftex.def)             Requested size: 338.58632pt x 69.60306pt.
  [12 <./im/p1.png>]
-<im/p2.png, id=263, 123.46124pt x 273.02pt>
+<im/p2.png, id=265, 123.46124pt x 273.02pt>
 File: im/p2.png Graphic file (type png)
 <use im/p2.png>
-Package pdftex.def Info: im/p2.png  used on input line 419.
+Package pdftex.def Info: im/p2.png  used on input line 418.
 (pdftex.def)             Requested size: 72.55157pt x 160.44717pt.
  [13 <./im/p2.png>]
-<im/p3.png, id=287, 187.70125pt x 137.51375pt>
+<im/p3.png, id=289, 187.70125pt x 137.51375pt>
 File: im/p3.png Graphic file (type png)
 <use im/p3.png>
-Package pdftex.def Info: im/p3.png  used on input line 443.
+Package pdftex.def Info: im/p3.png  used on input line 442.
 (pdftex.def)             Requested size: 120.92421pt x 88.59392pt.
-<im/p4.png, id=288, 515.9275pt x 235.88126pt>
+<im/p4.png, id=290, 515.9275pt x 235.88126pt>
 File: im/p4.png Graphic file (type png)
 <use im/p4.png>
-Package pdftex.def Info: im/p4.png  used on input line 465.
+Package pdftex.def Info: im/p4.png  used on input line 464.
 (pdftex.def)             Requested size: 96.73788pt x 44.22762pt.
  [14 <./im/p3.png> <./im/p4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 491--492
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 493--494
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--509
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 518--522
+Underfull \hbox (badness 10000) in paragraph at lines 517--521
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 549--552
+Underfull \hbox (badness 10000) in paragraph at lines 548--551
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 549--552
+Underfull \hbox (badness 10000) in paragraph at lines 548--551
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 553--554
+Underfull \hbox (badness 10000) in paragraph at lines 552--553
 
  []
 
@@ -550,18 +549,18 @@ Package rerunfilecheck Info: File `so.out' has not changed.
 (rerunfilecheck)             Checksum: 4B30D518BC1913FC9DBB22AE250831AB;4816.
  ) 
 Here is how much of TeX's memory you used:
- 14059 strings out of 476025
- 225217 string characters out of 5790017
- 1879388 words of memory out of 5000000
+ 14060 strings out of 476025
+ 225228 string characters out of 5790017
+ 1882388 words of memory out of 5000000
  34202 multiletter control sequences out of 15000+600000
  519261 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,77p,791b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,77p,2085b,1244s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on so.pdf (22 pages, 2448598 bytes).
+Output written on so.pdf (22 pages, 2452303 bytes).
 PDF statistics:
- 469 PDF objects out of 1000 (max. 8388607)
- 381 compressed objects within 4 object streams
- 140 named destinations out of 1000 (max. 500000)
+ 471 PDF objects out of 1000 (max. 8388607)
+ 383 compressed objects within 4 object streams
+ 141 named destinations out of 1000 (max. 500000)
  266 words of extra memory for PDF output out of 10000 (max. 10000000)
 
