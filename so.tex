@@ -332,8 +332,9 @@ Il PCB contiene:
 \subsection{Creazione di processi}
 I processi possono creare altri processi tramite specifiche chiamate di sistema. Il processo creatore è chiamato genitore del nuovo processo, chiamato figlio. Il genitore condivide risorse e privilegi con i suoi figli. Un genitore può aspettare che un figlio finisca o continuare in parallelo.\\
 A ogni processo viene assegnato un identificatore intero (noto anche come identificatore di processo o PID) e per ogni processo viene memorizzato anche il PID genitore (PPID).\\
-Sui tipici sistemi UNIX lo scheduler del processo è denominato \texttt{sched} e riceve il PID 0. La prima cosa che fa all'avvio del sistema è lanciare \texttt{init}, che dà a quel processo il PID 1. Successivamente \texttt{init} avvia tutti i daemons di sistema e i login degli utenti e diventa il genitore ultimo di tutti gli altri processi. I processi vengono creati attraverso la chiamata di sistema \texttt{\texttt{fork()}}.
+Sui tipici sistemi UNIX lo scheduler del processo è denominato \texttt{sched} e riceve il PID 0. La prima cosa che fa all'avvio del sistema è lanciare \texttt{init}, che dà a quel processo il PID 1. Successivamente \texttt{init} avvia tutti i daemons di sistema e i login degli utenti e diventa il genitore ultimo di tutti gli altri processi. I processi vengono creati attraverso la chiamata di sistema \texttt{\texttt{fork()}}.\\
 
+Tutti i processi sono uguali. L'unico indizio di gerarchia dei processi è che quando viene creato un processo, al genitore viene dato uno speciale gettone o token (detto \textbf{handle}) che può controllare il figlio invalidando la gerarchia.\\
 \begin{figure}[hbt]
     \begin{center}
         \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/creazioneProcessi}}
@@ -483,6 +484,9 @@ I processi possono anche essere terminati dal sistema per una serie di motivi:
 \begin{itemize} 
     \item L'incapacità del sistema di fornire le risorse di sistema necessarie
     \item In risposta a un comando \texttt{kill} o ad un altro interrupt di processo non gestito
+    \item Uscita normale (condizione volontaria)
+    \item Uscita su errore (condizione volontaria)
+    \item Terminato da un altro processo (condizione involontaria)
 \end{itemize}
 Un genitore può uccidere i suoi figli se il compito loro assegnato non è più necessario, il sistema però può consentire (o meno) al figlio di continuare senza un genitore. Sui sistemi UNIX, i processi orfani sono generalmente ereditati da \texttt{init}, che poi li uccide.\\
 
@@ -544,9 +548,6 @@ Ci sono due modi possibili per comunicare tra processi cooperanti:
 
 La memoria da condividere è inizialmente all'interno dello spazio degli indirizzi di un particolare processo e bisogna effettuare chiamate di sistema per rendere quella memoria pubblicamente disponibile ad altri processi.\\ Altri processi devono effettuare le proprie chiamate di sistema per collegare la memoria condivisa al proprio spazio degli indirizzi. \\
 Il \textbf{Message Passing Systems} deve supportare almeno chiamate di sistema per l'invio e la ricezione di messaggi e stabilire un collegamento di comunicazione tra i cooperanti processi prima che i messaggi possano essere inviati.\\
-\linebreak
-\linebreak
-\linebreak
 \linebreak
 
 Esistono però tre problemi da risolvere nello scambio di messaggi:\\
