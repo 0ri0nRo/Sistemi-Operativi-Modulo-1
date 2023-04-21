@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  21 APR 2023 14:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  21 APR 2023 15:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -465,82 +465,82 @@ File: im/creazioneProcessi.png Graphic file (type png)
 Package pdftex.def Info: im/creazioneProcessi.png  used on input line 340.
 (pdftex.def)             Requested size: 338.58632pt x 180.35092pt.
 [11 <./im/PCB.png> <./im/creazioneProcessi.png>]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 364.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 363.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 364.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 367.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 363.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 366.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 367.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 366.
 <im/p1.png, id=231, 649.42625pt x 133.49875pt>
 File: im/p1.png Graphic file (type png)
 <use im/p1.png>
-Package pdftex.def Info: im/p1.png  used on input line 393.
+Package pdftex.def Info: im/p1.png  used on input line 392.
 (pdftex.def)             Requested size: 338.58632pt x 69.60306pt.
  [12 <./im/p1.png>]
 <im/p2.png, id=265, 123.46124pt x 273.02pt>
 File: im/p2.png Graphic file (type png)
 <use im/p2.png>
-Package pdftex.def Info: im/p2.png  used on input line 418.
+Package pdftex.def Info: im/p2.png  used on input line 417.
 (pdftex.def)             Requested size: 72.55157pt x 160.44717pt.
  [13 <./im/p2.png>]
 <im/p3.png, id=289, 187.70125pt x 137.51375pt>
 File: im/p3.png Graphic file (type png)
 <use im/p3.png>
-Package pdftex.def Info: im/p3.png  used on input line 442.
+Package pdftex.def Info: im/p3.png  used on input line 441.
 (pdftex.def)             Requested size: 120.92421pt x 88.59392pt.
 <im/p4.png, id=290, 515.9275pt x 235.88126pt>
 File: im/p4.png Graphic file (type png)
 <use im/p4.png>
-Package pdftex.def Info: im/p4.png  used on input line 464.
+Package pdftex.def Info: im/p4.png  used on input line 463.
 (pdftex.def)             Requested size: 96.73788pt x 44.22762pt.
  [14 <./im/p3.png> <./im/p4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 490--491
+Underfull \hbox (badness 10000) in paragraph at lines 489--490
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--504
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--506
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--508
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 517--521
+Underfull \hbox (badness 10000) in paragraph at lines 516--520
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 548--551
+Underfull \hbox (badness 10000) in paragraph at lines 547--550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--551
+Underfull \hbox (badness 10000) in paragraph at lines 547--550
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 552--553
+Underfull \hbox (badness 10000) in paragraph at lines 551--552
 
  []
 
