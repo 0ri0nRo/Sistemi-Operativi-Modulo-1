@@ -486,8 +486,9 @@ I processi possono anche essere terminati dal sistema per una serie di motivi:
 \end{itemize}
 Un genitore può uccidere i suoi figli se il compito loro assegnato non è più necessario, il sistema però può consentire (o meno) al figlio di continuare senza un genitore. Sui sistemi UNIX, i processi orfani sono generalmente ereditati da \texttt{init}, che poi li uccide.\\
 
-Quando un processo termina, tutte le sue risorse di sistema vengono liberate, i file aperti svuotati e chiusi, ecc. Lo stato di terminazione del processo dei tempi di esecuzione vengono restituiti al genitore se questo è in attesa che il figlio termini o eventualmente \texttt{init} se il processo diventa orfano. \\
-I processi che stanno tentando di terminare ma non possono perché il loro genitore non li sta aspettando sono chiamati zombie eventualmente ereditati da \texttt{init} come orfani e uccisi.
+Quando un processo termina, tutte le sue risorse di sistema vengono liberate, i file aperti svuotati e chiusi, ecc. Lo stato di terminazione del processo dei tempi di esecuzione vengono restituiti al genitore se è in attesa che il figlio termini o \texttt{init} se il processo diventa orfano. \\
+
+I processi sono detti \textbf{zombie} se stanno tentando di terminare ma non possono perché il loro genitore non li sta aspettando oppure ereditati da \texttt{init} come orfani e uccisi.
 
 \subsection{Scheduling dei processi}
 
@@ -498,30 +499,30 @@ Gli obiettivi principali del sistema di schedulazione dei processi:
 \end{itemize}
 Lo scheduler del processo deve soddisfare questi obiettivi implementando politiche adeguate per lo scambio dei processi dentro e fuori la CPU. Questi obiettivi però possono essere contrastanti, e ogni volta che il sistema operativo interviene per scambiare i processi, impiega tempo sulla CPU per farlo, che viene quindi "perso" dal fare qualsiasi lavoro produttivo utile.\\
 
-Il sistema operativo mantiene i PCB di tutti i processi nelle code di stato. C'è una coda per ciascuno dei 5 stati in cui può trovarsi un processo e una per ogni dispositivo I/O (dove i processi attendono che un dispositivo diventi disponibile o consegni i dati). Quando il sistema operativo cambia lo stato di un processo, il PCB viene scollegato dalla coda corrente e spostato in quella nuova. Il sistema operativo può utilizzare criteri diversi per gestire ciascuna coda di stato. \\
+Il sistema operativo mantiene i PCB di tutti i processi nelle code di stato. C'è una coda per ciascuno dei cinque stati in cui può trovarsi un processo e una per ogni dispositivo I/O (dove i processi attendono che un dispositivo diventi disponibile o consegni i dati). Quando il sistema operativo cambia lo stato di un processo, il PCB viene scollegato dalla coda corrente e spostato in quella nuova. Il sistema operativo può utilizzare criteri diversi per gestire ciascuna coda di stato. \\
 
 La coda di esecuzione è vincolata dal numero di core disponibili sul sistema. Ogni volta, è possibile eseguire un solo processo su una CPU. Non esiste un limite teorico al numero di processi negli stati \texttt{new/ready/waiting/terminated}.\\
 
 Esisono diversi scheduler (che in un sistema efficiente utilizza un mix tra questi):
 \begin{itemize}
-    \item Uno scheduler a lungo termine viene eseguito raramente ed è tipico di un sistema batch o di un sistema molto carico
-    \item Uno scheduler a breve termine viene eseguito molto frequentemente (circa ogni 100 millisecondi) e deve sostituire molto rapidamente un processo dalla CPU e inserirne un altro
-    \item Alcuni sistemi utilizzano anche uno scheduler a medio termine: quando i carichi del sistema diventano elevati, questo scheduler consente ai lavori più piccoli e più veloci di terminare rapidamente e liberare il sistema
+    \item Uno \textbf{scheduler a lungo termine} viene eseguito raramente ed è tipico di un sistema batch o di un sistema molto carico
+    \item Uno \textbf{scheduler a breve termine} viene eseguito molto frequentemente (circa ogni 100 millisecondi) e deve sostituire molto rapidamente un processo dalla CPU e inserirne un altro
+    \item Alcuni sistemi utilizzano anche uno \textbf{scheduler a medio termine}: quando i carichi del sistema diventano elevati, questo scheduler consente ai lavori più piccoli e più veloci di terminare rapidamente e liberare il sistema
 \end{itemize}
 
 \subsubsection*{Il Context Switch}
 Il \textbf{Context Switch} procedura utilizzata dalla CPU per sospendere il processo attualmente in esecuzione al fine di eseguirne uno pronto. È un'operazione molto costosa in quanto l'arresto del processo in corso implica il salvataggio di tutto il suo stato interno (PC, SP, altri registri, ecc.) al suo PCB e l'avvio di un processo pronto consiste nel caricare tutto il suo stato interno (PC, SP, altri registri, ecc.) dal suo PCB. \\
 Il Context Switch si usa quando ci sono delle chiamate \texttt{TRAP}\footnote{richiesta di un servizio dell'OS, svolte in modo sincrono e innescate dai software} come system call, eccezioni, o interruzioni hardware. Ogni volta che arriva una \texttt{TRAP} la CPU ha il compito di creare uno stato di salvataggio dello stato corrente dei processi attivi. Passare alla modalità kernel per gestire l'interrupt ed eseguire un ripristino dello stato del processo interrotto. \\
 Per evitare che i processi legati alla CPU monopolizzino la CPU, anche il Context Switch viene attivato tramite interrupt del timer hardware (\textbf{slice}).
-Il \textbf{slice} ha quantità massima di tempo tra due cambi di contesto per garantire che si verifichi almeno un cambio di contesto. Può accadere più frequentemente di così (ad esempio, a causa di richieste di I/O). Lo slice è facilmente implementabile in hardware tramite interrupt timer. E' un meccanismo utilizzato dai moderni sistemi operativi multitasking time-sharing per aumentare la reattività del sistema (pseudo-parallelismo). \\
+Lo \textbf{slice} ha quantità massima di tempo tra due cambi di contesto per garantire che si verifichi almeno un cambio di contesto. Può accadere più frequentemente di così (ad esempio, a causa di richieste di I/O). Lo slice è facilmente implementabile in hardware tramite interrupt timer. E' un meccanismo utilizzato dai moderni sistemi operativi multitasking time-sharing per aumentare la reattività del sistema (pseudo-parallelismo). \\
 \subsubsection*{Il tempo nel Context Switch}
 Il tempo impiegato per completare un cambio di contesto è solo tempo di CPU sprecato. Un intervallo di tempo inferiore comporta cambi di contesto più frequenti. Un intervallo di tempo maggiore comporta cambi di contesto meno frequenti. Ha anche il compito di minimizzare lo spreco di tempo della CPU, massimizzando quindi l'utilizzo e la reattività della CPU. 
 \subsection{Communicazione dei processi}
 
 I processi possono essere \textbf{indipendenti} o \textbf{cooperanti}:
 \begin{itemize}
-    \item Processi indipendenti operano contemporaneamente su un sistema e possono né influenzare né essere influenzati da altri processi
-    \item I processi cooperanti possono influenzare o essere influenzati da altri processi al fine di raggiungere un compito comune
+    \item Processi \textbf{indipendenti} operano contemporaneamente su un sistema e possono né influenzare né essere influenzati da altri processi
+    \item I processi \textbf{cooperanti} possono influenzare o essere influenzati da altri processi al fine di raggiungere un compito comune
 \end{itemize}
 
 Possono esserci diversi processi che richiedono l'accesso allo stesso file (ad es pipeline). Abbiamo bisogno di questa cooperazione tra processi e ci sono diverse caratteristiche importanti. Abbiamo la \textbf{velocità} di calcolo è un problema che può essere risolta più velocemente se può essere suddiviso in sotto-attività da risolvere simultaneamente. La \textbf{modularità} definisce l'architettura più efficiente può essere quella di scomporre un sistema in moduli cooperanti. Infine abbiamo la \textbf{convenienza} infatti anche un singolo utente può essere multi-tasking, come modificare, compilare, stampare ed eseguire lo stesso codice in finestre diverse.
@@ -529,14 +530,14 @@ Ci sono due modi possibili per comunicare tra processi cooperanti:
 \begin{itemize}
     \item \textbf{Memoria condivisa}
     \begin{itemize}
-        \item Più veloce una volta configurato, poiché non sono necessarie chiamate di sistema
         \item Più complicato da configurare e non funziona altrettanto bene su più computer
+        \item Più veloce una volta configurato, poiché non sono necessarie chiamate di sistema
         \item Preferibile quando (una grande quantità) di informazioni deve essere condivisa sullo stesso computer
     \end{itemize}
     \item \textbf{Scambio di messaggi} 
     \begin{itemize}
-        \item Più lento in quanto richiede chiamate di sistema (syscall) per ogni trasferimento di messaggi
         \item Più semplice da configurare e funziona bene su più computer
+        \item Più lento in quanto richiede chiamate di sistema (syscall) per ogni trasferimento di messaggi
         \item Preferibile quando la quantità e/o la frequenza dei trasferimenti di dati è piccola o quando sono multipli i computer sono coinvolti
     \end{itemize}
 \end{itemize}
