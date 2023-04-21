@@ -341,7 +341,7 @@ Tutti i processi sono uguali. L'unico indizio di gerarchia dei processi è che q
         \caption{Process Creation: UNIX/Linux}    
     \end{center}
     \end{figure}
-\subsubsection*{Risorse del padre vs figlio}
+\subsubsection{Risorse del padre vs figlio}
 Abbiamo due possibilità per lo spazio degli indirizzi del figlio rispetto al genitore:
 \begin{itemize}
     \item Il bambino può essere un duplicato esatto del genitore, condividendo lo stesso programma e gli stessi segmenti di dati in memoria
@@ -351,7 +351,7 @@ Abbiamo due possibilità per lo spazio degli indirizzi del figlio rispetto al ge
     \item In Windows le chiamate di sistema saranno create con il comando \texttt{spawn()} 
     \item I sistemi UNIX implementano ciò come secondo passaggio, utilizzando la chiamata di sistema \texttt{exec}.
 \end{itemize}
-\subsubsection*{Esecuzione del padre vs figlio}
+\subsubsection{Esecuzione del padre vs figlio}
 Abbiamo due opzioni per il processo genitore dopo aver creato il figlio:
 \begin{itemize} 
     \item Attendere che il processo figlio termini prima di procedere emettendo un \texttt{wait} chiamata di sistema, per un figlio specifico o per qualsiasi figlio
@@ -512,7 +512,7 @@ Esisono diversi scheduler (che in un sistema efficiente utilizza un mix tra ques
     \item Alcuni sistemi utilizzano anche uno \textbf{scheduler a medio termine}: quando i carichi del sistema diventano elevati, questo scheduler consente ai lavori più piccoli e più veloci di terminare rapidamente e liberare il sistema
 \end{itemize}
 
-\subsubsection*{Il Context Switch}
+\subsubsection{Il Context Switch}
 Il \textbf{Context Switch} procedura utilizzata dalla CPU per sospendere il processo attualmente in esecuzione al fine di eseguirne uno pronto. È un'operazione molto costosa in quanto l'arresto del processo in corso implica il salvataggio di tutto il suo stato interno (PC, SP, altri registri, ecc.) al suo PCB e l'avvio di un processo pronto consiste nel caricare tutto il suo stato interno (PC, SP, altri registri, ecc.) dal suo PCB. \\
 Il Context Switch si usa quando ci sono delle chiamate \texttt{TRAP}\footnote{richiesta di un servizio dell'OS, svolte in modo sincrono e innescate dai software} come system call, eccezioni, o interruzioni hardware. Ogni volta che arriva una \texttt{TRAP} la CPU ha il compito di creare uno stato di salvataggio dello stato corrente dei processi attivi. Passare alla modalità kernel per gestire l'interrupt ed eseguire un ripristino dello stato del processo interrotto. \\
 Per evitare che i processi legati alla CPU monopolizzino la CPU, anche il Context Switch viene attivato tramite interrupt del timer hardware (\textbf{slice}).
