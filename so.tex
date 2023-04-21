@@ -311,7 +311,7 @@ Lo stato del processo è costituito da:
 \end{itemize}
 
 \subsection{Process Control Block (PCB)}
-Il \textbf{PCB} è la struttura dati principale utilizzata dal sistema operativo per tenere traccia di qualsiasi processo. Il PCB tiene traccia dello stato di esecuzione e della posizione di un processo. Il sistema operativo assegna un nuovo PCB alla creazione di un processo e lo inserisce in una coda di stato e viene deallocato non appena termina il processo associato. \\
+Il \textbf{PCB} (o detto anche Tabella dei Processi), è la struttura dati principale utilizzata dal sistema operativo per tenere traccia di qualsiasi processo. Il PCB tiene traccia dello stato di esecuzione e della posizione di un processo. Il sistema operativo assegna un nuovo PCB alla creazione di un processo e lo inserisce in una coda di stato e viene deallocato non appena termina il processo associato. \\Associata a ogni classe di I/O c'è una posizione (solitamente in una collocazione fissa vicino alla base della memoria) chiamata \textbf{vettore di interrupt}. Contiene l'indirizzo della procedura di servizio dell'interrupt. 
 Il PCB contiene:
 \begin{itemize}
     \item Stato del processo pronto, in attesa, in esecuzione, ecc.
