@@ -17,7 +17,7 @@
 \contentsline {subsection}{\numberline {2.1}Stato di esecuzione del processo}{9}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Process Control Block (PCB)}{10}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Creazione di processi}{11}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Risorse del padre vs figlio}{11}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.1}Risorse del padre vs figlio}{12}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Esecuzione del padre vs figlio}{12}{subsubsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.4}Terminazione di processi}{15}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Scheduling dei processi}{15}{subsection.2.5}%

@@ -341,6 +341,7 @@ Tutti i processi sono uguali. L'unico indizio di gerarchia dei processi è che q
         \caption{Process Creation: UNIX/Linux}    
     \end{center}
     \end{figure}
+\pagebreak
 \subsubsection{Risorse del padre vs figlio}
 Abbiamo due possibilità per lo spazio degli indirizzi del figlio rispetto al genitore:
 \begin{itemize}
@@ -514,9 +515,9 @@ Esisono diversi scheduler (che in un sistema efficiente utilizza un mix tra ques
 
 \subsubsection{Il Context Switch}
 Il \textbf{Context Switch} procedura utilizzata dalla CPU per sospendere il processo attualmente in esecuzione al fine di eseguirne uno pronto. È un'operazione molto costosa in quanto l'arresto del processo in corso implica il salvataggio di tutto il suo stato interno (PC, SP, altri registri, ecc.) al suo PCB e l'avvio di un processo pronto consiste nel caricare tutto il suo stato interno (PC, SP, altri registri, ecc.) dal suo PCB. \\
-Il Context Switch si usa quando ci sono delle chiamate \texttt{TRAP}\footnote{richiesta di un servizio dell'OS, svolte in modo sincrono e innescate dai software} come system call, eccezioni, o interruzioni hardware. Ogni volta che arriva una \texttt{TRAP} la CPU ha il compito di creare uno stato di salvataggio dello stato corrente dei processi attivi. Passare alla modalità kernel per gestire l'interrupt ed eseguire un ripristino dello stato del processo interrotto. \\
+Il Context Switch si usa quando ci sono delle chiamate \texttt{TRAP}\footnote{richiesta di un servizio dell'OS, svolte in modo sincrono e innescate dai software\\} come system call, eccezioni, o interruzioni hardware. Ogni volta che arriva una \texttt{TRAP} la CPU ha il compito di creare uno stato di salvataggio dello stato corrente dei processi attivi. Passare alla modalità kernel per gestire l'interrupt ed eseguire un ripristino dello stato del processo interrotto. \\
 Per evitare che i processi legati alla CPU monopolizzino la CPU, anche il Context Switch viene attivato tramite interrupt del timer hardware (\textbf{slice}).
-Lo \textbf{slice} ha quantità massima di tempo tra due cambi di contesto per garantire che si verifichi almeno un cambio di contesto. Può accadere più frequentemente di così (ad esempio, a causa di richieste di I/O). Lo slice è facilmente implementabile in hardware tramite interrupt timer. E' un meccanismo utilizzato dai moderni sistemi operativi multitasking time-sharing per aumentare la reattività del sistema (pseudo-parallelismo). \footnote{Diverso invece quando si parla di \textbf{multiprocessore} che hanno due o più CPU che condividono la stessa memoria fisica, vero parallelismo hardware} \\
+Lo \textbf{slice} ha quantità massima di tempo tra due cambi di contesto per garantire che si verifichi almeno un cambio di contesto. Può accadere più frequentemente di così (ad esempio, a causa di richieste di I/O). Lo slice è facilmente implementabile in hardware tramite interrupt timer. E' un meccanismo utilizzato dai moderni sistemi operativi multitasking time-sharing per aumentare la reattività del sistema (pseudo-parallelismo). \footnote{Diverso invece quando si parla di \textbf{multiprocessore} che hanno due o più CPU che condividono la stessa memoria fisica, vero parallelismo hardware\\} \\
 \subsubsection*{Il tempo nel Context Switch}
 Il tempo impiegato per completare un cambio di contesto è solo tempo di CPU sprecato. Un intervallo di tempo inferiore comporta cambi di contesto più frequenti. Un intervallo di tempo maggiore comporta cambi di contesto meno frequenti. Ha anche il compito di minimizzare lo spreco di tempo della CPU, massimizzando quindi l'utilizzo e la reattività della CPU. 
 \subsection{Communicazione dei processi}
@@ -530,7 +531,7 @@ I processi possono essere \textbf{indipendenti} o \textbf{cooperanti}:
 Possono esserci diversi processi che richiedono l'accesso allo stesso file (ad es pipeline). Abbiamo bisogno di questa cooperazione tra processi e ci sono diverse caratteristiche importanti. Abbiamo la \textbf{velocità} di calcolo è un problema che può essere risolta più velocemente se può essere suddiviso in sotto-attività da risolvere simultaneamente. La \textbf{modularità} definisce l'architettura più efficiente può essere quella di scomporre un sistema in moduli cooperanti. Infine abbiamo la \textbf{convenienza} infatti anche un singolo utente può essere multi-tasking, come modificare, compilare, stampare ed eseguire lo stesso codice in finestre diverse.
 Ci sono due modi possibili per comunicare tra processi cooperanti:
 \begin{itemize}
-    \item \textbf{Memoria condivisa}
+    \item \textbf{Memoria condivisa}\footnote{Per far sì che un processo possa richiedere un'area di memoria da condividere con altri processi c'è, ovviamente, necessità di effettuare una chiamata di sistema (a livello utente, non sarebbe possibile completare quest'operazione). Tuttavia, una volta "pagato questo prezzo iniziale", le interazioni successive tra processi che condividono un'area di memoria può avvenire senza ulteriori chiamate di sistema. \textbf{Fonte: il Prof}}
     \begin{itemize}
         \item Più complicato da configurare e non funziona altrettanto bene su più computer
         \item Più veloce una volta configurato, poiché non sono necessarie chiamate di sistema
