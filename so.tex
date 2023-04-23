@@ -24,10 +24,12 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\thepage}
-\lhead{\rightmark}
-\rfoot{}
-
+%\rhead{\thepage}
+%\lhead{\rightmark}
+\rfoot{\thepage}
+\lhead{\quad \leftmark}
+\rhead{ \quad \rightmark}
+\renewcommand{\headrulewidth}{0.2pt}
 
 \maketitle
 \renewcommand{\abstractname}{Disclaimer}
@@ -569,7 +571,70 @@ Scegliere se utilizzare o meno una queue per i messaggi:
 \end{itemize}
 
 
-%-------------------------------------------------------%
+\subsection{Scheduling dei processi}
+Definiamo come CPU burst lo stato in cui un processo è eseguito dalla CPU, mentre definiamo come I/O burst lo stato in cui un processo è in attesa che i dati vengano trasferiti dentro o fuori dal sistema.
+In generale, ogni processo alterna costantemente tra CPU burst e I/O burst.\\
+Lo scheduling dei processi è una \textbf{politica} che stabilisce quali processi devono essere eseguiti dalla CPU. Lo scheduler della CPU è un processo che, a seconda di una policy di scheduling stabilita, si occupa di selezionare un processo dalla ready queue da eseguire in ogni momento in cui la CPU è inattiva.
+La struttura dati utilizzata per la ready queue e l'algoritmo usato per selezionare il processo successivo è basato su una queue FIFO (First In, First Out)
+
+\begin{itemize}
+    \item Concetti di base della pianificazione. Quasi tutti i programmi hanno alcuni cicli alternati di calcoli della CPU e attesa di I/O. Anche un semplice recupero dalla memoria principale richiede molto tempo rispetto alla velocità della CPU. (Consideriamo per ora la multiprogrammazione sui sistemi con un unico processore)
+    \item Algoritmi di pianificazione
+    \item Concetti avanzati di pianificazione.
+\end{itemize} 
+
+Ogni volta che la CPU diventa inattiva lo \textbf{scheduler} della CPU seleziona un altro processo dalla coda pronta per l'esecuzione successiva. La struttura dei dati per la coda pronta e l'algoritmo utilizzato per selezionare il processo successivo non sono però necessariamente basati su una coda FIFO. Le \textbf{decisioni di pianificazione} della CPU avvengono in una delle quattro condizioni:
+\begin{enumerate}
+    \item Quando un processo passa dallo stato in \textbf{esecuzione} allo stato di \textbf{attesa}
+    \item Quando un processo passa dallo stato in \textbf{esecuzione} allo stato \textbf{pronto}
+    \item Quando un processo passa dallo stato di \textbf{attesa} allo stato \textbf{pronto}
+    \item Quando un processo viene \textbf{creato} o \textbf{terminato}
+\end{enumerate}
+
+Nel 1° e il 4° caso è necessario selezionare un nuovo processo, mentre nel 2° e 3° caso si continua con il processo corrente o bisogna selezionarne uno nuovo. 
+\subsection{Scheduling Preemptive e Non-Preemptive}
+Un algoritmo di scheduling \textbf{non-preemptive} assegna la CPU a un processo e non lo interrompe finché non termina o finché non rilascia volontariamente la CPU. Ciò significa che un processo che richiede una quantità considerevole di tempo della CPU può bloccare altri processi che sono in attesa di esecuzione.\\ 
+
+Un algoritmo di scheduling \textbf{preemptive}\footnote{Nota: uno scheduler preemptive viene comunque attivato dalle condizioni 1 e 4, poiché in tali casi deve comunque essere selezionato un processo.}, al contrario, consente al sistema operativo di interrompere l'esecuzione di un processo in qualsiasi momento per consentire l'esecuzione di un altro processo in coda. Questo significa che i processi con un tempo di esecuzione più breve possono essere eseguiti più rapidamente, anche se ci sono altri processi in attesa di esecuzione. L'algoritmo di scheduling preemptive è anche chiamato round-robin.
+\subsection{Problemi}
+Preemption potrebbe causare problemi se si verifica mentre il kernel è impegnato nell'implementazione di una system call (ad esempio, l'aggiornamento dei dati critici del kernel strutture) oppure due processi condividono dati, uno può essere interrotto durante l'aggiornamento di strutture dati condivise. Ci sono però possibili \textbf{soluzioni}, si può fare in modo che il processo attenda finché la chiamata di sistema non è stata completata o bloccata prima di concedere la preemption (problematico per i sistemi in tempo reale, poiché la risposta in tempo reale non può più essere garantita) oppure disabilitare gli interrupt prima di entrare nella sezione del codice critico e riabilitarli subito dopo (dovrebbe essere fatto solo in rare situazioni e solo su parti di codice molto brevi che finiranno rapidamente). \\
+\subsection{Il Dispatcher}
+Il dispatcher è il modulo che dà il controllo della CPU al processo selezionato dallo scheduler. Ha il compito di:
+\begin{itemize}
+    \item Cambio di contesto
+    \item Passaggio alla modalità utente
+    \item Saltare alla posizione corretta nel programma appena caricato
+    \item Il dispatcher viene eseguito su ogni cambio di contesto quindi il tempo che esso consuma (latenza di invio) deve essere il più breve possibile
+\end{itemize}
+
+\subsection{Definizioni utili}\footnote{NOTA: Il tempo di attesa I/O non è considerato qui!}
+
+\begin{itemize} 
+    \item Orario di arrivo: ora in cui il processo arriva nella coda pronta
+    \item Tempo di completamento (Arrival Time): momento in cui il processo completa la sua esecuzione
+    \item Burst Time: tempo richiesto da un processo per l'esecuzione della CPU
+    \item TurnaroundTime: differenza di tempo tra il completamento e l'orario di arrivo 
+    \item Waiting Time: differenza di tempo tra il tempo di turnaround e il burst time
+\end{itemize}
+\pagebreak
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/formule}}
+        \caption{}    
+    \end{center}
+    \end{figure}
+
+da pag 49 del pdf slide 6
+
+
+
+
+
+
+
+
+
 \pagebreak
 
 \section{Sincronizzazione tra Processi/Thread}

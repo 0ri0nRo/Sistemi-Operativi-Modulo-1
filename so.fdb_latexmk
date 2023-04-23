@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1682274466 "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" "so.pdf" "so" 1682274467 0
-  "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" 1682274466 46813 cb8e2d184dde9358c6f34b71e0306121 ""
+["pdflatex"] 1682281326 "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" "so.pdf" "so" 1682281328 0
+  "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" 1682281326 52152 a1328464b4dc96a8761148b2087cc1e9 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcbx1000.tfm" 1136768653 1536 30fde759286ded71559881bfa2623939 ""
@@ -112,6 +112,7 @@
   "im/creazioneProcessi.png" 1682001022 299905 72f1a18169471d9edcf79406c4f6e442 ""
   "im/diagramma.png" 1681999215 199523 82903b983c0b878b29ff769af1a0269b ""
   "im/ebp.png" 1681998857 52378 dd106410fe24a07def631fa0b88a6814 ""
+  "im/formule.png" 1682281179 79512 113f2db8aa0eafca74cfa8cd57e72911 ""
   "im/ivt.png" 1681897004 100067 cf8084d4d81b97956c7ff3f8d0fe048f ""
   "im/p1.png" 1682003448 147114 9702fcd14ad8410ced0515d9a87fc96e ""
   "im/p2.png" 1682003984 31983 5ba73e0215f9c4e18a7676a88eb8d045 ""
@@ -120,10 +121,10 @@
   "im/ring.png" 1681892871 184678 1ec3421b6ba3ecc5bb76a13ee992ccf0 ""
   "im/virtualaddress.png" 1681994681 1024441 5ef66f39822b99a35e5f1bb198f34118 ""
   "im/virtualm.png" 1681897518 67346 963e98360eb2884c03b77eff11019f46 ""
-  "so.aux" 1682274467 6492 3416466a819e0ca7178f830afa4743c1 "pdflatex"
-  "so.out" 1682274467 5420 c0e2351427eb32cc76f252a9e73953a2 "pdflatex"
-  "so.tex" 1682274466 46813 cb8e2d184dde9358c6f34b71e0306121 ""
-  "so.toc" 1682274467 2675 f10d9ae3dc0512f767b4549a82f984f8 "pdflatex"
+  "so.aux" 1682281328 7264 3651a88056e43833975e64e5bbd74d0a "pdflatex"
+  "so.out" 1682281328 6228 7df6ca198c0305c8e76e43770aabe630 "pdflatex"
+  "so.tex" 1682281326 52152 a1328464b4dc96a8761148b2087cc1e9 ""
+  "so.toc" 1682281328 3113 c3c29df2829e1fcc072599e2a94f13ea "pdflatex"
   (generated)
   "so.aux"
   "so.log"

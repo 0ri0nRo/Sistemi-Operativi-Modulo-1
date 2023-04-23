@@ -684,6 +684,10 @@ INPUT ./im/p4.png
 INPUT ./im/p4.png
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT ./im/formule.png
+INPUT im/formule.png
+INPUT ./im/formule.png
+INPUT ./im/formule.png
 INPUT so.aux
 INPUT ./so.out
 INPUT ./so.out
