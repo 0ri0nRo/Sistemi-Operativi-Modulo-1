@@ -196,7 +196,7 @@ I metodi block e stack non limitano il numero o la lunghezza dei parametri passa
     \end{center}
     \end{figure}
 \subsubsection{Timer, Istruzioni atomiche, Virtual Memory}
-Il timer è una funzionalità hardware per abilitare la pianificazione della CPU. Nei sistemi multi-tasking, permette alla CPU di non essere monopolizzata da processi "egoistici". Il timer genera un interrupt e ad ogni sua interruzione, lo scheduler della CPU prende il sopravvento e decide quale processo da eseguire successivamente.\\
+Il timer è una funzionalità hardware per abilitare la scheduling della CPU. Nei sistemi multi-tasking, permette alla CPU di non essere monopolizzata da processi "egoistici". Il timer genera un interrupt e ad ogni sua interruzione, lo scheduler della CPU prende il sopravvento e decide quale processo da eseguire successivamente.\\
 Gli interrupt possono verificarsi in qualsiasi momento e interferire con i processi in esecuzione e l'OS deve essere in grado di sincronizzare le attività di cooperazione, simultanee processi, garantire che brevi sequenze di istruzioni (ad es. lettura-modifica-scrittura) vengano eseguite atomicamente da disabilitare gli interrupt prima della sequenza e riabilitarli successivamente. \\
 La virtualizzazionde della memoria è un'astrazione (dell'effettiva memoria principale fisica) e conferisce ad ogni processo l'illusione che la memoria fisica sia solo contigua spazio degli indirizzi (spazio degli indirizzi virtuali). Permette di eseguire programmi senza che vengano caricati interamente nella memoria principale. Può essere implementata sia in HW (\textbf{MMU}) che in SW (OS).
 \begin{itemize}
@@ -292,7 +292,7 @@ In ogni momento un processo può trovarsi in uno dei seguenti cinque stati:
     \end{center}
     \end{figure}
 
-Durante l'esecuzione, il processo passa da uno stato all'altro in base alle azioni del programma (ad esempio, chiamate di sistema) come azioni del sistema operativo (ad es. pianificazione) o azioni esterne (ad es. interruzioni).\\ 
+Durante l'esecuzione, il processo passa da uno stato all'altro in base alle azioni del programma (ad esempio, chiamate di sistema) come azioni del sistema operativo (ad es. scheduling) o azioni esterne (ad es. interruzioni).\\ 
 
 La maggior parte delle chiamate di sistema (ad esempio quelle di I/O) sono bloccanti. Il processo chiamante (spazio utente) non può fare nulla fino al ritorno della chiamata di sistema.\\
  Il sistema operativo (spazio del kernel) si occupa di:
@@ -319,7 +319,7 @@ Il PCB contiene:
     \item Stato del processo pronto, in attesa, in esecuzione, ecc.
     \item Numero di processo (ovvero identificatore univoco)
     \item Program Counter (PC) + Stack Pointer (SP) + registri di uso generale 
-    \item Informazioni sulla pianificazione della CPU priorità e puntatori alle code di stato 
+    \item Informazioni sullo scheduling della CPU priorità e puntatori alle code di stato 
     \item Informazioni sulla gestione della memoria tabelle delle pagine
     \item Informazioni sull'account, ossia il  tempo utilizzato dalla CPU del kernel e dell'utente, stato I/O del proprietario 
     \item Elenco dei file aperti
@@ -575,15 +575,15 @@ Scegliere se utilizzare o meno una queue per i messaggi:
 Definiamo come CPU burst lo stato in cui un processo è eseguito dalla CPU, mentre definiamo come I/O burst lo stato in cui un processo è in attesa che i dati vengano trasferiti dentro o fuori dal sistema.
 In generale, ogni processo alterna costantemente tra CPU burst e I/O burst.\\
 Lo scheduling dei processi è una \textbf{politica} che stabilisce quali processi devono essere eseguiti dalla CPU. Lo scheduler della CPU è un processo che, a seconda di una policy di scheduling stabilita, si occupa di selezionare un processo dalla ready queue da eseguire in ogni momento in cui la CPU è inattiva.
-La struttura dati utilizzata per la ready queue e l'algoritmo usato per selezionare il processo successivo è basato su una queue FIFO (First In, First Out)
+La struttura dati utilizzata per la ready queue e l'algoritmo usato per selezionare il processo successivo è basato su una queue FIFO (First In, First Out).
 
 \begin{itemize}
-    \item Concetti di base della pianificazione. Quasi tutti i programmi hanno alcuni cicli alternati di calcoli della CPU e attesa di I/O. Anche un semplice recupero dalla memoria principale richiede molto tempo rispetto alla velocità della CPU. (Consideriamo per ora la multiprogrammazione sui sistemi con un unico processore)
-    \item Algoritmi di pianificazione
-    \item Concetti avanzati di pianificazione.
+    \item Concetti di base dello scheduling. Quasi tutti i programmi hanno alcuni cicli alternati di calcoli della CPU e attesa di I/O. Anche un semplice recupero dalla memoria principale richiede molto tempo rispetto alla velocità della CPU. (Consideriamo per ora la multiprogrammazione sui sistemi con un unico processore)
+    \item Algoritmi di scheduling
+    \item Concetti avanzati di scheduling.
 \end{itemize} 
 
-Ogni volta che la CPU diventa inattiva lo \textbf{scheduler} della CPU seleziona un altro processo dalla coda pronta per l'esecuzione successiva. La struttura dei dati per la coda pronta e l'algoritmo utilizzato per selezionare il processo successivo non sono però necessariamente basati su una coda FIFO. Le \textbf{decisioni di pianificazione} della CPU avvengono in una delle quattro condizioni:
+Ogni volta che la CPU diventa inattiva lo \textbf{scheduler} della CPU seleziona un altro processo dalla coda pronta per l'esecuzione successiva. La struttura dei dati per la coda pronta e l'algoritmo utilizzato per selezionare il processo successivo non sono però necessariamente basati su una coda FIFO. Le \textbf{decisioni di scheduling} della CPU avvengono in una delle quattro condizioni:
 \begin{enumerate}
     \item Quando un processo passa dallo stato in \textbf{esecuzione} allo stato di \textbf{attesa}
     \item Quando un processo passa dallo stato in \textbf{esecuzione} allo stato \textbf{pronto}
@@ -599,7 +599,8 @@ Un algoritmo di scheduling \textbf{preemptive}\footnote{Nota: uno scheduler pree
 \subsubsection{Problemi}
 Preemption potrebbe causare problemi se si verifica mentre il kernel è impegnato nell'implementazione di una system call (ad esempio, l'aggiornamento dei dati critici del kernel strutture) oppure due processi condividono dati, uno può essere interrotto durante l'aggiornamento di strutture dati condivise. Ci sono però possibili \textbf{soluzioni}, si può fare in modo che il processo attenda finché la chiamata di sistema non è stata completata o bloccata prima di concedere la preemption (problematico per i sistemi in tempo reale, poiché la risposta in tempo reale non può più essere garantita) oppure disabilitare gli interrupt prima di entrare nella sezione del codice critico e riabilitarli subito dopo (dovrebbe essere fatto solo in rare situazioni e solo su parti di codice molto brevi che finiranno rapidamente). \\
 \subsection{Il Dispatcher}
-Il dispatcher è il modulo che dà il controllo della CPU al processo selezionato dallo scheduler. Ha il compito di:
+Il dispatcher è il modulo che dà il controllo della CPU al processo selezionato dallo scheduler.\\
+Ha il compito di:
 \begin{itemize}
     \item Cambio di contesto
     \item Passaggio alla modalità utente
@@ -624,15 +625,156 @@ Il dispatcher è il modulo che dà il controllo della CPU al processo selezionat
         \caption{}    
     \end{center}
     \end{figure}
+\subsection{Criteri/metriche di scheduling}
+Esistono diversi criteri da considerare quando si tenta di selezionare l'algoritmo di scheduling "migliore", e deve prendere in considerazione:
+\begin{itemize}
+    \item Utilizzo della CPU, ossia la percentuale di tempo in cui la CPU è occupata
+    Idealmente la CPU sarebbe occupata il 100\% del tempo, in modo da sprecare 0 cicli CPU
+    Su un sistema reale, l'utilizzo della CPU dovrebbe variare dal 40\% (con carico leggero) al 90\% (con carico pesante)
+    \item Throughput, ossia il numero di processi completati in un'unità di tempo. 
+    \item Tournaround time, ossia il tempo necessario per il completamento di un particolare processo, dall'invio al completamento. Include tutto il tempo di attesa
+    \item Waiting time, ossia il tempo necessario ai processi trascorrono nella coda pronta aspettando il proprio turno per salire sulla CPU. I processi nello stato di attesa non sono sotto il controllo dello scheduler della CPU (semplicemente non sono pronti per essere eseguiti).\footnote{Da non confondere con lo waiting state}
+    \item Response time, ossia il tempo impiegato dall'emissione di un comando all'inizio di una risposta a tale comando. Si usa principalmente, per processi interattivi
+\end{itemize}
 
-da pag 49 del pdf slide 6
+Idealmente, si sceglie uno scheduler della CPU che ottimizzi tutte le metriche contemporaneamente infatti quanto è stado detto sopra è impossibile ed è necessario un compromesso. L'obiettivo era di scegliere un algoritmo di pianificazione in base alla sua capacità di soddisfare una data politica.\\
+L'obiettivo dello scheduling è di ridurre al minimo il tempo medio di risposta\footnote{Tipico dei sistemi interattivi}:
+\begin{itemize} 
+    \item Minimizzare il \textbf{tempo medio} di risposta
+        \item Fornire l'output all'utente il più rapidamente possibile
+    \item Ridurre al minimo il tempo di risposta massimo
+        \item Limite nel caso peggiore
+    \item Ridurre al \textbf{minimo} la varianza del tempo di risposta
+        \item Gli utenti accettano di più un sistema coerente e prevedibile piuttosto che uno incoerente
+\end{itemize}
+
+\pagebreak
+
+Massimizzare il throughput significa\footnote{Tipico dei sistemi batch. I \textbf{sistemi batch} (o "batch processing systems" in inglese) sono un tipo di sistema informatico che esegue una serie di lavori o processi in una sequenza predefinita, senza interazione diretta con l'utente o l'operatore del sistema.
+
+In un sistema batch, i lavori vengono raccolti in un'area di elaborazione chiamata "coda di lavoro" o "batch queue". Il sistema elabora poi i lavori uno per uno, seguendo un ordine predefinito, e può eseguirli in background, senza richiedere l'input dell'utente durante l'esecuzione.}:
+\begin{itemize}
+    \item Riduzione al minimo dell'overhead (cambio di contesto del sistema operativo)
+    \item Utilizzo efficiente delle risorse di sistema (CPU e dispositivi I/O)
+    \item Ridurre al minimo i tempi di attesa
+    \item Dare a ogni processo la stessa quantità di tempo sulla CPU 
+    \item Potrebbe aumentare il tempo medio di risposta
+\end{itemize}
+
+
+Per le politiche di scheduling assumiamo che:
+\begin{itemize}
+    \item Vi è un singolo processo per utente
+    \item I processi sono indipendenti tra di loro, dunque non vi è comunicazione 
+    \item Ogni processo è costituito da un singolo thread
+\end{itemize}
+
+\subsection{Algoritmi di Scheduling}
+\subsubsection{First-Come-First-Serve (FCFS)}
+Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completamento nell'ordine di arrivo ed entra in azione solo quando il lavoro attualmente in esecuzione lo richiede un'operazione di I/O (o termina la sua esecuzione). Un lavoro può continuare a utilizzare la CPU a tempo indeterminato (ovvero fino a quando non si blocca) per questo è di tipo Non-preemptive. 
+\pagebreak
+\subsubsection*{Esempio}
+\begin{enumerate}
+    \item Consideriamo la seguente coda di processi: 
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs1}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \begin{itemize}
+        \item I processi vengono creati allo stesso istante, dunque l'arrival time per tutti i processi è l'istante 0. Successivamente, tutti e tre i processi vengono messi nella ready queue
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs12}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Di seguito, lo scheduling FCFS seleziona il primo processo della ready queue, ossia il processo A, spostandolo in stato di ready e completando la sua esecuzione
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs13}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \pagebreak
+        \item Una volta terminato il processo A, lo scheduler ripeterà le stesse operazioni fino a che tutti i processi non saranno terminati
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs14}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Una volta terminati tutti i processi, calcoliamo il waiting time medio:
+        \begin{itemize}
+            \item Per il processo A si ha: \\
+            $T_{waiting} = T_{turnaround} - T_{burst} = T_{completion} - T_{arrival} - T_{burst} = 5 - 0 - 5 = 0$
+            \item Per il processo B si ha:\\
+            $T_{waiting} = T_{turnaround} - T_{burst} = T_{completion} - T_{arrival} - T_{burst} = 7 - 0 - 2 = 5$
+            \item Per il processo C si ha:\\
+            $T_{waiting} = T_{turnaround} - T_{burst} = T_{completion} - T_{arrival} - T_{burst} = 10 - 0 - 3 = 7$
+            \item Il waiting time medio, quindi, sarà:\\
+            $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=1}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 7}{3} = \frac{12}{3} = 4$
+        \end{itemize}
+    \end{itemize}
+    \item Nel seguente scenario, utilizzando sempre uno scheduling FCFS, si ha:
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs21}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \begin{itemize}
+        \item Il waiting time medio, quindi, sarà:\\
+        $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=1}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 2}{3} = \frac{7}{3} \simeq 2.3$
+    \end{itemize}
+\pagebreak
+    \item Consideriamo il seguente scenario:
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs31}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    
+    \begin{itemize}
+        \item Supponiamo che dopo 2 unità temporali il processo A esegua una richiesta I/O, entrando quindi in stato di waiting, la quale verrà completata dopo un istante.
+        Attenzione: poiché il tempo in attesa I/O non viene calcolato nel waititng time, sarà necessario sottrarre un istante dal waiting time del processo A.
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs32}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Una volta entrato in stato di waiting, lo scheduler selezionerà il processo seguente nella coda, ossia il processo B, portandolo a termine
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs33}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Una volta terminata l'esecuzione del processo B, il processo A verrà selezionato per riprendere l'esecuzione.
+        Attenzione: viene selezionato il processo A e non il processo C poiché l'algo- ritmo FCFS utilizza una queue basata sull'arrival time dei processi
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs34}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Infine, il waiting time medio sarà:
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfs35}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \\
+        $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=1}^{n} T_{i}^{waiting}$ = $\frac{1 + 2 + 7}{3} = \frac{10}{3} \simeq 3.3$
+    \end{itemize}
 
 
 
-
-
-
-
+\end{enumerate}
 
 
 \pagebreak
