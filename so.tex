@@ -753,6 +753,7 @@ Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completament
                 \caption{}    
             \end{center}
         \end{figure}
+        \pagebreak
         \item Una volta terminata l'esecuzione del processo B, il processo A verrà selezionato per riprendere l'esecuzione.
         Attenzione: viene selezionato il processo A e non il processo C poiché l'algo- ritmo FCFS utilizza una queue basata sull'arrival time dei processi
         \begin{figure}[hbt]
@@ -771,10 +772,17 @@ Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completament
         \\
         $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=1}^{n} T_{i}^{waiting}$ = $\frac{1 + 2 + 7}{3} = \frac{10}{3} \simeq 3.3$
     \end{itemize}
-
-
-
 \end{enumerate}
+\subsubsection*{Pro e Contro}
+Uno dei vantaggi è la semplicità di implementazione
+Tra gli svantaggi:
+\begin{itemize} 
+    \item Il tempo di attesa (medio) è molto variabile in quanto i lavori di breve durata della CPU possono rimanere indietro quelli molto lunghi
+    \item effetto convoglio: scarsa sovrapposizione tra CPU e I/O poiché i lavori legati alla CPU costringeranno i lavori legati all'I/O ad attendere
+\end{itemize}
+\subsubsection{Round - Robin (RR)}
+
+
 
 
 \pagebreak
