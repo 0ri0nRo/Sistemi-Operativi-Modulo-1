@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  25 APR 2023 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  25 APR 2023 15:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -615,60 +615,65 @@ File: im/fcfs35.png Graphic file (type png)
 Package pdftex.def Info: im/fcfs35.png  used on input line 768.
 (pdftex.def)             Requested size: 338.58632pt x 132.52357pt.
  [25 <./im/fcfs34.png> <./im/fcfs35.png>]
-<im/rr1.png, id=500, 398.48875pt x 144.54pt>
+<im/timeslice.png, id=500, 442.65375pt x 206.7725pt>
+File: im/timeslice.png Graphic file (type png)
+<use im/timeslice.png>
+Package pdftex.def Info: im/timeslice.png  used on input line 790.
+(pdftex.def)             Requested size: 241.84843pt x 112.9743pt.
+<im/rr1.png, id=501, 398.48875pt x 144.54pt>
 File: im/rr1.png Graphic file (type png)
 <use im/rr1.png>
-Package pdftex.def Info: im/rr1.png  used on input line 796.
+Package pdftex.def Info: im/rr1.png  used on input line 805.
 (pdftex.def)             Requested size: 241.84843pt x 87.72374pt.
-<im/rr12.png, id=501, 602.25pt x 262.9825pt>
+<im/rr12.png, id=502, 602.25pt x 262.9825pt>
 File: im/rr12.png Graphic file (type png)
 <use im/rr12.png>
-Package pdftex.def Info: im/rr12.png  used on input line 803.
+Package pdftex.def Info: im/rr12.png  used on input line 812.
 (pdftex.def)             Requested size: 241.84843pt x 105.60846pt.
- [26 <./im/rr1.png> <./im/rr12.png>]
-<im/rr13.png, id=511, 583.17876pt x 252.945pt>
+ [26 <./im/timeslice.png> <./im/rr1.png>]
+<im/rr13.png, id=512, 583.17876pt x 252.945pt>
 File: im/rr13.png Graphic file (type png)
 <use im/rr13.png>
-Package pdftex.def Info: im/rr13.png  used on input line 811.
+Package pdftex.def Info: im/rr13.png  used on input line 820.
 (pdftex.def)             Requested size: 241.84843pt x 104.89688pt.
-<im/rr14.png, id=512, 603.25375pt x 281.05pt>
+<im/rr14.png, id=513, 603.25375pt x 281.05pt>
 File: im/rr14.png Graphic file (type png)
 <use im/rr14.png>
-Package pdftex.def Info: im/rr14.png  used on input line 818.
+Package pdftex.def Info: im/rr14.png  used on input line 827.
 (pdftex.def)             Requested size: 241.84843pt x 112.67102pt.
-<im/rr15.png, id=513, 607.26875pt x 223.83624pt>
+<im/rr15.png, id=514, 607.26875pt x 223.83624pt>
 File: im/rr15.png Graphic file (type png)
 <use im/rr15.png>
-Package pdftex.def Info: im/rr15.png  used on input line 825.
+Package pdftex.def Info: im/rr15.png  used on input line 834.
 (pdftex.def)             Requested size: 241.84843pt x 89.14354pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 829--830
+Underfull \hbox (badness 10000) in paragraph at lines 838--839
 
  []
 
-[27 <./im/rr13.png> <./im/rr14.png> <./im/rr15.png>]
-<im/fcfsrr.png, id=524, 393.47pt x 235.88126pt>
+[27 <./im/rr12.png> <./im/rr13.png> <./im/rr14.png>]
+<im/fcfsrr.png, id=525, 393.47pt x 235.88126pt>
 File: im/fcfsrr.png Graphic file (type png)
 <use im/fcfsrr.png>
-Package pdftex.def Info: im/fcfsrr.png  used on input line 839.
+Package pdftex.def Info: im/fcfsrr.png  used on input line 848.
 (pdftex.def)             Requested size: 241.84843pt x 144.98512pt.
- [28 <./im/fcfsrr.png>] [29] [30] [31] [32] [33] (./so.aux)
+ [28 <./im/rr15.png> <./im/fcfsrr.png>] [29] [30] [31] [32] [33] (./so.aux)
 Package rerunfilecheck Info: File `so.out' has not changed.
 (rerunfilecheck)             Checksum: 98DF1DF48627AF013020E23596259034;7157.
  ) 
 Here is how much of TeX's memory you used:
- 14335 strings out of 476025
- 229671 string characters out of 5790017
+ 14348 strings out of 476025
+ 229934 string characters out of 5790017
  1883388 words of memory out of 5000000
- 34405 multiletter control sequences out of 15000+600000
+ 34416 multiletter control sequences out of 15000+600000
  519606 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,77p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on so.pdf (33 pages, 3321937 bytes).
+Output written on so.pdf (33 pages, 3376243 bytes).
 PDF statistics:
- 680 PDF objects out of 1000 (max. 8388607)
- 539 compressed objects within 6 object streams
- 195 named destinations out of 1000 (max. 500000)
- 455 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 683 PDF objects out of 1000 (max. 8388607)
+ 540 compressed objects within 6 object streams
+ 196 named destinations out of 1000 (max. 500000)
+ 460 words of extra memory for PDF output out of 10000 (max. 10000000)
 

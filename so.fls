@@ -728,6 +728,10 @@ INPUT ./im/fcfs35.png
 INPUT im/fcfs35.png
 INPUT ./im/fcfs35.png
 INPUT ./im/fcfs35.png
+INPUT ./im/timeslice.png
+INPUT im/timeslice.png
+INPUT ./im/timeslice.png
+INPUT ./im/timeslice.png
 INPUT ./im/rr1.png
 INPUT im/rr1.png
 INPUT ./im/rr1.png

@@ -783,7 +783,16 @@ Tra gli \textbf{svantaggi}:
 \pagebreak
 \subsubsection{Round - Robin (RR)}
 
-Il Round Robin è un algoritmo di scheduling \textbf{preemptive} dove viene selezionato il primo processo presente in ready queue dove i burst della CPU sono assegnati con limiti chiamati \textbf{time quantum} o \textbf{(time slice)}. Quando un lavoro viene assegnato alla CPU, viene impostato un timer per un determinato valore, se il lavoro termina prima della scadenza del quanto temporale, viene sostituito da CPU proprio come il normale algoritmo FCFS. Se il timer si spegne per primo, il lavoro viene scambiato fuori dalla CPU e spostato nel back-end della coda dei pronti.\\
+Il Round Robin è un algoritmo di scheduling \textbf{preemptive} dove viene selezionato il primo processo presente in ready queue dove i burst della CPU sono assegnati con limiti chiamati \textbf{time quantum} o \textbf{(time slice)}. 
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/timeslice}}
+        \caption{}    
+    \end{center}
+\end{figure} 
+
+Quando un lavoro viene assegnato alla CPU, viene impostato un timer per un determinato valore, se il lavoro termina prima della scadenza del quanto temporale, viene sostituito da CPU proprio come il normale algoritmo FCFS. Se il timer si spegne per primo, il lavoro viene scambiato fuori dalla CPU e spostato nel back-end della coda dei pronti.\\
 Viene utilizzato in molti sistemi di time-sharing in combinazione con gli interrupt del timer. \\
 La queue pronta viene mantenuta come queue circolare. Quando tutti i lavori hanno avuto un turno, lo scheduler ne assegna un altro al primo lavoro girare e così via. L'algoritmo RR viene considerato equo in quanto condivide la CPU equamente tra tutti i lavori. Il tempo medio di attesa può essere più lungo rispetto ad altri algoritmi di scheduling.\\
 Il limite superiore per lo start time di un processo in una coda di n processi utilizzando uno scheduler RR corrisponde a $sup\{T_{i}^{start}\}$ = $\delta$ · (i - 1), dove i $\in$ $[1,n]$ e dove $\delta$ è il time slice.

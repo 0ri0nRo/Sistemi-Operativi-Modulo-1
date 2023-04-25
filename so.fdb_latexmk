@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1682428713 "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" "so.pdf" "so" 1682428715 0
-  "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" 1682428711 65138 0367f7a8d81d3be19195b577697ccc18 ""
+["pdflatex"] 1682428918 "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" "so.pdf" "so" 1682428921 0
+  "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" 1682428854 65312 3485f11a69c74ff1f97ff2dd64388a07 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcbx1000.tfm" 1136768653 1536 30fde759286ded71559881bfa2623939 ""
@@ -136,13 +136,14 @@
   "im/rr12.png" 1682428240 60605 01458c814f701cc3738f3f31b17085c2 ""
   "im/rr13.png" 1682428258 61233 dad545b734595cdeca2903302e198a28 ""
   "im/rr14.png" 1682428280 64091 9285580b85dfa11dc47d6d9d5bdf2aa2 ""
-  "im/rr15.png" 1682428346 61136 1b113b993e7489ba06c7f79ff6e01d3e ""
+  "im/rr15.png" 1682428906 138972 f90d03c40bd808955e331e3be1bbb75e ""
+  "im/timeslice.png" 1682428914 173952 bc011ac2545e640063ee88d234c36051 ""
   "im/virtualaddress.png" 1681994681 1024441 5ef66f39822b99a35e5f1bb198f34118 ""
   "im/virtualm.png" 1681897518 67346 963e98360eb2884c03b77eff11019f46 ""
-  "so.aux" 1682428714 10029 e859785b434974fb18694e7604ef65eb "pdflatex"
-  "so.out" 1682428714 7157 98df1df48627af013020e23596259034 "pdflatex"
-  "so.tex" 1682428711 65138 0367f7a8d81d3be19195b577697ccc18 ""
-  "so.toc" 1682428714 3607 b7a4385f76a42062cdecd1b3b0e044c7 "pdflatex"
+  "so.aux" 1682428920 10158 f3cb2a4f30a996b7bf0118840ab83c82 "pdflatex"
+  "so.out" 1682428920 7157 98df1df48627af013020e23596259034 "pdflatex"
+  "so.tex" 1682428854 65312 3485f11a69c74ff1f97ff2dd64388a07 ""
+  "so.toc" 1682428920 3607 b7a4385f76a42062cdecd1b3b0e044c7 "pdflatex"
   (generated)
   "so.aux"
   "so.log"
