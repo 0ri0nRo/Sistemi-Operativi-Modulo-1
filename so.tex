@@ -673,7 +673,7 @@ Per le politiche di scheduling assumiamo che:
 \subsubsection{First-Come-First-Serve (FCFS)}
 Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completamento nell'ordine di arrivo ed entra in azione solo quando il lavoro attualmente in esecuzione lo richiede un'operazione di I/O (o termina la sua esecuzione). Un lavoro può continuare a utilizzare la CPU a tempo indeterminato (ovvero fino a quando non si blocca) per questo è di tipo Non-preemptive. 
 \pagebreak
-\subsubsection*{Esempio}
+\subsubsection*{Esempi}
 \begin{enumerate}
     \item Consideriamo la seguente coda di processi: 
     \begin{figure}[hbt]
@@ -714,7 +714,7 @@ Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completament
             \item Per il processo C si ha:\\
             $T_{waiting} = T_{turnaround} - T_{burst} = T_{completion} - T_{arrival} - T_{burst} = 10 - 0 - 3 = 7$
             \item Il waiting time medio, quindi, sarà:\\
-            $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=1}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 7}{3} = \frac{12}{3} = 4$
+            $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 7}{3} = \frac{12}{3} = 4$
         \end{itemize}
     \end{itemize}
     \item Nel seguente scenario, utilizzando sempre uno scheduling FCFS, si ha:
@@ -726,7 +726,7 @@ Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completament
     \end{figure}
     \begin{itemize}
         \item Il waiting time medio, quindi, sarà:\\
-        $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=1}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 2}{3} = \frac{7}{3} \simeq 2.3$
+        $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 2}{3} = \frac{7}{3} \simeq 2.3$
     \end{itemize}
 \pagebreak
     \item Consideriamo il seguente scenario:
@@ -770,21 +770,76 @@ Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completament
             \end{center}
         \end{figure}
         \\
-        $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=1}^{n} T_{i}^{waiting}$ = $\frac{1 + 2 + 7}{3} = \frac{10}{3} \simeq 3.3$
+        $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{1 + 2 + 7}{3} = \frac{10}{3} \simeq 3.3$
     \end{itemize}
 \end{enumerate}
 \subsubsection*{Pro e Contro}
-Uno dei vantaggi è la semplicità di implementazione
-Tra gli svantaggi:
+Uno dei \textbf{vantaggi} è la semplicità di implementazione.\\
+Tra gli \textbf{svantaggi}:
 \begin{itemize} 
-    \item Il tempo di attesa (medio) è molto variabile in quanto i lavori di breve durata della CPU possono rimanere indietro quelli molto lunghi
-    \item effetto convoglio: scarsa sovrapposizione tra CPU e I/O poiché i lavori legati alla CPU costringeranno i lavori legati all'I/O ad attendere
+    \item Il tempo di attesa (medio) è molto variabile in quanto i lavori di breve durata della CPU possono rimanere indietro quelli molto lunghi.
+    \item effetto convoglio: scarsa sovrapposizione tra CPU e I/O poiché i lavori legati alla CPU costringeranno i lavori legati all'I/O ad attendere.
 \end{itemize}
 \pagebreak
 \subsubsection{Round - Robin (RR)}
 
-Pagina 113 slide 6
-ciao
+Il Round Robin è un algoritmo di scheduling \textbf{preemptive} dove viene selezionato il primo processo presente in ready queue dove i burst della CPU sono assegnati con limiti chiamati \textbf{time quantum} o \textbf{(time slice)}. Quando un lavoro viene assegnato alla CPU, viene impostato un timer per un determinato valore, se il lavoro termina prima della scadenza del quanto temporale, viene sostituito da CPU proprio come il normale algoritmo FCFS. Se il timer si spegne per primo, il lavoro viene scambiato fuori dalla CPU e spostato nel back-end della coda dei pronti.\\
+Viene utilizzato in molti sistemi di time-sharing in combinazione con gli interrupt del timer. \\
+La queue pronta viene mantenuta come queue circolare. Quando tutti i lavori hanno avuto un turno, lo scheduler ne assegna un altro al primo lavoro girare e così via. L'algoritmo RR viene considerato equo in quanto condivide la CPU equamente tra tutti i lavori. Il tempo medio di attesa può essere più lungo rispetto ad altri algoritmi di scheduling.\\
+Il limite superiore per lo start time di un processo in una coda di n processi utilizzando uno scheduler RR corrisponde a $sup\{T_{i}^{start}\}$ = $\delta$ · (i - 1), dove i $\in$ $[1,n]$ e dove $\delta$ è il time slice.
+
+\subsubsection*{Esempi}
+\begin{itemize}
+    \item Consideriamo la seguente coda dei processi utilizzando un algoritmo RR con un time slice di 2 e un context switch trascurabile:
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr1}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \item Il primo processo a prendere il controllo della CPU è il processo A, venendo bloccato ed aggiunto alla ready queue dopo 2 unità temporali per via del time slice
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr12}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \pagebreak
+    \item Successivamente, il processo B prende controllo della CPU, venendo anch'esso bloc- cato dopo 2 unità temporali. In questo caso, tuttavia, il processo B non verrà aggiunto alla fine della ready queue poiché la sua esecuzione è terminata
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr13}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \item Di seguito, il processo C prenderà il controllo, venendo bloccato dopo 2 tempi
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr14}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \item Infine, vengono eseguiti i processi A e C finché essi non verranno completati
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr15}}
+            \caption{}    
+        \end{center}
+    \end{figure} 
+    \item Il waiting time medio, quindi, sarà:\\
+
+    $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{5 + 2 + 6}{3} = \frac{13}{3} \simeq 4.3$
+\end{itemize}
+\pagebreak
+\subsubsection{FCFS vs RR}
+Confrontando il tournaround time e il waiting time medio tra uno scheduler FCFS e uno scheduler RR, il primo sembra essere a primo occhio più performante del secondo.
+Tuttavia, considerando la varianza tra i waiting time di ogni processo, notiamo come il RR risulta essere più equo, fornendo ad ogni processo la stessa quantità di tempo di utilizzo della CPU.
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/fcfsrr}}
+        \caption{}    
+    \end{center}
+\end{figure} 
 
 \pagebreak
 
