@@ -128,7 +128,7 @@ Un altro registro è lo \textbf{stack pointer} che punta alla cima dello stack a
 Nelle architetture più moderne, vengono implementati più livelli di protezione, detti \textbf{protection rings}. Ogni ring aggiunge restrizioni sulle istruzioni eseguibili dalla CPU.
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/ring}}
+        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/ring}}
         \caption{Protection Rings}    
     \end{center}
     \end{figure}
@@ -786,7 +786,7 @@ Il Round Robin è un algoritmo di scheduling \textbf{preemptive} dove viene sele
 
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/timeslice}}
+        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/timeslice}}
         \caption{}    
     \end{center}
 \end{figure} 
@@ -801,14 +801,14 @@ Il limite superiore per lo start time di un processo in una coda di n processi u
     \item Consideriamo la seguente coda dei processi utilizzando un algoritmo RR con un time slice di 2 e un context switch trascurabile:
     \begin{figure}[hbt]
         \begin{center}
-            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr1}}
+            \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/rr1}}
             \caption{}    
         \end{center}
     \end{figure}
     \item Il primo processo a prendere il controllo della CPU è il processo A, venendo bloccato ed aggiunto alla ready queue dopo 2 unità temporali per via del time slice
     \begin{figure}[hbt]
         \begin{center}
-            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr12}}
+            \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/rr12}}
             \caption{}    
         \end{center}
     \end{figure}
@@ -816,21 +816,21 @@ Il limite superiore per lo start time di un processo in una coda di n processi u
     \item Successivamente, il processo B prende controllo della CPU, venendo anch'esso bloc- cato dopo 2 unità temporali. In questo caso, tuttavia, il processo B non verrà aggiunto alla fine della ready queue poiché la sua esecuzione è terminata
     \begin{figure}[hbt]
         \begin{center}
-            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr13}}
+            \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/rr13}}
             \caption{}    
         \end{center}
     \end{figure}
     \item Di seguito, il processo C prenderà il controllo, venendo bloccato dopo 2 tempi
     \begin{figure}[hbt]
         \begin{center}
-            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr14}}
+            \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/rr14}}
             \caption{}    
         \end{center}
     \end{figure}
     \item Infine, vengono eseguiti i processi A e C finché essi non verranno completati
     \begin{figure}[hbt]
         \begin{center}
-            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rr15}}
+            \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/rr15}}
             \caption{}    
         \end{center}
     \end{figure} 
@@ -844,7 +844,7 @@ Confrontando il tournaround time e il waiting time medio tra uno scheduler FCFS 
 Tuttavia, considerando la varianza tra i waiting time di ogni processo, notiamo come il RR risulta essere più equo, fornendo ad ogni processo la stessa quantità di tempo di utilizzo della CPU.
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/fcfsrr}}
+        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfsrr}}
         \caption{}    
     \end{center}
 \end{figure} 
@@ -873,7 +873,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
     \item Consideriamo la seguente coda di processi gestita da uno scheduler SJF non preemptive. In tal caso, si ha che:\\
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf1}}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/sjf1}}
                 \caption{}    
             \end{center}
         \end{figure} \\
@@ -884,14 +884,14 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
     \begin{itemize}
         \item \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf2}}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/sjf2}}
                 \caption{}    
             \end{center}
         \end{figure} 
         \item Il primo job ad essere eseguito è il processo A, poiché il primo ad essere creato ed inserito nella ready queue.
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf21}}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/sjf21}}
                 \caption{}    
             \end{center}
         \end{figure} 
@@ -900,7 +900,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
         Lo stesso ragionamento viene effettuato anche dopo la creazione del processo D, dove il processo B mantiene il controllo (2 < 7 < 5 < 9). Di conseguenza, il processo B verrà eseguito fino al suo completamento.
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf22}}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/sjf22}}
                 \caption{}    
             \end{center}
         \end{figure} 
@@ -913,7 +913,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
         \end{itemize}
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf23}}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/sjf23}}
                 \caption{}    
             \end{center}
         \end{figure} 
@@ -921,7 +921,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
         \item Analogamente al processo D, verranno eseguiti il processo A e il processo C, ognuno di essi fino al loro completamento (poiché, nel frattempo, nessun altro processo viene inserito nella ready queue, dunque non viene mai attivato l'algoritmo di scheduling).
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf24}}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/sjf24}}
                 \caption{}    
             \end{center}
         \end{figure}
@@ -936,7 +936,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
 
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/confronto3}}
+        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/confronto3}}
         \caption{}    
     \end{center}
 \end{figure}
@@ -955,8 +955,8 @@ Un semplice algoritmo che offre un buon servizio ai processi I/O bound è quello
 Il priority scheduling può essere sia \textbf{non-preemptive} sia \textbf{preemptive}.
 
 \subsubsection*{Problemi}
-Il Priority Scheduling può soffrire di starvation, dove un job di bassa priorità rimane in attesa perenne poiché altri job hanno sempre una priorità maggiore. Tali job potrebbero essere eseguiti eventualmente quando il carico del sistema è minore o dopo che il sistema stesso vada in crash, venga spento o venga riavviato. 
-Come contromisura alla starvation viene utilizzato l'\textit{aging}, ossia l'incremento della priorità di un job in base al suo tempo in attesa, finché essi non verranno eventualmente schedulati.
+Il Priority Scheduling può soffrire di \textit{starvation}, dove un job di bassa priorità rimane in attesa per un tempo indefinito, poiché altri job hanno sempre una priorità maggiore. Tali job potrebbero essere eseguiti eventualmente quando il carico del sistema è minore o dopo che il sistema stesso vada in crash, venga spento o venga riavviato. 
+Come contromisura alla \textit{starvation} viene utilizzato l'\textit{aging}, ossia l'incremento della priorità di un job in base al suo tempo in attesa, finché essi non verranno eventualmente schedulati.
 
 \subsubsection{Multilevel Queue (MLQ e MLFQ)}
 L'algoritmo \textbf{Multilevel Queue (MLQ)} è un algoritmo di scheduling basato sull'utilizzo di queue multiple separate tra loro, ognuna per ogni categoria di job, dove ogni queue utilizza l'algoritmo di scheduling più appropiato per una determinata categoria di job. Una volta inserito all'interno di una queue, nessun job può essere spostato in un'altra queue.\par
@@ -965,7 +965,7 @@ Le due opzioni più comuni per l'implentazione di tale algoritmo sono:
     \item \textbf{String priority}, dove nessun job all'interno di una queue di priorità più bassa viene eseguito finché esiste almeno un job delle queue di priorità più alta
     \item \textbf{Round robin}, dove ogni queue utilizza un proprio time slice, il quale aumenta esponenzialmente al diminuire della priorità della coda
 \end{itemize}
-L'algoritmo \textbf{Multilevel Feedback Queue} (MLFQ) segue la stessa idea dell'algo- ritmo MLQ, con l'aggiunta della possibilità per ogni job di essere spostato da una queue all'altra.\par
+L'algoritmo \textbf{Multilevel Feedback Queue} (MLFQ) segue la stessa idea dell'algoritmo MLQ, con l'aggiunta della possibilità per ogni job di essere spostato da una queue all'altra.\par
 Lo spostamento di un job può rivelarsi necessario quando:
 \begin{itemize}
     \item Un job passa dall'utilizzare molto la CPU all'utilizzare molto l'I/O e viceversa
@@ -983,19 +983,18 @@ Per gestire gli spostamenti, l'algoritmo utilizza le seguenti regole:
 \subsubsection*{Esempio di suddivisione tramite MLQ e MLFQ:}
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq}}
+        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/mlq}}
         \caption{}    
     \end{center}
 \end{figure}
-\pagebreak
-\subsubsection*{Esempi}
+\subsubsection*{Esempio}
 \begin{enumerate}
     \item  Consideriamo la seguente coda di processi gestita da un algoritmo MLFQ con 3 queue e strict priority.
     \begin{itemize}
         \item Supponiamo:
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq1}}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/mlq1}}
                 \caption{}    
             \end{center}
         \end{figure}
@@ -1005,35 +1004,35 @@ Per gestire gli spostamenti, l'algoritmo utilizza le seguenti regole:
         \end{center}
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq2}}
+                \includegraphics[width=0.55\textwidth,keepaspectratio]{{im/mlq2}}
                 \caption{}    
             \end{center}
         \end{figure}
         \item Siccome il time slice per tutti e tre i processi è scaduto, ognuno di essi viene spostato nella queue a priorità inferiore
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq3}}
+                \includegraphics[width=0.55\textwidth,keepaspectratio]{{im/mlq3}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Analogamente, a prima, anche in questo caso il time slice per tutti e tre scade, dunque vengono spostati alla queue inferiore
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/mlq4}}
                 \caption{}    
             \end{center}
         \end{figure}
         \pagebreak
-        \item Analogamente, a prima, anche in questo caso il time slice per tutti e tre scade, dunque vengono spostati alla queue inferiore
-        \begin{figure}[hbt]
-            \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq4}}
-                \caption{}    
-            \end{center}
-        \end{figure}
+
         \item Una volta raggiunta la queue a priorità più bassa, il time slice di tutti e tre i processi scadrà sempre fino al loro completamento
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq5}}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/mlq5}}
                 \caption{}    
             \end{center}
         \end{figure}
     \end{itemize}
 \end{enumerate}
-
 
 \subsubsection{Extra: Lottery scheduling}
 L'algoritmo \textbf{lottery scheduling} è un algoritmo di scheduling basato sulla casualità:
@@ -1045,6 +1044,9 @@ L'algoritmo \textbf{lottery scheduling} è un algoritmo di scheduling basato sul
 \end{enumerate}
 Per via della legge dei grandi numeri, all'aumentare del numero di estrazioni effettuate il tempo di utilizzo della CPU di ogni processo tenderà a raggiungere la media.
 
+
+\pagebreak
+\subsection{Thread e Multi-threading}
 
 \pagebreak
 
