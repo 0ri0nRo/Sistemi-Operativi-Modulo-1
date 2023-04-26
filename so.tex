@@ -34,9 +34,9 @@
 \maketitle
 \renewcommand{\abstractname}{Disclaimer}
 \begin{abstract}
-    Le fonti sono le slides del Prof. Tolomei e integrazioni con il libro \textit{I moderni sistemi operativi} di Andrew S. Tanenbaum. Se diversamente verrà indicato a pié di pagina.\\
+    Le fonti sono le slides del Prof. Tolomei e integrazioni con il libro "\textit{I moderni sistemi operativi}" di Andrew S. Tanenbaum. Se diversamente verrà indicato a pié di pagina.\\
 
-    \textbf{Nota: è vietata assolutamente la vendita di questo materiale in qualsiasi forma senza il mio consenso}  
+    \textbf{Nota: è vietata assolutamente la vendita di questo materiale in qualsiasi forma senza il mio consenso.}  
 \end{abstract}
 
 \tableofcontents
@@ -651,8 +651,7 @@ L'obiettivo dello scheduling è di ridurre al minimo il tempo medio di risposta\
 \pagebreak
 
 Massimizzare il throughput significa\footnote{Tipico dei sistemi batch. I \textbf{sistemi batch} (o "batch processing systems" in inglese) sono un tipo di sistema informatico che esegue una serie di lavori o processi in una sequenza predefinita, senza interazione diretta con l'utente o l'operatore del sistema.
-
-In un sistema batch, i lavori vengono raccolti in un'area di elaborazione chiamata "coda di lavoro" o "batch queue". Il sistema elabora poi i lavori uno per uno, seguendo un ordine predefinito, e può eseguirli in background, senza richiedere l'input dell'utente durante l'esecuzione.}:
+In un sistema batch, i lavori vengono raccolti in un'area di elaborazione chiamata "coda di lavoro" o "batch queue". Il sistema elabora poi i lavori uno per uno, seguendo un ordine predefinito, e può eseguirli in background, senza richiedere l'input dell'utente durante l'esecuzione. Fonte: Wikipedia}:
 \begin{itemize}
     \item Riduzione al minimo dell'overhead (cambio di contesto del sistema operativo)
     \item Utilizzo efficiente delle risorse di sistema (CPU e dispositivi I/O)
@@ -841,7 +840,7 @@ Il limite superiore per lo start time di un processo in una coda di n processi u
 \end{itemize}
 \pagebreak
 \subsubsection{FCFS vs RR}
-Confrontando il tournaround time e il waiting time medio tra uno scheduler FCFS e uno scheduler RR, il primo sembra essere a primo occhio più performante del secondo.
+Confrontando il tournaround time e il waiting time medio tra uno scheduler FCFS e uno scheduler RR, il primo sembra essere a primo occhio più performante del secondo. \par
 Tuttavia, considerando la varianza tra i waiting time di ogni processo, notiamo come il RR risulta essere più equo, fornendo ad ogni processo la stessa quantità di tempo di utilizzo della CPU.
 \begin{figure}[hbt]
     \begin{center}
@@ -849,6 +848,15 @@ Tuttavia, considerando la varianza tra i waiting time di ogni processo, notiamo 
         \caption{}    
     \end{center}
 \end{figure} 
+
+
+\subsubsection{Shortest-Job-First (SJF)}
+Il Shortest-Job-First è u altro algoritmo di scheduling di tipo \textbf{non preemptive} che parte dal presupposto che i tempi di esecuzione siano conosciuti in anticipo. Lo scheduler preleva per primo il lavoro più breve (da qui il nome \textbf{shortest job first}). \par
+Una versione \textbf{preemptive} dell'algoritmo shortest job first è l'algoritmo shortest remaining time first dove ogni volta che un nuovo job arriva nella ready queue e il suo CPU burst stimato è minore di quello rimanente del job attualmente in esecuzione, tale job prende controllo della CPU.\par
+Lo SJF presenta dei vantaggi infatti risulta ottimale quando l'obiettivo è minimizzare il tempo medio di attesa. Funziona sia con schedulatori preventivi che non preventivi.\par
+Tra gli svantaggi possiamo affermare che risulta quasi impossibile prevedere la quantità di tempo CPU di un lavoro. Un'altro contro riguarda i lavori legati alla CPU a esecuzione prolungata possono morire di fame (come hanno fatto implicitamente quelli legati all'I/O priorità maggiore rispetto a loro)
+
+
 
 \pagebreak
 

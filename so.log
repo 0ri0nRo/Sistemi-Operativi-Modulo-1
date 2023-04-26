@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  25 APR 2023 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  26 APR 2023 14:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -390,13 +390,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<im/1_3.png, id=219, 487.8225pt x 241.90375pt>
+<im/1_3.png, id=224, 487.8225pt x 241.90375pt>
 File: im/1_3.png Graphic file (type png)
 <use im/1_3.png>
 Package pdftex.def Info: im/1_3.png  used on input line 83.
 (pdftex.def)             Requested size: 290.22107pt x 143.9179pt.
  [4 <./im/1_3.png>]
-<im/ring.png, id=229, 336.25626pt x 214.8025pt>
+<im/ring.png, id=234, 336.25626pt x 214.8025pt>
 File: im/ring.png Graphic file (type png)
 <use im/ring.png>
 Package pdftex.def Info: im/ring.png  used on input line 131.
@@ -407,12 +407,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 144--145
  []
 
 [5 <./im/ring.png>] [6]
-<im/ivt.png, id=249, 676.5275pt x 293.095pt>
+<im/ivt.png, id=254, 676.5275pt x 293.095pt>
 File: im/ivt.png Graphic file (type png)
 <use im/ivt.png>
 Package pdftex.def Info: im/ivt.png  used on input line 194.
 (pdftex.def)             Requested size: 435.32422pt x 188.6043pt.
-<im/virtualm.png, id=250, 245.91875pt x 293.095pt>
+<im/virtualm.png, id=255, 245.91875pt x 293.095pt>
 File: im/virtualm.png Graphic file (type png)
 <use im/virtualm.png>
 Package pdftex.def Info: im/virtualm.png  used on input line 210.
@@ -422,7 +422,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
-<im/virtualaddress.png, id=265, 517.935pt x 748.7975pt>
+<im/virtualaddress.png, id=270, 517.935pt x 748.7975pt>
 File: im/virtualaddress.png Graphic file (type png)
 <use im/virtualaddress.png>
 Package pdftex.def Info: im/virtualaddress.png  used on input line 257.
@@ -432,13 +432,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 269--270
 
  []
 
-<im/ebp.png, id=266, 485.815pt x 390.45876pt>
+<im/ebp.png, id=271, 485.815pt x 390.45876pt>
 File: im/ebp.png Graphic file (type png)
 <use im/ebp.png>
 Package pdftex.def Info: im/ebp.png  used on input line 273.
 (pdftex.def)             Requested size: 241.84843pt x 194.3769pt.
 [9 <./im/virtualaddress.png>]
-<im/diagramma.png, id=273, 474.77374pt x 191.71625pt>
+<im/diagramma.png, id=278, 474.77374pt x 191.71625pt>
 File: im/diagramma.png Graphic file (type png)
 <use im/diagramma.png>
 Package pdftex.def Info: im/diagramma.png  used on input line 290.
@@ -449,7 +449,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 295--296
  []
 
 [10 <./im/ebp.png> <./im/diagramma.png>]
-<im/PCB.png, id=284, 197.73875pt x 309.155pt>
+<im/PCB.png, id=289, 197.73875pt x 309.155pt>
 File: im/PCB.png Graphic file (type png)
 <use im/PCB.png>
 Package pdftex.def Info: im/PCB.png  used on input line 329.
@@ -459,7 +459,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 335--338
 
  []
 
-<im/creazioneProcessi.png, id=291, 584.1825pt x 311.1625pt>
+<im/creazioneProcessi.png, id=296, 584.1825pt x 311.1625pt>
 File: im/creazioneProcessi.png Graphic file (type png)
 <use im/creazioneProcessi.png>
 Package pdftex.def Info: im/creazioneProcessi.png  used on input line 342.
@@ -477,24 +477,24 @@ File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 369.
-<im/p1.png, id=300, 649.42625pt x 133.49875pt>
+<im/p1.png, id=305, 649.42625pt x 133.49875pt>
 File: im/p1.png Graphic file (type png)
 <use im/p1.png>
 Package pdftex.def Info: im/p1.png  used on input line 395.
 (pdftex.def)             Requested size: 338.58632pt x 69.60306pt.
  [13]
-<im/p2.png, id=333, 123.46124pt x 273.02pt>
+<im/p2.png, id=338, 123.46124pt x 273.02pt>
 File: im/p2.png Graphic file (type png)
 <use im/p2.png>
 Package pdftex.def Info: im/p2.png  used on input line 420.
 (pdftex.def)             Requested size: 72.55157pt x 160.44717pt.
  [14 <./im/p1.png> <./im/p2.png>]
-<im/p3.png, id=358, 187.70125pt x 137.51375pt>
+<im/p3.png, id=363, 187.70125pt x 137.51375pt>
 File: im/p3.png Graphic file (type png)
 <use im/p3.png>
 Package pdftex.def Info: im/p3.png  used on input line 444.
 (pdftex.def)             Requested size: 120.92421pt x 88.59392pt.
-<im/p4.png, id=359, 515.9275pt x 235.88126pt>
+<im/p4.png, id=364, 515.9275pt x 235.88126pt>
 File: im/p4.png Graphic file (type png)
 <use im/p4.png>
 Package pdftex.def Info: im/p4.png  used on input line 466.
@@ -555,125 +555,125 @@ Underfull \hbox (badness 10000) in paragraph at lines 600--601
  []
 
 [19]
-<im/formule.png, id=429, 521.95pt x 261.97874pt>
+<im/formule.png, id=434, 521.95pt x 261.97874pt>
 File: im/formule.png Graphic file (type png)
 <use im/formule.png>
 Package pdftex.def Info: im/formule.png  used on input line 624.
 (pdftex.def)             Requested size: 338.58632pt x 169.94438pt.
  [20 <./im/formule.png>] [21]
-<im/fcfs1.png, id=446, 540.0175pt x 166.6225pt>
+<im/fcfs1.png, id=451, 540.0175pt x 166.6225pt>
 File: im/fcfs1.png Graphic file (type png)
 <use im/fcfs1.png>
-Package pdftex.def Info: im/fcfs1.png  used on input line 681.
+Package pdftex.def Info: im/fcfs1.png  used on input line 680.
 (pdftex.def)             Requested size: 338.58632pt x 104.47186pt.
-<im/fcfs12.png, id=447, 583.17876pt x 193.72375pt>
+<im/fcfs12.png, id=452, 583.17876pt x 193.72375pt>
 File: im/fcfs12.png Graphic file (type png)
 <use im/fcfs12.png>
-Package pdftex.def Info: im/fcfs12.png  used on input line 689.
+Package pdftex.def Info: im/fcfs12.png  used on input line 688.
 (pdftex.def)             Requested size: 338.58632pt x 112.47513pt.
-<im/fcfs13.png, id=448, 855.195pt x 299.1175pt>
+<im/fcfs13.png, id=453, 855.195pt x 299.1175pt>
 File: im/fcfs13.png Graphic file (type png)
 <use im/fcfs13.png>
-Package pdftex.def Info: im/fcfs13.png  used on input line 696.
+Package pdftex.def Info: im/fcfs13.png  used on input line 695.
 (pdftex.def)             Requested size: 338.58632pt x 118.42624pt.
  [22 <./im/fcfs1.png> <./im/fcfs12.png> <./im/fcfs13.png>]
-<im/fcfs14.png, id=461, 863.225pt x 310.15875pt>
+<im/fcfs14.png, id=466, 863.225pt x 310.15875pt>
 File: im/fcfs14.png Graphic file (type png)
 <use im/fcfs14.png>
-Package pdftex.def Info: im/fcfs14.png  used on input line 704.
+Package pdftex.def Info: im/fcfs14.png  used on input line 703.
 (pdftex.def)             Requested size: 338.58632pt x 121.65239pt.
-<im/fcfs21.png, id=462, 843.15pt x 331.2375pt>
+<im/fcfs21.png, id=467, 843.15pt x 331.2375pt>
 File: im/fcfs21.png Graphic file (type png)
 <use im/fcfs21.png>
-Package pdftex.def Info: im/fcfs21.png  used on input line 723.
+Package pdftex.def Info: im/fcfs21.png  used on input line 722.
 (pdftex.def)             Requested size: 338.58632pt x 133.01828pt.
  [23 <./im/fcfs14.png> <./im/fcfs21.png>]
-<im/fcfs31.png, id=474, 579.16376pt x 197.73875pt>
+<im/fcfs31.png, id=479, 579.16376pt x 197.73875pt>
 File: im/fcfs31.png Graphic file (type png)
 <use im/fcfs31.png>
-Package pdftex.def Info: im/fcfs31.png  used on input line 735.
+Package pdftex.def Info: im/fcfs31.png  used on input line 734.
 (pdftex.def)             Requested size: 338.58632pt x 115.59976pt.
-<im/fcfs32.png, id=475, 871.255pt x 387.4475pt>
+<im/fcfs32.png, id=480, 871.255pt x 387.4475pt>
 File: im/fcfs32.png Graphic file (type png)
 <use im/fcfs32.png>
-Package pdftex.def Info: im/fcfs32.png  used on input line 745.
+Package pdftex.def Info: im/fcfs32.png  used on input line 744.
 (pdftex.def)             Requested size: 338.58632pt x 150.56592pt.
-<im/fcfs33.png, id=476, 855.195pt x 323.2075pt>
+<im/fcfs33.png, id=481, 855.195pt x 323.2075pt>
 File: im/fcfs33.png Graphic file (type png)
 <use im/fcfs33.png>
-Package pdftex.def Info: im/fcfs33.png  used on input line 752.
+Package pdftex.def Info: im/fcfs33.png  used on input line 751.
 (pdftex.def)             Requested size: 338.58632pt x 127.96393pt.
  [24 <./im/fcfs31.png> <./im/fcfs32.png> <./im/fcfs33.png>]
-<im/fcfs34.png, id=488, 835.12pt x 299.1175pt>
+<im/fcfs34.png, id=493, 835.12pt x 299.1175pt>
 File: im/fcfs34.png Graphic file (type png)
 <use im/fcfs34.png>
-Package pdftex.def Info: im/fcfs34.png  used on input line 761.
+Package pdftex.def Info: im/fcfs34.png  used on input line 760.
 (pdftex.def)             Requested size: 338.58632pt x 121.27428pt.
-<im/fcfs35.png, id=489, 841.1425pt x 329.23pt>
+<im/fcfs35.png, id=494, 841.1425pt x 329.23pt>
 File: im/fcfs35.png Graphic file (type png)
 <use im/fcfs35.png>
-Package pdftex.def Info: im/fcfs35.png  used on input line 768.
+Package pdftex.def Info: im/fcfs35.png  used on input line 767.
 (pdftex.def)             Requested size: 338.58632pt x 132.52357pt.
  [25 <./im/fcfs34.png> <./im/fcfs35.png>]
-<im/timeslice.png, id=500, 442.65375pt x 206.7725pt>
+<im/timeslice.png, id=505, 442.65375pt x 206.7725pt>
 File: im/timeslice.png Graphic file (type png)
 <use im/timeslice.png>
-Package pdftex.def Info: im/timeslice.png  used on input line 790.
+Package pdftex.def Info: im/timeslice.png  used on input line 789.
 (pdftex.def)             Requested size: 241.84843pt x 112.9743pt.
-<im/rr1.png, id=501, 398.48875pt x 144.54pt>
+<im/rr1.png, id=506, 398.48875pt x 144.54pt>
 File: im/rr1.png Graphic file (type png)
 <use im/rr1.png>
-Package pdftex.def Info: im/rr1.png  used on input line 805.
+Package pdftex.def Info: im/rr1.png  used on input line 804.
 (pdftex.def)             Requested size: 241.84843pt x 87.72374pt.
-<im/rr12.png, id=502, 602.25pt x 262.9825pt>
+<im/rr12.png, id=507, 602.25pt x 262.9825pt>
 File: im/rr12.png Graphic file (type png)
 <use im/rr12.png>
-Package pdftex.def Info: im/rr12.png  used on input line 812.
+Package pdftex.def Info: im/rr12.png  used on input line 811.
 (pdftex.def)             Requested size: 241.84843pt x 105.60846pt.
  [26 <./im/timeslice.png> <./im/rr1.png>]
-<im/rr13.png, id=512, 583.17876pt x 252.945pt>
+<im/rr13.png, id=517, 583.17876pt x 252.945pt>
 File: im/rr13.png Graphic file (type png)
 <use im/rr13.png>
-Package pdftex.def Info: im/rr13.png  used on input line 820.
+Package pdftex.def Info: im/rr13.png  used on input line 819.
 (pdftex.def)             Requested size: 241.84843pt x 104.89688pt.
-<im/rr14.png, id=513, 603.25375pt x 281.05pt>
+<im/rr14.png, id=518, 603.25375pt x 281.05pt>
 File: im/rr14.png Graphic file (type png)
 <use im/rr14.png>
-Package pdftex.def Info: im/rr14.png  used on input line 827.
+Package pdftex.def Info: im/rr14.png  used on input line 826.
 (pdftex.def)             Requested size: 241.84843pt x 112.67102pt.
-<im/rr15.png, id=514, 607.26875pt x 223.83624pt>
+<im/rr15.png, id=519, 607.26875pt x 223.83624pt>
 File: im/rr15.png Graphic file (type png)
 <use im/rr15.png>
-Package pdftex.def Info: im/rr15.png  used on input line 834.
+Package pdftex.def Info: im/rr15.png  used on input line 833.
 (pdftex.def)             Requested size: 241.84843pt x 89.14354pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 838--839
+Underfull \hbox (badness 10000) in paragraph at lines 837--838
 
  []
 
 [27 <./im/rr12.png> <./im/rr13.png> <./im/rr14.png>]
-<im/fcfsrr.png, id=525, 393.47pt x 235.88126pt>
+<im/fcfsrr.png, id=530, 393.47pt x 235.88126pt>
 File: im/fcfsrr.png Graphic file (type png)
 <use im/fcfsrr.png>
-Package pdftex.def Info: im/fcfsrr.png  used on input line 848.
+Package pdftex.def Info: im/fcfsrr.png  used on input line 847.
 (pdftex.def)             Requested size: 241.84843pt x 144.98512pt.
  [28 <./im/rr15.png> <./im/fcfsrr.png>] [29] [30] [31] [32] [33] (./so.aux)
 Package rerunfilecheck Info: File `so.out' has not changed.
-(rerunfilecheck)             Checksum: 98DF1DF48627AF013020E23596259034;7157.
+(rerunfilecheck)             Checksum: DE2977E0EC59D117257F3710827A6F30;7356.
  ) 
 Here is how much of TeX's memory you used:
- 14348 strings out of 476025
- 229934 string characters out of 5790017
- 1883388 words of memory out of 5000000
- 34416 multiletter control sequences out of 15000+600000
+ 14350 strings out of 476025
+ 229976 string characters out of 5790017
+ 1882388 words of memory out of 5000000
+ 34417 multiletter control sequences out of 15000+600000
  519606 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,77p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on so.pdf (33 pages, 3376182 bytes).
+Output written on so.pdf (33 pages, 3378129 bytes).
 PDF statistics:
- 683 PDF objects out of 1000 (max. 8388607)
- 540 compressed objects within 6 object streams
- 196 named destinations out of 1000 (max. 500000)
- 460 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 688 PDF objects out of 1000 (max. 8388607)
+ 545 compressed objects within 6 object streams
+ 197 named destinations out of 1000 (max. 500000)
+ 468 words of extra memory for PDF output out of 10000 (max. 10000000)
 
