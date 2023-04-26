@@ -547,6 +547,17 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tex-gyre/tgadventor.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tex-gyre/tgadventor.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tex-gyre/tgadventor.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -593,6 +604,11 @@ OUTPUT so.pdf
 INPUT ./so.out
 INPUT ./so.out
 OUTPUT so.out
+INPUT ./im/logo_sapienza_new.jpg
+INPUT ./im/logo_sapienza_new.jpg
+INPUT im/logo_sapienza_new.jpg
+INPUT ./im/logo_sapienza_new.jpg
+INPUT ./im/logo_sapienza_new.jpg
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
@@ -607,6 +623,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti9.tfm
+INPUT /usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
@@ -614,7 +631,6 @@ INPUT ./so.toc
 INPUT so.toc
 INPUT so.toc
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 OUTPUT so.toc
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcbx1000.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1682523035 "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" "so.pdf" "so" 1682523038 0
-  "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" 1682523033 78052 02d6dbc6320d195e1dff54f3a304eed3 ""
+["pdflatex"] 1682529836 "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" "so.pdf" "so" 1682529839 0
+  "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" 1682529834 78539 a8b65dc9c975d4276675dfec58a56fe8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcbx1000.tfm" 1136768653 1536 30fde759286ded71559881bfa2623939 ""
@@ -105,6 +105,7 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/sectsty/sectsty.sty" 1137110779 22423 d476012cd03f82f9475ad54ba6cd3267 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/tex-gyre/tgadventor.sty" 1254269485 2110 5bcede25cab30ce726910a38df51d2a7 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty" 1625518490 48833 3b7b4cfab1a3d15596bfd3772a77ab65 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/titling/titling.sty" 1252107870 7358 95ac619994bd30d405a74f3eca431c84 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf" 1677365944 40745 87bb86a62d462f93a1efc6b0c65c872e ""
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680258538 4623355 b8cad38412faebe1ce5b780a45db67bd ""
@@ -129,6 +130,7 @@
   "im/fcfsrr.png" 1682428689 71517 0beca86461dcdaefeb58a85a30b5a843 ""
   "im/formule.png" 1682281179 79512 113f2db8aa0eafca74cfa8cd57e72911 ""
   "im/ivt.png" 1681897004 100067 cf8084d4d81b97956c7ff3f8d0fe048f ""
+  "im/logo_sapienza_new.jpg" 1682528634 589288 a89d822fbc7dfde7688f4aa6cf89831e ""
   "im/mlq.png" 1682518255 360437 480a6925007ea807188f665370247acd ""
   "im/mlq1.png" 1682518330 150402 b9abeff8454f3b3910fb7583cabe3b25 ""
   "im/mlq2.png" 1682518498 161214 ba16fba2275d861f09dda0f02a3e49e0 ""
@@ -154,10 +156,10 @@
   "im/timeslice.png" 1682428914 173952 bc011ac2545e640063ee88d234c36051 ""
   "im/virtualaddress.png" 1681994681 1024441 5ef66f39822b99a35e5f1bb198f34118 ""
   "im/virtualm.png" 1681897518 67346 963e98360eb2884c03b77eff11019f46 ""
-  "so.aux" 1682523038 12418 a9595ff6ea1706a0500af0c0bf3fb0d6 "pdflatex"
-  "so.out" 1682523038 8017 77da8d5e2b980272cda1155342c72b2f "pdflatex"
-  "so.tex" 1682523033 78052 02d6dbc6320d195e1dff54f3a304eed3 ""
-  "so.toc" 1682523038 4025 e6e7e7fa62ee8666b560fe95d2273ada "pdflatex"
+  "so.aux" 1682529839 12789 3988f8d18dbba4d965fd9915a01224ae "pdflatex"
+  "so.out" 1682529839 8195 d9f3f23f775fe137a762338b6c16de61 "pdflatex"
+  "so.tex" 1682529834 78539 a8b65dc9c975d4276675dfec58a56fe8 ""
+  "so.toc" 1682529839 4157 973d51813949de9f3f0b8c10a648014f "pdflatex"
   (generated)
   "so.aux"
   "so.log"

@@ -42,3 +42,5 @@
 \contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{40}{section.5}%
 \contentsline {section}{\numberline {6}File System}{41}{section.6}%
 \contentsline {section}{\numberline {7}Advanced Topics}{42}{section.7}%
+\contentsline {section}{\numberline {8}Esercizi}{43}{section.8}%
+\contentsline {section}{\numberline {9}Formulario}{44}{section.9}%

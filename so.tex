@@ -12,13 +12,17 @@
 \usepackage{fancyhdr}
 \usepackage{footnote}
 \usepackage{tgadventor}
+\usepackage{titling}
+\setlength{\droptitle}{-5em}   % regola la posizione del titolo
+\pretitle{\begin{center}\LARGE}   % imposta la dimensione della font del titolo
+\posttitle{\end{center}}
 %\lstset{language=C}
 \renewcommand\bfdefault{bx}
 \sectionfont{\fontsize{20.74}{15}\selectfont}
 \subsectionfont{\fontsize{17.28}{15}\selectfont}
 \subsubsectionfont{\fontsize{12}{15}\selectfont}
-
 \title{Appunti di Sistemi Operativi I}
+
 \author{Colacel Alexandru Andrei}
 \date{}
 \begin{document}
@@ -31,7 +35,15 @@
 \rhead{ \quad \rightmark}
 \renewcommand{\headrulewidth}{0.2pt}
 
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.6\textwidth]{im/logo_sapienza_new.jpg}
+    \label{fig:logo}
+\end{figure}
+%\includegraphics[width=0.9\textwidth,keepaspectratio]{im/logo_sapienza_new.jpg}
 \maketitle
+
 \renewcommand{\abstractname}{Disclaimer}
 \begin{abstract}
     Le fonti sono le slides del Prof. Tolomei e integrazioni con il libro "\textit{I moderni sistemi operativi IV edizione}" di Andrew S. Tanenbaum. Se diversamente verrà indicato a pié di pagina.\\
@@ -39,6 +51,7 @@
     \textbf{Nota: è vietata assolutamente la vendita di questo materiale in qualsiasi forma senza il mio consenso.}  
 \end{abstract}
 
+\pagebreak
 \tableofcontents
 
 \pagebreak
@@ -1093,6 +1106,16 @@ Per via della legge dei grandi numeri, all'aumentare del numero di estrazioni ef
 
 \section{Advanced Topics}
 
+
+\pagebreak
+\section{Esercizi}
+
+
+
+
+\pagebreak
+
+\section{Formulario}
 
 \end{document}
 
