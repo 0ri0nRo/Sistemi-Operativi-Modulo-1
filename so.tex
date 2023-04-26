@@ -849,14 +849,95 @@ Tuttavia, considerando la varianza tra i waiting time di ogni processo, notiamo 
     \end{center}
 \end{figure} 
 
+\pagebreak
 
 \subsubsection{Shortest-Job-First (SJF)}
 Il Shortest-Job-First è u altro algoritmo di scheduling di tipo \textbf{non preemptive} che parte dal presupposto che i tempi di esecuzione siano conosciuti in anticipo. Lo scheduler preleva per primo il lavoro più breve (da qui il nome \textbf{shortest job first}). \par
 Una versione \textbf{preemptive} dell'algoritmo shortest job first è l'algoritmo shortest remaining time first dove ogni volta che un nuovo job arriva nella ready queue e il suo CPU burst stimato è minore di quello rimanente del job attualmente in esecuzione, tale job prende controllo della CPU.\par
 Lo SJF presenta dei vantaggi infatti risulta ottimale quando l'obiettivo è minimizzare il tempo medio di attesa. Funziona sia con schedulatori preventivi che non preventivi.\par
-Tra gli svantaggi possiamo affermare che risulta quasi impossibile prevedere la quantità di tempo CPU di un lavoro. Un'altro contro riguarda i lavori legati alla CPU a esecuzione prolungata possono morire di fame (come hanno fatto implicitamente quelli legati all'I/O priorità maggiore rispetto a loro)
+Tra gli svantaggi possiamo affermare che risulta quasi impossibile prevedere la quantità di tempo CPU di un lavoro. Anche i lavori legati alla CPU a esecuzione prolungata possono morire di \textit{starve} (come hanno fatto implicitamente quelli legati all'I/O priorità maggiore rispetto a loro).\par
+Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential smoothing:
+\begin{itemize}
+    \item Sia $x_{t}$ la lunghezza effettiva del t-esimo CPU burst
+    \item Sia $S_{t+1}$ la lunghezza stimata del $(t + 1)$-esimo CPU burst 
+    \item Sia $\alpha$ $\in$ $R$ dove 0 $\geq \alpha \leq$ 1
+    \item Si ha che:
+    \begin{center}
+        $s_{1}$ = $x_{0}$\\
+        $s_{t+1} = \alpha x_{t} +(1 - \alpha) s_{t}$
+    \end{center}
+\end{itemize}
 
-
+\subsubsection*{Esempi}
+\begin{enumerate}
+    \item Consideriamo la seguente coda di processi gestita da uno scheduler SJF non preemptive. In tal caso, si ha che:\\
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf1}}
+                \caption{}    
+            \end{center}
+        \end{figure} \\
+        \begin{center}
+            $\bar{T}_{ave.waiting}$ = $\frac{3 + 16 + 9 + 0}{4}$ = $\frac{28}{4} = 7$
+        \end{center}
+    \item Consideriamo la seguente coda di processi gestita da uno scheduler SJF preemptive, ossia uno scheduler SRTF.
+    \begin{itemize}
+        \item \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf2}}
+                \caption{}    
+            \end{center}
+        \end{figure} 
+        \item Il primo job ad essere eseguito è il processo A, poiché il primo ad essere creato ed inserito nella ready queue.
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf21}}
+                \caption{}    
+            \end{center}
+        \end{figure} 
+        \item Una volta che il processo B viene creato, il suo CPU burst stimato, ossia 4, viene comparato con il CPU burst rimanente del processo A, ossia 7. Poiché 4 < 7, allora il processo B prende controllo della CPU.
+        Analogamente, nell'istante in cui il processo C viene creato, il suo CPU burst stimato, ossia 9, viene comparato con quello rimanente del processo A, ossia 6, e quello del processo B, ossia 3. Siccome 3 < 7 < 9, allora il processo B mantiene il controllo della CPU.
+        Lo stesso ragionamento viene effettuato anche dopo la creazione del processo D, dove il processo B mantiene il controllo (2 < 7 < 5 < 9). Di conseguenza, il processo B verrà eseguito fino al suo completamento.
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf22}}
+                \caption{}    
+            \end{center}
+        \end{figure} 
+        \item Una volta completato il processo B, verrà eseguito il processo avente il CPU burst stimato minore:
+        \begin{itemize}
+            \item  Il processo A ha un CPU burst rimanente pari a 7 
+            \item Il processo C ha un CPU burst rimanente pari a 9 
+            \item Il processo D ha un CPU burst rimanente pari a 5
+            Di conseguenza, verrà eseguito il processo D fino al suo completamento
+        \end{itemize}
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf23}}
+                \caption{}    
+            \end{center}
+        \end{figure} 
+        \item Analogamente al processo D, verranno eseguiti il processo A e il processo C, ognuno di essi fino al loro completamento (poiché, nel frattempo, nessun altro processo viene inserito nella ready queue, dunque non viene mai attivato l'algoritmo di scheduling).
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sjf24}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \begin{center}
+            
+        $\bar{T}_{ave.waiting}$ = $\frac{(17 - 0 - 8)+(5 - 1 - 4)+(26 - 2 - 9)+(10 - 3 - 5)}{4}$ = $6.5$
+    \end{center}
+    \end{itemize}
+\end{enumerate}
+\subsubsection{Confronto tra FCFS, RR e SJF}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/confronto3}}
+        \caption{}    
+    \end{center}
+\end{figure}
+\begin{center}
 
 \pagebreak
 
