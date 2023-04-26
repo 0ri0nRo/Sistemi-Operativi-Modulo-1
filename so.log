@@ -610,4 +610,146 @@ File: im/fcfs34.png Graphic file (type png)
 Package pdftex.def Info: im/fcfs34.png  used on input line 760.
 (pdftex.def)             Requested size: 338.58632pt x 121.27428pt.
 <im/fcfs35.png, id=504, 841.1425pt x 329.23pt>
-File: im/fcfs35.png Grap
+File: im/fcfs35.png Graphic file (type png)
+<use im/fcfs35.png>
+Package pdftex.def Info: im/fcfs35.png  used on input line 767.
+(pdftex.def)             Requested size: 338.58632pt x 132.52357pt.
+ [25 <./im/fcfs34.png> <./im/fcfs35.png>]
+<im/timeslice.png, id=515, 442.65375pt x 206.7725pt>
+File: im/timeslice.png Graphic file (type png)
+<use im/timeslice.png>
+Package pdftex.def Info: im/timeslice.png  used on input line 789.
+(pdftex.def)             Requested size: 241.84843pt x 112.9743pt.
+<im/rr1.png, id=516, 398.48875pt x 144.54pt>
+File: im/rr1.png Graphic file (type png)
+<use im/rr1.png>
+Package pdftex.def Info: im/rr1.png  used on input line 804.
+(pdftex.def)             Requested size: 241.84843pt x 87.72374pt.
+<im/rr12.png, id=517, 602.25pt x 262.9825pt>
+File: im/rr12.png Graphic file (type png)
+<use im/rr12.png>
+Package pdftex.def Info: im/rr12.png  used on input line 811.
+(pdftex.def)             Requested size: 241.84843pt x 105.60846pt.
+ [26 <./im/timeslice.png> <./im/rr1.png>]
+<im/rr13.png, id=527, 583.17876pt x 252.945pt>
+File: im/rr13.png Graphic file (type png)
+<use im/rr13.png>
+Package pdftex.def Info: im/rr13.png  used on input line 819.
+(pdftex.def)             Requested size: 241.84843pt x 104.89688pt.
+<im/rr14.png, id=528, 603.25375pt x 281.05pt>
+File: im/rr14.png Graphic file (type png)
+<use im/rr14.png>
+Package pdftex.def Info: im/rr14.png  used on input line 826.
+(pdftex.def)             Requested size: 241.84843pt x 112.67102pt.
+<im/rr15.png, id=529, 607.26875pt x 223.83624pt>
+File: im/rr15.png Graphic file (type png)
+<use im/rr15.png>
+Package pdftex.def Info: im/rr15.png  used on input line 833.
+(pdftex.def)             Requested size: 241.84843pt x 89.14354pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 837--838
+
+ []
+
+[27 <./im/rr12.png> <./im/rr13.png> <./im/rr14.png>]
+<im/fcfsrr.png, id=540, 393.47pt x 235.88126pt>
+File: im/fcfsrr.png Graphic file (type png)
+<use im/fcfsrr.png>
+Package pdftex.def Info: im/fcfsrr.png  used on input line 847.
+(pdftex.def)             Requested size: 241.84843pt x 144.98512pt.
+ [28 <./im/rr15.png> <./im/fcfsrr.png>]
+<im/sjf1.png, id=550, 717.68124pt x 322.20375pt>
+File: im/sjf1.png Graphic file (type png)
+<use im/sjf1.png>
+Package pdftex.def Info: im/sjf1.png  used on input line 876.
+(pdftex.def)             Requested size: 241.84843pt x 108.57437pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 873--880
+
+ []
+
+<im/sjf2.png, id=551, 903.375pt x 339.2675pt>
+File: im/sjf2.png Graphic file (type png)
+<use im/sjf2.png>
+Package pdftex.def Info: im/sjf2.png  used on input line 887.
+(pdftex.def)             Requested size: 241.84843pt x 90.82692pt.
+<im/sjf21.png, id=552, 904.37875pt x 332.24126pt>
+File: im/sjf21.png Graphic file (type png)
+<use im/sjf21.png>
+Package pdftex.def Info: im/sjf21.png  used on input line 894.
+(pdftex.def)             Requested size: 241.84843pt x 88.8445pt.
+[29 <./im/sjf1.png> <./im/sjf2.png>]
+<im/sjf22.png, id=564, 959.585pt x 367.3725pt>
+File: im/sjf22.png Graphic file (type png)
+<use im/sjf22.png>
+Package pdftex.def Info: im/sjf22.png  used on input line 903.
+(pdftex.def)             Requested size: 241.84843pt x 92.58844pt.
+<im/sjf23.png, id=565, 905.3825pt x 376.40625pt>
+File: im/sjf23.png Graphic file (type png)
+<use im/sjf23.png>
+Package pdftex.def Info: im/sjf23.png  used on input line 916.
+(pdftex.def)             Requested size: 241.84843pt x 100.54552pt.
+ [30 <./im/sjf21.png> <./im/sjf22.png> <./im/sjf23.png>]
+<im/sjf24.png, id=576, 934.49126pt x 348.30125pt>
+File: im/sjf24.png Graphic file (type png)
+<use im/sjf24.png>
+Package pdftex.def Info: im/sjf24.png  used on input line 924.
+(pdftex.def)             Requested size: 241.84843pt x 90.13632pt.
+<im/confronto3.png, id=577, 810.02625pt x 397.485pt>
+File: im/confronto3.png Graphic file (type png)
+<use im/confronto3.png>
+Package pdftex.def Info: im/confronto3.png  used on input line 939.
+(pdftex.def)             Requested size: 241.84843pt x 118.67628pt.
+ [31 <./im/sjf24.png> <./im/confronto3.png>]
+<im/mlq.png, id=591, 609.27625pt x 397.485pt>
+File: im/mlq.png Graphic file (type png)
+<use im/mlq.png>
+Package pdftex.def Info: im/mlq.png  used on input line 986.
+(pdftex.def)             Requested size: 241.84843pt x 157.77815pt.
+ [32 <./im/mlq.png>]
+<im/mlq1.png, id=599, 925.4575pt x 477.785pt>
+File: im/mlq1.png Graphic file (type png)
+<use im/mlq1.png>
+Package pdftex.def Info: im/mlq1.png  used on input line 998.
+(pdftex.def)             Requested size: 241.84843pt x 124.85542pt.
+<im/mlq2.png, id=600, 934.49126pt x 481.8pt>
+File: im/mlq2.png Graphic file (type png)
+<use im/mlq2.png>
+Package pdftex.def Info: im/mlq2.png  used on input line 1008.
+(pdftex.def)             Requested size: 241.84843pt x 124.68425pt.
+<im/mlq3.png, id=601, 715.67375pt x 358.33875pt>
+File: im/mlq3.png Graphic file (type png)
+<use im/mlq3.png>
+Package pdftex.def Info: im/mlq3.png  used on input line 1015.
+(pdftex.def)             Requested size: 241.84843pt x 121.08994pt.
+ [33 <./im/mlq1.png> <./im/mlq2.png> <./im/mlq3.png>]
+<im/mlq4.png, id=614, 722.7pt x 359.3425pt>
+File: im/mlq4.png Graphic file (type png)
+<use im/mlq4.png>
+Package pdftex.def Info: im/mlq4.png  used on input line 1023.
+(pdftex.def)             Requested size: 241.84843pt x 120.25024pt.
+<im/mlq5.png, id=615, 696.6025pt x 368.37625pt>
+File: im/mlq5.png Graphic file (type png)
+<use im/mlq5.png>
+Package pdftex.def Info: im/mlq5.png  used on input line 1030.
+(pdftex.def)             Requested size: 241.84843pt x 127.89374pt.
+ [34 <./im/mlq4.png> <./im/mlq5.png>] [35] [36] [37] [38] [39] (./so.aux)
+Package rerunfilecheck Info: File `so.out' has not changed.
+(rerunfilecheck)             Checksum: BECFAE5D0304B7763EC7A6DFB11C35FE;7832.
+ ) 
+Here is how much of TeX's memory you used:
+ 14543 strings out of 476025
+ 232978 string characters out of 5790017
+ 1883388 words of memory out of 5000000
+ 34563 multiletter control sequences out of 15000+600000
+ 519606 words of font info for 56 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,11n,77p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on so.pdf (39 pages, 4628107 bytes).
+PDF statistics:
+ 792 PDF objects out of 1000 (max. 8388607)
+ 614 compressed objects within 7 object streams
+ 231 named destinations out of 1000 (max. 500000)
+ 549 words of extra memory for PDF output out of 10000 (max. 10000000)
+
