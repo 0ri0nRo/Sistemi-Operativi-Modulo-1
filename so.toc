@@ -35,8 +35,9 @@
 \contentsline {subsubsection}{\numberline {2.12.3}FCFS vs RR}{28}{subsubsection.2.12.3}%
 \contentsline {subsubsection}{\numberline {2.12.4}Shortest-Job-First (SJF)}{29}{subsubsection.2.12.4}%
 \contentsline {subsubsection}{\numberline {2.12.5}Confronto tra FCFS, RR e SJF}{31}{subsubsection.2.12.5}%
-\contentsline {section}{\numberline {3}Sincronizzazione tra Processi/Thread}{32}{section.3}%
-\contentsline {section}{\numberline {4}Gestione della Memoria}{33}{section.4}%
-\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{34}{section.5}%
-\contentsline {section}{\numberline {6}File System}{35}{section.6}%
-\contentsline {section}{\numberline {7}Advanced Topics}{36}{section.7}%
+\contentsline {subsubsection}{\numberline {2.12.6}Priority Scheduling}{31}{subsubsection.2.12.6}%
+\contentsline {section}{\numberline {3}Sincronizzazione tra Processi/Thread}{33}{section.3}%
+\contentsline {section}{\numberline {4}Gestione della Memoria}{34}{section.4}%
+\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{35}{section.5}%
+\contentsline {section}{\numberline {6}File System}{36}{section.6}%
+\contentsline {section}{\numberline {7}Advanced Topics}{37}{section.7}%

@@ -917,6 +917,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
                 \caption{}    
             \end{center}
         \end{figure} 
+        \pagebreak
         \item Analogamente al processo D, verranno eseguiti il processo A e il processo C, ognuno di essi fino al loro completamento (poiché, nel frattempo, nessun altro processo viene inserito nella ready queue, dunque non viene mai attivato l'algoritmo di scheduling).
         \begin{figure}[hbt]
             \begin{center}
@@ -931,7 +932,6 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
     \end{itemize}
 \end{enumerate}
 
-\pagebreak
 \subsubsection{Confronto tra FCFS, RR e SJF}
 
 \begin{figure}[hbt]
@@ -940,6 +940,23 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
         \caption{}    
     \end{center}
 \end{figure}
+
+
+\subsubsection{Priority Scheduling}
+Nel \textbf{Priority Scheduling} a ciascun processo è assegnata una priorità e il processo eseguibile con la priorità più alta è quello cui è consentita l'esecuzione. Per impedire che i processi ad alta priorità siano eseguiti \textbf{indefinitamente}, lo scheduler può abbassare la priorità del processo attualmente in esecuzione a ogni scatto del clock (cioè a ogni interrupt). Se questa azione fa sì che la sua \textbf{priorità} vada al di sotto di quella del proceso successivo, avviene uno scambio di processo. In alternativa a ciascun processo può essere assegnato uno slice massimo in cui può essere eseguito.\par 
+Le priorità possono essere assegnate in due modi:
+\begin{itemize}
+    \item Internamente, ossia assegnate dall'OS in base a determinati criteri (ad esempio il CPU burst medio, il rateo di attività tra CPU e I/O, risorse utilizzate, \dots)
+    \item Esternamente, ossia assegnate dall'utente in base all'importanza del job o di altri criteri.
+\end{itemize}\par
+
+Un semplice algoritmo che offre un buon servizio ai processi I/O bound è quello di impostare la priorità a 1/$f$, dove $f$ è la frazione dell'ultimo quanto usao dal processo. Un processo che ha usato uno solo dei suoi 50 ms di slice avrà una prioria 50, mentre un processo che sia stato eseguito per 25 ms prima di bloccarsi avrà priorità 2; un processo che abbia usato tutto lo slice avrà priorità 1.
+
+Il priority scheduling può essere sia \textbf{non-preemptive} sia \textbf{preemptive}.
+
+\subsubsection*{Problemi}
+Il Priority Scheduling può soffrire di starvation, dove un job di bassa priorità rimane in attesa perenne poiché altri job hanno sempre una priorità maggiore. Tali job potrebbero essere eseguiti eventualmente quando il carico del sistema è minore o dopo che il sistema stesso vada in crash, venga spento o venga riavviato. 
+Come contromisura alla starvation viene utilizzato l'\textit{aging}, ossia l'incremento della priorità di un job in base al suo tempo in attesa, finché essi non verranno eventualmente schedulati.
 
 
 \pagebreak
