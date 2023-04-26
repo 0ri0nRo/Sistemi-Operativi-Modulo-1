@@ -839,7 +839,7 @@ Il limite superiore per lo start time di un processo in una coda di n processi u
     $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{5 + 2 + 6}{3} = \frac{13}{3} \simeq 4.3$
 \end{itemize}
 \pagebreak
-\subsubsection{FCFS vs RR}
+\subsubsection*{FCFS vs RR}
 Confrontando il tournaround time e il waiting time medio tra uno scheduler FCFS e uno scheduler RR, il primo sembra essere a primo occhio più performante del secondo. \par
 Tuttavia, considerando la varianza tra i waiting time di ogni processo, notiamo come il RR risulta essere più equo, fornendo ad ogni processo la stessa quantità di tempo di utilizzo della CPU.
 \begin{figure}[hbt]
@@ -932,7 +932,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
     \end{itemize}
 \end{enumerate}
 
-\subsubsection{Confronto tra FCFS, RR e SJF}
+\subsubsection*{Confronto tra FCFS, RR e SJF}
 
 \begin{figure}[hbt]
     \begin{center}
@@ -958,13 +958,92 @@ Il priority scheduling può essere sia \textbf{non-preemptive} sia \textbf{preem
 Il Priority Scheduling può soffrire di starvation, dove un job di bassa priorità rimane in attesa perenne poiché altri job hanno sempre una priorità maggiore. Tali job potrebbero essere eseguiti eventualmente quando il carico del sistema è minore o dopo che il sistema stesso vada in crash, venga spento o venga riavviato. 
 Come contromisura alla starvation viene utilizzato l'\textit{aging}, ossia l'incremento della priorità di un job in base al suo tempo in attesa, finché essi non verranno eventualmente schedulati.
 
-\subsubsection{Multilevel Queue (MLQ)}
+\subsubsection{Multilevel Queue (MLQ e MLFQ)}
+L'algoritmo \textbf{Multilevel Queue (MLQ)} è un algoritmo di scheduling basato sull'utilizzo di queue multiple separate tra loro, ognuna per ogni categoria di job, dove ogni queue utilizza l'algoritmo di scheduling più appropiato per una determinata categoria di job. Una volta inserito all'interno di una queue, nessun job può essere spostato in un'altra queue.\par
+Le due opzioni più comuni per l'implentazione di tale algoritmo sono:
+\begin{itemize}
+    \item \textbf{String priority}, dove nessun job all'interno di una queue di priorità più bassa viene eseguito finché esiste almeno un job delle queue di priorità più alta
+    \item \textbf{Round robin}, dove ogni queue utilizza un proprio time slice, il quale aumenta esponenzialmente al diminuire della priorità della coda
+\end{itemize}
+L'algoritmo \textbf{Multilevel Feedback Queue} (MLFQ) segue la stessa idea dell'algo- ritmo MLQ, con l'aggiunta della possibilità per ogni job di essere spostato da una queue all'altra.\par
+Lo spostamento di un job può rivelarsi necessario quando:
+\begin{itemize}
+    \item Un job passa dall'utilizzare molto la CPU all'utilizzare molto l'I/O e viceversa
+    \item Un job è in stato di starving, venendo spostato per breve tempo in una queue a priorità più alta
+\end{itemize}
+Per gestire gli spostamenti, l'algoritmo utilizza le seguenti regole:
+\begin{itemize}
+    \item Inizialmente ad ogni job viene assegnata la priorità più alta
+    \item Se il time slice di un job scade, allora quest'ultimo viene spostato nella queue con un livello di priorità inferiore rispetto a quella precedente
+    \item Se il time slice di un job non scade, allora quest'ultimo viene spostato nella queue con un livello di priorità superiore rispetto a quella precedente
+    \item La priorità di processi strettamente legati alla CPU viene diminuita rapidamente
+    \item La priorità di processi strettamente legati all'I/O rimarrà alta
+\end{itemize}
+
+\subsubsection*{Esempio di suddivisione tramite MLQ e MLFQ:}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq}}
+        \caption{}    
+    \end{center}
+\end{figure}
+\pagebreak
+\subsubsection*{Esempi}
+\begin{enumerate}
+    \item  Consideriamo la seguente coda di processi gestita da un algoritmo MLFQ con 3 queue e strict priority.
+    \begin{itemize}
+        \item Supponiamo:
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq1}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Per indicare l'avanzamento di ogni processo all'avanzare del tempo, utilizziamo la notazione:
+        \begin{center}
+            $JOB_{total\_elapsed\_time}^{execution\_time}$
+        \end{center}
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq2}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Siccome il time slice per tutti e tre i processi è scaduto, ognuno di essi viene spostato nella queue a priorità inferiore
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq3}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \pagebreak
+        \item Analogamente, a prima, anche in questo caso il time slice per tutti e tre scade, dunque vengono spostati alla queue inferiore
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq4}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Una volta raggiunta la queue a priorità più bassa, il time slice di tutti e tre i processi scadrà sempre fino al loro completamento
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mlq5}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+    \end{itemize}
+\end{enumerate}
 
 
-
-
-
-
+\subsubsection{Extra: Lottery scheduling}
+L'algoritmo \textbf{lottery scheduling} è un algoritmo di scheduling basato sulla casualità:
+\begin{enumerate}
+    \item Ad ogni job vengono assegnati un determinato numero di biglietti. I job attivi da poco riceverrano più biglietti, mentre quelli attivi da molto ne riceveranno di meno. Per evitare la starvation, ad ogni job viene assegnato almeno un biglietto
+    \item Ogni volta che un time slice scade viene determinato un biglietto vincitore. Il processo che detiene tale biglietto prenderà il controllo della CPU.
+    \item Ai processi più importanti vengono assegnati biglietti extra
+    \item Successivamente, il procedimento viene ripetuto
+\end{enumerate}
+Per via della legge dei grandi numeri, all'aumentare del numero di estrazioni effettuate il tempo di utilizzo della CPU di ogni processo tenderà a raggiungere la media.
 
 
 \pagebreak
