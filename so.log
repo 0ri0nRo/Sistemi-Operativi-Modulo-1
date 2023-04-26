@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  26 APR 2023 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.31)  26 APR 2023 17:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -585,155 +585,150 @@ Package pdftex.def Info: im/fcfs14.png  used on input line 703.
 <im/fcfs21.png, id=486, 843.15pt x 331.2375pt>
 File: im/fcfs21.png Graphic file (type png)
 <use im/fcfs21.png>
-Package pdftex.def Info: im/fcfs21.png  used on input line 722.
+Package pdftex.def Info: im/fcfs21.png  used on input line 724.
 (pdftex.def)             Requested size: 338.58632pt x 133.01828pt.
  [24 <./im/fcfs14.png> <./im/fcfs21.png>]
 <im/fcfs31.png, id=498, 579.16376pt x 197.73875pt>
 File: im/fcfs31.png Graphic file (type png)
 <use im/fcfs31.png>
-Package pdftex.def Info: im/fcfs31.png  used on input line 734.
+Package pdftex.def Info: im/fcfs31.png  used on input line 738.
 (pdftex.def)             Requested size: 338.58632pt x 115.59976pt.
 <im/fcfs32.png, id=499, 871.255pt x 387.4475pt>
 File: im/fcfs32.png Graphic file (type png)
 <use im/fcfs32.png>
-Package pdftex.def Info: im/fcfs32.png  used on input line 744.
+Package pdftex.def Info: im/fcfs32.png  used on input line 748.
 (pdftex.def)             Requested size: 338.58632pt x 150.56592pt.
 <im/fcfs33.png, id=500, 855.195pt x 323.2075pt>
 File: im/fcfs33.png Graphic file (type png)
 <use im/fcfs33.png>
-Package pdftex.def Info: im/fcfs33.png  used on input line 751.
+Package pdftex.def Info: im/fcfs33.png  used on input line 755.
 (pdftex.def)             Requested size: 338.58632pt x 127.96393pt.
  [25 <./im/fcfs31.png> <./im/fcfs32.png> <./im/fcfs33.png>]
 <im/fcfs34.png, id=513, 835.12pt x 299.1175pt>
 File: im/fcfs34.png Graphic file (type png)
 <use im/fcfs34.png>
-Package pdftex.def Info: im/fcfs34.png  used on input line 760.
+Package pdftex.def Info: im/fcfs34.png  used on input line 764.
 (pdftex.def)             Requested size: 338.58632pt x 121.27428pt.
 <im/fcfs35.png, id=514, 841.1425pt x 329.23pt>
 File: im/fcfs35.png Graphic file (type png)
 <use im/fcfs35.png>
-Package pdftex.def Info: im/fcfs35.png  used on input line 767.
+Package pdftex.def Info: im/fcfs35.png  used on input line 771.
 (pdftex.def)             Requested size: 338.58632pt x 132.52357pt.
  [26 <./im/fcfs34.png> <./im/fcfs35.png>]
 <im/timeslice.png, id=524, 442.65375pt x 206.7725pt>
 File: im/timeslice.png Graphic file (type png)
 <use im/timeslice.png>
-Package pdftex.def Info: im/timeslice.png  used on input line 789.
+Package pdftex.def Info: im/timeslice.png  used on input line 793.
 (pdftex.def)             Requested size: 338.58632pt x 158.16782pt.
 <im/rr1.png, id=525, 398.48875pt x 144.54pt>
 File: im/rr1.png Graphic file (type png)
 <use im/rr1.png>
-Package pdftex.def Info: im/rr1.png  used on input line 804.
+Package pdftex.def Info: im/rr1.png  used on input line 808.
 (pdftex.def)             Requested size: 338.58632pt x 122.81766pt.
 <im/rr12.png, id=526, 602.25pt x 262.9825pt>
 File: im/rr12.png Graphic file (type png)
 <use im/rr12.png>
-Package pdftex.def Info: im/rr12.png  used on input line 811.
+Package pdftex.def Info: im/rr12.png  used on input line 815.
 (pdftex.def)             Requested size: 338.58632pt x 147.85504pt.
  [27 <./im/timeslice.png> <./im/rr1.png>]
 <im/rr13.png, id=536, 583.17876pt x 252.945pt>
 File: im/rr13.png Graphic file (type png)
 <use im/rr13.png>
-Package pdftex.def Info: im/rr13.png  used on input line 819.
+Package pdftex.def Info: im/rr13.png  used on input line 823.
 (pdftex.def)             Requested size: 338.58632pt x 146.85872pt.
 <im/rr14.png, id=537, 603.25375pt x 281.05pt>
 File: im/rr14.png Graphic file (type png)
 <use im/rr14.png>
-Package pdftex.def Info: im/rr14.png  used on input line 826.
+Package pdftex.def Info: im/rr14.png  used on input line 830.
 (pdftex.def)             Requested size: 338.58632pt x 157.74286pt.
 <im/rr15.png, id=538, 607.26875pt x 223.83624pt>
 File: im/rr15.png Graphic file (type png)
 <use im/rr15.png>
-Package pdftex.def Info: im/rr15.png  used on input line 833.
+Package pdftex.def Info: im/rr15.png  used on input line 837.
 (pdftex.def)             Requested size: 338.58632pt x 124.80438pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 837--838
-
- []
-
-[28 <./im/rr12.png> <./im/rr13.png>]
+ [28 <./im/rr12.png> <./im/rr13.png>]
 <im/fcfsrr.png, id=547, 393.47pt x 235.88126pt>
 File: im/fcfsrr.png Graphic file (type png)
 <use im/fcfsrr.png>
-Package pdftex.def Info: im/fcfsrr.png  used on input line 847.
-(pdftex.def)             Requested size: 338.58632pt x 202.97629pt.
- [29 <./im/rr14.png> <./im/rr15.png>]
-<im/sjf1.png, id=557, 717.68124pt x 322.20375pt>
+Package pdftex.def Info: im/fcfsrr.png  used on input line 852.
+(pdftex.def)             Requested size: 241.84843pt x 144.98512pt.
+ [29 <./im/rr14.png> <./im/rr15.png> <./im/fcfsrr.png>]
+<im/sjf1.png, id=559, 717.68124pt x 322.20375pt>
 File: im/sjf1.png Graphic file (type png)
 <use im/sjf1.png>
-Package pdftex.def Info: im/sjf1.png  used on input line 876.
+Package pdftex.def Info: im/sjf1.png  used on input line 881.
 (pdftex.def)             Requested size: 338.58632pt x 152.011pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 873--880
+Underfull \hbox (badness 10000) in paragraph at lines 878--885
 
  []
 
-<im/sjf2.png, id=558, 903.375pt x 339.2675pt>
+[30 <./im/sjf1.png>]
+<im/sjf2.png, id=568, 903.375pt x 339.2675pt>
 File: im/sjf2.png Graphic file (type png)
 <use im/sjf2.png>
-Package pdftex.def Info: im/sjf2.png  used on input line 887.
+Package pdftex.def Info: im/sjf2.png  used on input line 893.
 (pdftex.def)             Requested size: 338.58632pt x 127.1577pt.
-<im/sjf21.png, id=559, 904.37875pt x 332.24126pt>
+<im/sjf21.png, id=569, 904.37875pt x 332.24126pt>
 File: im/sjf21.png Graphic file (type png)
 <use im/sjf21.png>
-Package pdftex.def Info: im/sjf21.png  used on input line 894.
+Package pdftex.def Info: im/sjf21.png  used on input line 900.
 (pdftex.def)             Requested size: 338.58632pt x 124.38231pt.
-<im/sjf22.png, id=560, 959.585pt x 367.3725pt>
+<im/sjf22.png, id=570, 959.585pt x 367.3725pt>
 File: im/sjf22.png Graphic file (type png)
 <use im/sjf22.png>
-Package pdftex.def Info: im/sjf22.png  used on input line 903.
+Package pdftex.def Info: im/sjf22.png  used on input line 909.
 (pdftex.def)             Requested size: 338.58632pt x 129.62494pt.
-[30 <./im/fcfsrr.png>]
-<im/sjf23.png, id=570, 905.3825pt x 376.40625pt>
+ [31 <./im/sjf2.png> <./im/sjf21.png> <./im/sjf22.png>]
+<im/sjf23.png, id=583, 905.3825pt x 376.40625pt>
 File: im/sjf23.png Graphic file (type png)
 <use im/sjf23.png>
-Package pdftex.def Info: im/sjf23.png  used on input line 916.
+Package pdftex.def Info: im/sjf23.png  used on input line 923.
 (pdftex.def)             Requested size: 338.58632pt x 140.76143pt.
- [31 <./im/sjf1.png> <./im/sjf2.png> <./im/sjf21.png>]
-<im/sjf24.png, id=582, 934.49126pt x 348.30125pt>
+<im/sjf24.png, id=584, 934.49126pt x 348.30125pt>
 File: im/sjf24.png Graphic file (type png)
 <use im/sjf24.png>
-Package pdftex.def Info: im/sjf24.png  used on input line 924.
+Package pdftex.def Info: im/sjf24.png  used on input line 930.
 (pdftex.def)             Requested size: 338.58632pt x 126.19617pt.
-<im/confronto3.png, id=583, 810.02625pt x 397.485pt>
+<im/confronto3.png, id=585, 810.02625pt x 397.485pt>
 File: im/confronto3.png Graphic file (type png)
 <use im/confronto3.png>
-Package pdftex.def Info: im/confronto3.png  used on input line 939.
-(pdftex.def)             Requested size: 338.58632pt x 166.14803pt.
- [32 <./im/sjf22.png> <./im/sjf23.png> <./im/sjf24.png>] [33 <./im/confronto3.png>]
+Package pdftex.def Info: im/confronto3.png  used on input line 945.
+(pdftex.def)             Requested size: 241.84843pt x 118.67628pt.
+ [32 <./im/sjf23.png> <./im/sjf24.png> <./im/confronto3.png>] [33]
 <im/mlq.png, id=604, 609.27625pt x 397.485pt>
 File: im/mlq.png Graphic file (type png)
 <use im/mlq.png>
-Package pdftex.def Info: im/mlq.png  used on input line 986.
+Package pdftex.def Info: im/mlq.png  used on input line 992.
 (pdftex.def)             Requested size: 338.58632pt x 220.8979pt.
-<im/mlq1.png, id=605, 925.4575pt x 477.785pt>
+ [34 <./im/mlq.png>]
+<im/mlq1.png, id=612, 925.4575pt x 477.785pt>
 File: im/mlq1.png Graphic file (type png)
 <use im/mlq1.png>
-Package pdftex.def Info: im/mlq1.png  used on input line 997.
-(pdftex.def)             Requested size: 338.58632pt x 174.80197pt.
- [34 <./im/mlq.png> <./im/mlq1.png>]
-<im/mlq2.png, id=617, 934.49126pt x 481.8pt>
+Package pdftex.def Info: im/mlq1.png  used on input line 1004.
+(pdftex.def)             Requested size: 290.22107pt x 149.83235pt.
+<im/mlq2.png, id=613, 934.49126pt x 481.8pt>
 File: im/mlq2.png Graphic file (type png)
 <use im/mlq2.png>
-Package pdftex.def Info: im/mlq2.png  used on input line 1007.
+Package pdftex.def Info: im/mlq2.png  used on input line 1014.
 (pdftex.def)             Requested size: 266.03474pt x 137.16003pt.
-<im/mlq3.png, id=618, 715.67375pt x 358.33875pt>
+<im/mlq3.png, id=614, 715.67375pt x 358.33875pt>
 File: im/mlq3.png Graphic file (type png)
 <use im/mlq3.png>
-Package pdftex.def Info: im/mlq3.png  used on input line 1014.
+Package pdftex.def Info: im/mlq3.png  used on input line 1021.
 (pdftex.def)             Requested size: 266.03474pt x 133.20659pt.
-<im/mlq4.png, id=619, 722.7pt x 359.3425pt>
+ [35 <./im/mlq1.png> <./im/mlq2.png> <./im/mlq3.png>]
+<im/mlq4.png, id=627, 722.7pt x 359.3425pt>
 File: im/mlq4.png Graphic file (type png)
 <use im/mlq4.png>
-Package pdftex.def Info: im/mlq4.png  used on input line 1021.
-(pdftex.def)             Requested size: 290.22107pt x 144.30469pt.
- [35 <./im/mlq2.png> <./im/mlq3.png> <./im/mlq4.png>]
-<im/mlq5.png, id=630, 696.6025pt x 368.37625pt>
+Package pdftex.def Info: im/mlq4.png  used on input line 1029.
+(pdftex.def)             Requested size: 338.58632pt x 168.35364pt.
+<im/mlq5.png, id=628, 696.6025pt x 368.37625pt>
 File: im/mlq5.png Graphic file (type png)
 <use im/mlq5.png>
-Package pdftex.def Info: im/mlq5.png  used on input line 1030.
+Package pdftex.def Info: im/mlq5.png  used on input line 1036.
 (pdftex.def)             Requested size: 338.58632pt x 179.0501pt.
- [36 <./im/mlq5.png>] [37] [38] [39] [40] [41] [42] (./so.aux)
+ [36 <./im/mlq4.png> <./im/mlq5.png>] [37] [38] [39] [40] [41] [42] (./so.aux)
 Package rerunfilecheck Info: File `so.out' has not changed.
 (rerunfilecheck)             Checksum: 77DA8D5E2B980272CDA1155342C72B2F;8017.
  ) 

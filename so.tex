@@ -712,8 +712,10 @@ Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completament
             $T_{waiting} = T_{turnaround} - T_{burst} = T_{completion} - T_{arrival} - T_{burst} = 7 - 0 - 2 = 5$
             \item Per il processo C si ha:\\
             $T_{waiting} = T_{turnaround} - T_{burst} = T_{completion} - T_{arrival} - T_{burst} = 10 - 0 - 3 = 7$
-            \item Il waiting time medio, quindi, sarà:\\
-            $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 7}{3} = \frac{12}{3} = 4$
+            \item Il waiting time medio, quindi, sarà:
+            \begin{center}
+                $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 7}{3} = \frac{12}{3} = 4$
+            \end{center}
         \end{itemize}
     \end{itemize}
     \item Nel seguente scenario, utilizzando sempre uno scheduling FCFS, si ha:
@@ -724,8 +726,10 @@ Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completament
         \end{center}
     \end{figure}
     \begin{itemize}
-        \item Il waiting time medio, quindi, sarà:\\
-        $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 2}{3} = \frac{7}{3} \simeq 2.3$
+        \item Il waiting time medio, quindi, sarà:
+        \begin{center}
+            $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{0 + 5 + 2}{3} = \frac{7}{3} \simeq 2.3$
+        \end{center}
     \end{itemize}
 \pagebreak
     \item Consideriamo il seguente scenario:
@@ -834,9 +838,10 @@ Il limite superiore per lo start time di un processo in una coda di n processi u
             \caption{}    
         \end{center}
     \end{figure} 
-    \item Il waiting time medio, quindi, sarà:\\
-
-    $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{5 + 2 + 6}{3} = \frac{13}{3} \simeq 4.3$
+    \item Il waiting time medio, quindi, sarà:\par
+    \begin{center}
+        $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{5 + 2 + 6}{3} = \frac{13}{3} \simeq 4.3$
+    \end{center}
 \end{itemize}
 \pagebreak
 \subsubsection*{FCFS vs RR}
@@ -844,7 +849,7 @@ Confrontando il tournaround time e il waiting time medio tra uno scheduler FCFS 
 Tuttavia, considerando la varianza tra i waiting time di ogni processo, notiamo come il RR risulta essere più equo, fornendo ad ogni processo la stessa quantità di tempo di utilizzo della CPU.
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/fcfsrr}}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/fcfsrr}}
         \caption{}    
     \end{center}
 \end{figure} 
@@ -880,6 +885,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
         \begin{center}
             $\bar{T}_{ave.waiting}$ = $\frac{3 + 16 + 9 + 0}{4}$ = $\frac{28}{4} = 7$
         \end{center}
+    \pagebreak
     \item Consideriamo la seguente coda di processi gestita da uno scheduler SJF preemptive, ossia uno scheduler SRTF.
     \begin{itemize}
         \item \begin{figure}[hbt]
@@ -895,15 +901,16 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
                 \caption{}    
             \end{center}
         \end{figure} 
-        \item Una volta che il processo B viene creato, il suo CPU burst stimato, ossia 4, viene comparato con il CPU burst rimanente del processo A, ossia 7. Poiché 4 < 7, allora il processo B prende controllo della CPU.
-        Analogamente, nell'istante in cui il processo C viene creato, il suo CPU burst stimato, ossia 9, viene comparato con quello rimanente del processo A, ossia 6, e quello del processo B, ossia 3. Siccome 3 < 7 < 9, allora il processo B mantiene il controllo della CPU.
-        Lo stesso ragionamento viene effettuato anche dopo la creazione del processo D, dove il processo B mantiene il controllo (2 < 7 < 5 < 9). Di conseguenza, il processo B verrà eseguito fino al suo completamento.
+        \item Una volta che il processo B viene creato, il suo CPU burst stimato, ossia 4, viene comparato con il CPU burst rimanente del processo A, ossia 7. Poiché 4 $<$ 7, allora il processo B prende controllo della CPU.
+        Analogamente, nell'istante in cui il processo C viene creato, il suo CPU burst stimato, ossia 9, viene comparato con quello rimanente del processo A, ossia 6, e quello del processo B, ossia 3. Siccome 3 $<$ 7 $<$ 9, allora il processo B mantiene il controllo della CPU.
+        Lo stesso ragionamento viene effettuato anche dopo la creazione del processo D, dove il processo B mantiene il controllo \hbox{(2 $<$ 7 $<$ 5 $<$ 9)}.\\ Di conseguenza, il processo B verrà eseguito fino al suo completamento.
         \begin{figure}[hbt]
             \begin{center}
                 \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/sjf22}}
                 \caption{}    
             \end{center}
         \end{figure} 
+        \pagebreak
         \item Una volta completato il processo B, verrà eseguito il processo avente il CPU burst stimato minore:
         \begin{itemize}
             \item  Il processo A ha un CPU burst rimanente pari a 7 
@@ -917,7 +924,6 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
                 \caption{}    
             \end{center}
         \end{figure} 
-        \pagebreak
         \item Analogamente al processo D, verranno eseguiti il processo A e il processo C, ognuno di essi fino al loro completamento (poiché, nel frattempo, nessun altro processo viene inserito nella ready queue, dunque non viene mai attivato l'algoritmo di scheduling).
         \begin{figure}[hbt]
             \begin{center}
@@ -936,11 +942,11 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
 
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/confronto3}}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/confronto3}}
         \caption{}    
     \end{center}
 \end{figure}
-
+\pagebreak
 
 \subsubsection{Priority Scheduling}
 Nel \textbf{Priority Scheduling} a ciascun processo è assegnata una priorità e il processo eseguibile con la priorità più alta è quello cui è consentita l'esecuzione. Per impedire che i processi ad alta priorità siano eseguiti \textbf{indefinitamente}, lo scheduler può abbassare la priorità del processo attualmente in esecuzione a ogni scatto del clock (cioè a ogni interrupt). Se questa azione fa sì che la sua \textbf{priorità} vada al di sotto di quella del proceso successivo, avviene uno scambio di processo. In alternativa a ciascun processo può essere assegnato uno slice massimo in cui può essere eseguito.\par 
@@ -957,7 +963,7 @@ Il priority scheduling può essere sia \textbf{non-preemptive} sia \textbf{preem
 \subsubsection*{Problemi}
 Il Priority Scheduling può soffrire di \textit{starvation}, dove un job di bassa priorità rimane in attesa per un tempo indefinito, poiché altri job hanno sempre una priorità maggiore. Tali job potrebbero essere eseguiti eventualmente quando il carico del sistema è minore o dopo che il sistema stesso vada in crash, venga spento o venga riavviato. 
 Come contromisura alla \textit{starvation} viene utilizzato l'\textit{aging}, ossia l'incremento della priorità di un job in base al suo tempo in attesa, finché essi non verranno eventualmente schedulati.
-
+\pagebreak
 \subsubsection{Multilevel Queue (MLQ e MLFQ)}
 L'algoritmo \textbf{Multilevel Queue (MLQ)} è un algoritmo di scheduling basato sull'utilizzo di queue multiple separate tra loro, ognuna per ogni categoria di job, dove ogni queue utilizza l'algoritmo di scheduling più appropiato per una determinata categoria di job. Una volta inserito all'interno di una queue, nessun job può essere spostato in un'altra queue.\par
 Le due opzioni più comuni per l'implentazione di tale algoritmo sono:
@@ -987,6 +993,7 @@ Per gestire gli spostamenti, l'algoritmo utilizza le seguenti regole:
         \caption{}    
     \end{center}
 \end{figure}
+\pagebreak
 \subsubsection*{Esempio}
 \begin{enumerate}
     \item  Consideriamo la seguente coda di processi gestita da un algoritmo MLFQ con 3 queue e strict priority.
@@ -994,7 +1001,7 @@ Per gestire gli spostamenti, l'algoritmo utilizza le seguenti regole:
         \item Supponiamo:
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/mlq1}}
+                \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/mlq1}}
                 \caption{}    
             \end{center}
         \end{figure}
@@ -1015,15 +1022,14 @@ Per gestire gli spostamenti, l'algoritmo utilizza le seguenti regole:
                 \caption{}    
             \end{center}
         \end{figure}
+        \pagebreak
         \item Analogamente, a prima, anche in questo caso il time slice per tutti e tre scade, dunque vengono spostati alla queue inferiore
         \begin{figure}[hbt]
             \begin{center}
-                \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/mlq4}}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/mlq4}}
                 \caption{}    
             \end{center}
         \end{figure}
-        \pagebreak
-
         \item Una volta raggiunta la queue a priorità più bassa, il time slice di tutti e tre i processi scadrà sempre fino al loro completamento
         \begin{figure}[hbt]
             \begin{center}
@@ -1047,6 +1053,25 @@ Per via della legge dei grandi numeri, all'aumentare del numero di estrazioni ef
 
 \pagebreak
 \subsection{Thread e Multi-threading}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \pagebreak
 
