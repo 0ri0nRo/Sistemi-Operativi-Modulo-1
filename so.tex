@@ -138,7 +138,7 @@ La gestione delle risorse include il multiplexing (condivisione) delle risorse i
     \end{itemize}
 
 \subsubsection{Processori}
-La CPU preleva le istruzioni della memoria (esegue il \textbf{fetch}) e le esegue. La CPU si occupa poi di decodificarla per determinare il tipo e gli operandi , eseguirla e poi prelevare, decodificare ed eseguire le successive. Poichè accedere alla memoria richiede molte risorse tutte le CPU contengono all'interno dei \textbf{registri}  per memorizzare variabili importanti o risultati temporanei. Oltre ai registri i computer contengono il \textbf{program counter (PC)}, contente l'indirizzo di memoria in sui si trova la successiva istruzione da seguire, dopodichè viene il PC viene aggiornato per posizionarsi sulla successiva. \\
+La CPU preleva le istruzioni della memoria (esegue il \textbf{fetch}) e le esegue. La CPU si occupa poi di decodifi\textit{Carla} per determinare il tipo e gli operandi , eseguirla e poi prelevare, decodificare ed eseguire le successive. Poichè accedere alla memoria richiede molte risorse tutte le CPU contengono all'interno dei \textbf{registri}  per memorizzare variabili importanti o risultati temporanei. Oltre ai registri i computer contengono il \textbf{program counter (PC)}, contente l'indirizzo di memoria in sui si trova la successiva istruzione da seguire, dopodichè viene il PC viene aggiornato per posizionarsi sulla successiva. \\
 Un altro registro è lo \textbf{stack pointer} che punta alla cima dello stack attuale. Un altro registro è il \textbf{program status word (PSW)} che contiene i bit di condizione, impostati da istruzioni di confronto, la prorità della CPU, la modalità (kernel o utente) e altri bit di controllo. 
 Nelle architetture più moderne, vengono implementati più livelli di protezione, detti \textbf{protection rings}. Ogni ring aggiunge restrizioni sulle istruzioni eseguibili dalla CPU.
 \begin{figure}[hbt]
@@ -187,7 +187,7 @@ Esistono sei categorie importanti di System call:
         \begin{itemize}
             \item  Creare e accedere alla memoria condivisa tra processi (e thread) 
             \item Fornire meccanismi di blocco che limitano l'accesso simultaneo
-            \item Liberare memoria condivisa e/o allocarla dinamicamente secondo necessità
+            \item Liberare memoria condivisa e/o allo\textit{Carla} dinamicamente secondo necessità
         \end{itemize}
     \end{itemize}
 \end{itemize}
@@ -1277,15 +1277,131 @@ In un'implementazione specifica, i thread utente devono essere mappati ai thread
     Nello \textbf{SCS}, la competizione avviene tra tutti i thread di ogni processo e viene implementato in sistemi basati sul modello One-to-One, dove ogni thread è mappato su un kernel thread dedicato.\\
     
     Per comunicare con le librerie per i thread nel momento in cui un evento si verifica, il kernel utilizza un lightweight process (\textbf{LWP}). Le up-call, ovvero le chiamate dal kernel alla libreria, vengono gestite da un upcall handler presente nella libreria stessa. Ogni upcall fornisce un nuovo LWP tramite cui l'upcall handler verrà eseguito, garantendo una gestione efficiente e ottimizzata dei thread.
-
-
-
-
-
 \pagebreak
 
 \section{Sincronizzazione tra Processi/Thread}
-%-------------------------------------------------------%
+
+Abbiamo già accennato al fatto che i processi/thread possono cooperare tra loro per raggiungere un compito comune. Tuttavia, la cooperazione può richiedere la \textbf{sincronizzazione}\footnote{La sincronizzazione come soluzione al problema della sezione critica} tra i thread a causa della presenza delle cosiddette sezioni critiche (regioni critiche). Le \textbf{primitive} di sincronizzazione sono necessarie per garantire che solo un thread alla volta esegua una sezione critica. 
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/cs}}
+        \caption{The Critical Section Problem}    
+    \end{center}
+\end{figure}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/cs1}}
+        \caption{The Critical Section Problem}    
+    \end{center}
+\end{figure}
+
+Qualsiasi soluzione di sincronizzazione al problema della sezione critica deve soddisfare tre proprietà:
+\begin{itemize}
+    \item \textbf{Mutua esclusione}, ossia solo un processo/thread alla volta può trovarsi nella sua sezione critica
+    \item  \textbf{Liveness}, ossia se nessun processo è nella sua sezione critica, e uno o più vogliono eseguirlo allora ognuno di questi deve essere in grado di entrare nella sua sezione critica
+    \item  \textbf{Bounded Waiting}, ossia un processo che richiede l'ingresso nella sua sezione critica avrà un turno alla fine, e c'è un limite su quanti altri possono iniziare per primi
+\end{itemize}
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/bob}}
+        \caption{The Critical Section Problem}    
+    \end{center}
+\end{figure}
+
+Nell'esempio del latte:
+\begin{itemize}
+    \item  Garantire l'esclusione reciproca significa non più latte di quanto sarà necessario
+    comprare (cioè, solo uno tra \textit{Bob} e \textit{Carla} comprerà il latte se necessario)
+    \item  Garantire la vivacità significa che qualcuno dovrebbe comprare del latte (cioè, l'opzione dove sia \textit{Bob} che \textit{Carla} non fanno nulla è sicuramente sicuro ma indesiderabile)
+    \item  Garantire l'attesa del limite significa che alla fine \textit{Bob} e \textit{Carla} entreranno nella loro sezione critica
+\end{itemize}
+    
+
+Per poter sincronizzare i processi/thread tra di loro, i linguaggi di programmazione forniscono delle primitive atomiche basate su una delle seguenti tre soluzioni:
+\begin{itemize}
+    \item La sincronizzazione avviene tramite un \textbf{lock}, dove prima di accedere ad un settore critico un processo acquisisce tale lock, per poi rilasciarlo una volta uscito dal settore critico
+    \item La sincronizzazione avviene tramite un \textbf{semaforo}, una generalizzazione del lock
+    \item La sincronizzazione avviene tramite un \textbf{monitor}, il quale connette dei dati condivisi alle primitive di sincronizzazione
+\end{itemize}
+
+
+\subsubsection{I Lock}
+Fornire l'esclusione reciproca ai dati condivisi utilizzando due primitive atomiche: 
+\begin{itemize}
+    \item \texttt{Lock.acquire()} à attendere che il blocco sia libero, quindi acquisirlo
+    \item \texttt{Lock.release()} per sbloccare e riattivare qualsiasi thread di attesa in \texttt{acquire()}
+\end{itemize}
+
+Esistono delle regole per l'utilizzo di un lock:
+\begin{itemize}
+    \item Acquisire sempre il blocco prima di accedere ai dati condivisi
+    \item Rilasciare sempre il blocco dopo aver terminato con i dati condivisi • Il blocco deve essere inizialmente libero
+    \item Solo un processo/thread può acquisire il lock, gli altri aspetteranno!
+\end{itemize}
+
+Poiché lo scheduler della CPU prende il controllo solo a seguito di eventi interni, ossia quando il thread in esecuzione lascia il controllo della CPU, oppure a seguito di eventi esterni, per evitare problemi all'interno dei settori critici è necessario impedire lo scheduling durante il rilascio o l'acquisizione di un lock. Per implementare le \textbf{primitive} ad alto livello relative alla sincronizzazione, quindi, è necessario del supporto harware al basso livello che possa rendere tali \textbf{operazioni atomiche}\footnote{Un'operazione viene detta atomica se essa non può essere interrotta in alcun modo, impedendo quindi che possa avvenire un context switch durante la sua esecuzione.}, in particolare tramite la \textbf{disabilitazione degli interrupt}\footnote{La prima soluzione a supporto hardware per poter implementare la sincronizzazione, corrisponde alla disabilitazione degli interrupt mentre un thread acquisisce o rilascia un lock} o l'uso di istruzioni atomiche.
+
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/lock}}
+        \caption{The Critical Section Problem}    
+    \end{center}
+\end{figure}
+
+Sui sistemi a CPU singola, possiamo impedire allo scheduler di prendere il sopravvento: 
+\begin{itemize}
+    \item eventi interni imponendo ai thread di non richiedere alcuna operazione di I/O durante un
+    sezione critica
+    \item evento esterno per disabilitare gli interrupt (ovvero, dire all'HW di ritardare la gestione di qualsiasi evento esterno fino a quando il thread corrente non è terminato con la sezione critica)
+\end{itemize}
+Copriamo tutti i possibili casi in cui il thread corrente potrebbe perdere il controllo della CPU, volontariamente (a causa di eventi interni) o involontariamente (a causa di eventi esterni)
+
+
+\subsubsection*{Istruzione atomica}
+Un'istruzione atomica di lettura-modifica-scrittura legge un valore dalla memoria in un registro e scrive un nuovo valore in un colpo solo. Su un uniprocessore sarà semplice implementare l'aggiunta di una nuova istruzione mentre su un multiprocessore, anche il processore che impartisce l'istruzione deve essere in grado di farlo invalidare qualsiasi copia del valore che altri processi potrebbero avere nella loro cache.\par
+Prendiamo in esempio il \texttt{test\&set} (la maggior parte delle architetture) legge un valore, riscrive in memoria oppure uno \texttt{scambio (x86)} scambia valori tra registro e memoria.
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/testset}}
+        \caption{The Critical Section Problem}    
+    \end{center}
+\end{figure}
+
+L'implementazione del lock tramite \textbf{disabilitazione degli interrupt} presenta alcune
+\textbf{problematiche}, infatti ha la necessità dell'invocazione del kernel che rende il tutto più complesso. Inoltre risulta inutilizzabile in sistemi multi-core.\par
+Esistono due \textbf{problemi} principali con le istruzioni atomiche, il busy waiting\footnote{L'espressione busy waiting o busy wait (letteralmente "attesa impegnata", più spesso tradotto come "attesa attiva") indica una tecnica di sincronizzazione per cui un processo o un thread che debba attendere il verificarsi di una certa condizione (per esempio la disponibilità di input dalla tastiera o di un messaggio proveniente da un altro processo) lo faccia verificando ripetutamente (ciclicamente) tale condizione. Questo approccio è alternativo all'uso di una sospensione del processo e del suo successivo risveglio tramite un segnale specifico (per esempio un interrupt nel caso dell'input da tastiera). Fonte: Wikipedia}
+oppure \textbf{unfairness} in quanto non esiste una coda in cui i thread attendono il rilascio del blocco.\\
+
+Nonostante il tempo in attesa della CPU sia un problema irrisolvibile nel caso delle istru- zioni atomiche, esso può essere minimizzato. Inoltre, l'aggiunta di una queue permette di gestire in modo deterministico quale thread vada ad ottenere il lock a seguito del suo rilascio:
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/lock2}}
+        \caption{The Critical Section Problem}    
+    \end{center}
+\end{figure}
+Esiste un miglioramento di \texttt{test\&set} per ridurre l'attesa occupata rendendola indipendente da quanto tempo è delimitata la sezione critica da acquisizione e rilascio
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/bw}}
+        \caption{The Critical Section Problem}    
+    \end{center}
+\end{figure}
+
+\subsection{I Semafori}
+
+
+
+
+
+
+
+
+
 \pagebreak
 
 \section{Gestione della Memoria}
