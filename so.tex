@@ -13,6 +13,8 @@
 \usepackage{footnote}
 \usepackage{tgadventor}
 \usepackage{titling}
+\usepackage{graphicx}
+
 \setlength{\droptitle}{-5em}   % regola la posizione del titolo
 \pretitle{\begin{center}\LARGE}   % imposta la dimensione della font del titolo
 \posttitle{\end{center}}
@@ -1129,10 +1131,140 @@ In teoria, ci sono due modi per parallelizzare il carico di lavoro:
     \end{center}
 \end{figure}
 
-
+\subsubsection{Kernel threads vs User threads}
 Il supporto per (più) thread può essere fornito in due modi ossia a livello di \textbf{kernel} (thread del kernel) e a livello \textbf{utente} (thread utente). \\
 I Thread del kernel viene gestito direttamente dal kernel del sistema operativo stesso, mentre i Thread utente vengono gestiti in spazio utente da una libreria di thread a livello utente, senza intervento del sistema operativo.\par
-I thread del kernel hanno la più piccola unità di esecuzione che può essere pianificata dal sistema operativo. Il sistema operativo è responsabile del supporto e della gestione di tutti i thread. Possiedono un Process Control Block (PCB) per ogni processo, un Thread Control Block (TCB) per ogni thread. Il sistema operativo di solito fornisce chiamate di sistema per creare e gestire i thread dallo spazio utente.\par
+I \textbf{thread del kernel} hanno la più piccola unità di esecuzione che può essere pianificata dal sistema operativo. Il sistema operativo è responsabile del supporto e della gestione di tutti i thread. Possiedono un Process Control Block (PCB) per ogni processo, un Thread Control Block (TCB) per ogni thread. Il sistema operativo di solito fornisce chiamate di sistema per creare e gestire i thread dallo spazio utente.\par
+Tra i \textbf{vantaggi} del Kernel Thread:
+\begin{itemize}
+    \item Il kernel ha piena conoscenza di tutti i thread
+    \item Lo Scheduler può decidere di concedere più tempo di CPU a un processo con un gran numero di thread
+    \item Buono per le applicazioni che si bloccano frequentemente
+    \item Il passaggio da un thread all'altro è più rapido del passaggio da un processo all'altro
+\end{itemize}
+Tra gli \textbf{svantaggi}:
+\begin{itemize}
+    \item Overhead significativo e aumento del kernel
+    complessità
+    \item Lento e inefficiente (necessita di invocazioni del kernel)
+    \item Il Context switching, sebbene più leggero, è gestito dal kernel
+\end{itemize}
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/kt}}
+        \caption{}    
+    \end{center}
+\end{figure}
+
+Gli \textbf{User Thread} invece vengono gestiti interamente dal sistema run-time (libreria thread a livello utente). Il kernel del sistema operativo non sa nulla dei thread a livello utente e gestisce i thread a livello utente come se fossero processi a thread singolo. Idealmente, le operazioni sui thread dovrebbero essere veloci quanto una chiamata di funzione
+Tra i \textbf{vantaggi}:
+\begin{itemize}
+    \item Veramente veloce e leggero
+    \item Le politiche di programmazione sono più flessibili
+    \item Può essere implementato in sistemi operativi che non supportano il threading
+    \item Nessuna chiamata di sistema coinvolta, solo chiamate di funzione in spazio utente
+    \item Nessun cambio di contesto effettivo
+\end{itemize}
+
+Tra gli \textbf{svantaggi}:
+\begin{itemize}
+    \item Nessuna vera concorrenza di multi-thread
+    processi
+    \item Decisioni di pianificazione sbagliate
+    \item Mancanza di coordinamento tra kernel e thread
+    \item Un processo con 100 thread compete per un intervallo di tempo con un processo con solo 1 thread
+    \item Richiede chiamate di sistema non bloccanti, altrimenti
+    tutti i thread all'interno di un processo devono attendere
+\end{itemize}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/ut}}
+        \caption{}    
+    \end{center}
+\end{figure}
+
+Un \textbf{lightweight process (LWP)} è un processore virtuale attivo nella user space contenente un singolo kernel thread, mentre multipli user thread gestiti tramite una libreria per i thread vengono posti su uno o più LWP, i quali assumono un ruolo di "tramite" tra le due tipologie di thread.
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/lwp}}
+        \caption{Hybrid Management: Lightweight Processes}    
+    \end{center}
+\end{figure}
+\pagebreak
+\subsubsection{Modelli di Multi-threading}
+In un'implementazione specifica, i thread utente devono essere mappati ai thread del kernel e ne esistono di quattro tipi:\footnote{Un thread del kernel è l'unità di esecuzione pianificata dal sistema operativo per l'esecuzione sulla CPU (simile al processo a thread singolo)}
+\begin{itemize}
+    \item Molti a uno (puro livello utente)
+        \begin{itemize}
+            \item Molti thread utente sono tutti mappati su un singolo thread del kernel
+            \item Il processo può eseguire un solo thread utente alla volta perché
+            c'è solo un thread del kernel ad esso associato
+            \item Poiché un singolo thread del kernel può operare su una singola CPU, i processi multi-user-thread non possono essere suddivisi su più CPU
+            \item Se viene effettuata una chiamata di sistema bloccante, l'intero processo si blocca, anche se altri thread utente sarebbero in grado di continuare
+        \end{itemize}
+    \item Uno a uno (puro livello kernel)
+        \begin{itemize}
+            \item Un thread del kernel separato per gestire ciascun thread utente
+            \item Supera i limiti del blocco delle chiamate di sistema
+            e suddivisione dei processi su più CPU
+            \item Il sovraccarico della gestione del modello uno a uno è più significativo e può rallentare il sistema
+            \item La maggior parte delle implementazioni di questo modello pone un limite al numero di thread che possono essere creati
+        \end{itemize}
+    \item Molti a molti 
+        \begin{itemize}
+            \item Esegue il multiplexing di un numero qualsiasi di thread utente su un numero uguale o inferiore di thread del kernel
+            \item Gli utenti non hanno restrizioni sul numero di thread creati
+            \item I processi possono essere suddivisi su più processori
+            \item Il blocco delle chiamate di sistema del kernel non blocca l'intero processo
+        \end{itemize}
+    \item Due livelli
+        \begin{itemize}
+            \item Una variante del modello molti-a-molti
+            \item Combina molti a molti con uno a uno
+            \item Aumenta la flessibilità delle politiche di programmazione
+        \end{itemize}
+\end{itemize}
+
+\pagebreak
+
+\begin{figure}[h]
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.7\linewidth]{im/1m}
+    \caption{Molti a uno}    
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.7\linewidth]{im/2m}
+    \caption{Uno a uno}    
+    \end{minipage}
+    \end{figure}
+    \begin{figure}[h]
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.7\linewidth]{im/3m}
+    \caption{Molti a molti}    
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.7\linewidth]{im/4m}
+    \caption{Molti a uno}    
+    \end{minipage}
+    \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

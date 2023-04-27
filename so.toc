@@ -40,10 +40,12 @@
 \contentsline {subsubsection}{\numberline {2.13.1}Vantaggi}{37}{subsubsection.2.13.1}%
 \contentsline {subsubsection}{\numberline {2.13.2}Programmazione Multi-core}{38}{subsubsection.2.13.2}%
 \contentsline {subsubsection}{\numberline {2.13.3}Tipi di parallelismo}{38}{subsubsection.2.13.3}%
-\contentsline {section}{\numberline {3}Sincronizzazione tra Processi/Thread}{39}{section.3}%
-\contentsline {section}{\numberline {4}Gestione della Memoria}{40}{section.4}%
-\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{41}{section.5}%
-\contentsline {section}{\numberline {6}File System}{42}{section.6}%
-\contentsline {section}{\numberline {7}Advanced Topics}{43}{section.7}%
-\contentsline {section}{\numberline {8}Esercizi}{44}{section.8}%
-\contentsline {section}{\numberline {9}Formulario}{45}{section.9}%
+\contentsline {subsubsection}{\numberline {2.13.4}Kernel threads vs User threads}{38}{subsubsection.2.13.4}%
+\contentsline {subsubsection}{\numberline {2.13.5}Modelli di Multi-threading}{41}{subsubsection.2.13.5}%
+\contentsline {section}{\numberline {3}Sincronizzazione tra Processi/Thread}{43}{section.3}%
+\contentsline {section}{\numberline {4}Gestione della Memoria}{44}{section.4}%
+\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{45}{section.5}%
+\contentsline {section}{\numberline {6}File System}{46}{section.6}%
+\contentsline {section}{\numberline {7}Advanced Topics}{47}{section.7}%
+\contentsline {section}{\numberline {8}Esercizi}{48}{section.8}%
+\contentsline {section}{\numberline {9}Formulario}{49}{section.9}%
