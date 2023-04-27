@@ -24,7 +24,7 @@
 \title{Appunti di Sistemi Operativi I}
 
 \author{Colacel Alexandru Andrei}
-\date{}
+\date{\today}
 \begin{document}
 \pagestyle{fancy}
 \fancyhf{}
@@ -59,7 +59,7 @@
 
 \section{Introduzione}
 Il programma con cui si interagisce può essere formato testo (quindi la \textbf{\$SHELL}) oppure modalità \textbf{GUI} (Graphical User Interface) quando ci sono le icone. La maggior parte dei computer ha due modalità operative: kernel e utente. Il sistema operativo è il componente software di maggior importanza e viene eseguito in modalità kernel (detta anche Supervisor). In questo modo ha accesso a tutto l'hardware e può eseguire qualunque istruzione che la macchina sia in  grado di svolgere. La modalità utente ha a sua disposizione solo un sottoinsieme di istruzioni.\\
-Esiste una differenza tra il sistema operativo (che troverete scritto anche OS) e il normale software in modalità utente. Infatti l'utente non è livero di scrivere E.g un gestore degli interrupt ecc... perchè esistono protezioni hardware dell'OS stesso \\
+Esiste una differenza tra il sistema operativo (che troverete scritto anche OS) e il normale software in modalità utente. Infatti l'utente non è livero di scrivere E.g un gestore degli interrupt ecc\dots perchè esistono protezioni hardware dell'OS stesso \\
 Questa differenza è meno evidente nei sistemi embedded o sistemi integrati (che possono non avere la modalità kernel) o sistemi interpretati che usano interpreti e non hardware per separare i componenti
 
 \subsection{Kernel/User mode e protezione della memoria}
@@ -73,7 +73,7 @@ La CPU può essere quindi impostata in:
         \item Manipolare il contenuto della memoria principale
         \item Arrestare il sistema
         \item Passare alla Kernel Mode
-        \item ...
+        \item \dots
     \end{itemize}
 
 \end{itemize}
@@ -87,7 +87,7 @@ L'archiettura è l'insieme delle istruzioni, organizzazione della memoria, I/0, 
 L'astrazione è la chiave per risolvere la complessità, una buona astrazione suddivide un'attività complessa in due attività più gestibili. La prima riguarda la definizione e l'implementazione delle astrazioni. La seconda riguarda l'impiego di queste astrazioni per risolvere problemi reali.
 
 \subsubsection{L'OS come gestore delle risorse}
-La gestione delle risorse include il multiplexing (condivisione) delle risorse in due modalità diverse: nel tempo e nello spazio.Quando una risorsa è condivisa temporalmente programmi o utenti diversi fanno a turno ad usarla in un certo arco di tempo finito. L'altro tipo di multiplexing è nello spazio. Pressuponendo che vi sia abbastanza memoria per gestire parecchi programmi in memoria contemporaneamente, specialmente se necessita solo di una piccola frazione del totale. Tutto questo solleva però problemi di equità, protezione ecc... risolvibili dall'OS.
+La gestione delle risorse include il multiplexing (condivisione) delle risorse in due modalità diverse: nel tempo e nello spazio.Quando una risorsa è condivisa temporalmente programmi o utenti diversi fanno a turno ad usarla in un certo arco di tempo finito. L'altro tipo di multiplexing è nello spazio. Pressuponendo che vi sia abbastanza memoria per gestire parecchi programmi in memoria contemporaneamente, specialmente se necessita solo di una piccola frazione del totale. Tutto questo solleva però problemi di equità, protezione ecc\dots risolvibili dall'OS.
 \pagebreak
 
 \subsection{Analisi dell'hardware}
@@ -394,7 +394,7 @@ Consideriamo ora questo esempio:
         }
         else {
         /* execute parent process code */
-            ...
+            \dots
             /* wait for child to terminate */
             wait(NULL)
             printf("Child terminated");
@@ -417,15 +417,15 @@ Consideriamo ora quest'altro esempio:
         pid = \texttt{fork()};
         
     if(pid == 0) {      // B's child (C)
-        ...
-        execlp(...);
+        \dots
+        execlp(\dots);
     }
     else { // B 
-        ...
+        \dots
     } 
 }
 else { // A 
-    ...
+    \dots
 }
 \end{lstlisting}
 \begin{figure}[hbt]
@@ -441,14 +441,14 @@ Consideriamo ora questo esempio:
 \begin{lstlisting}
     int pid = \texttt{fork()};
     if(pid == 0) {          // A's child (B)
-        ...
-        execlp(...);
+        \dots
+        execlp(\dots);
     }
     else { // A
         pid = \texttt{fork()};
         if(pid == 0) {      // A's child (C)
-            ...
-            execlp(...);
+            \dots
+            execlp(\dots);
         }
     }
 \end{lstlisting}
@@ -463,8 +463,8 @@ Consideriamo ora quest'altro esempio:
 \begin{lstlisting}
     for(int i=0;i<n;i++) {
         if(\texttt{fork()} == 0) { // A0's child
-            ...
-            execlp(...);
+            \dots
+            execlp(\dots);
         }
   }
   // back in the parent A0
@@ -1066,23 +1066,73 @@ Per via della legge dei grandi numeri, all'aumentare del numero di estrazioni ef
 
 \pagebreak
 \subsection{Thread e Multi-threading}
+Un \textbf{thread} è un'unità base dell'utilizzo della CPU e consiste in un contatore di programma, uno stack, e un insieme di registri oltre che un proptio ID. Ogni processo definisce le risorse "globali" (ossia lo spazio d'indirizzamento, le istru- zioni da eseguire, i dati, le risorse, \dots) mentre ogni suo thread definisce un singolo stream di esecuzione all'interno del processo stesso.
+Poiché lo spazio d'indirizzamento del processo è condiviso tra tutti i suoi thread, nessuna syscall è richiesta per far cooperare i thread tra di loro, risultando in una comunicazione più semplice rispetto allo scambio di messaggi e alla memoria condivisa.
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.55\textwidth,keepaspectratio]{{im/thr}}
+        \caption{}    
+    \end{center}
+\end{figure}
+Possiamo notare infatti che:
+\begin{itemize}
+    \item Ciascun thread possiede un insieme di registrasti indipendenti e un proprio stato
+    \item Tutti i thread di processi condividono lo stesso codice e le risorse globali
+    \item Da quando tutti i thread sono attivi nello stesso spazio di indirizzamento la communicazione tra loro risulta più semplice della communicazione tra i processi
+\end{itemize}
+
+I thread sono molto utili nella programmazione moderna ogni volta che un processo ha più attività per eseguire indipendentemente dagli altri. Ciò è particolarmente vero quando una delle attività può bloccare, ed è desiderato consentire alle altre attività di procedere senza bloccare (E.g: elaboratore di testi). Un thread può verificare l'ortografia e la grammatica mentre un altro thread gestisce l'input dell'utente (tasti) e un terzo fa backup periodici del file che viene modificato. \\
+
+Teoricamente, ogni attività secondaria di un'applicazione potrebbe essere implementata come un nuovo processo a thread singolo piuttosto che come un processo a più thread.\\
+Ci sono almeno 2 motivi per cui questa non è la scelta migliore:
+\begin{itemize}
+    \item La \textbf{comunicazione} tra thread è significativamente più veloce di quella tra processi 
+    \item Il \textbf{context switch} tra thread è molto più veloce che tra processi
+\end{itemize}
 
 
+\subsubsection{Vantaggi}
+Possiamo scrivere di quattro importanti vantaggi:
+\begin{itemize}
+    \item Reattività, poiché un processo potrebbe fornire una risposta in modo rapido mentre tutti gli altri thread sono bloccati o rallentati a causa dell'intenso uso della CPU
+    \item Condivisione delle risorse "globali" come codice, dati e spazio di indirizzamento
+    \item Economicità, poiché creare e gestire thread è più veloce rispetto alla creazione e gestione dei processi
+    \item Scalabilità, poiché un processo single-thread può essere eseguito su un singolo core, mentre ogni thread di un processo multithread può essere suddiviso tra tutti i core disponibili della CPU (solo per architetture multi-core)
+\end{itemize}
+
+\subsubsection{Programmazione Multi-core}
+Una tendenza recente nell'architettura dei computer è quella di produrre chip con più core, o CPU su un singolo chip. Un'applicazione multi-thread in esecuzione su un tradizionale chip single-core dovrebbe intercalare i thread. Su un chip multi-core, tuttavia, i thread potrebbero essere distribuiti tra i core disponibili, consentendo una vera \textbf{elaborazione parallela}.\footnote{Le CPU sono state sviluppate per supportare più thread simultanei per core nell'hardware (ad esempio, l'hyper-threading di Intel). Ogni core fisico appare come due processori al sistema operativo, consentendo la pianificazione simultanea di due processi per core}
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.55\textwidth,keepaspectratio]{{im/core}}
+        \caption{I chip multi-core richiedono nuovi algoritmi di pianificazione del sistema operativo per utilizzare al meglio i più core disponibili}    
+    \end{center}
+\end{figure}
+
+\subsubsection{Tipi di parallelismo}
+In teoria, ci sono due modi per parallelizzare il carico di lavoro:
+\begin{itemize}
+    \item Parallelismo dei dati: suddivide i dati tra più core (thread) e
+    esegue la stessa attività su ciascun blocco di dati
+    \item Parallelismo dei compiti: suddivide i diversi compiti da eseguire tra i diversi core e li esegue contemporaneamente
+    \item In pratica, nessun programma è mai suddiviso unicamente dall'uno o dall'altro di questi, ma piuttosto da una sorta di combinazione ibrida
+\end{itemize}
+
+\subsubsection*{Classificazione degli OSs}
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.55\textwidth,keepaspectratio]{{im/os}}
+        \caption{}    
+    \end{center}
+\end{figure}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Il supporto per (più) thread può essere fornito in due modi ossia a livello di \textbf{kernel} (thread del kernel) e a livello \textbf{utente} (thread utente). \\
+I Thread del kernel viene gestito direttamente dal kernel del sistema operativo stesso, mentre i Thread utente vengono gestiti in spazio utente da una libreria di thread a livello utente, senza intervento del sistema operativo.\par
+I thread del kernel hanno la più piccola unità di esecuzione che può essere pianificata dal sistema operativo. Il sistema operativo è responsabile del supporto e della gestione di tutti i thread. Possiedono un Process Control Block (PCB) per ogni processo, un Thread Control Block (TCB) per ogni thread. Il sistema operativo di solito fornisce chiamate di sistema per creare e gestire i thread dallo spazio utente.\par
 
 
 
