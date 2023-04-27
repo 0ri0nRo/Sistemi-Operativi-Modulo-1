@@ -1166,7 +1166,7 @@ Tra i \textbf{vantaggi}:
     \item Nessuna chiamata di sistema coinvolta, solo chiamate di funzione in spazio utente
     \item Nessun cambio di contesto effettivo
 \end{itemize}
-
+\pagebreak
 Tra gli \textbf{svantaggi}:
 \begin{itemize}
     \item Nessuna vera concorrenza di multi-thread
@@ -1269,21 +1269,14 @@ In un'implementazione specifica, i thread utente devono essere mappati ai thread
         \item Invio del segnale solo ad alcuni thread specifici del processo.
         \item Scelta di un thread specifico che gestisca tutti i segnali ricevuti.
     \end{enumerate}
+\pagebreak
+    Perché un thread possa essere schedulato ed eseguito dalla CPU, deve competere con gli altri thread che cercano di accedere alla stessa risorsa. La gestione dei thread contendenti avviene tramite il contention scope, che può essere di due tipologie:\textbf{Process Contention Scope (PCS) {e} System Contention Scope (SCS)}.\\
+
+    Nel \textbf{PCS}, la competizione avviene tra i thread appartenenti allo stesso processo. Per implementare questa tipologia di contention scope, il sistema deve utilizzare un modello Molti a Molti o Molti a Uno. Nel primo caso, i thread sono mappati su un insieme di kernel threads e il sistema operativo si occupa di distribuire i kernel threads sui processori disponibili. Nel secondo caso, i thread sono mappati su un singolo kernel thread e la distribuzione sui processori è gestita dal sistema operativo.\\
     
-    Perché un thread possa essere schedulato ed eseguito dalla CPU, deve competere con gli altri thread che cercano di accedere alla stessa risorsa. La gestione dei thread contendenti avviene tramite il contention scope, che può essere di due tipologie:\textbf{ Process Contention Scope (PCS) {e} System Contention Scope (SCS)}.
-
-    Nel PCS, la competizione avviene tra i thread appartenenti allo stesso processo. Per implementare questa tipologia di contention scope, il sistema deve utilizzare un modello Many-to-Many o Many-to-One. Nel primo caso, i thread sono mappati su un insieme di kernel threads e il sistema operativo si occupa di distribuire i kernel threads sui processori disponibili. Nel secondo caso, i thread sono mappati su un singolo kernel thread e la distribuzione sui processori è gestita dal sistema operativo.
+    Nello \textbf{SCS}, la competizione avviene tra tutti i thread di ogni processo e viene implementato in sistemi basati sul modello One-to-One, dove ogni thread è mappato su un kernel thread dedicato.\\
     
-    Nello SCS, la competizione avviene tra tutti i thread di ogni processo e viene implementato in sistemi basati sul modello One-to-One, dove ogni thread è mappato su un kernel thread dedicato.
-    
-    Per comunicare con le librerie per i thread nel momento in cui un evento si verifica, il kernel utilizza un lightweight process (LWP). Le up-call, ovvero le chiamate dal kernel alla libreria, vengono gestite da un upcall handler presente nella libreria stessa. Ogni upcall fornisce un nuovo LWP tramite cui l'upcall handler verrà eseguito, garantendo una gestione efficiente e ottimizzata dei thread.
-
-
-
-
-
-
-
+    Per comunicare con le librerie per i thread nel momento in cui un evento si verifica, il kernel utilizza un lightweight process (\textbf{LWP}). Le up-call, ovvero le chiamate dal kernel alla libreria, vengono gestite da un upcall handler presente nella libreria stessa. Ogni upcall fornisce un nuovo LWP tramite cui l'upcall handler verrà eseguito, garantendo una gestione efficiente e ottimizzata dei thread.
 
 
 
