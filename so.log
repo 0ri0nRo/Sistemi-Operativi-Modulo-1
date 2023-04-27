@@ -795,4 +795,93 @@ Overfull \hbox (2.22221pt too wide) in paragraph at lines 1233--1243
 File: im/3m.png Graphic file (type png)
 <use im/3m.png>
 Package pdftex.def Info: im/3m.png  used on input line 1247.
-(pdftex.def)             Requested size: 169.29315pt x 155.408
+(pdftex.def)             Requested size: 169.29315pt x 155.40855pt.
+<im/4m.png, id=739, 315.1775pt x 219.82124pt>
+File: im/4m.png Graphic file (type png)
+<use im/4m.png>
+Package pdftex.def Info: im/4m.png  used on input line 1252.
+(pdftex.def)             Requested size: 169.29315pt x 118.07446pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 1245--1255
+[]$[]$ $[]$ 
+ []
+
+[43 <./im/1m.png> <./im/2m.png> <./im/3m.png> <./im/4m.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1273--1274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1277--1278
+
+ []
+
+[44]
+<im/cs.png, id=764, 477.785pt x 246.9225pt>
+File: im/cs.png Graphic file (type png)
+<use im/cs.png>
+Package pdftex.def Info: im/cs.png  used on input line 1287.
+(pdftex.def)             Requested size: 241.84843pt x 124.98686pt.
+<im/cs1.png, id=765, 324.21124pt x 312.16624pt>
+File: im/cs1.png Graphic file (type png)
+<use im/cs1.png>
+Package pdftex.def Info: im/cs1.png  used on input line 1293.
+(pdftex.def)             Requested size: 241.84843pt x 232.86661pt.
+<im/bob.png, id=766, 572.1375pt x 248.93pt>
+File: im/bob.png Graphic file (type png)
+<use im/bob.png>
+Package pdftex.def Info: im/bob.png  used on input line 1308.
+(pdftex.def)             Requested size: 241.84843pt x 105.22598pt.
+ [45 <./im/cs.png> <./im/cs1.png>]
+<im/lock.png, id=779, 541.02126pt x 703.62875pt>
+File: im/lock.png Graphic file (type png)
+<use im/lock.png>
+Package pdftex.def Info: im/lock.png  used on input line 1350.
+(pdftex.def)             Requested size: 241.84843pt x 314.53639pt.
+ [46 <./im/bob.png>]
+<im/testset.png, id=788, 745.78625pt x 275.0275pt>
+File: im/testset.png Graphic file (type png)
+<use im/testset.png>
+Package pdftex.def Info: im/testset.png  used on input line 1372.
+(pdftex.def)             Requested size: 241.84843pt x 89.18564pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1379--1381
+
+ []
+
+[47 <./im/lock.png>]
+<im/lock2.png, id=798, 442.65375pt x 885.3075pt>
+File: im/lock2.png Graphic file (type png)
+<use im/lock2.png>
+Package pdftex.def Info: im/lock2.png  used on input line 1386.
+(pdftex.def)             Requested size: 193.47578pt x 386.95634pt.
+<im/bw.png, id=799, 695.59875pt x 180.675pt>
+File: im/bw.png Graphic file (type png)
+<use im/bw.png>
+Package pdftex.def Info: im/bw.png  used on input line 1394.
+(pdftex.def)             Requested size: 314.40001pt x 81.66138pt.
+ [48 <./im/testset.png> <./im/lock2.png>] [49 <./im/bw.png>] [50] [51] [52] [53] [54] [55] (./so.aux)
+Package rerunfilecheck Info: File `so.out' has not changed.
+(rerunfilecheck)             Checksum: 587DFD6A94D6895C34DECBD111DACC60;9319.
+ ) 
+Here is how much of TeX's memory you used:
+ 14887 strings out of 476001
+ 238058 string characters out of 5789199
+ 1884074 words of memory out of 5000000
+ 34855 multiletter control sequences out of 15000+600000
+ 519606 words of font info for 56 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,11n,77p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on so.pdf (55 pages, 7059612 bytes).
+PDF statistics:
+ 993 PDF objects out of 1000 (max. 8388607)
+ 763 compressed objects within 8 object streams
+ 288 named destinations out of 1000 (max. 500000)
+ 719 words of extra memory for PDF output out of 10000 (max. 10000000)
+
