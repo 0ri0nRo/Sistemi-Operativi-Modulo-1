@@ -1254,8 +1254,29 @@ In un'implementazione specifica, i thread utente devono essere mappati ai thread
     \end{minipage}
     \end{figure}
 
+    Quando un thread effettua una syscall \texttt{fork() {o} exec()} in un processo, si presenta la questione di come gestire la creazione di un nuovo processo. In particolare, ci sono due opzioni:
+    \begin{enumerate}
+        \item Copiare l'intero processo, comprensivo di tutti i thread presenti, al fine di generare un nuovo processo con una copia esatta dell'originale;
+        \item Generare un nuovo processo single-thread contenente una copia del singolo thread che ha effettuato la syscall.
+    \end{enumerate}
+        
+    La scelta tra queste due opzioni dipende dalla progettazione dell'OS, che deve garantire il corretto funzionamento del sistema. Tuttavia, in molti casi, è possibile adottare una soluzione ibrida: se il nuovo processo viene eseguito subito dopo la syscall, allora non c'è necessità di copiare anche gli altri thread del processo originale. Invece, se il nuovo processo viene eseguito in un momento successivo, l'intero processo dovrebbe essere copiato.
+    
+    Nel caso in cui un processo multi-thread riceva un segnale, la gestione di quale thread è il destinatario del segnale è un'importante problematica da affrontare. Esistono diversi approcci per gestire questa problematica, tra cui:
+    \begin{enumerate}
+        \item Invio del segnale al thread specifico che ne ha bisogno.
+        \item Invio del segnale a tutti i thread del processo.
+        \item Invio del segnale solo ad alcuni thread specifici del processo.
+        \item Scelta di un thread specifico che gestisca tutti i segnali ricevuti.
+    \end{enumerate}
+    
+    Perché un thread possa essere schedulato ed eseguito dalla CPU, deve competere con gli altri thread che cercano di accedere alla stessa risorsa. La gestione dei thread contendenti avviene tramite il contention scope, che può essere di due tipologie:\textbf{ Process Contention Scope (PCS) {e} System Contention Scope (SCS)}.
 
-
+    Nel PCS, la competizione avviene tra i thread appartenenti allo stesso processo. Per implementare questa tipologia di contention scope, il sistema deve utilizzare un modello Many-to-Many o Many-to-One. Nel primo caso, i thread sono mappati su un insieme di kernel threads e il sistema operativo si occupa di distribuire i kernel threads sui processori disponibili. Nel secondo caso, i thread sono mappati su un singolo kernel thread e la distribuzione sui processori è gestita dal sistema operativo.
+    
+    Nello SCS, la competizione avviene tra tutti i thread di ogni processo e viene implementato in sistemi basati sul modello One-to-One, dove ogni thread è mappato su un kernel thread dedicato.
+    
+    Per comunicare con le librerie per i thread nel momento in cui un evento si verifica, il kernel utilizza un lightweight process (LWP). Le up-call, ovvero le chiamate dal kernel alla libreria, vengono gestite da un upcall handler presente nella libreria stessa. Ogni upcall fornisce un nuovo LWP tramite cui l'upcall handler verrà eseguito, garantendo una gestione efficiente e ottimizzata dei thread.
 
 
 
