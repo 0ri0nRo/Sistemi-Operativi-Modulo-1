@@ -1358,8 +1358,10 @@ Sui sistemi a CPU singola, possiamo impedire allo scheduler di prendere il sopra
     sezione critica
     \item evento esterno per disabilitare gli interrupt (ovvero, dire all'HW di ritardare la gestione di qualsiasi evento esterno fino a quando il thread corrente non è terminato con la sezione critica)
 \end{itemize}
-Copriamo tutti i possibili casi in cui il thread corrente potrebbe perdere il controllo della CPU, volontariamente (a causa di eventi interni) o involontariamente (a causa di eventi esterni)
-
+Copriamo tutti i possibili casi in cui il thread corrente potrebbe perdere il controllo della CPU, volontariamente (a causa di eventi interni) o involontariamente (a causa di eventi esterni).\par
+In sintesi supponiamo di avere una sola variabile condivisa (lock), inizialmente a 0. Quando un processo vuole entrare nella sua regione critica, prima controlla il lock. Se è O, il processo lo imposta a 1 ed entra nella regione critica. Se è già a 1, il processo aspetta finché non vale O. In questo modo O significa che nessun processo è nella sua regione critica, 1 che un qualche processo è nella sua regione critica.\par
+Sfortunatamente questa idea presenta esattamente lo stesso \textbf{difetto} constatato nella directory di spool di stampa. Supponiamo che un processo legga il lock e veda che è 0. Prima che riesca a metterlo a 1, viene eseguito un altro processo schedulato e imposta il lock a 1.\par
+Quando riparte ancora il primo processo, anch'esso lo imposterà a uno e i due processi sarebbero nella loro regione critica nello stesso momento.
 
 \subsubsection*{Istruzione atomica}
 Un'istruzione atomica di lettura-modifica-scrittura legge un valore dalla memoria in un registro e scrive un nuovo valore in un colpo solo. Su un uniprocessore sarà semplice implementare l'aggiunta di una nuova istruzione mentre su un multiprocessore, anche il processore che impartisce l'istruzione deve essere in grado di farlo invalidare qualsiasi copia del valore che altri processi potrebbero avere nella loro cache.\par
