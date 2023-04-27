@@ -6,4 +6,4 @@ Le fonti sono le slides del Prof. Tolomei integrati con il libro *I moderni sist
 
 Nota: **E' vietata assolutamente la vendita di questo materiale in qualsiasi forma senza il mio consenso**
 
-[Scarica da qui il pdf](so.pdf)
+[Scarica da qui il pdf](/so.pdf)
