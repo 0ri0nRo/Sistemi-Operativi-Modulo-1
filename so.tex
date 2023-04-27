@@ -1260,7 +1260,7 @@ In un'implementazione specifica, i thread utente devono essere mappati ai thread
         \item Generare un nuovo processo single-thread contenente una copia del singolo thread che ha effettuato la syscall.
     \end{enumerate}
         
-    La scelta tra queste due opzioni dipende dalla progettazione dell'OS, che deve garantire il corretto funzionamento del sistema. Tuttavia, in molti casi, è possibile adottare una soluzione ibrida: se il nuovo processo viene eseguito subito dopo la syscall, allora non c'è necessità di copiare anche gli altri thread del processo originale. Invece, se il nuovo processo viene eseguito in un momento successivo, l'intero processo dovrebbe essere copiato.
+    La scelta tra queste due opzioni dipende dalla progettazione dell'OS, che deve garantire il corretto funzionamento del sistema. Tuttavia, in molti casi, è possibile adottare una \textbf{soluzione ibrida}: se il nuovo processo viene eseguito subito dopo la syscall, allora non c'è necessità di copiare anche gli altri thread del processo originale. Invece, se il nuovo processo viene eseguito in un momento successivo, l'intero processo dovrebbe essere copiato.
     
     Nel caso in cui un processo multi-thread riceva un segnale, la gestione di quale thread è il destinatario del segnale è un'importante problematica da affrontare. Esistono diversi approcci per gestire questa problematica, tra cui:
     \begin{enumerate}
@@ -1270,9 +1270,9 @@ In un'implementazione specifica, i thread utente devono essere mappati ai thread
         \item Scelta di un thread specifico che gestisca tutti i segnali ricevuti.
     \end{enumerate}
 \pagebreak
-    Perché un thread possa essere schedulato ed eseguito dalla CPU, deve competere con gli altri thread che cercano di accedere alla stessa risorsa. La gestione dei thread contendenti avviene tramite il contention scope, che può essere di due tipologie:\textbf{Process Contention Scope (PCS) {e} System Contention Scope (SCS)}.\\
+    Perché un thread possa essere schedulato ed eseguito dalla CPU, deve competere con gli altri thread che cercano di accedere alla stessa risorsa. La gestione dei thread contendenti avviene tramite il contention scope, che può essere di due tipologie: \textbf{Process Contention Scope (PCS) {e} System Contention Scope (SCS)}.\\
 
-    Nel \textbf{PCS}, la competizione avviene tra i thread appartenenti allo stesso processo. Per implementare questa tipologia di contention scope, il sistema deve utilizzare un modello Molti a Molti o Molti a Uno. Nel primo caso, i thread sono mappati su un insieme di kernel threads e il sistema operativo si occupa di distribuire i kernel threads sui processori disponibili. Nel secondo caso, i thread sono mappati su un singolo kernel thread e la distribuzione sui processori è gestita dal sistema operativo.\\
+    Nel \textbf{PCS}, la competizione avviene tra i thread appartenenti allo stesso processo. Per implementare questa tipologia di contention scope, il sistema deve utilizzare un modello Molti a Molti o Molti a Uno.\par Nel primo caso, i thread sono mappati su un insieme di kernel threads e il sistema operativo si occupa di distribuire i kernel threads sui processori disponibili. Nel secondo caso, i thread sono mappati su un singolo kernel thread e la distribuzione sui processori è gestita dal sistema operativo.\\
     
     Nello \textbf{SCS}, la competizione avviene tra tutti i thread di ogni processo e viene implementato in sistemi basati sul modello One-to-One, dove ogni thread è mappato su un kernel thread dedicato.\\
     
