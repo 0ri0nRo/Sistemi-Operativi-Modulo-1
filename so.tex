@@ -1376,8 +1376,8 @@ Prendiamo in esempio il \texttt{test\&set} (la maggior parte delle architetture)
 
 L'implementazione del lock tramite \textbf{disabilitazione degli interrupt} presenta alcune
 \textbf{problematiche}, infatti ha la necessità dell'invocazione del kernel che rende il tutto più complesso. Inoltre risulta inutilizzabile in sistemi multi-core.\par
-Esistono due \textbf{problemi} principali con le istruzioni atomiche, il busy waiting\footnote{L'espressione busy waiting o busy wait (letteralmente "attesa impegnata", più spesso tradotto come "attesa attiva") indica una tecnica di sincronizzazione per cui un processo o un thread che debba attendere il verificarsi di una certa condizione (per esempio la disponibilità di input dalla tastiera o di un messaggio proveniente da un altro processo) lo faccia verificando ripetutamente (ciclicamente) tale condizione. Questo approccio è alternativo all'uso di una sospensione del processo e del suo successivo risveglio tramite un segnale specifico (per esempio un interrupt nel caso dell'input da tastiera). Fonte: Wikipedia}
-oppure \textbf{unfairness} in quanto non esiste una coda in cui i thread attendono il rilascio del blocco.\\
+Esistono due \textbf{problemi} principali con le istruzioni atomiche, il busy waiting\footnote{L'espressione busy waiting o busy wait (letteralmente "attesa impegnata", più spesso tradotto come "attesa attiva") indica una tecnica di sincronizzazione per cui un processo o un thread che debba attendere il verificarsi di una certa condizione (per esempio la disponibilità di input dalla tastiera o di un messaggio proveniente da un altro processo) lo faccia verificando ripetutamente (ciclicamente) tale condizione. Questo approccio è alternativo all'uso di una sospensione del processo e del suo successivo risveglio tramite un segnale specifico (per esempio un interrupt nel caso dell'input da tastiera). Fonte: Wikipedia} (che andrebbe generalmente evitato dato che consuma tempo di CPU) e un lock che utilizza il busy waiting si chiama \textbf{spin lock}
+Infine abbiamo la \textbf{unfairness} in quanto non esiste una coda in cui i thread attendono il rilascio del blocco.\\
 
 Nonostante il tempo in attesa della CPU sia un problema irrisolvibile nel caso delle istru- zioni atomiche, esso può essere minimizzato. Inoltre, l'aggiunta di una queue permette di gestire in modo deterministico quale thread vada ad ottenere il lock a seguito del suo rilascio:
 
@@ -1395,10 +1395,6 @@ Esiste un miglioramento di \texttt{test\&set} per ridurre l'attesa occupata rend
         \caption{The Critical Section Problem}    
     \end{center}
 \end{figure}
-
-
-
-
 
 \pagebreak
 \subsection{I Semafori}
