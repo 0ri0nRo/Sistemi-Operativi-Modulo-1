@@ -1326,7 +1326,7 @@ Per poter sincronizzare i processi/thread tra di loro, i linguaggi di programmaz
 \end{itemize}
 
 
-\subsubsection{I Lock}
+\subsection{I Lock}
 Fornire l'esclusione reciproca ai dati condivisi utilizzando due primitive atomiche: 
 \begin{itemize}
     \item \texttt{Lock.acquire()} à attendere che il blocco sia libero, quindi acquisirlo
@@ -1379,19 +1379,23 @@ Nonostante il tempo in attesa della CPU sia un problema irrisolvibile nel caso d
 
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/lock2}}
+        \includegraphics[width=0.4\textwidth,keepaspectratio]{{im/lock2}}
         \caption{The Critical Section Problem}    
     \end{center}
 \end{figure}
-Esiste un miglioramento di \texttt{test\&set} per ridurre l'attesa occupata rendendola indipendente da quanto tempo è delimitata la sezione critica da acquisizione e rilascio
+Esiste un miglioramento di \texttt{test\&set} per ridurre l'attesa occupata rendendola indipendente da quanto tempo è delimitata la sezione critica da acquisizione e rilascio:
 
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/bw}}
+        \includegraphics[width=0.65\textwidth,keepaspectratio]{{im/bw}}
         \caption{The Critical Section Problem}    
     \end{center}
 \end{figure}
 
+
+
+
+\pagebreak
 \subsection{I Semafori}
 
 
