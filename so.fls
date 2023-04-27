@@ -593,11 +593,11 @@ OUTPUT so.pdf
 INPUT ./so.out
 INPUT ./so.out
 OUTPUT so.out
-INPUT ./im/logo_sapienza_new.jpg
-INPUT ./im/logo_sapienza_new.jpg
-INPUT im/logo_sapienza_new.jpg
-INPUT ./im/logo_sapienza_new.jpg
-INPUT ./im/logo_sapienza_new.jpg
+INPUT ./im/logo_sapienza_new.png
+INPUT ./im/logo_sapienza_new.png
+INPUT im/logo_sapienza_new.png
+INPUT ./im/logo_sapienza_new.png
+INPUT ./im/logo_sapienza_new.png
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
