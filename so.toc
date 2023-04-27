@@ -28,24 +28,24 @@
 \contentsline {subsubsection}{\numberline {2.8.1}Problemi}{20}{subsubsection.2.8.1}%
 \contentsline {subsection}{\numberline {2.9}Il Dispatcher}{20}{subsection.2.9}%
 \contentsline {subsection}{\numberline {2.10}Definizioni utili}{20}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}Criteri/metriche di scheduling}{21}{subsection.2.11}%
-\contentsline {subsection}{\numberline {2.12}Algoritmi di Scheduling}{22}{subsection.2.12}%
-\contentsline {subsubsection}{\numberline {2.12.1}First-Come-First-Serve (FCFS)}{22}{subsubsection.2.12.1}%
-\contentsline {subsubsection}{\numberline {2.12.2}Round - Robin (RR)}{27}{subsubsection.2.12.2}%
-\contentsline {subsubsection}{\numberline {2.12.3}Shortest-Job-First (SJF)}{30}{subsubsection.2.12.3}%
-\contentsline {subsubsection}{\numberline {2.12.4}Priority Scheduling}{33}{subsubsection.2.12.4}%
-\contentsline {subsubsection}{\numberline {2.12.5}Multilevel Queue (MLQ e MLFQ)}{34}{subsubsection.2.12.5}%
-\contentsline {subsubsection}{\numberline {2.12.6}Extra: Lottery scheduling}{36}{subsubsection.2.12.6}%
-\contentsline {subsection}{\numberline {2.13}Thread e Multi-threading}{37}{subsection.2.13}%
-\contentsline {subsubsection}{\numberline {2.13.1}Vantaggi}{37}{subsubsection.2.13.1}%
-\contentsline {subsubsection}{\numberline {2.13.2}Programmazione Multi-core}{38}{subsubsection.2.13.2}%
-\contentsline {subsubsection}{\numberline {2.13.3}Tipi di parallelismo}{38}{subsubsection.2.13.3}%
-\contentsline {subsubsection}{\numberline {2.13.4}Kernel threads vs User threads}{38}{subsubsection.2.13.4}%
-\contentsline {subsubsection}{\numberline {2.13.5}Modelli di Multi-threading}{41}{subsubsection.2.13.5}%
-\contentsline {section}{\numberline {3}Sincronizzazione tra Processi/Thread}{44}{section.3}%
-\contentsline {section}{\numberline {4}Gestione della Memoria}{45}{section.4}%
-\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{46}{section.5}%
-\contentsline {section}{\numberline {6}File System}{47}{section.6}%
-\contentsline {section}{\numberline {7}Advanced Topics}{48}{section.7}%
-\contentsline {section}{\numberline {8}Esercizi}{49}{section.8}%
-\contentsline {section}{\numberline {9}Formulario}{50}{section.9}%
+\contentsline {subsection}{\numberline {2.11}Criteri/metriche di scheduling}{22}{subsection.2.11}%
+\contentsline {subsection}{\numberline {2.12}Algoritmi di Scheduling}{23}{subsection.2.12}%
+\contentsline {subsubsection}{\numberline {2.12.1}First-Come-First-Serve (FCFS)}{23}{subsubsection.2.12.1}%
+\contentsline {subsubsection}{\numberline {2.12.2}Round - Robin (RR)}{28}{subsubsection.2.12.2}%
+\contentsline {subsubsection}{\numberline {2.12.3}Shortest-Job-First (SJF)}{31}{subsubsection.2.12.3}%
+\contentsline {subsubsection}{\numberline {2.12.4}Priority Scheduling}{34}{subsubsection.2.12.4}%
+\contentsline {subsubsection}{\numberline {2.12.5}Multilevel Queue (MLQ e MLFQ)}{35}{subsubsection.2.12.5}%
+\contentsline {subsubsection}{\numberline {2.12.6}Extra: Lottery scheduling}{37}{subsubsection.2.12.6}%
+\contentsline {subsection}{\numberline {2.13}Thread e Multi-threading}{38}{subsection.2.13}%
+\contentsline {subsubsection}{\numberline {2.13.1}Vantaggi}{38}{subsubsection.2.13.1}%
+\contentsline {subsubsection}{\numberline {2.13.2}Programmazione Multi-core}{39}{subsubsection.2.13.2}%
+\contentsline {subsubsection}{\numberline {2.13.3}Tipi di parallelismo}{39}{subsubsection.2.13.3}%
+\contentsline {subsubsection}{\numberline {2.13.4}Kernel threads vs User threads}{39}{subsubsection.2.13.4}%
+\contentsline {subsubsection}{\numberline {2.13.5}Modelli di Multi-threading}{42}{subsubsection.2.13.5}%
+\contentsline {section}{\numberline {3}Sincronizzazione tra Processi/Thread}{45}{section.3}%
+\contentsline {section}{\numberline {4}Gestione della Memoria}{46}{section.4}%
+\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{47}{section.5}%
+\contentsline {section}{\numberline {6}File System}{48}{section.6}%
+\contentsline {section}{\numberline {7}Advanced Topics}{49}{section.7}%
+\contentsline {section}{\numberline {8}Esercizi}{50}{section.8}%
+\contentsline {section}{\numberline {9}Formulario}{51}{section.9}%
