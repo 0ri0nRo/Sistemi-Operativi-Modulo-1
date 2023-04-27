@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.26)  27 APR 2023 14:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.26)  27 APR 2023 14:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -841,29 +841,29 @@ Package pdftex.def Info: im/bob.png  used on input line 1308.
 <im/lock.png, id=779, 541.02126pt x 703.62875pt>
 File: im/lock.png Graphic file (type png)
 <use im/lock.png>
-Package pdftex.def Info: im/lock.png  used on input line 1350.
+Package pdftex.def Info: im/lock.png  used on input line 1351.
 (pdftex.def)             Requested size: 145.11053pt x 188.7154pt.
  [46 <./im/bob.png>]
 <im/testset.png, id=788, 745.78625pt x 275.0275pt>
 File: im/testset.png Graphic file (type png)
 <use im/testset.png>
-Package pdftex.def Info: im/testset.png  used on input line 1372.
+Package pdftex.def Info: im/testset.png  used on input line 1373.
 (pdftex.def)             Requested size: 241.84843pt x 89.18564pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1379--1381
+Underfull \hbox (badness 10000) in paragraph at lines 1380--1382
 
  []
 
 <im/lock2.png, id=790, 442.65375pt x 885.3075pt>
 File: im/lock2.png Graphic file (type png)
 <use im/lock2.png>
-Package pdftex.def Info: im/lock2.png  used on input line 1386.
+Package pdftex.def Info: im/lock2.png  used on input line 1387.
 (pdftex.def)             Requested size: 193.47578pt x 386.95634pt.
 [47 <./im/lock.png> <./im/testset.png>]
 <im/bw.png, id=801, 695.59875pt x 180.675pt>
 File: im/bw.png Graphic file (type png)
 <use im/bw.png>
-Package pdftex.def Info: im/bw.png  used on input line 1394.
+Package pdftex.def Info: im/bw.png  used on input line 1395.
 (pdftex.def)             Requested size: 314.40001pt x 81.66138pt.
  [48 <./im/lock2.png> <./im/bw.png>] [49] [50] [51] [52] [53] [54] [55] (./so.aux)
 Package rerunfilecheck Info: File `so.out' has not changed.
@@ -878,7 +878,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  75i,11n,77p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on so.pdf (55 pages, 7059574 bytes).
+Output written on so.pdf (55 pages, 7059544 bytes).
 PDF statistics:
  993 PDF objects out of 1000 (max. 8388607)
  763 compressed objects within 8 object streams
