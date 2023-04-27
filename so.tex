@@ -1068,7 +1068,7 @@ Per via della legge dei grandi numeri, all'aumentare del numero di estrazioni ef
 
 \pagebreak
 \subsection{Thread e Multi-threading}
-Un \textbf{thread} è un'unità base dell'utilizzo della CPU e consiste in un contatore di programma, uno stack, e un insieme di registri oltre che un proptio ID. Ogni processo definisce le risorse "globali" (ossia lo spazio d'indirizzamento, le istru- zioni da eseguire, i dati, le risorse, \dots) mentre ogni suo thread definisce un singolo stream di esecuzione all'interno del processo stesso.
+Un \textbf{thread} è un'unità base dell'utilizzo della CPU e consiste in un contatore di programma, uno stack, e un insieme di registri oltre che un proptio ID. Ogni processo definisce le risorse "globali" (ossia lo spazio d'indirizzamento, le istruzioni da eseguire, i dati, le risorse, \dots) mentre ogni suo thread definisce un singolo stream di esecuzione all'interno del processo stesso.
 Poiché lo spazio d'indirizzamento del processo è condiviso tra tutti i suoi thread, nessuna syscall è richiesta per far cooperare i thread tra di loro, risultando in una comunicazione più semplice rispetto allo scambio di messaggi e alla memoria condivisa.
 
 \begin{figure}[hbt]
@@ -1084,9 +1084,8 @@ Possiamo notare infatti che:
     \item Da quando tutti i thread sono attivi nello stesso spazio di indirizzamento la communicazione tra loro risulta più semplice della communicazione tra i processi
 \end{itemize}
 
-I thread sono molto utili nella programmazione moderna ogni volta che un processo ha più attività per eseguire indipendentemente dagli altri. Ciò è particolarmente vero quando una delle attività può bloccare, ed è desiderato consentire alle altre attività di procedere senza bloccare (E.g: elaboratore di testi). Un thread può verificare l'ortografia e la grammatica mentre un altro thread gestisce l'input dell'utente (tasti) e un terzo fa backup periodici del file che viene modificato. \\
-
-Teoricamente, ogni attività secondaria di un'applicazione potrebbe essere implementata come un nuovo processo a thread singolo piuttosto che come un processo a più thread.\\
+I thread sono molto utili nella programmazione moderna ogni volta che un processo ha più attività per eseguire indipendentemente dagli altri. Ciò è particolarmente vero quando una delle attività può bloccare, ed è desiderato consentire alle altre attività di procedere senza bloccare (E.g: elaboratore di testi). Un thread può verificare l'ortografia e la grammatica mentre un altro thread gestisce l'input dell'utente (tasti) e un terzo fa backup periodici del file che viene modificato. \par
+Teoricamente, ogni attività secondaria di un'applicazione potrebbe essere implementata come un nuovo processo a thread singolo piuttosto che come un processo a più thread.\par
 Ci sono almeno 2 motivi per cui questa non è la scelta migliore:
 \begin{itemize}
     \item La \textbf{comunicazione} tra thread è significativamente più veloce di quella tra processi 
@@ -1097,10 +1096,10 @@ Ci sono almeno 2 motivi per cui questa non è la scelta migliore:
 \subsubsection{Vantaggi}
 Possiamo scrivere di quattro importanti vantaggi:
 \begin{itemize}
-    \item Reattività, poiché un processo potrebbe fornire una risposta in modo rapido mentre tutti gli altri thread sono bloccati o rallentati a causa dell'intenso uso della CPU
-    \item Condivisione delle risorse "globali" come codice, dati e spazio di indirizzamento
-    \item Economicità, poiché creare e gestire thread è più veloce rispetto alla creazione e gestione dei processi
-    \item Scalabilità, poiché un processo single-thread può essere eseguito su un singolo core, mentre ogni thread di un processo multithread può essere suddiviso tra tutti i core disponibili della CPU (solo per architetture multi-core)
+    \item \textbf{Reattività}, poiché un processo potrebbe fornire una risposta in modo rapido mentre tutti gli altri thread sono bloccati o rallentati a causa dell'intenso uso della CPU
+    \item \textbf{Condivisione} delle risorse "globali" come codice, dati e spazio di indirizzamento
+    \item \textbf{Economicità}, poiché creare e gestire thread è più veloce rispetto alla creazione e gestione dei processi
+    \item \textbf{Scalabilità}, poiché un processo single-thread può essere eseguito su un singolo core, mentre ogni thread di un processo multithread può essere suddiviso tra tutti i core disponibili della CPU (solo per architetture multi-core)
 \end{itemize}
 
 \subsubsection{Programmazione Multi-core}
@@ -1116,10 +1115,10 @@ Una tendenza recente nell'architettura dei computer è quella di produrre chip c
 \subsubsection{Tipi di parallelismo}
 In teoria, ci sono due modi per parallelizzare il carico di lavoro:
 \begin{itemize}
-    \item Parallelismo dei dati: suddivide i dati tra più core (thread) e
+    \item Parallelismo dei \textbf{dati}: suddivide i dati tra più core (thread) e
     esegue la stessa attività su ciascun blocco di dati
-    \item Parallelismo dei compiti: suddivide i diversi compiti da eseguire tra i diversi core e li esegue contemporaneamente
-    \item In pratica, nessun programma è mai suddiviso unicamente dall'uno o dall'altro di questi, ma piuttosto da una sorta di combinazione ibrida
+    \item Parallelismo dei \textbf{compiti}: suddivide i diversi compiti da eseguire tra i diversi core e li esegue contemporaneamente
+    \item In pratica, nessun programma è mai suddiviso unicamente dall'uno o dall'altro di questi, ma piuttosto da una sorta di combinazione \textbf{ibrida}
 \end{itemize}
 
 \subsubsection*{Classificazione degli OSs}
@@ -1133,8 +1132,8 @@ In teoria, ci sono due modi per parallelizzare il carico di lavoro:
 
 \subsubsection{Kernel threads vs User threads}
 Il supporto per (più) thread può essere fornito in due modi ossia a livello di \textbf{kernel} (thread del kernel) e a livello \textbf{utente} (thread utente). \\
-I Thread del kernel viene gestito direttamente dal kernel del sistema operativo stesso, mentre i Thread utente vengono gestiti in spazio utente da una libreria di thread a livello utente, senza intervento del sistema operativo.\par
-I \textbf{thread del kernel} hanno la più piccola unità di esecuzione che può essere pianificata dal sistema operativo. Il sistema operativo è responsabile del supporto e della gestione di tutti i thread. Possiedono un Process Control Block (PCB) per ogni processo, un Thread Control Block (TCB) per ogni thread. Il sistema operativo di solito fornisce chiamate di sistema per creare e gestire i thread dallo spazio utente.\par
+I thread del kernel viene gestito direttamente dal kernel del sistema operativo stesso, mentre i thread utente vengono gestiti in spazio utente da una libreria di thread a livello utente, senza intervento del sistema operativo.\par
+I \textbf{thread del kernel} hanno la più piccola unità di esecuzione che può essere pianificata dal sistema operativo. Il sistema operativo è responsabile del supporto e della gestione di tutti i thread. Possiedono un Process Control Block (\textbf{PCB}) per ogni processo, un Thread Control Block (\textbf{TCB}) per ogni thread. Il sistema operativo di solito fornisce chiamate di sistema per creare e gestire i thread dallo spazio utente.\par
 Tra i \textbf{vantaggi} del Kernel Thread:
 \begin{itemize}
     \item Il kernel ha piena conoscenza di tutti i thread
@@ -1157,14 +1156,14 @@ Tra gli \textbf{svantaggi}:
     \end{center}
 \end{figure}
 
-Gli \textbf{User Thread} invece vengono gestiti interamente dal sistema run-time (libreria thread a livello utente). Il kernel del sistema operativo non sa nulla dei thread a livello utente e gestisce i thread a livello utente come se fossero processi a thread singolo. Idealmente, le operazioni sui thread dovrebbero essere veloci quanto una chiamata di funzione
+Gli \textbf{User Thread} invece vengono gestiti interamente dal sistema run-time (libreria thread a livello utente). Il kernel del sistema operativo non sa nulla dei thread a livello utente e gestisce i thread a livello utente come se fossero processi a thread singolo. Idealmente, le operazioni sui thread dovrebbero essere veloci quanto una chiamata di funzione.\par
 Tra i \textbf{vantaggi}:
 \begin{itemize}
     \item Veramente veloce e leggero
     \item Le politiche di programmazione sono più flessibili
     \item Può essere implementato in sistemi operativi che non supportano il threading
     \item Nessuna chiamata di sistema coinvolta, solo chiamate di funzione in spazio utente
-    \item Nessun cambio di contesto effettivo
+    \item Nessun Context Switch effettivo
 \end{itemize}
 \pagebreak
 Tra gli \textbf{svantaggi}:
@@ -1174,8 +1173,7 @@ Tra gli \textbf{svantaggi}:
     \item Decisioni di pianificazione sbagliate
     \item Mancanza di coordinamento tra kernel e thread
     \item Un processo con 100 thread compete per un intervallo di tempo con un processo con solo 1 thread
-    \item Richiede chiamate di sistema non bloccanti, altrimenti
-    tutti i thread all'interno di un processo devono attendere
+    \item Richiede chiamate di sistema non bloccanti, altrimenti tutti i thread all'interno di un processo devono attendere
 \end{itemize}
 \begin{figure}[hbt]
     \begin{center}
@@ -1281,7 +1279,7 @@ In un'implementazione specifica, i thread utente devono essere mappati ai thread
 
 \section{Sincronizzazione tra Processi/Thread}
 
-Abbiamo già accennato al fatto che i processi/thread possono cooperare tra loro per raggiungere un compito comune. Tuttavia, la cooperazione può richiedere la \textbf{sincronizzazione}\footnote{La sincronizzazione come soluzione al problema della sezione critica} tra i thread a causa della presenza delle cosiddette sezioni critiche (regioni critiche). Le \textbf{primitive} di sincronizzazione sono necessarie per garantire che solo un thread alla volta esegua una sezione critica.\par Le \textbf{race condition} sono situazioni dove due o più processi stanno scrivendo o leggendo i medisimi dati condivisi e il risultato finale dipende da chi viene prescelto per l'esecuzione.\footnote{La \textbf{mutua esclusione} si occupa di bloccare un processo che deve leggere dei dati che vengono già letti da un altro processo }
+Abbiamo già accennato al fatto che i processi/thread possono cooperare tra loro per raggiungere un compito comune. Tuttavia, la cooperazione può richiedere la \textbf{sincronizzazione}\footnote{La sincronizzazione come soluzione al problema della sezione critica} tra i thread a causa della presenza delle cosiddette sezioni critiche (o regioni critiche). Le \textbf{primitive} di sincronizzazione sono necessarie per garantire che solo un thread alla volta esegua una sezione critica.\par Le \textbf{race condition} sono situazioni dove due o più processi stanno scrivendo o leggendo i medisimi dati condivisi e il risultato finale dipende da chi viene prescelto per l'esecuzione.\footnote{La \textbf{mutua esclusione} si occupa di bloccare un processo che deve leggere dei dati che vengono già letti da un altro processo }
 \begin{figure}[hbt]
     \begin{center}
         \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/cs}}
@@ -1299,7 +1297,7 @@ Abbiamo già accennato al fatto che i processi/thread possono cooperare tra loro
 Qualsiasi soluzione di sincronizzazione al problema della sezione critica deve soddisfare tre proprietà:
 \begin{itemize}
     \item \textbf{Mutua esclusione}, ossia solo un processo/thread alla volta può trovarsi nella sua sezione critica
-    \item  \textbf{Liveness}, ossia se nessun processo è nella sua sezione critica, e uno o più vogliono eseguirlo allora ognuno di questi deve essere in grado di entrare nella sua sezione critica
+    \item  \textbf{Liveness}, ossia se nessun processo è nella sua sezione critica, e uno o più vogliono eseguirlo, allora ognuno di questi deve essere in grado di entrare nella sua sezione critica
     \item  \textbf{Bounded Waiting}, ossia un processo che richiede l'ingresso nella sua sezione critica avrà un turno alla fine, e c'è un limite su quanti altri possono iniziare per primi
 \end{itemize}
 
@@ -1340,10 +1338,10 @@ Esistono delle regole per l'utilizzo di un lock:
     \item Acquisire sempre il blocco prima di accedere ai dati condivisi
     \item Rilasciare sempre il blocco dopo aver terminato con i dati condivisi 
     \item Il blocco deve essere inizialmente libero
-    \item Solo un processo/thread può acquisire il lock, gli altri aspetteranno!
+    \item Solo un processo/thread può acquisire il lock, gli altri aspetteranno
 \end{itemize}
 
-Poiché lo scheduler della CPU prende il controllo solo a seguito di eventi interni, ossia quando il thread in esecuzione lascia il controllo della CPU, oppure a seguito di eventi esterni, per evitare problemi all'interno dei settori critici è necessario impedire lo scheduling durante il rilascio o l'acquisizione di un lock. Per implementare le \textbf{primitive} ad alto livello relative alla sincronizzazione, quindi, è necessario del supporto harware al basso livello che possa rendere tali \textbf{operazioni atomiche}\footnote{Un'operazione viene detta atomica se essa non può essere interrotta in alcun modo, impedendo quindi che possa avvenire un context switch durante la sua esecuzione.}, in particolare tramite la \textbf{disabilitazione degli interrupt}\footnote{La prima soluzione a supporto hardware per poter implementare la sincronizzazione, corrisponde alla disabilitazione degli interrupt mentre un thread acquisisce o rilascia un lock} o l'uso di istruzioni atomiche.
+Poiché lo scheduler della CPU prende il controllo solo a seguito di eventi interni, ossia quando il thread in esecuzione lascia il controllo della CPU, oppure a seguito di eventi esterni, per evitare problemi all'interno dei settori critici è necessario impedire lo scheduling durante il rilascio o l'acquisizione di un lock. Per implementare le \textbf{primitive} ad alto livello relative alla sincronizzazione, quindi, è necessario del supporto hardware di basso livello che possa eseguire tali \textbf{operazioni atomiche}\footnote{Un'operazione viene detta atomica se essa non può essere interrotta in alcun modo, impedendo quindi che possa avvenire un context switch durante la sua esecuzione.}, in particolare tramite la \textbf{disabilitazione degli interrupt}\footnote{La prima soluzione a supporto hardware per poter implementare la sincronizzazione, corrisponde alla disabilitazione degli interrupt mentre un thread acquisisce o rilascia un lock} o l'uso di istruzioni atomiche.
 
 
 \begin{figure}[hbt]
@@ -1353,20 +1351,20 @@ Poiché lo scheduler della CPU prende il controllo solo a seguito di eventi inte
     \end{center}
 \end{figure}
 
-Sui sistemi a CPU singola, possiamo impedire allo scheduler di prendere il sopravvento: 
+Sui sistemi a CPU singola, possiamo impedire che lo scheduler possa prendere il sopravvento: 
 \begin{itemize}
-    \item eventi interni imponendo ai thread di non richiedere alcuna operazione di I/O durante un
+    \item eventi \textbf{interni} imponendo ai thread di non richiedere alcuna operazione di I/O durante un
     sezione critica
-    \item evento esterno per disabilitare gli interrupt (ovvero, dire all'HW di ritardare la gestione di qualsiasi evento esterno fino a quando il thread corrente non è terminato con la sezione critica)
+    \item evento \textbf{esterno} per disabilitare gli interrupt (ovvero, dire all'HW di ritardare la gestione di qualsiasi evento esterno fino a quando il thread corrente non è terminato con la sezione critica)
 \end{itemize}
 Copriamo tutti i possibili casi in cui il thread corrente potrebbe perdere il controllo della CPU, volontariamente (a causa di eventi interni) o involontariamente (a causa di eventi esterni).\par
-In sintesi supponiamo di avere una sola variabile condivisa (lock), inizialmente a 0. Quando un processo vuole entrare nella sua regione critica, prima controlla il lock. Se è O, il processo lo imposta a 1 ed entra nella regione critica. Se è già a 1, il processo aspetta finché non vale O. In questo modo O significa che nessun processo è nella sua regione critica, 1 che un qualche processo è nella sua regione critica.\par
-Sfortunatamente questa idea presenta esattamente lo stesso \textbf{difetto} constatato nella directory di spool di stampa. Supponiamo che un processo legga il lock e veda che è 0. Prima che riesca a metterlo a 1, viene eseguito un altro processo schedulato e imposta il lock a 1.\par
+In sintesi supponiamo di avere una sola variabile condivisa (lock), inizialmente a 0. Quando un processo vuole entrare nella sua regione critica, prima controlla il lock. Se è 0, il processo lo imposta a 1 ed entra nella regione critica. Se è già a 1, il processo aspetta finché non vale 0. In questo modo 0 significa che nessun processo è nella sua regione critica, 1 che un qualche processo è nella sua regione critica.\par
+Sfortunatamente questa idea presenta esattamente lo stesso \textbf{difetto} constatato nella directory di pool di stampa. Supponiamo che un processo legga il lock e veda che è 0. Prima che riesca a metterlo a 1, viene eseguito un altro processo schedulato e imposta il lock a 1.\par
 Quando riparte ancora il primo processo, anch'esso lo imposterà a uno e i due processi sarebbero nella loro regione critica nello stesso momento.
 
 \subsubsection*{Istruzione atomica}
 Un'istruzione atomica di lettura-modifica-scrittura legge un valore dalla memoria in un registro e scrive un nuovo valore in un colpo solo. Su un uniprocessore sarà semplice implementare l'aggiunta di una nuova istruzione mentre su un multiprocessore, anche il processore che impartisce l'istruzione deve essere in grado di farlo invalidare qualsiasi copia del valore che altri processi potrebbero avere nella loro cache.\par
-Prendiamo in esempio il \texttt{test\&set} (la maggior parte delle architetture) legge un valore, riscrive in memoria oppure uno \texttt{scambio (x86)} scambia valori tra registro e memoria.
+Prendiamo in esempio il \texttt{test\&set} (la maggior parte delle architetture) legge un valore, riscrive in memoria oppure uno \texttt{scambio(x86)} scambia valori tra registro e memoria.
 
 \begin{figure}[hbt]
     \begin{center}
@@ -1377,7 +1375,7 @@ Prendiamo in esempio il \texttt{test\&set} (la maggior parte delle architetture)
 
 L'implementazione del lock tramite \textbf{disabilitazione degli interrupt} presenta alcune
 \textbf{problematiche}, infatti ha la necessità dell'invocazione del kernel che rende il tutto più complesso. Inoltre risulta inutilizzabile in sistemi multi-core.\par
-Esistono due \textbf{problemi} principali con le istruzioni atomiche, il busy waiting\footnote{L'espressione busy waiting o busy wait (letteralmente "attesa impegnata", più spesso tradotto come "attesa attiva") indica una tecnica di sincronizzazione per cui un processo o un thread che debba attendere il verificarsi di una certa condizione (per esempio la disponibilità di input dalla tastiera o di un messaggio proveniente da un altro processo) lo faccia verificando ripetutamente (ciclicamente) tale condizione. Questo approccio è alternativo all'uso di una sospensione del processo e del suo successivo risveglio tramite un segnale specifico (per esempio un interrupt nel caso dell'input da tastiera). Fonte: Wikipedia} (che andrebbe generalmente evitato dato che consuma tempo di CPU) e un lock che utilizza il busy waiting si chiama \textbf{spin lock}
+Esistono due \textbf{problemi} principali con le istruzioni atomiche: il busy waiting\footnote{L'espressione busy waiting o busy wait (letteralmente "attesa impegnata", più spesso tradotto come "attesa attiva") indica una tecnica di sincronizzazione per cui un processo o un thread che debba attendere il verificarsi di una certa condizione (per esempio la disponibilità di input dalla tastiera o di un messaggio proveniente da un altro processo) lo faccia verificando ripetutamente (ciclicamente) tale condizione. Questo approccio è alternativo all'uso di una sospensione del processo e del suo successivo risveglio tramite un segnale specifico (per esempio un interrupt nel caso dell'input da tastiera). Fonte: Wikipedia} (che andrebbe generalmente evitato dato che consuma tempo di CPU) e un lock che utilizza il busy waiting si chiama \textbf{spin lock}.\par
 Infine abbiamo la \textbf{unfairness} in quanto non esiste una coda in cui i thread attendono il rilascio del blocco.\\
 
 Nonostante il tempo in attesa della CPU sia un problema irrisolvibile nel caso delle istruzioni atomiche, esso può essere minimizzato. Inoltre, l'aggiunta di una queue permette di gestire in modo deterministico quale thread vada ad ottenere il lock a seguito del suo rilascio:
