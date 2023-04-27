@@ -1281,7 +1281,7 @@ In un'implementazione specifica, i thread utente devono essere mappati ai thread
 
 \section{Sincronizzazione tra Processi/Thread}
 
-Abbiamo già accennato al fatto che i processi/thread possono cooperare tra loro per raggiungere un compito comune. Tuttavia, la cooperazione può richiedere la \textbf{sincronizzazione}\footnote{La sincronizzazione come soluzione al problema della sezione critica} tra i thread a causa della presenza delle cosiddette sezioni critiche (regioni critiche). Le \textbf{primitive} di sincronizzazione sono necessarie per garantire che solo un thread alla volta esegua una sezione critica. 
+Abbiamo già accennato al fatto che i processi/thread possono cooperare tra loro per raggiungere un compito comune. Tuttavia, la cooperazione può richiedere la \textbf{sincronizzazione}\footnote{La sincronizzazione come soluzione al problema della sezione critica} tra i thread a causa della presenza delle cosiddette sezioni critiche (regioni critiche). Le \textbf{primitive} di sincronizzazione sono necessarie per garantire che solo un thread alla volta esegua una sezione critica.\par Le \textbf{race condition} sono situazioni dove due o più processi stanno scrivendo o leggendo i medisimi dati condivisi e il risultato finale dipende da chi viene prescelto per l'esecuzione.\footnote{La \textbf{mutua esclusione} si occupa di bloccare un processo che deve leggere dei dati che vengono già letti da un altro processo }
 \begin{figure}[hbt]
     \begin{center}
         \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/cs}}
@@ -1294,6 +1294,7 @@ Abbiamo già accennato al fatto che i processi/thread possono cooperare tra loro
         \caption{The Critical Section Problem}    
     \end{center}
 \end{figure}
+
 
 Qualsiasi soluzione di sincronizzazione al problema della sezione critica deve soddisfare tre proprietà:
 \begin{itemize}
@@ -1308,6 +1309,7 @@ Qualsiasi soluzione di sincronizzazione al problema della sezione critica deve s
         \caption{The Critical Section Problem}    
     \end{center}
 \end{figure}
+
 
 Nell'esempio del latte:
 \begin{itemize}
