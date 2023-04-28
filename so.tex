@@ -1408,7 +1408,7 @@ Quando texttt{wait()} viene chiamato da un thread, se il semaforo è aperto il t
 
 Esistono due categorie di semafori:
 \begin{itemize}
-    \item \textbf{Binary Semaphore} detti Mutex (lo stesso di un Lock), hanno il compito di garantire l'accesso mutuamente esclusivo a una risorsa (ad esempio, solo un processo/thread esegue in una sezione critica). Ad essi vengono assegnati la variabile intera associata può assumere solo 2 valori: 0 o 1. Viene inizializzato per aprire (ad esempio, valore = 1).
+    \item \textbf{Binary Semaphore} detti Mutex\footnote{In sostanza i Mutex sono utili solo per gestire la mutua esclusione di alcune risorse condivise o di pezzi di codice} (lo stesso di un Lock), hanno il compito di garantire l'accesso mutuamente esclusivo a una risorsa (ad esempio, solo un processo/thread esegue in una sezione critica). Ad essi vengono assegnati la variabile intera associata può assumere solo 2 valori: 0 o 1. Viene inizializzato per aprire (ad esempio, valore = 1).
     \item \textbf{Conteggio Semaforo}, utile per gestire più risorse condivise. Il valore iniziale del semaforo è solitamente il numero di risorse. Un processo può accedere a una risorsa purché ne sia disponibile almeno una.
 \end{itemize}
 \begin{figure}[hbt]
@@ -1465,7 +1465,11 @@ Vediamo ora l'implementazione del semaforo:
 
 \subsubsection{Problemi semafori}
 Non è facile ottenere il significato di attesa/segnalazione su un semaforo, infatti si tratta essenzialmente di variabili globali condivise. Non esiste inoltre una connessione diretta tra il semaforo ei dati ai quali il semaforo controlla l'accesso. Servono a molteplici scopi (ad esempio, mutex, vincoli di pianificazione, ecc\dots).\par
-La loro correttezza dipende dall'abilità del programmatore.
+La loro correttezza dipende dall'abilità del programmatore.\\
+I semafori possono possono creare deadlock, ossia una situazione in cui due o più processi o azioni si bloccano a vicenda, aspettando che uno esegua una certa azione (es. rilasciare il controllo su una risorsa come un file, una porta input/output ecc.) che serve all'altro e viceversa.
+
+
+
 \pagebreak
 
 \subsection{I Monitor}
@@ -1519,7 +1523,8 @@ Comunemente, i monitor vengono implementati secondo due stili:
         \end{center}
     \end{figure}
 \end{itemize}
-    
+
+\pagebreak
 \subsubsection{Problemi di Lettura e Scrittura}
 Un oggetto è condiviso tra più thread, ciascuno appartenente a una delle due classi: 
 \begin{itemize}
@@ -1527,7 +1532,6 @@ Un oggetto è condiviso tra più thread, ciascuno appartenente a una delle due c
     \item Scrittori: leggono i dati e li modificano
 \end{itemize}
 
-\pagebreak
 La soluzione più semplice suggirisce di utilizzare un singolo blocco sull'oggetto dati per ciascuna operazione, ma potrebbe risultare troppo restrittivo.\par
 Esistono due varianti del problema a seconda che la priorità sia sui lettori o sugli scrittori:
 \begin{itemize}
@@ -1548,9 +1552,9 @@ Il primo lettore che arriva bloccherà su \texttt{rw\_mutex} se c'è attualmente
 Il primo lettore si blocca se è presente un writer; qualsiasi altro lettore che tenta di entrare viene bloccato su \texttt{mutex}. Solo l'ultimo lettore ad uscire segnala uno scrittore in attesa. Quando uno scrittore esce, se c'è sia un lettore che uno scrittore in attesa, dipende da chi va dopo sul programmatore.\par Se uno scrittore esce e un lettore va dopo, allora tutti i lettori che sono in attesa falliranno (almeno uno è in attesa su \texttt{rw\_mutex} e zero o più possono essere in attesa su \texttt{mutex}). In alternativa, lascia che uno scrittore entri prima nella sua sezione critica (priorità per gli scrittori).
 
 
-\subsubsection{Soluzione II: usare i Monitors}
-
-
+\subsubsection{Soluzione II: usare i Monitor}
+\pagebreak
+\subsection{Deadlock}
 
 
 \pagebreak
