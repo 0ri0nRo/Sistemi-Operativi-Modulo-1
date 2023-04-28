@@ -1298,7 +1298,7 @@ Qualsiasi soluzione di sincronizzazione al problema della sezione critica deve s
 \begin{itemize}
     \item \textbf{Mutua esclusione}, ossia solo un processo/thread alla volta può trovarsi nella sua sezione critica
     \item  \textbf{Liveness}, ossia se nessun processo è nella sua sezione critica, e uno o più vogliono eseguirlo, allora ognuno di questi deve essere in grado di entrare nella sua sezione critica
-    \item  \textbf{Bounded Waiting}, ossia un processo che richiede l'ingresso nella sua sezione critica avrà un turno alla fine, e c'è un limite su quanti altri possono iniziare per primi
+    \item  \textbf{Bounded Waiting}, ossia un processo che richiede l'ingresso nella sua sezione critica avrà un turno alla fine, e c'è un limite su quanti altri possono iniziare per primi.
 \end{itemize}
 
 \begin{figure}[hbt]
@@ -1335,10 +1335,10 @@ Fornire l'esclusione reciproca ai dati condivisi utilizzando due primitive atomi
 
 Esistono delle regole per l'utilizzo di un lock:
 \begin{itemize}
-    \item Acquisire sempre il blocco prima di accedere ai dati condivisi
-    \item Rilasciare sempre il blocco dopo aver terminato con i dati condivisi 
-    \item Il blocco deve essere inizialmente libero
-    \item Solo un processo/thread può acquisire il lock, gli altri aspetteranno
+    \item \textbf{Acquisire} sempre il blocco prima di accedere ai dati condivisi
+    \item \textbf{Rilasciare} sempre il blocco dopo aver terminato con i dati condivisi 
+    \item Il blocco deve essere inizialmente \textbf{libero}
+    \item Solo un processo/thread può acquisire il lock, gli altri \textbf{aspetteranno}
 \end{itemize}
 
 Poiché lo scheduler della CPU prende il controllo solo a seguito di eventi interni, ossia quando il thread in esecuzione lascia il controllo della CPU, oppure a seguito di eventi esterni, per evitare problemi all'interno dei settori critici è necessario impedire lo scheduling durante il rilascio o l'acquisizione di un lock. Per implementare le \textbf{primitive} ad alto livello relative alla sincronizzazione, quindi, è necessario del supporto hardware di basso livello che possa eseguire tali \textbf{operazioni atomiche}\footnote{Un'operazione viene detta atomica se essa non può essere interrotta in alcun modo, impedendo quindi che possa avvenire un context switch durante la sua esecuzione.}, in particolare tramite la \textbf{disabilitazione degli interrupt}\footnote{La prima soluzione a supporto hardware per poter implementare la sincronizzazione, corrisponde alla disabilitazione degli interrupt mentre un thread acquisisce o rilascia un lock} o l'uso di istruzioni atomiche.
@@ -1372,10 +1372,9 @@ Prendiamo in esempio il \texttt{test\&set} (la maggior parte delle architetture)
         \caption{The Critical Section Problem}    
     \end{center}
 \end{figure}
-
 L'implementazione del lock tramite \textbf{disabilitazione degli interrupt} presenta alcune
 \textbf{problematiche}, infatti ha la necessità dell'invocazione del kernel che rende il tutto più complesso. Inoltre risulta inutilizzabile in sistemi multi-core.\par
-Esistono due \textbf{problemi} principali con le istruzioni atomiche: il busy waiting\footnote{L'espressione busy waiting o busy wait (letteralmente "attesa impegnata", più spesso tradotto come "attesa attiva") indica una tecnica di sincronizzazione per cui un processo o un thread che debba attendere il verificarsi di una certa condizione (per esempio la disponibilità di input dalla tastiera o di un messaggio proveniente da un altro processo) lo faccia verificando ripetutamente (ciclicamente) tale condizione. Questo approccio è alternativo all'uso di una sospensione del processo e del suo successivo risveglio tramite un segnale specifico (per esempio un interrupt nel caso dell'input da tastiera). Fonte: Wikipedia} (che andrebbe generalmente evitato dato che consuma tempo di CPU) e un lock che utilizza il busy waiting si chiama \textbf{spin lock}.\par
+Esistono due \textbf{problemi} principali con le istruzioni atomiche: il \textbf{busy waiting}\footnote{L'espressione busy waiting o busy wait (letteralmente "attesa impegnata", più spesso tradotto come "attesa attiva") indica una tecnica di sincronizzazione per cui un processo o un thread che debba attendere il verificarsi di una certa condizione (per esempio la disponibilità di input dalla tastiera o di un messaggio proveniente da un altro processo) lo faccia verificando ripetutamente (ciclicamente) tale condizione. Questo approccio è alternativo all'uso di una sospensione del processo e del suo successivo risveglio tramite un segnale specifico (per esempio un interrupt nel caso dell'input da tastiera). Fonte: Wikipedia\par} (che andrebbe generalmente evitato dato che consuma tempo di CPU)\footnote{un lock che utilizza il busy waiting si chiama \textbf{spin lock}}.\par
 Infine abbiamo la \textbf{unfairness} in quanto non esiste una coda in cui i thread attendono il rilascio del blocco.\\
 
 Nonostante il tempo in attesa della CPU sia un problema irrisolvibile nel caso delle istruzioni atomiche, esso può essere minimizzato. Inoltre, l'aggiunta di una queue permette di gestire in modo deterministico quale thread vada ad ottenere il lock a seguito del suo rilascio:
@@ -1397,8 +1396,152 @@ Esiste un miglioramento di \texttt{test\&set} per ridurre l'attesa occupata rend
 
 \pagebreak
 \subsection{I Semafori}
+I semafori sono un'altra struttura dati che fornisce mutua esclusione alle sezioni critiche. Può inoltre svolgere il ruolo di contatore atomico.\par
+Tipo speciale di variabile (intera) che supporta 2 operazioni atomiche
+\begin{itemize}
+    \item \texttt{wait()} (anche \texttt{P()}): decremento, blocco fino all'apertura del semaforo
+    \item \texttt{signal()} (anche \texttt{V()}): incremento, consente l'ingresso di un altro thread
+\end{itemize}
+A ciascun semaforo è associata una queue di processi/thread in attesa. 
+Quando texttt{wait()} viene chiamato da un thread, se il semaforo è aperto il thread continua, altrimenti il thread si blocca in coda. Successivamente \texttt{signal()} apre il semaforo. Se un thread è in attesa in coda il thread viene sbloccato, mentre se non ci sono thread in attesa in coda, il segnale viene ricordato per il thread successivo. In altre parole, \texttt{signal()} è stateful e ha una "history". \\
 
-Finito fino alla slides 9
+
+Esistono due categorie di semafori:
+\begin{itemize}
+    \item \textbf{Binary Semaphore} detti Mutex (lo stesso di un Lock), hanno il compito di garantire l'accesso mutuamente esclusivo a una risorsa (ad esempio, solo un processo/thread esegue in una sezione critica). Ad essi vengono assegnati la variabile intera associata può assumere solo 2 valori: 0 o 1. Viene inizializzato per aprire (ad esempio, valore = 1).
+    \item \textbf{Conteggio Semaforo}, utile per gestire più risorse condivise. Il valore iniziale del semaforo è solitamente il numero di risorse. Un processo può accedere a una risorsa purché ne sia disponibile almeno una.
+\end{itemize}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sema1}}
+        \caption{Ogni semaforo supporta una coda di processi in attesa di accedere alla sezione critica (es. per acquistare latte)}    
+    \end{center}
+\end{figure}
+Se un processo esegue \texttt{S.wait()} e il semaforo S è aperto (diverso da zero), continua l'esecuzione, altrimenti il sistema operativo mette il processo in coda di attesa. Un \texttt{S.signal()} sblocca un processo sulla coda di attesa del semaforo S. 
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sema2}}
+        \caption{Esempio semaforo binario}    
+    \end{center}
+\end{figure}
+\pagebreak
+Vediamo ora l'implementazione del semaforo:
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sema3}}
+        \caption{\texttt{wait() {e} signal()} sono istruzioni atomiche}    
+    \end{center}
+\end{figure}
+
+\subsubsection*{Esempi}
+\begin{enumerate}
+    \item Considerando i seguenti due processi A e B, un possibile sviluppo dell'esecuzione è il seguente:
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sema4}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \item Consideriamo i due seguenti processi Producer e Consumer:
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.45\textwidth,keepaspectratio]{{im/sema5}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \pagebreak
+    \begin{itemize}
+        \item I due processi condividono un buffer comune. La variabile counter tiene traccia del numero di elementi attualmente nel buffer.
+        \item In tale caso, potrebbe crearsi una race condition: in assenza di sincronizza- zione, i due processi potrebbero lavorare contemporaneamente sulla variabile
+        \item Ad esempio, ipotiziamo che inizialmente si abbia counter = 5. In tal caso, una possibile esecuzione del programma potrebbe essere la seguente:
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sema6}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Problemi semafori}
+Non è facile ottenere il significato di attesa/segnalazione su un semaforo, infatti si tratta essenzialmente di variabili globali condivise. Non esiste inoltre una connessione diretta tra il semaforo ei dati ai quali il semaforo controlla l'accesso. Servono a molteplici scopi (ad esempio, mutex, vincoli di pianificazione, ecc\dots).\par
+La loro correttezza dipende dall'abilità del programmatore.
+
+\subsection{I Monitor}
+Un \textbf{monitor} è un costrutto del linguaggio di programmazione che controlla l'accesso ai dati condivisi. E' simile a una classe (Java/C++) che incorpora tutto insieme: dati, operazioni e sincronizzazione. Il codice di sincronizzazione viene aggiunto dal compilatore, applicato in fase di esecuzione. Diversamente dalle classi, i monitor garantiscono la mutua esclusione, cioè solo un thread alla volta può eseguire il metodo di un monitor, inoltre richiedono che tutti i dati siano privati.\par
+I monitor definiscono un blocco e zero o più variabili di condizione per la gestione dell'accesso simultaneo ai dati condivisi. Utilizza il blocco per garantire che all'interno del monitor sia attivo un solo thread alla volta. Il blocco prevede, come anticipato prima, l'esclusione reciproca per i dati condivisi. \par
+È semplice trasformare una classe Java in un monitor semplicemente, basta rendendere privati tutti i dati, sincronizzare tutti i metodi (o quelli non privati). \par
+La parola chiave \textit{synchronized} indica che il metodo è soggetto a mutua esclusione. 
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/monitor1}}
+        \caption{}    
+    \end{center}
+\end{figure}
+Nell'esempio precedente, il metodo \texttt{remove()} deve attendere finché qualcosa non è disponibile nella coda. Intuitivamente, il thread dovrebbe dormire all'interno della sezione critica. Ma se il thread dorme mentre mantiene ancora un blocco, nessun altro thread può accedervi
+la coda, aggiungi un elemento ad essa e alla fine riattiva il thread dormiente. Le variabili condizionali sono delle soluzioni che risolvono questo problema. Consentono a un thread di dormire all'interno di una sezione critica. Qualsiasi blocco mantenuto dal thread viene rilasciato atomicamente prima di andare a dormire. \par
+
+Ogni variabile\footnote{Nota: le variabili di condizione non sono oggetti booleani} di condizione supporta tre operazioni:
+\begin{itemize} 
+    \item \texttt{wait} release lock e vai a dormire atomicamente (coda di camerieri)
+    \item \texttt{signal} sveglia un thread in attesa se ne esiste uno, altrimenti non fa nulla \item \texttt{broadcast} risveglia tutti i thread in attesa
+\end{itemize}
+Il thread deve mantenere il blocco durante l'esecuzione di operazioni sulle variabili di condizione.\par
+Le variabili di condizione hanno le stesse operazioni dei semafori ma semantica completamente diversa:
+\begin{itemize}
+    \item L'accesso al monitor è controllato da una serratura
+    \item wait() blocca il thread chiamante e rinuncia al blocco
+    \item per chiamare wait(), il thread deve essere nel monitor (quindi, ha il blocco) 
+    \item su un semaforo, wait() blocca solo il thread sulla coda
+    \item signal() provoca l'attivazione di un thread in attesa 
+    \item Se non c'è un thread in attesa, il segnale viene comunque perso!
+    \item su un semaforo, il segnale aumenta il contatore, consentendo l'ingresso futuro anche se nessun thread è attualmente in attesa
+\end{itemize}
+Comunemente, i monitor vengono implementati secondo due stili:
+\begin{itemize}
+    \item Lo stile Mesa, dove il thread segnalante inserisce un thread in attesa nella ready queue mentre il primo continua l'esecuzione all'interno del monitor, e dove la condi- zione, la quale deve essere verificata continuamente, non deve essere necessariamente verificata quando il thread in attesa viene nuovamente eseguito
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mesa}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+
+    \item Lo stile Hoare, dove il thread segnalante viene trasformato immediatamente in un thread in attesa e dove la condizione anticipata dal thread in attesa è garantita quando esso viene eseguito
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/hoare}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+\end{itemize}
+    
+\subsubsection{Problemi di Lettura e Scrittura}
+Un oggetto è condiviso tra più thread, ciascuno appartenente a una delle due classi: 
+\begin{itemize}
+    \item Reader: legge i dati, non li modifica mai
+    \item Scrittori: leggono i dati e li modificano
+\end{itemize}
+La soluzione più semplice suggirisce di utilizzare un singolo blocco sull'oggetto dati per ciascuna operazione, ma potrebbe risultare troppo restrittivo.\par
+Esistono due varianti del problema a seconda che la priorità sia sui lettori o sugli scrittori:
+\begin{itemize}
+    \item primo problema di lettori-scrittori (priorità ai lettori), se un lettore desidera accedere ai dati e non vi è già un utente che vi accede, allora l'accesso è consentito al lettore. Esiste anche una possibile "fame" degli scrittori, in quanto potrebbero esserci sempre più lettori in arrivo per accedere ai dati
+    \item secondo problema lettori-scrittori (priorità agli scrittori), si verifiva quando un writer vuole accedere ai dati, salta in testa alla coda. Esiste anche una possibile "fame" dei lettori, in quanto sono tutti bloccati finché ci sono scrittori.
+\end{itemize}
+\subsubsection{(First) Readers-Writers Problem: Soluzione I}
+E' possibile utilizzare un contatore e due semafori binari:
+\begin{itemize}
+    \item \texttt{numReaders}, utilizzato dai processi reader per contare il numero di lettori
+    attualmente accedendo ai dati
+    \item semaforo \texttt{mutex} binario, utilizzato solo dai lettori per l'accesso controllato
+    numReader
+    \item \texttt{rw\_mutex}, binario semaforo utilizzato per bloccare e rilasciare i writer
+\end{itemize}
+
+Il primo lettore che arriva bloccherà su \texttt{rw\_mutex} se c'è attualmente un utente che sta accedendo ai dati. Tutti i lettori successivi si bloccheranno solo sul \texttt{mutex} per il loro turno di incremento \texttt{numReader}.
+
+
+
 
 
 
