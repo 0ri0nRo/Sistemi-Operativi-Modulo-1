@@ -51,9 +51,12 @@
 \contentsline {subsubsection}{\numberline {3.3.2}(First) Readers-Writers Problem: Soluzione I}{55}{subsubsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}Soluzione II: usare i Monitor}{55}{subsubsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.4}Deadlock}{56}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Gestione della Memoria}{57}{section.4}%
-\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{58}{section.5}%
-\contentsline {section}{\numberline {6}File System}{59}{section.6}%
-\contentsline {section}{\numberline {7}Advanced Topics}{60}{section.7}%
-\contentsline {section}{\numberline {8}Esercizi}{61}{section.8}%
-\contentsline {section}{\numberline {9}Formulario}{62}{section.9}%
+\contentsline {subsubsection}{\numberline {3.4.1}Cos'è un deadlock}{57}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Resource Allocation Graph (RAG)}{57}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Prevenire ed evitare un deadlock}{59}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Gestione della Memoria}{60}{section.4}%
+\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{61}{section.5}%
+\contentsline {section}{\numberline {6}File System}{62}{section.6}%
+\contentsline {section}{\numberline {7}Advanced Topics}{63}{section.7}%
+\contentsline {section}{\numberline {8}Esercizi}{64}{section.8}%
+\contentsline {section}{\numberline {9}Formulario}{65}{section.9}%

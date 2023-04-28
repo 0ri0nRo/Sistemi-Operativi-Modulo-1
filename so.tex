@@ -1556,9 +1556,127 @@ Il primo lettore si blocca se è presente un writer; qualsiasi altro lettore che
 \pagebreak
 \subsection{Deadlock}
 
+Consideriamo il famoso problema dei filosofi a cena:
+\begin{itemize} 
+    \item Ci sono 5 filosofi seduti ad un tavolo rotondo
+    \item Ogni filosofo ha una bacchetta di legno alla propria sinistra, per un totale di 5 bacchette
+    \item Per poter mangiare, ogni filosofo necessita di due bacchette
+    \item L'obiettivo è far sì che ogni filosofo mangi
+\end{itemize}
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/filo}}
+        \caption{}    
+    \end{center}
+\end{figure}
+\begin{itemize}
+    \item Esiste una prima soluzione banale al problema: possiamo utilizzare un lock globale che permette ad un singolo filosofo per volta di poter prendere in mano due bacchette. Tale soluzione, risulta essere inefficiente per via dell'assenza di concorrenza tra i filosofi affinché essi possano mangiare contemporaneamente
+    \item Una seconda soluzione prevede l'uso di un semaforo:
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/filo1}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+    \item Tale soluzione presenta alcune problematiche: nel caso in cui ogni filosofo prenda in mano la bacchetta sinistra in contemporaneamente agli altri, si andrebbe a creare un \textbf{deadlock}, dove ogni filosofo rimarrebbe in attesa che la bacchetta destra sia libera.
+    \item Per far si che non si crei un deadlock e che vi sia concorrenza tra i filosofi, una terza soluzione prevede l'uso dei \textbf{monitor}: prima di prendere in mano una delle due bacchette, è necessario assicurarsi che la seconda sia libera, altrimenti sarà necessario aspettare che entrambe siano libere. Dunque, sarà necessario controllare se il filosofo alla propria destra e il filosofo alla propria sinistra stiano mangiano oppure no (variabili condizionate), portando nessun filosofo a prender in mano una singola bacchetta.
+\end{itemize}
+I problemi che abbiamo visto finora sono interessanti perché identificano alcuni modelli che sono molto comuni nella pratica: \textbf{Produttore-Consumatore},  \textbf{Lettore audio/video} incorporato in un browser Web che contiene un buffer dati condiviso + rete e rendering, Lettore-Scrittore (E.g sistema bancario: read vs. update account balances), oppure i \textbf{Filosofi a tavola} che bloccano più risorse: (ad esempio, prenotazioni di viaggi (hotel, compagnie aeree, database di autonoleggio)).
+
+\subsubsection{Cos'è un deadlock}
+Intuitivamente, una condizione in cui due o più thread sono in attesa di un evento che può essere generato solo dagli stessi thread. Si può verificare quando più thread competono per un numero finito di risorse:
+\begin{itemize} 
+    \item Rilevamento deadlock: trova istanze di deadlock e tenta di ripristinarle
+    \item Prevenzione deadlock (offline): impone restrizioni/regole su come scrivere
+    programmi senza deadlock
+    \item Evitamento dei deadlock (online): il supporto runtime controlla le richieste di risorse effettuate dai thread per evitare i deadlock
+\end{itemize}
+Il \textbf{deadlock} è diverso dalla \textbf{starvation} i termini correlati ma ognuno si riferisce a una situazione specifica. La starvation si verifica quando un thread attende a tempo indeterminato una risorsa, ma altri thread stanno effettivamente facendo progressi utilizzando quella risorsa. La \textbf{differenza principale} con deadlock è che il sistema non è completamente bloccato. \\
+
+Il deadlock può verificarsi se tutte e quattro le condizioni sottostanti sono soddisfatte:
+\begin{itemize}
+    \item \textbf{Mutua esclusione}: almeno un thread deve contenere una risorsa non condivisibile (solo
+    un thread contiene la risorsa)
+    \item \textbf{Hold and Wait} almeno un thread detiene una risorsa non condivisibile ed è in attesa che altre risorse diventino disponibili (un altro thread detiene le risorse)
+    \item \textbf{No Preemption} un thread può rilasciare una risorsa solo volontariamente; né un altro thread né il sistema operativo possono forzarlo a rilasciare la risorsa
+    \item \textbf{Circular Wait} un insieme di thread in attesa $t_{1}, ..., t_{n}$ dove $t_{i}$ è in attesa su $t_{(i+1)\%n}$
+\end{itemize}
+
+\subsubsection{Resource Allocation Graph (RAG)}
+Definiamo un \textbf{grafo orientato} \texttt{G = (V, E)} dove:
+\begin{itemize}
+    \item V è l'insieme dei vertici che rappresentano sia le risorse {$r_{1}, ..., r_{m}$} che i thread {$t_{1}, ..., t_{n}$}
+    \item E è l'insieme degli archi tra risorse e thread
+    \item I bordi possono essere di 2 tipi:
+\end{itemize}
+    \begin{itemize}
+        \item Request Edge à un edge diretto $(t_{i}, r_{j})$ indica che $t_{i}$ ha richiesto $r_{j}$, ma non ancora acquisita
+        \item Assignment Edge à un edge diretto $(r_{j}, t_{i})$ indica che il sistema operativo ha assegnato $r_{j}$ a $t_{i}$
+\end{itemize}
+    
+\pagebreak
+\subsubsection*{Esempio}
+\begin{itemize}
+    \item Consideriamo il seguente RAG:
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \item E' facilmente individuabile la presenza di un deadlock:
+    \begin{enumerate}
+        \item Il thread $t_{2}$, possedente la risorsa $r_{3}$, richiede la risorsa $r_{1}$, rimanendo in attesa che essa sia liberata dal thread $t_{3}$
+        \item A questo punto, il thread $t_{3}$, possedente la risorsa $r_{1}$, richiede la risorsa $r_{2}$, rimanendo in attesa che essa sia liberata dal thread $t_{4}$
+        \item A sua volta, il thread $t_{4}$, possedente la risorsa $r_{2}$, richiede la risorsa $r_{3}$, rimanendo in attesa che essa sia liberata dal thread $t_{2}$
+        \item In definitiva, si è in una situazione dove $t_{2}$ aspetta $t_{3}$, il quale sta aspettando $t_{4}$, il quale a sua volta sta aspettando $t_{2}$, creando quindi un deadlock
+    \end{enumerate}
+    \item Se il thread $t_{4}$ non richiedesse la risorsa $r_{3}$, le condizioni necessarie affinché possa verificarsi un deadlock non sarebbero soddisfatte, per via dell'assenza dell'attesa circolare
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag2}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \pagebreak
+    \item Consideriamo il caso in cui esistano due istanze della risorsa $r_{3}$, dove prima istanza è assegnata al thread $t_{2}$ e la seconda è assegnata al thread $t_{3}$.
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag3}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \item Anche in tal caso, siamo in una situazione di deadlock:
+    \begin{enumerate}
+        \item $t_{4}$ richiede un'istanza di $r_{3}$, rimanendo in attesa che $t_{2}$ o $t_{3}$ ne rilascino almeno una
+        \item Tuttavia, $t_{3}$ è in attesa che $t_{4}$ ceda $r_{2}$, mentre $t_{2}$ è in attesa che $t_{3}$ ceda $r_{1}$
+    \end{enumerate}
+    \item Invece, se ci fossero tre istanze di $r_{3}$ e solo due di esse venissero utilizzate da $t_{2}$ e $t_{3}$, non si andrebbe a creare un deadlock, poiché $t_{4}$ non rimarrebbe in attesa, sbloccando quindi la catena
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag4}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+\end{itemize}
+
+\subsection{Prevenire ed evitare un deadlock}
+
+fatto fino a pag 78
+
+
+
+
+
+
+
+
+
+
+
 
 \pagebreak
-
 \section{Gestione della Memoria}
 %-------------------------------------------------------%
 \pagebreak
