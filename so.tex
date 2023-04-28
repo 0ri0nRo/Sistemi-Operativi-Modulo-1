@@ -1466,11 +1466,15 @@ Vediamo ora l'implementazione del semaforo:
 \subsubsection{Problemi semafori}
 Non è facile ottenere il significato di attesa/segnalazione su un semaforo, infatti si tratta essenzialmente di variabili globali condivise. Non esiste inoltre una connessione diretta tra il semaforo ei dati ai quali il semaforo controlla l'accesso. Servono a molteplici scopi (ad esempio, mutex, vincoli di pianificazione, ecc\dots).\par
 La loro correttezza dipende dall'abilità del programmatore.
+\pagebreak
 
 \subsection{I Monitor}
-Un \textbf{monitor} è un costrutto del linguaggio di programmazione che controlla l'accesso ai dati condivisi. E' simile a una classe (Java/C++) che incorpora tutto insieme: dati, operazioni e sincronizzazione. Il codice di sincronizzazione viene aggiunto dal compilatore, applicato in fase di esecuzione. Diversamente dalle classi, i monitor garantiscono la mutua esclusione, cioè solo un thread alla volta può eseguire il metodo di un monitor, inoltre richiedono che tutti i dati siano privati.\par
-I monitor definiscono un blocco e zero o più variabili di condizione per la gestione dell'accesso simultaneo ai dati condivisi. Utilizza il blocco per garantire che all'interno del monitor sia attivo un solo thread alla volta. Il blocco prevede, come anticipato prima, l'esclusione reciproca per i dati condivisi. \par
-È semplice trasformare una classe Java in un monitor semplicemente, basta rendendere privati tutti i dati, sincronizzare tutti i metodi (o quelli non privati). \par
+Un \textbf{monitor} è un costrutto del linguaggio di programmazione che controlla l'accesso ai dati condivisi. E' simile a una classe (Java/C++) che incorpora tutto insieme: dati, operazioni e sincronizzazione. Il codice di sincronizzazione viene aggiunto dal compilatore, applicato in fase di esecuzione. Diversamente dalle classi, i monitor garantiscono la mutua esclusione, cioè solo un thread alla volta può eseguire il metodo di un monitor, inoltre richiedono che tutti i dati siano privati.\\
+
+I monitor definiscono un blocco e zero o più variabili di condizione per la gestione dell'accesso simultaneo ai dati condivisi. Utilizza il blocco per garantire che all'interno del monitor sia attivo un solo thread alla volta. Il blocco prevede, come anticipato prima, l'esclusione reciproca per i dati condivisi.
+\\
+
+È semplice trasformare una classe Java in un monitor semplicemente, basta rendendere privati tutti i dati, sincronizzare tutti i metodi (o quelli non privati). 
 La parola chiave \textit{synchronized} indica che il metodo è soggetto a mutua esclusione. 
 \begin{figure}[hbt]
     \begin{center}
@@ -1522,6 +1526,8 @@ Un oggetto è condiviso tra più thread, ciascuno appartenente a una delle due c
     \item Reader: legge i dati, non li modifica mai
     \item Scrittori: leggono i dati e li modificano
 \end{itemize}
+
+\pagebreak
 La soluzione più semplice suggirisce di utilizzare un singolo blocco sull'oggetto dati per ciascuna operazione, ma potrebbe risultare troppo restrittivo.\par
 Esistono due varianti del problema a seconda che la priorità sia sui lettori o sugli scrittori:
 \begin{itemize}
@@ -1542,6 +1548,7 @@ Il primo lettore che arriva bloccherà su \texttt{rw\_mutex} se c'è attualmente
 Il primo lettore si blocca se è presente un writer; qualsiasi altro lettore che tenta di entrare viene bloccato su \texttt{mutex}. Solo l'ultimo lettore ad uscire segnala uno scrittore in attesa. Quando uno scrittore esce, se c'è sia un lettore che uno scrittore in attesa, dipende da chi va dopo sul programmatore.\par Se uno scrittore esce e un lettore va dopo, allora tutti i lettori che sono in attesa falliranno (almeno uno è in attesa su \texttt{rw\_mutex} e zero o più possono essere in attesa su \texttt{mutex}). In alternativa, lascia che uno scrittore entri prima nella sua sezione critica (priorità per gli scrittori).
 
 
+\subsubsection{Soluzione II: usare i Monitors}
 
 
 
