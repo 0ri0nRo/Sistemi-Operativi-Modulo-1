@@ -900,10 +900,6 @@ INPUT ./im/mesa.png
 INPUT im/mesa.png
 INPUT ./im/mesa.png
 INPUT ./im/mesa.png
-INPUT ./im/hoare.png
-INPUT im/hoare.png
-INPUT ./im/hoare.png
-INPUT ./im/hoare.png
 INPUT so.aux
 INPUT ./so.out
 INPUT ./so.out

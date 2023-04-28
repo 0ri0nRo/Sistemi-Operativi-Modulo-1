@@ -1539,9 +1539,7 @@ E' possibile utilizzare un contatore e due semafori binari:
 \end{itemize}
 
 Il primo lettore che arriva bloccherà su \texttt{rw\_mutex} se c'è attualmente un utente che sta accedendo ai dati. Tutti i lettori successivi si bloccheranno solo sul \texttt{mutex} per il loro turno di incremento \texttt{numReader}.\par
-Il primo lettore si blocca se è presente un writer; qualsiasi altro lettore che tenta di entrare viene bloccato su mutex. Solo l'ultimo lettore ad uscire segnala uno scrittore in attesa. Quando uno scrittore esce, se c'è sia un lettore che uno scrittore in attesa, dipende da chi va dopo sul programmatore. Se uno scrittore esce e un lettore va dopo, allora tutti i lettori che sono in attesa falliranno (almeno uno è in attesa su rw_mutex e zero o più possono essere in attesa su mutex). In alternativa, lascia che uno scrittore entri prima nella sua sezione critica (priorità per gli scrittori).
-
-
+Il primo lettore si blocca se è presente un writer; qualsiasi altro lettore che tenta di entrare viene bloccato su \texttt{mutex}. Solo l'ultimo lettore ad uscire segnala uno scrittore in attesa. Quando uno scrittore esce, se c'è sia un lettore che uno scrittore in attesa, dipende da chi va dopo sul programmatore.\par Se uno scrittore esce e un lettore va dopo, allora tutti i lettori che sono in attesa falliranno (almeno uno è in attesa su \texttt{rw\_mutex} e zero o più possono essere in attesa su \texttt{mutex}). In alternativa, lascia che uno scrittore entri prima nella sua sezione critica (priorità per gli scrittori).
 
 
 
