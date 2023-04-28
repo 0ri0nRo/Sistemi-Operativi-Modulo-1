@@ -1479,15 +1479,15 @@ I monitor definiscono un blocco e zero o più variabili di condizione per la ges
 \\
 
 È semplice trasformare una classe Java in un monitor semplicemente, basta rendendere privati tutti i dati, sincronizzare tutti i metodi (o quelli non privati). 
-La parola chiave \textit{synchronized} indica che il metodo è soggetto a mutua esclusione. 
+
 \begin{figure}[hbt]
     \begin{center}
         \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/monitor1}}
-        \caption{}    
+        \caption{La parola chiave \textit{synchronized} indica che il metodo è soggetto a mutua esclusione. }    
     \end{center}
 \end{figure}
-Nell'esempio precedente, il metodo \texttt{remove()} deve attendere finché qualcosa non è disponibile nella coda. Intuitivamente, il thread dovrebbe dormire all'interno della sezione critica. Ma se il thread dorme mentre mantiene ancora un blocco, nessun altro thread può accedervi
-la coda, aggiungi un elemento ad essa e alla fine riattiva il thread dormiente. Le variabili condizionali sono delle soluzioni che risolvono questo problema. Consentono a un thread di dormire all'interno di una sezione critica. Qualsiasi blocco mantenuto dal thread viene rilasciato atomicamente prima di andare a dormire. \par
+
+Nell'esempio precedente, il metodo \texttt{remove()} deve attendere finché qualcosa non è disponibile nella coda. Intuitivamente, il thread dovrebbe dormire all'interno della sezione critica. Ma se il thread dorme mentre mantiene ancora un blocco, nessun altro thread può accedervi alla coda, aggiungi un elemento ad essa e alla fine riattiva il thread dormiente. Le variabili condizionali sono delle soluzioni che risolvono questo problema. Consentono a un thread di dormire all'interno di una sezione critica. Qualsiasi blocco mantenuto dal thread viene rilasciato atomicamente prima di andare a dormire. \par
 
 Ogni variabile\footnote{Nota: le variabili di condizione non sono oggetti booleani} di condizione supporta tre operazioni:
 \begin{itemize} 
