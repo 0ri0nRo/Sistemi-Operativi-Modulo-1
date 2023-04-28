@@ -700,4 +700,246 @@ Package pdftex.def Info: im/sjf24.png  used on input line 945.
 (pdftex.def)             Requested size: 338.58632pt x 126.19617pt.
 <im/confronto3.png, id=672, 810.02625pt x 397.485pt>
 File: im/confronto3.png Graphic file (type png)
-<use i
+<use im/confronto3.png>
+Package pdftex.def Info: im/confronto3.png  used on input line 960.
+(pdftex.def)             Requested size: 241.84843pt x 118.67628pt.
+ [34 <./im/sjf23.png> <./im/sjf24.png> <./im/confronto3.png>] [35]
+<im/mlq.png, id=690, 609.27625pt x 397.485pt>
+File: im/mlq.png Graphic file (type png)
+<use im/mlq.png>
+Package pdftex.def Info: im/mlq.png  used on input line 1007.
+(pdftex.def)             Requested size: 338.58632pt x 220.8979pt.
+ [36 <./im/mlq.png>]
+<im/mlq1.png, id=698, 925.4575pt x 477.785pt>
+File: im/mlq1.png Graphic file (type png)
+<use im/mlq1.png>
+Package pdftex.def Info: im/mlq1.png  used on input line 1019.
+(pdftex.def)             Requested size: 290.22107pt x 149.83235pt.
+<im/mlq2.png, id=699, 934.49126pt x 481.8pt>
+File: im/mlq2.png Graphic file (type png)
+<use im/mlq2.png>
+Package pdftex.def Info: im/mlq2.png  used on input line 1029.
+(pdftex.def)             Requested size: 266.03474pt x 137.16003pt.
+<im/mlq3.png, id=700, 715.67375pt x 358.33875pt>
+File: im/mlq3.png Graphic file (type png)
+<use im/mlq3.png>
+Package pdftex.def Info: im/mlq3.png  used on input line 1036.
+(pdftex.def)             Requested size: 266.03474pt x 133.20659pt.
+ [37 <./im/mlq1.png> <./im/mlq2.png> <./im/mlq3.png>]
+<im/mlq4.png, id=714, 722.7pt x 359.3425pt>
+File: im/mlq4.png Graphic file (type png)
+<use im/mlq4.png>
+Package pdftex.def Info: im/mlq4.png  used on input line 1044.
+(pdftex.def)             Requested size: 338.58632pt x 168.35364pt.
+<im/mlq5.png, id=715, 696.6025pt x 368.37625pt>
+File: im/mlq5.png Graphic file (type png)
+<use im/mlq5.png>
+Package pdftex.def Info: im/mlq5.png  used on input line 1051.
+(pdftex.def)             Requested size: 338.58632pt x 179.0501pt.
+ [38 <./im/mlq4.png> <./im/mlq5.png>]
+<im/thr.png, id=728, 832.10875pt x 477.785pt>
+File: im/thr.png Graphic file (type png)
+<use im/thr.png>
+Package pdftex.def Info: im/thr.png  used on input line 1076.
+(pdftex.def)             Requested size: 266.03474pt x 152.7485pt.
+ [39 <./im/thr.png>]
+<im/core.png, id=736, 466.74374pt x 200.75pt>
+File: im/core.png Graphic file (type png)
+<use im/core.png>
+Package pdftex.def Info: im/core.png  used on input line 1110.
+(pdftex.def)             Requested size: 266.03474pt x 114.42868pt.
+<im/os.png, id=737, 732.7375pt x 329.23pt>
+File: im/os.png Graphic file (type png)
+<use im/os.png>
+Package pdftex.def Info: im/os.png  used on input line 1128.
+(pdftex.def)             Requested size: 266.03474pt x 119.53246pt.
+ [40 <./im/core.png> <./im/os.png>]
+<im/kt.png, id=749, 277.035pt x 264.99pt>
+File: im/kt.png Graphic file (type png)
+<use im/kt.png>
+Package pdftex.def Info: im/kt.png  used on input line 1154.
+(pdftex.def)             Requested size: 241.84843pt x 231.33194pt.
+ [41 <./im/kt.png>]
+<im/ut.png, id=756, 272.01625pt x 247.92625pt>
+File: im/ut.png Graphic file (type png)
+<use im/ut.png>
+Package pdftex.def Info: im/ut.png  used on input line 1180.
+(pdftex.def)             Requested size: 241.84843pt x 220.44182pt.
+<im/lwp.png, id=757, 430.60875pt x 287.0725pt>
+File: im/lwp.png Graphic file (type png)
+<use im/lwp.png>
+Package pdftex.def Info: im/lwp.png  used on input line 1189.
+(pdftex.def)             Requested size: 241.84843pt x 161.23695pt.
+ [42 <./im/ut.png> <./im/lwp.png>] [43]
+<im/1m.png, id=773, 244.915pt x 251.94125pt>
+File: im/1m.png Graphic file (type png)
+<use im/1m.png>
+Package pdftex.def Info: im/1m.png  used on input line 1233.
+(pdftex.def)             Requested size: 169.29315pt x 174.15488pt.
+<im/2m.png, id=774, 264.99pt x 129.48375pt>
+File: im/2m.png Graphic file (type png)
+<use im/2m.png>
+Package pdftex.def Info: im/2m.png  used on input line 1238.
+(pdftex.def)             Requested size: 169.29315pt x 82.7231pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 1231--1241
+[]$[]$ $[]$ 
+ []
+
+<im/3m.png, id=775, 256.96pt x 235.88126pt>
+File: im/3m.png Graphic file (type png)
+<use im/3m.png>
+Package pdftex.def Info: im/3m.png  used on input line 1245.
+(pdftex.def)             Requested size: 169.29315pt x 155.40855pt.
+<im/4m.png, id=776, 315.1775pt x 219.82124pt>
+File: im/4m.png Graphic file (type png)
+<use im/4m.png>
+Package pdftex.def Info: im/4m.png  used on input line 1250.
+(pdftex.def)             Requested size: 169.29315pt x 118.07446pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 1243--1253
+[]$[]$ $[]$ 
+ []
+
+[44 <./im/1m.png> <./im/2m.png> <./im/3m.png> <./im/4m.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1271--1272
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1273--1274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
+
+ []
+
+[45]
+<im/cs.png, id=799, 477.785pt x 246.9225pt>
+File: im/cs.png Graphic file (type png)
+<use im/cs.png>
+Package pdftex.def Info: im/cs.png  used on input line 1285.
+(pdftex.def)             Requested size: 241.84843pt x 124.98686pt.
+<im/cs1.png, id=800, 324.21124pt x 312.16624pt>
+File: im/cs1.png Graphic file (type png)
+<use im/cs1.png>
+Package pdftex.def Info: im/cs1.png  used on input line 1291.
+(pdftex.def)             Requested size: 145.11053pt x 139.72092pt.
+<im/bob.png, id=801, 572.1375pt x 248.93pt>
+File: im/bob.png Graphic file (type png)
+<use im/bob.png>
+Package pdftex.def Info: im/bob.png  used on input line 1306.
+(pdftex.def)             Requested size: 241.84843pt x 105.22598pt.
+ [46 <./im/cs.png> <./im/cs1.png>]
+<im/lock.png, id=814, 541.02126pt x 703.62875pt>
+File: im/lock.png Graphic file (type png)
+<use im/lock.png>
+Package pdftex.def Info: im/lock.png  used on input line 1349.
+(pdftex.def)             Requested size: 145.11053pt x 188.7154pt.
+ [47 <./im/bob.png>]
+<im/testset.png, id=823, 745.78625pt x 275.0275pt>
+File: im/testset.png Graphic file (type png)
+<use im/testset.png>
+Package pdftex.def Info: im/testset.png  used on input line 1371.
+(pdftex.def)             Requested size: 241.84843pt x 89.18564pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1378--1379
+
+ []
+
+[48 <./im/lock.png> <./im/testset.png>]
+<im/lock2.png, id=837, 442.65375pt x 885.3075pt>
+File: im/lock2.png Graphic file (type png)
+<use im/lock2.png>
+Package pdftex.def Info: im/lock2.png  used on input line 1384.
+(pdftex.def)             Requested size: 193.47578pt x 386.95634pt.
+<im/bw.png, id=838, 695.59875pt x 180.675pt>
+File: im/bw.png Graphic file (type png)
+<use im/bw.png>
+Package pdftex.def Info: im/bw.png  used on input line 1392.
+(pdftex.def)             Requested size: 314.40001pt x 81.66138pt.
+ [49 <./im/lock2.png> <./im/bw.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1405--1407
+
+ []
+
+<im/sema1.png, id=849, 466.74374pt x 157.58875pt>
+File: im/sema1.png Graphic file (type png)
+<use im/sema1.png>
+Package pdftex.def Info: im/sema1.png  used on input line 1416.
+(pdftex.def)             Requested size: 241.84843pt x 81.65565pt.
+<im/sema2.png, id=850, 705.63625pt x 236.885pt>
+File: im/sema2.png Graphic file (type png)
+<use im/sema2.png>
+Package pdftex.def Info: im/sema2.png  used on input line 1423.
+(pdftex.def)             Requested size: 241.84843pt x 81.19044pt.
+<im/sema3.png, id=851, 770.88pt x 215.80624pt>
+File: im/sema3.png Graphic file (type png)
+<use im/sema3.png>
+Package pdftex.def Info: im/sema3.png  used on input line 1431.
+(pdftex.def)             Requested size: 241.84843pt x 67.70271pt.
+[50 <./im/sema1.png> <./im/sema2.png>]
+<im/sema4.png, id=861, 904.37875pt x 491.8375pt>
+File: im/sema4.png Graphic file (type png)
+<use im/sema4.png>
+Package pdftex.def Info: im/sema4.png  used on input line 1441.
+(pdftex.def)             Requested size: 241.84843pt x 131.52206pt.
+<im/sema5.png, id=862, 547.04375pt x 494.84875pt>
+File: im/sema5.png Graphic file (type png)
+<use im/sema5.png>
+Package pdftex.def Info: im/sema5.png  used on input line 1448.
+(pdftex.def)             Requested size: 217.66211pt x 196.89398pt.
+ [51 <./im/sema3.png> <./im/sema4.png> <./im/sema5.png>]
+<im/sema6.png, id=876, 580.1675pt x 408.52625pt>
+File: im/sema6.png Graphic file (type png)
+<use im/sema6.png>
+Package pdftex.def Info: im/sema6.png  used on input line 1459.
+(pdftex.def)             Requested size: 241.84843pt x 170.29573pt.
+ [52 <./im/sema6.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1476--1477
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1478--1480
+
+ []
+
+<im/monitor1.png, id=883, 431.6125pt x 275.0275pt>
+File: im/monitor1.png Graphic file (type png)
+<use im/monitor1.png>
+Package pdftex.def Info: im/monitor1.png  used on input line 1485.
+(pdftex.def)             Requested size: 241.84843pt x 154.10667pt.
+<im/mesa.png, id=885, 514.92375pt x 349.305pt>
+File: im/mesa.png Graphic file (type png)
+<use im/mesa.png>
+Package pdftex.def Info: im/mesa.png  used on input line 1513.
+(pdftex.def)             Requested size: 241.84843pt x 164.0561pt.
+[53 <./im/monitor1.png>]
+<im/hoare.png, id=893, 507.8975pt x 346.29375pt>
+File: im/hoare.png Graphic file (type png)
+<use im/hoare.png>
+Package pdftex.def Info: im/hoare.png  used on input line 1521.
+(pdftex.def)             Requested size: 241.84843pt x 164.8981pt.
+ [54 <./im/mesa.png> <./im/hoare.png>] [55] [56] [57] [58] [59] [60] [61] [62] (./so.aux)
+Package rerunfilecheck Info: File `so.out' has not changed.
+(rerunfilecheck)             Checksum: 07288AF33FE247BBE97880B38EC13607;10445.
+ ) 
+Here is how much of TeX's memory you used:
+ 15028 strings out of 476001
+ 240343 string characters out of 5789199
+ 1883074 words of memory out of 5000000
+ 34960 multiletter control sequences out of 15000+600000
+ 519606 words of font info for 56 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,11n,77p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on so.pdf (62 pages, 7915664 bytes).
+PDF statistics:
+ 1096 PDF objects out of 1200 (max. 8388607)
+ 839 compressed objects within 9 object streams
+ 316 named destinations out of 1000 (max. 500000)
+ 812 words of extra memory for PDF output out of 10000 (max. 10000000)
+
