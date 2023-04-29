@@ -898,4 +898,86 @@ File: im/sema6.png Graphic file (type png)
 Package pdftex.def Info: im/sema6.png  used on input line 1459.
 (pdftex.def)             Requested size: 241.84843pt x 170.29573pt.
  [52 <./im/sema6.png>]
-Underfull \hbox (badness 10000) in paragraph at l
+Underfull \hbox (badness 10000) in paragraph at lines 1476--1477
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1478--1480
+
+ []
+
+<im/monitor1.png, id=898, 431.6125pt x 275.0275pt>
+File: im/monitor1.png Graphic file (type png)
+<use im/monitor1.png>
+Package pdftex.def Info: im/monitor1.png  used on input line 1485.
+(pdftex.def)             Requested size: 241.84843pt x 154.10667pt.
+<im/mesa.png, id=900, 514.92375pt x 349.305pt>
+File: im/mesa.png Graphic file (type png)
+<use im/mesa.png>
+Package pdftex.def Info: im/mesa.png  used on input line 1513.
+(pdftex.def)             Requested size: 241.84843pt x 164.0561pt.
+[53 <./im/monitor1.png>]
+<im/hoare.png, id=909, 507.8975pt x 346.29375pt>
+File: im/hoare.png Graphic file (type png)
+<use im/hoare.png>
+Package pdftex.def Info: im/hoare.png  used on input line 1521.
+(pdftex.def)             Requested size: 241.84843pt x 164.8981pt.
+ [54 <./im/mesa.png> <./im/hoare.png>] [55]
+<im/filo.png, id=923, 418.56375pt x 361.35pt>
+File: im/filo.png Graphic file (type png)
+<use im/filo.png>
+Package pdftex.def Info: im/filo.png  used on input line 1569.
+(pdftex.def)             Requested size: 241.84843pt x 208.78917pt.
+<im/filo1.png, id=924, 600.2425pt x 248.93pt>
+File: im/filo1.png Graphic file (type png)
+<use im/filo1.png>
+Package pdftex.def Info: im/filo1.png  used on input line 1578.
+(pdftex.def)             Requested size: 241.84843pt x 100.29572pt.
+ [56 <./im/filo.png> <./im/filo1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1595--1596
+
+ []
+
+[57]
+<im/rag.png, id=937, 688.5725pt x 324.21124pt>
+File: im/rag.png Graphic file (type png)
+<use im/rag.png>
+Package pdftex.def Info: im/rag.png  used on input line 1624.
+(pdftex.def)             Requested size: 241.84843pt x 113.8714pt.
+<im/rag2.png, id=938, 456.70625pt x 278.03876pt>
+File: im/rag2.png Graphic file (type png)
+<use im/rag2.png>
+Package pdftex.def Info: im/rag2.png  used on input line 1638.
+(pdftex.def)             Requested size: 241.84843pt x 147.23256pt.
+ [58 <./im/rag.png> <./im/rag2.png>]
+<im/rag3.png, id=952, 545.03625pt x 284.06125pt>
+File: im/rag3.png Graphic file (type png)
+<use im/rag3.png>
+Package pdftex.def Info: im/rag3.png  used on input line 1646.
+(pdftex.def)             Requested size: 241.84843pt x 126.04492pt.
+<im/rag4.png, id=953, 592.2125pt x 283.0575pt>
+File: im/rag4.png Graphic file (type png)
+<use im/rag4.png>
+Package pdftex.def Info: im/rag4.png  used on input line 1658.
+(pdftex.def)             Requested size: 241.84843pt x 115.5965pt.
+ [59 <./im/rag3.png> <./im/rag4.png>] [60] [61] [62] [63] [64] [65] (./so.aux)
+Package rerunfilecheck Info: File `so.out' has not changed.
+(rerunfilecheck)             Checksum: EC11BDDA13511E3D4FDE189E7AD310F3;11075.
+ ) 
+Here is how much of TeX's memory you used:
+ 15122 strings out of 476001
+ 241745 string characters out of 5789199
+ 1884074 words of memory out of 5000000
+ 35029 multiletter control sequences out of 15000+600000
+ 519606 words of font info for 56 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,11n,77p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on so.pdf (65 pages, 8592750 bytes).
+PDF statistics:
+ 1152 PDF objects out of 1200 (max. 8388607)
+ 880 compressed objects within 9 object streams
+ 335 named destinations out of 1000 (max. 500000)
+ 866 words of extra memory for PDF output out of 10000 (max. 10000000)
+
