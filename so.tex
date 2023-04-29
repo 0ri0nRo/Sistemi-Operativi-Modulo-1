@@ -1670,15 +1670,6 @@ Esistono diversi modi per farlo:
     \item Uccidere tutti i thread uno alla volta, forzando ciascuno di essi a rilasciare risorse 
     \item Anticipa le risorse una alla volta tornando a uno stato coerente (ad es. nelle transazioni di database)
 \end{itemize}
-Un deadlock si verifica quando una delle quattro condizioni:
-\begin{itemize}
-    \item \textbf{Mutua esclusione}: rendere le risorse condivisibili (sebbene non tutte possano essere condivise)
-    \item \textbf{Hold and Wait}  un thread non può trattenere una risorsa quando ne richiede un'altra (imporre richieste da effettuare tutte in una volta)
-    \item \textbf{No Preemption}  se un thread richiede una risorsa che non può essere allocata ad esso, il sistema operativo preemption (rilascia) tutte le risorse che il thread è già in possesso. Problema: non tutte le risorse possono essere facilmente anticipate (ad es. stampanti)
-    \item \textbf{Attesa circolare}: imporre un ordinamento (ovvero una numerazione) alle risorse e applicarlo
-    richiederli in tale ordine
-\end{itemize}
-
 
 
 
