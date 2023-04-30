@@ -59,7 +59,8 @@
 \contentsline {subsection}{\numberline {3.4}Deadlock}{56}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Cos'è un deadlock}{57}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Resource Allocation Graph (RAG)}{57}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Esempio}{58}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.3}Modellazione dei deadlock}{57}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Esempio}{58}{subsubsection.3.4.4}%
 \contentsline {subsection}{\numberline {3.5}Prevenire ed evitare un deadlock}{59}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}Stato sicuro}{60}{subsubsection.3.5.1}%
 \contentsline {subsubsection}{\numberline {3.5.2}Archi di pretesa}{60}{subsubsection.3.5.2}%

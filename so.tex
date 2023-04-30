@@ -1615,6 +1615,15 @@ I bordi possono essere di 2 tipi:
         \item \textbf{Archi di assegnamento} un edge diretto $(r_{j}, t_{i})$ indica che il sistema operativo ha assegnato $r_{j}$ a $t_{i}$
 \end{itemize}
     
+
+\subsubsection{Modellazione dei deadlock}
+Holt (1972) mostrò come modellare queste quattro condizioni usando i grafi orientati i grafi hanno due tipi di nodi: 
+\begin{itemize}
+    \item i \textbf{processi}, mostrati come \textbf{cerchi}
+    \item le \textbf{risorse}, mostrate come \textbf{quadrati}
+\end{itemize}
+Un \textbf{arco}, con una \textbf{freccia} a indicarne la direzione. Da un nodo risorsa (un quadrato) a un nodo processo (un cerchio) significa che la risorsa è stata in precedenza richiesta, assegnata e attualmente posseduta da quel processo.
+
 \pagebreak
 \subsubsection{Esempio}
 \begin{enumerate}
