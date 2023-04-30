@@ -49,7 +49,7 @@
 \renewcommand{\abstractname}{Disclaimer}
 \begin{abstract}
     Le fonti sono le slides del Prof. Tolomei e integrazioni con il libro "\textit{I moderni sistemi operativi IV edizione}" di Andrew S. Tanenbaum. Se diversamente verrà indicato a pié di pagina.\\
-
+    
     \textbf{Nota: è vietata assolutamente la vendita di questo materiale in qualsiasi forma senza il mio consenso.}  
 \end{abstract}
 
@@ -687,7 +687,7 @@ Per le politiche di scheduling assumiamo che:
 \subsubsection{First-Come-First-Serve (FCFS)}
 Il FCFS ha solo una coda FIFO, lo scheduler esegue i lavori fino al completamento nell'ordine di arrivo ed entra in azione solo quando il lavoro attualmente in esecuzione lo richiede un'operazione di I/O (o termina la sua esecuzione). Un lavoro può continuare a utilizzare la CPU a tempo indeterminato (ovvero fino a quando non si blocca) per questo è di tipo Non-preemptive. 
 \pagebreak
-\subsubsection*{Esempi}
+\subsubsection{Esempi}
 \begin{enumerate}
     \item Consideriamo la seguente coda di processi: 
     \begin{figure}[hbt]
@@ -815,7 +815,7 @@ Viene utilizzato in molti sistemi di time-sharing in combinazione con gli interr
 La queue pronta viene mantenuta come queue circolare. Quando tutti i lavori hanno avuto un turno, lo scheduler ne assegna un altro al primo lavoro girare e così via. L'algoritmo RR viene considerato equo in quanto condivide la CPU equamente tra tutti i lavori. Il tempo medio di attesa può essere più lungo rispetto ad altri algoritmi di scheduling.\\
 Il limite superiore per lo start time di un processo in una coda di n processi utilizzando uno scheduler RR corrisponde a $sup\{T_{i}^{start}\}$ = $\delta$ · (i - 1), dove i $\in$ $[1,n]$ e dove $\delta$ è il time slice.
 
-\subsubsection*{Esempi}
+\subsubsection{Esempi}
 \begin{itemize}
     \item Consideriamo la seguente coda dei processi utilizzando un algoritmo RR con un time slice di 2 e un context switch trascurabile:
     \begin{figure}[hbt]
@@ -888,7 +888,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
     \end{center}
 \end{itemize}
 
-\subsubsection*{Esempi}
+\subsubsection{Esempi}
 \begin{enumerate}
     \item Consideriamo la seguente coda di processi gestita da uno scheduler SJF non preemptive. In tal caso, si ha che:\\
         \begin{figure}[hbt]
@@ -1001,7 +1001,7 @@ Per gestire gli spostamenti, l'algoritmo utilizza le seguenti regole:
     \item La priorità di processi strettamente legati all'I/O rimarrà alta
 \end{itemize}
 
-\subsubsection*{Esempio di suddivisione tramite MLQ e MLFQ:}
+\subsubsection{Esempio di suddivisione tramite MLQ e MLFQ:}
 \begin{figure}[hbt]
     \begin{center}
         \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/mlq}}
@@ -1009,7 +1009,7 @@ Per gestire gli spostamenti, l'algoritmo utilizza le seguenti regole:
     \end{center}
 \end{figure}
 \pagebreak
-\subsubsection*{Esempio}
+\subsubsection{Esempio}
 \begin{enumerate}
     \item  Consideriamo la seguente coda di processi gestita da un algoritmo MLFQ con 3 queue e strict priority.
     \begin{itemize}
@@ -1433,7 +1433,7 @@ Vediamo ora l'implementazione del semaforo:
     \end{center}
 \end{figure}
 
-\subsubsection*{Esempi}
+\subsubsection{Esempi}
 \begin{enumerate}
     \item Considerando i seguenti due processi A e B, un possibile sviluppo dell'esecuzione è il seguente:
     \begin{figure}[hbt]
@@ -1616,7 +1616,7 @@ I bordi possono essere di 2 tipi:
 \end{itemize}
     
 \pagebreak
-\subsubsection*{Esempio}
+\subsubsection{Esempio}
 \begin{itemize}
     \item Consideriamo il seguente RAG:
     \begin{figure}[hbt]
@@ -1692,16 +1692,15 @@ Inoltre, è possibile studiare il comportamento di una sequenza di n thread per 
 \end{itemize}
 
 \subsubsection{Stato sicuro}
-Definiamo come \textbf{stato sicuro} una situazione in cui si ha una sequenza sicura per i
-thread. \par
-Uno \textbf{stato insicuro} non implica la presenza di un deadlock, poiché potrebbe verificarsi che alcuni thread non richiedano simultaneamente il massimo numero di risorse necessarie dichiarato.\par
-Tramite tale policy, una risorsa viene ceduta ad un thread solo se il nuovo stato è sicuro, altrimenti tale thread rimarrà in attesa che la risorsa sia disponibile in modo sicuro, impedendo quindi la creazione di possibili attese circolari.
-\pagebreak
-\subsubsection{Archi di pretesa}
-Oltre alla formula numerica precedentemente vista, viene utilizzata una variante del RAG avente una tipologia aggiuntiva di arco, ossia gli \textbf{archi di pretesa}, indicanti che il thread $t{i}$ potrebbe richiedere la risorsa $r_{j}$ in futuro.\par
-In questa tipologia di RAG, soddisfare una pretesa equivale a trasformare un arco di pretesa in un arco di assegnamento, mentre la presenza di cicli indica un possibile stato insicuro. Se un assegnamento generasse uno stato insicuro, allora tale assegnamento non verrà effettuato anche nel caso in cui la risorsa sia effettivamente disponibile.
 
-\subsubsection*{Esempi}
+L'idea alla base della policy di allocazione delle risorse è quella di garantire la sicurezza del sistema attraverso la definizione di uno \textbf{stato sicuro}. Uno stato sicuro si verifica quando esiste una sequenza di esecuzione dei thread che permette a tutti i thread di terminare la loro esecuzione senza causare uno stato di interblocco. Tuttavia, la presenza di uno \textbf{stato insicuro} non implica necessariamente la presenza di un deadlock, poiché alcuni thread potrebbero non richiedere simultaneamente il massimo numero di risorse necessarie dichiarato.
+
+Per garantire la sicurezza del sistema, la policy prevede che una risorsa venga assegnata ad un thread solo se, dopo l'allocazione, il sistema risulta in uno stato sicuro. In caso contrario, il thread viene messo in attesa della risorsa fino a quando non diventa disponibile in modo sicuro. Questa politica di gestione delle risorse previene la creazione di attese circolari, in cui i thread attendono risorse che non sono disponibili causando uno stato di interblocco del sistema.
+\subsubsection{Archi di pretesa}
+Oltre alla tipologia di archi di assegnamento che rappresentano l'allocazione effettiva di una risorsa ad un thread, viene utilizzata una variante del RAG che prevede anche archi di pretesa. Gli archi di pretesa indicano che un thread $t_i$ potrebbe richiedere in futuro la risorsa $r_j$, senza però richiederla immediatamente.
+
+Nella gestione delle risorse, \textbf{soddisfare} una pretesa significa trasformare un arco di pretesa in un arco di assegnamento, cioè assegnare effettivamente la risorsa al thread che la richiede. La presenza di cicli nel grafo indica un possibile stato insicuro, in cui alcuni thread attendono risorse che altri thread detengono. Se l'assegnamento di una risorsa generasse uno stato insicuro, tale assegnamento non verrà effettuato anche nel caso in cui la risorsa sia effettivamente disponibile, in quanto potrebbe causare un interblocco del sistema. In questo modo, la gestione delle pretese aiuta a prevenire la creazione di situazioni di interblocco e a garantire la sicurezza del sistema.
+\subsubsection{Esempi}
 \begin{itemize}
     \item Consideriamo il seguente RAG:
     \begin{figure}[hbt]
@@ -1710,6 +1709,7 @@ In questa tipologia di RAG, soddisfare una pretesa equivale a trasformare un arc
             \caption{}    
         \end{center}
     \end{figure}
+    \pagebreak
     \item Supponiamo che venga soddisfatta la pretesa del thread $t_{4}$. In tal caso, si andrebbe a creare uno stato insicuro poiché, nel caso in cui anche il thread $t_{3}$ vada a richiedere la risorsa $r_{3}$ (dunque trasformando l'arco di pretesa in un arco di richiesta) si andrebbe a creare un deadlock. Dunque tale pretesa non verrebbe soddisfatta.
     \begin{figure}[hbt]
         \begin{center}

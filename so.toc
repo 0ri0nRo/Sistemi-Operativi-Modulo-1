@@ -31,11 +31,16 @@
 \contentsline {subsection}{\numberline {2.11}Criteri/metriche di scheduling}{23}{subsection.2.11}%
 \contentsline {subsection}{\numberline {2.12}Algoritmi di Scheduling}{24}{subsection.2.12}%
 \contentsline {subsubsection}{\numberline {2.12.1}First-Come-First-Serve (FCFS)}{24}{subsubsection.2.12.1}%
-\contentsline {subsubsection}{\numberline {2.12.2}Round - Robin (RR)}{29}{subsubsection.2.12.2}%
-\contentsline {subsubsection}{\numberline {2.12.3}Shortest-Job-First (SJF)}{32}{subsubsection.2.12.3}%
-\contentsline {subsubsection}{\numberline {2.12.4}Priority Scheduling}{35}{subsubsection.2.12.4}%
-\contentsline {subsubsection}{\numberline {2.12.5}Multilevel Queue (MLQ e MLFQ)}{36}{subsubsection.2.12.5}%
-\contentsline {subsubsection}{\numberline {2.12.6}Extra: Lottery scheduling}{38}{subsubsection.2.12.6}%
+\contentsline {subsubsection}{\numberline {2.12.2}Esempi}{25}{subsubsection.2.12.2}%
+\contentsline {subsubsection}{\numberline {2.12.3}Round - Robin (RR)}{29}{subsubsection.2.12.3}%
+\contentsline {subsubsection}{\numberline {2.12.4}Esempi}{29}{subsubsection.2.12.4}%
+\contentsline {subsubsection}{\numberline {2.12.5}Shortest-Job-First (SJF)}{32}{subsubsection.2.12.5}%
+\contentsline {subsubsection}{\numberline {2.12.6}Esempi}{32}{subsubsection.2.12.6}%
+\contentsline {subsubsection}{\numberline {2.12.7}Priority Scheduling}{35}{subsubsection.2.12.7}%
+\contentsline {subsubsection}{\numberline {2.12.8}Multilevel Queue (MLQ e MLFQ)}{36}{subsubsection.2.12.8}%
+\contentsline {subsubsection}{\numberline {2.12.9}Esempio di suddivisione tramite MLQ e MLFQ:}{36}{subsubsection.2.12.9}%
+\contentsline {subsubsection}{\numberline {2.12.10}Esempio}{37}{subsubsection.2.12.10}%
+\contentsline {subsubsection}{\numberline {2.12.11}Extra: Lottery scheduling}{38}{subsubsection.2.12.11}%
 \contentsline {subsection}{\numberline {2.13}Thread e Multi-threading}{39}{subsection.2.13}%
 \contentsline {subsubsection}{\numberline {2.13.1}Vantaggi}{39}{subsubsection.2.13.1}%
 \contentsline {subsubsection}{\numberline {2.13.2}Programmazione Multi-core}{40}{subsubsection.2.13.2}%
@@ -45,7 +50,8 @@
 \contentsline {section}{\numberline {3}Sincronizzazione tra Processi/Thread}{46}{section.3}%
 \contentsline {subsection}{\numberline {3.1}I Lock}{47}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}I Semafori}{50}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Problemi semafori}{52}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1}Esempi}{51}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Problemi semafori}{52}{subsubsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.3}I Monitor}{53}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Problemi di Lettura e Scrittura}{55}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}(First) Readers-Writers Problem: Soluzione I}{55}{subsubsection.3.3.2}%
@@ -53,9 +59,11 @@
 \contentsline {subsection}{\numberline {3.4}Deadlock}{56}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Cos'è un deadlock}{57}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Resource Allocation Graph (RAG)}{57}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Esempio}{58}{subsubsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.5}Prevenire ed evitare un deadlock}{59}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}Stato sicuro}{60}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Archi di pretesa}{61}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.2}Archi di pretesa}{60}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Esempi}{60}{subsubsection.3.5.3}%
 \contentsline {section}{\numberline {4}Gestione della Memoria}{62}{section.4}%
 \contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{63}{section.5}%
 \contentsline {section}{\numberline {6}File System}{64}{section.6}%
