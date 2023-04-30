@@ -1585,7 +1585,7 @@ Consideriamo il famoso problema dei filosofi a cena:
 I problemi che abbiamo visto finora sono interessanti perché identificano alcuni modelli che sono molto comuni nella pratica: \textbf{Produttore-Consumatore},  \textbf{Lettore audio/video} incorporato in un browser Web che contiene un buffer dati condiviso + rete e rendering, Lettore-Scrittore (E.g sistema bancario: read vs. update account balances), oppure i \textbf{Filosofi a tavola} che bloccano più risorse: (ad esempio, prenotazioni di viaggi (hotel, compagnie aeree, database di autonoleggio)).
 
 \subsubsection{Cos'è un deadlock}
-Intuitivamente, una condizione in cui due o più thread sono in attesa di un evento che può essere generato solo dagli stessi thread. Si può verificare quando più thread competono per un numero finito di risorse:
+Intuitivamente, una condizione in cui due o più thread sono in attesa di un evento che può essere generato solo dagli stessi thread. I deadlock possono verificarsi sia su risorse hardware sia su risorse software. Si può verificare quando più thread competono per un numero finito di risorse:
 \begin{itemize} 
     \item Rilevamento deadlock: trova istanze di deadlock e tenta di ripristinarle
     \item Prevenzione deadlock (offline): impone restrizioni/regole su come scrivere
@@ -1617,56 +1617,62 @@ I bordi possono essere di 2 tipi:
     
 \pagebreak
 \subsubsection{Esempio}
-\begin{itemize}
-    \item Consideriamo il seguente RAG:
-    \begin{figure}[hbt]
-        \begin{center}
-            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag}}
-            \caption{}    
-        \end{center}
-    \end{figure}
-    \item E' facilmente individuabile la presenza di un deadlock:
-    \begin{enumerate}
-        \item Il thread $t_{2}$, possedente la risorsa $r_{3}$, richiede la risorsa $r_{1}$, rimanendo in attesa che essa sia liberata dal thread $t_{3}$
-        \item A questo punto, il thread $t_{3}$, possedente la risorsa $r_{1}$, richiede la risorsa $r_{2}$, rimanendo in attesa che essa sia liberata dal thread $t_{4}$
-        \item A sua volta, il thread $t_{4}$, possedente la risorsa $r_{2}$, richiede la risorsa $r_{3}$, rimanendo in attesa che essa sia liberata dal thread $t_{2}$
-        \item In definitiva, si è in una situazione dove $t_{2}$ aspetta $t_{3}$, il quale sta aspettando $t_{4}$, il quale a sua volta sta aspettando $t_{2}$, creando quindi un deadlock
-    \end{enumerate}
-    \item Se il thread $t_{4}$ non richiedesse la risorsa $r_{3}$, le condizioni necessarie affinché possa verificarsi un deadlock non sarebbero soddisfatte, per via dell'assenza dell'attesa circolare
-    \begin{figure}[hbt]
-        \begin{center}
-            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag2}}
-            \caption{}    
-        \end{center}
-    \end{figure}
-    \pagebreak
-    \item Consideriamo il caso in cui esistano due istanze della risorsa $r_{3}$, dove prima istanza è assegnata al thread $t_{2}$ e la seconda è assegnata al thread $t_{3}$.
-    \begin{figure}[hbt]
-        \begin{center}
-            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag3}}
-            \caption{}    
-        \end{center}
-    \end{figure}
-    \item Anche in tal caso, siamo in una situazione di deadlock:
-    \begin{enumerate}
-        \item $t_{4}$ richiede un'istanza di $r_{3}$, rimanendo in attesa che $t_{2}$ o $t_{3}$ ne rilascino almeno una
-        \item Tuttavia, $t_{3}$ è in attesa che $t_{4}$ ceda $r_{2}$, mentre $t_{2}$ è in attesa che $t_{3}$ ceda $r_{1}$
-    \end{enumerate}
-    \item Invece, se ci fossero tre istanze di $r_{3}$ e solo due di esse venissero utilizzate da $t_{2}$ e $t_{3}$, non si andrebbe a creare un deadlock, poiché $t_{4}$ non rimarrebbe in attesa, sbloccando quindi la catena
-    \begin{figure}[hbt]
-        \begin{center}
-            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag4}}
-            \caption{}    
-        \end{center}
-    \end{figure}
-\end{itemize}
+\begin{enumerate}
+    \item Prendiamo il seguente esempio:
+    \begin{itemize}
+        \item Consideriamo il seguente RAG:
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/rag}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item E' facilmente individuabile la presenza di un deadlock:
+        \begin{enumerate}
+            \item Il thread $t_{2}$, possedente la risorsa $r_{3}$, richiede la risorsa $r_{1}$, rimanendo in attesa che essa sia liberata dal thread $t_{3}$
+            \item A questo punto, il thread $t_{3}$, possedente la risorsa $r_{1}$, richiede la risorsa $r_{2}$, rimanendo in attesa che essa sia liberata dal thread $t_{4}$
+            \item A sua volta, il thread $t_{4}$, possedente la risorsa $r_{2}$, richiede la risorsa $r_{3}$, rimanendo in attesa che essa sia liberata dal thread $t_{2}$
+            \item In definitiva, si è in una situazione dove $t_{2}$ aspetta $t_{3}$, il quale sta aspettando $t_{4}$, il quale a sua volta sta aspettando $t_{2}$, creando quindi un deadlock
+        \end{enumerate}
+        \item Se il thread $t_{4}$ non richiedesse la risorsa $r_{3}$, le condizioni necessarie affinché possa verificarsi un deadlock non sarebbero soddisfatte, per via dell'assenza dell'attesa circolare
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/rag2}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \pagebreak
+    \end{itemize}
+    \item Prendiamo ora il seguente esempio:
+    \begin{itemize}
+        \item Consideriamo il caso in cui esistano due istanze della risorsa $r_{3}$, dove prima istanza è assegnata al thread $t_{2}$ e la seconda è assegnata al thread $t_{3}$.
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag3}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+        \item Anche in tal caso, siamo in una situazione di deadlock:
+        \begin{enumerate}
+            \item $t_{4}$ richiede un'istanza di $r_{3}$, rimanendo in attesa che $t_{2}$ o $t_{3}$ ne rilascino almeno una
+            \item Tuttavia, $t_{3}$ è in attesa che $t_{4}$ ceda $r_{2}$, mentre $t_{2}$ è in attesa che $t_{3}$ ceda $r_{1}$
+        \end{enumerate}
+    \end{itemize}
+        \item Invece, se ci fossero tre istanze di $r_{3}$ e solo due di esse venissero utilizzate da $t_{2}$ e $t_{3}$, non si andrebbe a creare un deadlock, poiché $t_{4}$ non rimarrebbe in attesa, sbloccando quindi la catena
+        \begin{figure}[hbt]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag4}}
+                \caption{}    
+            \end{center}
+        \end{figure}
+\end{enumerate}
 
 \subsection{Prevenire ed evitare un deadlock}
 
-Bisogna scansionare il grafico di allocazione delle risorse (RAG) per i cicli e poi rompili
-Esistono diversi modi per farlo:
-\begin{itemize}
-    \item Uccidere tutti i thread nel ciclo ()
+Bisogna scansionare il grafico di allocazione delle risorse (RAG) per i cicli e poi rompili.\par
+    Esistono diversi modi per farlo:
+    \begin{itemize}
+        \item Uccidere tutti i thread nel ciclo ()
     \item Uccidere tutti i thread uno alla volta, forzando ciascuno di essi a rilasciare risorse 
     \item Anticipa le risorse una alla volta tornando a uno stato coerente (ad es. nelle transazioni di database)
 \end{itemize}
@@ -1697,7 +1703,7 @@ L'idea alla base della policy di allocazione delle risorse è quella di garantir
 
 Per garantire la sicurezza del sistema, la policy prevede che una risorsa venga assegnata ad un thread solo se, dopo l'allocazione, il sistema risulta in uno stato sicuro. In caso contrario, il thread viene messo in attesa della risorsa fino a quando non diventa disponibile in modo sicuro. Questa politica di gestione delle risorse previene la creazione di attese circolari, in cui i thread attendono risorse che non sono disponibili causando uno stato di interblocco del sistema.
 \subsubsection{Archi di pretesa}
-Oltre alla tipologia di archi di assegnamento che rappresentano l'allocazione effettiva di una risorsa ad un thread, viene utilizzata una variante del RAG che prevede anche archi di pretesa. Gli archi di pretesa indicano che un thread $t_i$ potrebbe richiedere in futuro la risorsa $r_j$, senza però richiederla immediatamente.
+Oltre alla tipologia di archi di assegnamento che rappresentano l'allocazione effettiva di una risorsa ad un thread, viene utilizzata una variante del RAG che prevede anche archi di pretesa. Gli \textbf{archi di pretesa} indicano che un thread $t_i$ potrebbe richiedere in futuro la risorsa $r_{j}$, senza però richiederla immediatamente.
 
 Nella gestione delle risorse, \textbf{soddisfare} una pretesa significa trasformare un arco di pretesa in un arco di assegnamento, cioè assegnare effettivamente la risorsa al thread che la richiede. La presenza di cicli nel grafo indica un possibile stato insicuro, in cui alcuni thread attendono risorse che altri thread detengono. Se l'assegnamento di una risorsa generasse uno stato insicuro, tale assegnamento non verrà effettuato anche nel caso in cui la risorsa sia effettivamente disponibile, in quanto potrebbe causare un interblocco del sistema. In questo modo, la gestione delle pretese aiuta a prevenire la creazione di situazioni di interblocco e a garantire la sicurezza del sistema.
 \subsubsection{Esempi}
