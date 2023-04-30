@@ -1608,11 +1608,11 @@ Definiamo un \textbf{grafo orientato} \texttt{G = (V, E)} dove:
 \begin{itemize}
     \item V è l'insieme dei vertici che rappresentano sia le risorse {$r_{1}, ..., r_{m}$} che i thread {$t_{1}, ..., t_{n}$}
     \item E è l'insieme degli archi tra risorse e thread
-    \item I bordi possono essere di 2 tipi:
 \end{itemize}
-    \begin{itemize}
-        \item Request Edge à un edge diretto $(t_{i}, r_{j})$ indica che $t_{i}$ ha richiesto $r_{j}$, ma non ancora acquisita
-        \item Assignment Edge à un edge diretto $(r_{j}, t_{i})$ indica che il sistema operativo ha assegnato $r_{j}$ a $t_{i}$
+I bordi possono essere di 2 tipi:
+\begin{itemize}
+        \item \textbf{Archi di richiesta} un edge diretto $(t_{i}, r_{j})$ indica che $t_{i}$ ha richiesto $r_{j}$, ma non ancora acquisita
+        \item \textbf{Archi di assegnamento} un edge diretto $(r_{j}, t_{i})$ indica che il sistema operativo ha assegnato $r_{j}$ a $t_{i}$
 \end{itemize}
     
 \pagebreak
@@ -1671,10 +1671,61 @@ Esistono diversi modi per farlo:
     \item Anticipa le risorse una alla volta tornando a uno stato coerente (ad es. nelle transazioni di database)
 \end{itemize}
 
+Come visto nella sezione precedente, per prevenire un deadlock è sufficiente che una sola delle quattro condizioni necessarie non si verifichi.
 
+Inoltre, è possibile studiare il comportamento di una sequenza di n thread per determinare se tale sequenza sia sicura o non:
+\begin{itemize}
+    \item Sia $m_{i}$ il numero massimo di risorse che il thread i possa richiedere
+    \item Sia $c_{i}$ il numero di risorse attualmente occupate dal thread i
+    \item Sia C = $\sum_{i=1}^{n} c_{i}$ il numero totale di risorse attualmente allocate nel sistema
+    \item Sia R il numero massimo di risorse disponibili
+    \item Definiamo una sequenza di thread come sicura se per ogni thread si verifica che:
+    \begin{center}
+        $m_{i} - c_{i} \leq R - C + \sum_{j=1}^{i-1} c_{j}$
+    \end{center}
+    \item dove:
+    \begin{itemize}
+        \item $m_{i} - c_{i}$ è il numero di risorse ancora richiedibili da $t_{i}$
+        \item $R - C$ è il numero di risorse attualmente disponibili
+        \item $\sum_{j=1}^{i-1} c_{j}$ è il numero di risorse attualmente allocate fino al thread $t_{j}$, dove $j < i$
+    \end{itemize}
+\end{itemize}
 
+\subsubsection{Stato sicuro}
+Definiamo come \textbf{stato sicuro} una situazione in cui si ha una sequenza sicura per i
+thread. \par
+Uno \textbf{stato insicuro} non implica la presenza di un deadlock, poiché potrebbe verificarsi che alcuni thread non richiedano simultaneamente il massimo numero di risorse necessarie dichiarato.\par
+Tramite tale policy, una risorsa viene ceduta ad un thread solo se il nuovo stato è sicuro, altrimenti tale thread rimarrà in attesa che la risorsa sia disponibile in modo sicuro, impedendo quindi la creazione di possibili attese circolari.
+\pagebreak
+\subsubsection{Archi di pretesa}
+Oltre alla formula numerica precedentemente vista, viene utilizzata una variante del RAG avente una tipologia aggiuntiva di arco, ossia gli \textbf{archi di pretesa}, indicanti che il thread $t{i}$ potrebbe richiedere la risorsa $r_{j}$ in futuro.\par
+In questa tipologia di RAG, soddisfare una pretesa equivale a trasformare un arco di pretesa in un arco di assegnamento, mentre la presenza di cicli indica un possibile stato insicuro. Se un assegnamento generasse uno stato insicuro, allora tale assegnamento non verrà effettuato anche nel caso in cui la risorsa sia effettivamente disponibile.
 
+\subsubsection*{Esempi}
+\begin{itemize}
+    \item Consideriamo il seguente RAG:
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag21}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \item Supponiamo che venga soddisfatta la pretesa del thread $t_{4}$. In tal caso, si andrebbe a creare uno stato insicuro poiché, nel caso in cui anche il thread $t_{3}$ vada a richiedere la risorsa $r_{3}$ (dunque trasformando l'arco di pretesa in un arco di richiesta) si andrebbe a creare un deadlock. Dunque tale pretesa non verrebbe soddisfatta.
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag22}}
+            \caption{}    
+        \end{center}
+    \end{figure}
+    \item Nel caso in cui invece venga soddisfatta la pretesa del thread $t_{2}$, si rimarrebbe in uno stato sicuro poiché, nel caso in cui il thread $t_{4}$ andasse a richiedere la risorsa $r_{3}$ esso rimarrebbe in attesa di $t_{3}$, il quale può continuare a lavorare poiché non è in attesa di nessuno. Dunque tale pretesa verrebbe soddisfatta.
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/rag23}}
+            \caption{}    
+        \end{center}
+    \end{figure}
 
+\end{itemize}
 
 
 

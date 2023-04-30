@@ -54,9 +54,11 @@
 \contentsline {subsubsection}{\numberline {3.4.1}Cos'è un deadlock}{57}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Resource Allocation Graph (RAG)}{57}{subsubsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.5}Prevenire ed evitare un deadlock}{59}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Gestione della Memoria}{60}{section.4}%
-\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{61}{section.5}%
-\contentsline {section}{\numberline {6}File System}{62}{section.6}%
-\contentsline {section}{\numberline {7}Advanced Topics}{63}{section.7}%
-\contentsline {section}{\numberline {8}Esercizi}{64}{section.8}%
-\contentsline {section}{\numberline {9}Formulario}{65}{section.9}%
+\contentsline {subsubsection}{\numberline {3.5.1}Stato sicuro}{60}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Archi di pretesa}{61}{subsubsection.3.5.2}%
+\contentsline {section}{\numberline {4}Gestione della Memoria}{62}{section.4}%
+\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{63}{section.5}%
+\contentsline {section}{\numberline {6}File System}{64}{section.6}%
+\contentsline {section}{\numberline {7}Advanced Topics}{65}{section.7}%
+\contentsline {section}{\numberline {8}Esercizi}{66}{section.8}%
+\contentsline {section}{\numberline {9}Formulario}{67}{section.9}%
