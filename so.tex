@@ -1791,6 +1791,8 @@ Ogni indirizzo logico viene \textbf{associato} ad un indirizzo fisico tramite tr
     \item Load time
     \item Execution time
 \end{itemize}
+
+\pagebreak
 \subsubsection{Esempio}
 
 \begin{figure}[hbt]
@@ -1811,6 +1813,8 @@ Se la locazione fisica iniziale k dove un programma risiederà in memoria non è
 \end{figure}
 
 Se il programma può essere spostato nella memoria principale durante la sua esecuzione il compilatore genera il cosiddetto codice rilocabile (dinamicamente) o indirizzi virtuali. Il sistema operativo mappa gli indirizzi virtuali alle posizioni di memoria fisica utilizzando uno speciale supporto HW (MMU). In questo caso indirizzo fisico != indirizzo logico/virtuale. La soluzione più flessibile implementata dalla maggior parte dei sistemi operativi moderni.
+
+\pagebreak
 \subsubsection{Esempio}
 
 \begin{figure}[hbt]
@@ -1819,14 +1823,13 @@ Se il programma può essere spostato nella memoria principale durante la sua ese
         \caption{Ogni indirizzo logico referenziato dalla CPU viene tradotto dall'HW in fase di esecuzione}
     \end{center}
 \end{figure}
-
 Esistono diverse tecniche di gestione della memoria in base al tipo di architettura che si vuole implementare. In particolare, si distinguono la gestione della memoria uni-programmabile e quella multi-programmabile.\par
 Nella gestione della \textbf{memoria uni-programmabile}, all'OS viene assegnata una parte fissa di memoria fisica e viene eseguito un singolo processo per volta. Questo implica che il processo abbia sempre lo stesso indirizzo iniziale, consentendo l'associazione tra indirizzo logico e fisico in fase di compilazione.\par
 Nella gestione della \textbf{memoria multi-programmabile}, invece, coesistono contemporaneamente più processi nella memoria, e i processi cooperanti condividono porzioni dello spazio di indirizzamento. Tuttavia, i processi non sono a conoscenza della condivisione della memoria e della porzione di memoria in cui si trovano, né sono in grado di accedere ai dati di altri processi e del sistema operativo, garantendo la sicurezza e l'integrità del sistema. Inoltre, le performance della CPU e della memoria non diminuiscono significativamente durante la condivisione e la frammentazione dei dati è limitata.
+\pagebreak
 \subsection{Rilocazione dei processi}
 Si supponga che il sistema operativo sia allocato agli indirizzi di memoria più alti.Successivamente dobbiamo assumere che gli indirizzi logici generati da ciascun processo utente inizino da 0 in su all'indirizzo massimo (\texttt{memory\_size - os\_size - 1}). \par
 Si carica un processo allocando il primo segmento contiguo di memoria in cui si adatta il processo. Questo consente la condivisione trasparente della memoria: lo spazio degli indirizzi di ogni processo può essere collocato ovunque nella memoria.\\
-
 Nella \textbf{riallocazione statica} l'OS loader riscrive gli indirizzi generati da un processo, in modo da riflettere la sua posizione nella memoria principale (load time binding). Possiamo elencare alcuni vantaggi e svantaggi:
 \begin{itemize}
     \item Vantaggi, ossia non è necessario alcun supporto HW.
@@ -1847,6 +1850,8 @@ La CPU supporta almeno due modalità operative:
     \item modalità \textbf{privilegiata (kernel)} quando il sistema operativo è in esecuzione dopo aver emesso qualsiasi trap (chiamata di sistema, interruzione o eccezione), o quando si manipolano risorse sensibili (ad esempio, il contenuto dei registri MMU)
     \item modalità \textbf{utente} quando il processo utente è in esecuzione durante l'esecuzione delle istruzioni di processo sulla CPU
 \end{itemize}
+\pagebreak
+
 La riallocazione dinamica presenta anch'essa dei vantaggi e svantaggi:
 \begin{itemize}
     \item Tra gli svantaggi:

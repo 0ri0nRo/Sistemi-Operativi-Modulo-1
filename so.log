@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.2)  2 MAY 2023 17:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.2)  2 MAY 2023 17:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1162,54 +1162,50 @@ File: im/mem1.png Graphic file (type png)
 <use im/mem1.png>
 Package pdftex.def Info: im/mem1.png  used on input line 1773.
 (pdftex.def)             Requested size: 241.84843pt x 67.5382pt.
-
+ [61 <./im/mem1.png>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1794.
+(hyperref)                than one, level fixed on input line 1796.
 
-<im/mem2.png, id=1057, 580.1675pt x 352.31625pt>
+<im/mem2.png, id=1069, 580.1675pt x 352.31625pt>
 File: im/mem2.png Graphic file (type png)
 <use im/mem2.png>
-Package pdftex.def Info: im/mem2.png  used on input line 1798.
+Package pdftex.def Info: im/mem2.png  used on input line 1800.
 (pdftex.def)             Requested size: 241.84843pt x 146.86436pt.
-<im/mem3.png, id=1058, 604.2575pt x 352.31625pt>
+<im/mem3.png, id=1070, 604.2575pt x 352.31625pt>
 File: im/mem3.png Graphic file (type png)
 <use im/mem3.png>
-Package pdftex.def Info: im/mem3.png  used on input line 1808.
+Package pdftex.def Info: im/mem3.png  used on input line 1810.
 (pdftex.def)             Requested size: 241.84843pt x 141.01001pt.
-<im/mem4.png, id=1059, 604.2575pt x 352.31625pt>
+[62 <./im/mem2.png> <./im/mem3.png>]
+<im/mem4.png, id=1079, 604.2575pt x 352.31625pt>
 File: im/mem4.png Graphic file (type png)
 <use im/mem4.png>
-Package pdftex.def Info: im/mem4.png  used on input line 1818.
+Package pdftex.def Info: im/mem4.png  used on input line 1822.
 (pdftex.def)             Requested size: 241.84843pt x 141.01001pt.
-[61 <./im/mem1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1828--1829
-
- []
-
-[62 <./im/mem2.png> <./im/mem3.png>]
-<im/mem5.png, id=1080, 511.9125pt x 269.005pt>
+ [63 <./im/mem4.png>]
+<im/mem5.png, id=1086, 511.9125pt x 269.005pt>
 File: im/mem5.png Graphic file (type png)
 <use im/mem5.png>
-Package pdftex.def Info: im/mem5.png  used on input line 1839.
+Package pdftex.def Info: im/mem5.png  used on input line 1842.
 (pdftex.def)             Requested size: 241.84843pt x 127.08911pt.
- [63 <./im/mem4.png> <./im/mem5.png>] [64] [65] [66] [67] [68] [69] (./so.aux)
+ [64 <./im/mem5.png>] [65] [66] [67] [68] [69] [70] (./so.aux)
 Package rerunfilecheck Info: File `so.out' has not changed.
 (rerunfilecheck)             Checksum: 20967F5D48FFC543AE0C0BAD04A2625B;13066.
  ) 
 Here is how much of TeX's memory you used:
- 25173 strings out of 476001
- 461847 string characters out of 5789200
+ 25174 strings out of 476001
+ 461854 string characters out of 5789200
  1884074 words of memory out of 5000000
  44852 multiletter control sequences out of 15000+600000
  518991 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,12n,89p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on so.pdf (70 pages, 9405331 bytes).
+Output written on so.pdf (71 pages, 9405738 bytes).
 PDF statistics:
- 1283 PDF objects out of 1440 (max. 8388607)
- 989 compressed objects within 10 object streams
- 364 named destinations out of 1000 (max. 500000)
+ 1287 PDF objects out of 1440 (max. 8388607)
+ 992 compressed objects within 10 object streams
+ 365 named destinations out of 1000 (max. 500000)
  1038 words of extra memory for PDF output out of 10000 (max. 10000000)
 
