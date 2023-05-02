@@ -29,6 +29,8 @@
 
 \author{}
 \date{\today}
+
+
 \begin{document}
 \pagestyle{fancy}
 \fancyhf{}
@@ -1422,7 +1424,7 @@ Tipo speciale di variabile (intera) che supporta 2 operazioni atomiche
     \item \texttt{signal()} (anche \texttt{V()}): incremento, consente l'ingresso di un altro thread
 \end{itemize}
 A ciascun semaforo è associata una queue di processi/thread in attesa. 
-Quando texttt{wait()} viene chiamato da un thread, se il semaforo è aperto il thread continua, altrimenti il thread si blocca in coda. Successivamente \texttt{signal()} apre il semaforo. Se un thread è in attesa in coda il thread viene sbloccato, mentre se non ci sono thread in attesa in coda, il segnale viene ricordato per il thread successivo. In altre parole, \texttt{signal()} è stateful e ha una "history". \\
+Quando \texttt{wait()} viene chiamato da un thread, se il semaforo è aperto il thread continua, altrimenti il thread si blocca in coda. Successivamente \texttt{signal()} apre il semaforo. Se un thread è in attesa in coda il thread viene sbloccato, mentre se non ci sono thread in attesa in coda, il segnale viene ricordato per il thread successivo. In altre parole, \texttt{signal()} è stateful e ha una "history". \\
 
 
 Esistono due categorie di semafori:
@@ -1436,7 +1438,7 @@ Esistono due categorie di semafori:
         \caption{Ogni semaforo supporta una coda di processi in attesa di accedere alla sezione critica (es. per acquistare latte)}    
     \end{center}
 \end{figure}
-Se un processo esegue \texttt{S.wait()} e il semaforo S è aperto (diverso da zero), continua l'esecuzione, altrimenti il sistema operativo mette il processo in coda di attesa. Un \texttt{S.signal()} sblocca un processo sulla coda di attesa del semaforo S. 
+Se un processo esegue \texttt{S.wait()} e il semaforo S è aperto (diverso da zero), continua l'esecuzione, altrimenti il sistema operativo mette il processo in coda di attesa. Un \texttt{S.signal()} sblocca un processo sulla coda di attesa del semaforo S. \par
 \begin{figure}[hbt]
     \begin{center}
         \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/sema2}}
@@ -1526,7 +1528,7 @@ Le variabili di condizione hanno le stesse operazioni dei semafori ma semantica 
 \end{itemize}
 Comunemente, i monitor vengono implementati secondo due stili:
 \begin{itemize}
-    \item Lo stile Mesa, dove il thread segnalante inserisce un thread in attesa nella ready queue mentre il primo continua l'esecuzione all'interno del monitor, e dove la condi- zione, la quale deve essere verificata continuamente, non deve essere necessariamente verificata quando il thread in attesa viene nuovamente eseguito
+    \item Lo stile Mesa, dove il thread segnalante inserisce un thread in attesa nella ready queue mentre il primo continua l'esecuzione all'interno del monitor, e dove la condizione, la quale deve essere verificata continuamente, non deve essere necessariamente verificata quando il thread in attesa viene nuovamente eseguito
     \begin{figure}[hbt]
         \begin{center}
             \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mesa}}
