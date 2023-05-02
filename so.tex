@@ -1763,11 +1763,51 @@ Nella gestione delle risorse, \textbf{soddisfare} una pretesa significa trasform
 
 \end{itemize}
 
-
-
-
 \pagebreak
 \section{Gestione della Memoria}
+La CPU recupera, decodifica ed esegue ripetutamente istruzioni da
+memoria durante l'esecuzione di un programma. La maggior parte delle istruzioni implica il recupero dei dati dalla memoria o l'archiviazione dei dati in memoria, o entrambi. I chip di memoria rispondono solo agli \textbf{indirizzi fisici} effettivi. Risulta che i \textbf{nomi simbolici} utilizzati dai programmi utente devono essere eventualmente associati all'effettivo indirizzo di memoria fisica.
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mem1}}
+        \caption{}    
+    \end{center}
+\end{figure}
+
+\begin{enumerate} 
+    \item Fetch instruction at address 128
+    \item Execute istruction: load from address [\%R2] (e.g., 1234)
+    \item Fetch instruction at address 136
+    \item Execute instruction: addition (no memory reference)
+    \item Fetch instruction at address 144
+    \item Execute instruction: store to address [\%R2] (1234)
+\end{enumerate}
+
+Un \textbf{nome simbolico} fa riferimento alla memoria simbolica utilizzato dai programmi utente. \textbf{L'indirizzo logico} è l'indirizzo di memoria generato dai programmi utente tramite la CPU. \textbf{L'indirizzo fisico} invece è la memoria effettiva su cui opera il chip di memoria. Il \textbf{binding di indirizzo} è la mappatura dall'indirizzo logico a quello fisico.\par
+Ogni indirizzo logico viene \textbf{associato} ad un indirizzo fisico tramite tre modalità:
+\begin{itemize}
+    \item Compile time, ossia se la locazione fisica iniziale k dove un programma risiederà in memoria è nota al momento della compilazione (es.,k=0), il compilatore genera il cosiddetto codice assoluto. Non c'è l'intervento da parte del sistema operativo. Avremo perciò indirizzo fisico $==$ indirizzo logico. Se l'indirizzo di k varia il programma verrà ricompilato.
+    \item Load time
+    \item Execution time
+\end{itemize}
+\subsubsection{Esempio}
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mem2}}
+        \caption{Gli indirizzi logici non cambiano dopo che sono stati emessi come risultato della compilazione/assemblaggio}    
+    \end{center}
+\end{figure}
+
+Se la locazione fisica iniziale k dove un programma risiederà in memoria non è nota al momento della compilazione il compilatore genera il cosiddetto codice rilocabile (staticamente), che fa riferimento a indirizzi relativi a k. Il caricatore del sistema operativo determina la posizione fisica iniziale di ogni processo k e avremo che  indirizzo fisico == indirizzo logico. Se il sistema operativo decide di utilizzare un diverso indirizzo di memoria fisica iniziale $k^{1}$ il programma deve essere ricaricato ma non compilato. 
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/mem3}}
+        \caption{Il caricatore del sistema operativo aggiorna gli indirizzi logici prima di caricare l'eseguibile}
+    \end{center}
+\end{figure}
+
 
 
 
