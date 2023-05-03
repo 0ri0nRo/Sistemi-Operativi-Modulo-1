@@ -81,8 +81,8 @@
 \contentsline {subsection}{\numberline {4.4}Paginazione}{69}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Translation Look-aside Buffer (TLB)}{71}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Segmentazione}{72}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{74}{section.5}%
-\contentsline {section}{\numberline {6}File System}{75}{section.6}%
-\contentsline {section}{\numberline {7}Advanced Topics}{76}{section.7}%
-\contentsline {section}{\numberline {8}Esercizi}{77}{section.8}%
-\contentsline {section}{\numberline {9}Formulario}{78}{section.9}%
+\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{75}{section.5}%
+\contentsline {section}{\numberline {6}File System}{76}{section.6}%
+\contentsline {section}{\numberline {7}Advanced Topics}{77}{section.7}%
+\contentsline {section}{\numberline {8}Esercizi}{78}{section.8}%
+\contentsline {section}{\numberline {9}Formulario}{79}{section.9}%
