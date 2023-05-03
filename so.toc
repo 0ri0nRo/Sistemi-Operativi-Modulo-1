@@ -81,4 +81,5 @@
 \contentsline {subsection}{\numberline {4.4}Paginazione}{69}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}Translation Look-aside Buffer (TLB)}{71}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Segmentazione}{72}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Memoria Virtuale}{74}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.7}Paginazione vs Segmentazione}{74}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Memoria Virtuale}{74}{subsection.4.8}%

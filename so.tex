@@ -15,7 +15,9 @@
 \usepackage{titling}
 \usepackage{graphicx}
 \usepackage{tcolorbox}
-
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{makecell}
 
 \setlength{\droptitle}{-5em}   % regola la posizione del titolo
 \pretitle{\begin{center}\LARGE}   % imposta la dimensione della font del titolo
@@ -2135,6 +2137,56 @@ Oltre alla paginazione segmentata, i moderni sistemi operativi sono dotati di un
     \item \textbf{Page table invertita}, dove vengono conservati i numeri di tutti frame attualmente carichi in memoria
 \end{itemize}
 
+
+\subsection{Paginazione vs Segmentazione}
+\begin{center}
+    
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Considerazione} & \textbf{Paginazione} & \textbf{Segmentazione}\\
+        \midrule
+        Il programmatore deve sapere che\\ questa tecnica è in uso? & No & Si\\
+        \addlinespace
+        \midrule
+        Quanti spazi di indirizzi \\lineari ci sono? & 1 & Molti\\
+        \addlinespace
+        \midrule
+        
+        Lo spazio degli indirizzi\\ totale può superare la \\dimensione della memoria fisica? & Si & Si \\
+        \addlinespace
+        \midrule
+        
+        Le procedure e i dati\\ possono essere distinti e \\protetti separatamente? & No & Si \\
+        \addlinespace
+        \midrule
+        
+        Le tabelle la cui \\dimensione varia possono \\essere disposte facilmente? & No & Si \\
+        \addlinespace
+        \midrule
+        
+        La condivisione delle \\procedure fra utenti \\è facilitata? & No & Si\\
+        \addlinespace
+        \midrule
+        
+        Perché fu inventata questa tecnica? &  
+        \makecell[l]{Per avere uno spazio\\
+        degli indirizzi\\
+        lineare grande\\
+        senza dover\\
+        acquistare\\
+        ulteriore\\
+        memoria fisica} & 
+        \makecell[l]{Per consentire a \\programmi e dati di essere\\
+        spezzati in spazi\\ degli indirizzi
+        logicamente \\indipendenti
+        e per \\facilitare la condivisione\\ e la protezione}\\
+        \bottomrule
+    \end{tabular}
+\end{center}
+    
+    
+    
+    
 \subsection{Memoria Virtuale}
 
 
