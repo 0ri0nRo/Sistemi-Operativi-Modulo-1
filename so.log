@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.2)  3 MAY 2023 12:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.2)  3 MAY 2023 12:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1195,18 +1195,18 @@ File: im/mem6.png Graphic file (type png)
 <use im/mem6.png>
 Package pdftex.def Info: im/mem6.png  used on input line 1891.
 (pdftex.def)             Requested size: 338.58632pt x 143.64279pt.
- [66 <./im/mem6.png>]
-<im/compa1.png, id=1162, 720.6925pt x 297.11pt>
+ [66 <./im/mem6.png>] [67]
+<im/compa1.png, id=1166, 720.6925pt x 297.11pt>
 File: im/compa1.png Graphic file (type png)
 <use im/compa1.png>
 Package pdftex.def Info: im/compa1.png  used on input line 1959.
 (pdftex.def)             Requested size: 241.84843pt x 99.70134pt.
-<im/compa2.png, id=1163, 729.72626pt x 300.12125pt>
+<im/compa2.png, id=1167, 729.72626pt x 300.12125pt>
 File: im/compa2.png Graphic file (type png)
 <use im/compa2.png>
 Package pdftex.def Info: im/compa2.png  used on input line 1968.
 (pdftex.def)             Requested size: 241.84843pt x 99.4662pt.
- [67] [68 <./im/compa1.png> <./im/compa2.png>]
+ [68 <./im/compa1.png> <./im/compa2.png>]
 <im/swap.png, id=1178, 316.18124pt x 224.84pt>
 File: im/swap.png Graphic file (type png)
 <use im/swap.png>
@@ -1259,7 +1259,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  83i,12n,89p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on so.pdf (80 pages, 10455465 bytes).
+Output written on so.pdf (80 pages, 10455546 bytes).
 PDF statistics:
  1428 PDF objects out of 1440 (max. 8388607)
  1102 compressed objects within 12 object streams

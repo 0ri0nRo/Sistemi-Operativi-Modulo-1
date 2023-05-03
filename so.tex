@@ -1910,7 +1910,7 @@ Complessità: \texttt{O(n)}, dove n è il numero di fori
 \subsubsection{Policy di allocazione della memoria: Best-Fit}
 Allocare il foro più piccolo sufficientemente grande per soddisfare la richiesta. Ciò consente di risparmiare grandi buchi per altre richieste di processo che potrebbero averne bisogno. Tuttavia, le parti inutilizzate risultanti dei fori potrebbero essere troppo piccole per essere utili e quindi andranno sprecate. La struttura dati che può essere utilizzata nel Best-Fit è il \textbf{Binary Search Tree (BST).}\par
 Complessità: ancora \texttt{O(n)} ma può essere \texttt{O(log n)} se l'elenco dei fori viene mantenuto ordinato. 
-
+\pagebreak
 \subsubsection{Esempio}
 \begin{itemize}
     \item Supponiamo di avere tre buchi in memoria, rispettivamente di 20, 400 e 120 byte.
@@ -1946,7 +1946,7 @@ Esistono due tipi di frammentazione della memoria: la frammentazione \textbf{int
 \end{itemize}
 
 Se si utilizza un'allocazione statica dei settori, la frammentazione interna non può essere risolta completamente, ma si può ridurre creando \textbf{settori} di dimensioni \textbf{crescenti} per permettere l'allocazione dei processi meno costosi nei settori più piccoli.\par
-
+\pagebreak
 Se invece si utilizza un'allocazione dinamica, il problema della frammentazione esterna può essere risolto in due modi:
 \begin{itemize}
     \item \textbf{Compattazione totale}: tutti i processi vengono spostati in modo che siano contigui gli uni agli altri, creando un unico buco di memoria.
@@ -1971,7 +1971,7 @@ Se invece si utilizza un'allocazione dinamica, il problema della frammentazione 
 \end{figure}
 
 \subsection{Swapping}
-Finora, abbiamo ipotizzato che tutti i processi siano interamente caricati in memoria.\footnote{Ricorda: un processo deve risiedere fisicamente nella memoria principale solo se la CPU esegue le sue istruzioni e accede ai suoi dati}. Se un processo si blocca (ad esempio, a causa di una chiamata I/O) non è necessario che sia in memoria mentre l'I/O è in esecuzione. Quel processo può essere "swapped ou" dalla memoria al disco per fare spazio ad altri processi. \par
+Finora, abbiamo ipotizzato che tutti i processi siano interamente caricati in memoria.\footnote{Ricorda: un processo deve risiedere fisicamente nella memoria principale solo se la CPU esegue le sue istruzioni e accede ai suoi dati}. Se un processo si blocca (ad esempio, a causa di una chiamata I/O) non è necessario che sia in memoria mentre l'I/O è in esecuzione. Quel processo può essere "swapped out" dalla memoria al disco per fare spazio ad altri processi. \par
 Una volta che il processo è di nuovo pronto, il sistema operativo deve ricaricarlo in memoria. Lo scambio dipende dall'associazione di indirizzi utilizzata:
 \begin{itemize}
     \item \textbf{tempo di compilazione o caricamento}: devono essere reinseriti nella stessa posizione di memoria da cui sono stati restituiti
