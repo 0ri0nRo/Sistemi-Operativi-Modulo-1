@@ -1933,7 +1933,7 @@ Il processo di allocazione della memoria Worst-Fit funziona nel seguente modo:
 \end{itemize}
 Il vantaggio dell'algoritmo Worst-Fit è che consente di utilizzare lo spazio di memoria disponibile in modo efficiente, poiché utilizza il blocco libero di memoria più grande possibile. Tuttavia, questo algoritmo può portare ad una \textbf{frammentazione} della memoria, poiché può lasciare molti piccoli blocchi liberi di memoria dopo l'allocazione di grandi blocchi, rendendo più difficile l'allocazione di blocchi liberi di dimensioni maggiori in futuro.
 
-\subsubsection{Frammentazione interna ed esterna}
+\subsection{Frammentazione interna ed esterna}
 
 
 La \textbf{frammentazione} della memoria si verifica quando la memoria disponibile non è contigua e non può essere utilizzata per soddisfare le richieste di memoria dei processi.
@@ -1970,7 +1970,7 @@ Se invece si utilizza un'allocazione dinamica, il problema della frammentazione 
     \end{center}
 \end{figure}
 
-\subsubsection{Swapping}
+\subsection{Swapping}
 Finora, abbiamo ipotizzato che tutti i processi siano interamente caricati in memoria.\footnote{Ricorda: un processo deve risiedere fisicamente nella memoria principale solo se la CPU esegue le sue istruzioni e accede ai suoi dati}. Se un processo si blocca (ad esempio, a causa di una chiamata I/O) non è necessario che sia in memoria mentre l'I/O è in esecuzione. Quel processo può essere "swapped ou" dalla memoria al disco per fare spazio ad altri processi. \par
 Una volta che il processo è di nuovo pronto, il sistema operativo deve ricaricarlo in memoria. Lo scambio dipende dall'associazione di indirizzi utilizzata:
 \begin{itemize}
@@ -1989,7 +1989,7 @@ Lo scambio è un processo molto lento rispetto ad altre operazioni a causa dell'
     \end{center}
 \end{figure}
 
-\subsubsection{Paginazione}
+\subsection{Paginazione}
 
 La \textbf{paginazione} è una tecnica di gestione della memoria utilizzata dai sistemi operativi per permettere ai processi di utilizzare più memoria di quella fisicamente disponibile nel sistema. In pratica, quando un processo cerca di accedere a una determinata area di memoria, il sistema operativo verifica se la pagina di memoria a cui tale area appartiene è già presente nella memoria fisica del computer.\par
 
@@ -2050,21 +2050,60 @@ La paginazione, dunque, corrisponde semplicemente ad una forma di \textbf{riloca
     \end{itemize}
 \end{enumerate}
 \pagebreak
+\subsection{Translation Look-aside Buffer (TLB)}
+La \textbf{Translation Look-aside Buffer (TLB)} è una cache di primo livello che viene utilizzata per memorizzare i numeri di pagina e di frame calcolati precedentemente. La TLB contiene i numeri più frequentemente utilizzati o più vicini a quelli già calcolati. Tuttavia, poiché le cache sono più piccole della memoria principale, la TLB conterrà solo una parte dei valori contenuti nella page table.\par
+
+Quando viene richiesto un indirizzo virtuale, il sistema controllerà prima se il numero di pagina associato a tale indirizzo è già presente nella TLB. In caso affermativo (\textbf{TLB hit}), il frame associato verrà subito restituito. Al contrario, se il numero di pagina non è presente nella TLB (TLB \textbf{miss}), il controllo verrà effettuato sulla \textbf{page table} e il dato letto verrà caricato nella TLB per utilizzi futuri.\par
+
+La TLB è \textbf{condivisa} tra tutti i processi, il che significa che lo stesso numero di pagina può essere mappato su un differente numero di frame in base al processo richiedente.
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth,keepaspectratio]{{im/tlb}}
+        \caption{}
+    \end{center}
+\end{figure}
+\pagebreak
+\subsection{Segmentazione}
+La \textbf{segmentazione} della memoria è una tecnica utilizzata nello sviluppo di applicazioni per semplificare l'organizzazione della memoria in modo \textbf{non contiguo}. Con questa tecnica, la memoria di un programma viene suddivisa in segmenti, ciascuno dei quali è dedicato ad uno specifico tipo di dati o codice. Gli indirizzi utilizzati in questa tecnica sono costituiti da un \textbf{numero di segmento} e un \textbf{offset} dall'inizio del segmento, permettendo ai programmatori di ragionare in termini di segmenti anziché di singoli byte.\par
+
+In pratica, quando un programma richiede l'accesso ad un dato o ad una istruzione, viene utilizzato l'indirizzo del segmento corrispondente al tipo di dato o di codice richiesto, insieme all'offset dall'inizio del segmento. In questo modo, il programma può accedere ai propri dati e istruzioni in modo più intuitivo e organizzato, senza dover gestire manualmente l'allocazione della memoria in modo contiguo.\par
+
+In pratica, la \textbf{segment table} è una struttura dati utilizzata dal sistema operativo per gestire la segmentazione della memoria. Essa \textbf{associa} ogni indirizzo costituito da un numero di segmento ed un offset ad un indirizzo fisico, verificando inoltre se l'indirizzo sia valido o meno.
+Ogni voce della segment table contiene informazioni sull'\textbf{indirizzo base} del segmento, la \textbf{lunghezza} del segmento e \textbf{informazioni aggiuntive} per la protezione del segmento. A \textbf{differenza} della page table, la segment table può essere implementata utilizzando pochi registri base e limite. In questo modo, viene semplificata la gestione della memoria segmentata e si riduce il costo computazionale associato alla traduzione degli indirizzi.
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/stable}}
+        \caption{}
+    \end{center}
+\end{figure}
+
+La segmentazione è comoda per la gestione dei dati condivisi, ma \textbf{poco efficiente} nell'uso della \textbf{memoria}. Per questo motivo, la tecnica ottimale consiste nell'applicare la paginazione ai segmenti stessi, in modo da avere una gestione più efficiente della memoria. In pratica, lo spazio di indirizzamento virtuale di ogni processo viene diviso in segmenti, e lo spazio di indirizzamento fisico viene diviso in frame di dimensioni fisse. 
+\begin{itemize}
+    \item Ogni processo ha la propria tabella dei segmenti 
+    \item Ogni segmento ha la propria tabella delle pagine 
+\end{itemize}
+\pagebreak
+Poiché i segmenti sono generalmente più grandi dei frame fisici. In questo modo, ogni segmento logico può essere mappato in più frame fisici, garantendo un'efficiente gestione della memoria.
+    
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/seg1}}
+        \caption{}
+    \end{center}
+\end{figure}
 
 
+Affinché la traduzione da indirizzo virtuale a fisico sia possibile, quindi, ogni indirizzo deve essere \textbf{composto} da un \textbf{numero di segmento}, \textbf{un numero di pagina} legato alla page table del segmento specifico ed un \textbf{offset} dall'inizio del frame indicato nella page table.\par
 
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/seg2}}
+        \caption{}
+    \end{center}
+\end{figure}
 
 
 \pagebreak
