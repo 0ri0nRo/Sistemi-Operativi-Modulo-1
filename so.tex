@@ -1844,6 +1844,7 @@ Nella \textbf{riallocazione statica} l'OS loader riscrive gli indirizzi generati
         \caption{}
     \end{center}
 \end{figure}
+
 La \textbf{riallocazione dinamica} ha il compito di proteggere sistema operativo e processi gli uni dagli altri. Richiede supporto hardware (Memory Management Unit o MMU), associazione degli indirizzi in fase di esecuzione/esecuzione. MMU traduce dinamicamente ogni indirizzo logico/virtuale generato da un processo in un corrispondente indirizzo fisico.\par
 MMU contiene almeno due registri, \textbf{base} che contiene la posizione di memoria fisica dello spazio degli indirizzi e \textbf{limit} che contiene dimensione limite dello spazio degli indirizzi.\par
 La CPU supporta almeno due modalità operative:
@@ -1878,6 +1879,143 @@ Tra le \textbf{proprietà della riallocazione} troviamo:
     \item \textbf{Efficienza} in qualche modo raggiunta, ma se un processo cresce potrebbe essere necessario spostarlo in un'altra posizione (molto lento)
 \end{itemize}
 \pagebreak
+
+\subsubsection{Policy di allocazione e frammentazione}
+Finora abbiamo ipotizzato che ogni processo sia allocato in uno spazio contiguo di memoria fisica.Un metodo semplice consiste nel suddividere in anticipo tutta la memoria disponibile dedicata ai processi dell'utente in segmenti/partizioni di \textbf{uguali} dimensioni dove si assegnava ad ogni processo a un segmento. Questo però limita implicitamente il grado di multiprogrammazione (cioè il numero di processi simultanei) e la loro dimensione, per questo non viene più utilizzato.\par
+
+Un approccio alternativo prevede che il sistema operativo tenga traccia dei segmenti di memoria \textbf{liberi} (non utilizzati), man mano che i processi entrano nel sistema, crescono e terminano. 
+
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/mem6}}
+        \caption{L'OS deve essere in grado di scegliere correttamente lo spazio di memoria da riempire}
+    \end{center}
+\end{figure}
+
+\subsubsection{Policy di allocazione della memoria: First-Fit}
+Il criterio di allocazione della memoria "\textbf{First-Fit}" è una tecnica utilizzata nei sistemi operativi per allocare la memoria richiesta da un processo.\par
+
+In pratica, il sistema operativo cerca nella memoria disponibile il primo blocco che abbia una dimensione \textbf{sufficiente} per soddisfare la richiesta del processo. Una volta trovato questo blocco, il processo viene allocato in esso e la memoria residua viene divisa in un nuovo blocco di dimensioni ridotte.\par
+
+Questo approccio può portare ad una \textbf{frammentazione} della memoria, poiché potrebbero rimanere degli spazi vuoti tra i blocchi di memoria allocati. Tuttavia, il "First-Fit" è una tecnica semplice e rapida per allocare la memoria, ed è quindi utilizzata in molti sistemi operativi.\par
+Complessità: \texttt{O(n)}, dove n è il numero di fori
+\subsubsection{Esempio}
+\begin{itemize}
+    \item Supponiamo di avere tre buchi in memoria, rispettivamente di 20, 400 e 120 byte.
+    \item Supponiamo che il processo X richieda 100 byte di memoria. Tramite la policy First-Fit, il processo verrebbe inserito nel primo buco sufficientemente grande, ossia quello da 400 byte, creando così un buco di 300 byte
+    \item Supponiamo ora che il processo Y richieda 350 byte di memoria. L'OS non è in grado di soddisfare tale richiesta, poiché nessun buco è abbastanza grande.
+\end{itemize}
+
+\subsubsection{Policy di allocazione della memoria: Best-Fit}
+Allocare il foro più piccolo sufficientemente grande per soddisfare la richiesta. Ciò consente di risparmiare grandi buchi per altre richieste di processo che potrebbero averne bisogno. Tuttavia, le parti inutilizzate risultanti dei fori potrebbero essere troppo piccole per essere utili e quindi andranno sprecate. La struttura dati che può essere utilizzata nel Best-Fit è il \textbf{Binary Search Tree (BST).}\par
+Complessità: ancora \texttt{O(n)} ma può essere \texttt{O(log n)} se l'elenco dei fori viene mantenuto ordinato. 
+
+\subsubsection{Esempio}
+\begin{itemize}
+    \item Supponiamo di avere tre buchi in memoria, rispettivamente di 20, 400 e 120 byte.
+    \item Supponiamo che il processo X richieda 100 byte di memoria. Tramite la policy best-fit, il processo verrebbe inserito nel buco minore sufficientemente grande, ossia quello da 120 byte, creando così un buco di 20 byte
+    \item Supponiamo ora che il processo Y richieda 350 byte di memoria. Tale processo verrà allocato nel buco da 400 byte, creandone uno di 50.
+    \item La somma dei buchi disponibili, quindi, corrisponde a 90 byte. Tuttavia, essendo suddivisi in buchi di piccole dimensioni, difficilmente un processo sarà abbastanza piccolo da poter essere contenuto in uno di tali buchi, portando ad uno spreco di memoria
+\end{itemize}
+    
+\subsubsection{Policy di allocazione della memoria: Worst-Fit}
+
+A differenza della policy Best-Fit, l'algoritmo Worst-Fit cerca di allocare il blocco di memoria libero \textbf{più grande} disponibile per soddisfare le richieste di memoria dei processi. In altre parole, il sistema operativo cerca il blocco libero di memoria più grande tra tutti quelli disponibili e lo assegna al processo.
+
+Il processo di allocazione della memoria Worst-Fit funziona nel seguente modo:
+\begin{itemize}
+    \item Il sistema operativo cerca la lista di tutti i blocchi liberi di memoria disponibili.
+    \item Il sistema operativo cerca il blocco di memoria libero più grande che possa soddisfare la richiesta del processo.
+    \item Se viene trovato un blocco libero con dimensioni esattamente corrispondenti alla richiesta del processo, il sistema operativo lo alloca al processo.
+    \item Se viene trovato un blocco libero con dimensioni maggiori della richiesta del processo, il sistema operativo assegna il blocco di memoria al processo e crea un nuovo blocco libero contenente la memoria non utilizzata.
+    \item Se non viene trovato alcun blocco libero di memoria sufficiente per soddisfare la richiesta del processo, il processo viene messo in attesa fino a quando non viene rilasciata una porzione di memoria sufficiente.
+\end{itemize}
+Il vantaggio dell'algoritmo Worst-Fit è che consente di utilizzare lo spazio di memoria disponibile in modo efficiente, poiché utilizza il blocco libero di memoria più grande possibile. Tuttavia, questo algoritmo può portare ad una \textbf{frammentazione} della memoria, poiché può lasciare molti piccoli blocchi liberi di memoria dopo l'allocazione di grandi blocchi, rendendo più difficile l'allocazione di blocchi liberi di dimensioni maggiori in futuro.
+
+\subsubsection{Frammentazione interna ed esterna}
+
+
+La \textbf{frammentazione} della memoria si verifica quando la memoria disponibile non è contigua e non può essere utilizzata per soddisfare le richieste di memoria dei processi.
+
+Esistono due tipi di frammentazione della memoria: la frammentazione \textbf{interna} e la frammentazione \textbf{esterna}:
+\begin{itemize}
+    \item La \textbf{frammentazione interna} si verifica quando viene sprecata parte di memoria a seguito dell'allocazione di settori troppo grandi per un processo richiedente meno spazio di quello fornito. Si verifica nel caso in cui si utilizzi un'\textbf{allocazione statica} della memoria tramite la definizione di partizioni.
+    
+    \item La \textbf{frammentazione esterna} dove vi è abbastanza spazio libero per poter allocare il processo, ma tale spazio è suddiviso in buchi di memoria non contigui, impedendo l'allocazione. Si verifica nel caso in cui si utilizzi un'\textbf{allocazione dinamica} della memoria a seguito del frequente allocamento e deallocamento di processi.
+\end{itemize}
+
+Se si utilizza un'allocazione statica dei settori, la frammentazione interna non può essere risolta completamente, ma si può ridurre creando \textbf{settori} di dimensioni \textbf{crescenti} per permettere l'allocazione dei processi meno costosi nei settori più piccoli.\par
+
+Se invece si utilizza un'allocazione dinamica, il problema della frammentazione esterna può essere risolto in due modi:
+\begin{itemize}
+    \item \textbf{Compattazione totale}: tutti i processi vengono spostati in modo che siano contigui gli uni agli altri, creando un unico buco di memoria.
+    \item \textbf{Compattazione parziale}: solo alcuni processi vengono spostati per creare un buco sufficientemente grande da poter contenere il processo da allocare.
+\end{itemize}
+
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/compa1}}
+        \caption{Compattazione totale}
+    \end{center}
+\end{figure}
+
+
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/compa2}}
+        \caption{Compattazione parziale}
+    \end{center}
+\end{figure}
+
+\subsubsection{Swapping}
+Finora, abbiamo ipotizzato che tutti i processi siano interamente caricati in memoria.\footnote{Ricorda: un processo deve risiedere fisicamente nella memoria principale solo se la CPU esegue le sue istruzioni e accede ai suoi dati}. Se un processo si blocca (ad esempio, a causa di una chiamata I/O) non è necessario che sia in memoria mentre l'I/O è in esecuzione. Quel processo può essere "swapped ou" dalla memoria al disco per fare spazio ad altri processi. \par
+Una volta che il processo è di nuovo pronto, il sistema operativo deve ricaricarlo in memoria. Lo scambio dipende dall'associazione di indirizzi utilizzata:
+\begin{itemize}
+    \item \textbf{tempo di compilazione o caricamento}: devono essere reinseriti nella stessa posizione di memoria da cui sono stati restituiti
+    \item \textbf{tempo di esecuzione}: può essere ricollocato in qualsiasi posizione disponibile (aggiornamento dei registri di base e di limite)
+\end{itemize}
+Utilizzando lo scambio, la frammentazione può essere affrontata facilmente. Basta eseguire la compattazione prima di eseguire lo scambio in un processo.
+
+\subsubsection*{Esempio}
+Lo scambio è un processo molto lento rispetto ad altre operazioni a causa dell'interazione con il disco rigido. Abbiamo un processo utente da 10 MB, velocità di trasferimento del disco = 40 MB/sec (250 msec solo per il trasferimento dei dati). Poiché lo swap-in può comportare lo swap-out di un altro processo, il tempo complessivo richiesto sarà di $\approx 500$ msec. 
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/swap}}
+        \caption{La maggior parte dei sistemi operativi moderni non utilizza più lo scambio, perché è troppo lento e sono disponibili alternative più veloci (ad esempio, paging)}
+    \end{center}
+\end{figure}
+
+
+\subsubsection{Paginazione}
+
+La \textbf{paginazione} è una tecnica di gestione della memoria utilizzata dai sistemi operativi per permettere ai processi di utilizzare più memoria di quella fisicamente disponibile nel sistema. In pratica, quando un processo cerca di accedere a una determinata area di memoria, il sistema operativo verifica se la pagina di memoria a cui tale area appartiene è già presente nella memoria fisica del computer.\par
+
+Se la pagina è già presente, il processo può accedere alla memoria immediatamente. Se la pagina non è presente, il sistema operativo deve recuperarla dalla memoria virtuale e copiarla nella memoria fisica, liberando eventualmente una pagina già presente se non ci sono pagine disponibili. Questo processo viene chiamato "\textbf{fault di pagina}".\par
+
+L'allocazione contigua non è più necessaria poiché le pagine logiche possono essere mappate a pagine non frame fisici contigui. Inoltre la \textbf{frammentazione esterna} viene \textbf{eliminata} perché le pagine hanno dimensioni fisse, mentre la \textbf{frammentazione interna} può comunque \textbf{verificarsi}.\par
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth,keepaspectratio]{{im/paginazione}}
+        \caption{}
+    \end{center}
+\end{figure}
+
+Responsabilità di base del sistema operativo per il paging:
+\begin{itemize}
+    \item \textbf{mapping} tra pagine logiche e frame fisici
+    \item \textbf{traduzione} di indirizzi logici in indirizzi fisici
+\end{itemize}
+Il sistema operativo necessita di una Page Table per fare ciò.\par
+
+
+
+
+
 
 \section{Gestione dei Sistemi di I/O}
 %-------------------------------------------------------%
