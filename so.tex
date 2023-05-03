@@ -1978,7 +1978,7 @@ Una volta che il processo è di nuovo pronto, il sistema operativo deve ricarica
     \item \textbf{tempo di esecuzione}: può essere ricollocato in qualsiasi posizione disponibile (aggiornamento dei registri di base e di limite)
 \end{itemize}
 Utilizzando lo scambio, la frammentazione può essere affrontata facilmente. Basta eseguire la compattazione prima di eseguire lo scambio in un processo.
-
+\pagebreak
 \subsubsection*{Esempio}
 Lo scambio è un processo molto lento rispetto ad altre operazioni a causa dell'interazione con il disco rigido. Abbiamo un processo utente da 10 MB, velocità di trasferimento del disco = 40 MB/sec (250 msec solo per il trasferimento dei dati). Poiché lo swap-in può comportare lo swap-out di un altro processo, il tempo complessivo richiesto sarà di $\approx 500$ msec. 
 
@@ -1989,7 +1989,6 @@ Lo scambio è un processo molto lento rispetto ad altre operazioni a causa dell'
     \end{center}
 \end{figure}
 
-\pagebreak
 \subsubsection{Paginazione}
 
 La \textbf{paginazione} è una tecnica di gestione della memoria utilizzata dai sistemi operativi per permettere ai processi di utilizzare più memoria di quella fisicamente disponibile nel sistema. In pratica, quando un processo cerca di accedere a una determinata area di memoria, il sistema operativo verifica se la pagina di memoria a cui tale area appartiene è già presente nella memoria fisica del computer.\par
@@ -2000,7 +1999,7 @@ L'allocazione contigua non è più necessaria poiché le pagine logiche possono 
 
 \begin{figure}[hbt]
     \begin{center}
-        \includegraphics[width=0.45\textwidth,keepaspectratio]{{im/paginazione}}
+        \includegraphics[width=0.4\textwidth,keepaspectratio]{{im/paginazione}}
         \caption{}
     \end{center}
 \end{figure}
@@ -2011,7 +2010,7 @@ Responsabilità di base del sistema operativo per il paging:
     \item \textbf{traduzione} di indirizzi logici in indirizzi fisici
 \end{itemize}
 Il sistema operativo necessita di una Page Table per fare ciò.\par
-\pagebreak
+
 
 
 Quando un processo cerca di accedere a un indirizzo di memoria, il sistema operativo utilizza la tabella delle pagine (\textbf{page table}) per \textbf{tradurre} l'indirizzo virtuale del processo in un indirizzo fisico corrispondente. Ogni indirizzo virtuale è composto da due parti: un numero di pagina $p$ che indica in quale pagina virtuale si trova l'indirizzo e un \textbf{offset} che indica la posizione dell'indirizzo all'interno della pagina.\par
@@ -2042,14 +2041,16 @@ La paginazione, dunque, corrisponde semplicemente ad una forma di \textbf{riloca
         \item Dunque, l'indirizzo fisico sarà costituito dal numero di frame contenuto nella seconda pagina della page table e un offset pari a 7
     \end{itemize}
     \item Prendiamo il secondo esempio:
-    \begin{enumerate}
+    \begin{itemize}
         \item Supponiamo di avere una memoria virtuale e una memoria fisica entrambe di dimensione $M$ = 1024$B$ dove il word size è $W$ = 2$B$. Supponiamo inoltre di utilizzare un paginazione con pagine/frame di dimensione $S$ = 16$B$.
         \item  Il numero di pagine/frame contenute page table sarà T = $\frac{M}{S}$ = $\frac{1024}{16}$ = 64 dunque saranno necessari $p$ = 6 bit per poter indicizzare ogni pagina della page table ($2^{6}$ = 64)
         \item Il numero di word contenute in ogni frame sarà F = $\frac{S}{W}$ = $\frac{16}{2}$ = 8 , dunque saranno necessari $o$ = 3 bit per poter indicizzare il word offset ($2^{3}$ = 8).
         \item Dei 10 bit costituenti un indirizzo fisico, quindi, 6 saranno utilizzati per il
         numero di pagina, 3 per l'offset di word e il restante bit per l'offset di byte.
-    \end{enumerate}
+    \end{itemize}
 \end{enumerate}
+\pagebreak
+
 
 
 
