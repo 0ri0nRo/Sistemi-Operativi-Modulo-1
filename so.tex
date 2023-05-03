@@ -1995,7 +1995,7 @@ La \textbf{paginazione} è una tecnica di gestione della memoria utilizzata dai 
 
 Se la pagina è già presente, il processo può accedere alla memoria immediatamente. Se la pagina non è presente, il sistema operativo deve recuperarla dalla memoria virtuale e copiarla nella memoria fisica, liberando eventualmente una pagina già presente se non ci sono pagine disponibili. Questo processo viene chiamato "\textbf{fault di pagina}".\par
 
-L'allocazione contigua non è più necessaria poiché le pagine logiche possono essere mappate a pagine non frame fisici contigui. Inoltre la \textbf{frammentazione esterna} viene \textbf{eliminata} perché le pagine hanno dimensioni fisse, mentre la \textbf{frammentazione interna} può comunque \textbf{verificarsi}.\par
+L'allocazione contigua non è più necessaria poiché le pagine logiche possono essere mappate a pagine con frame fisici non contigui. Inoltre la \textbf{frammentazione esterna} viene \textbf{eliminata} perché le pagine hanno dimensioni fisse, mentre la \textbf{frammentazione interna} può comunque \textbf{verificarsi}.\par
 
 \begin{figure}[hbt]
     \begin{center}
@@ -2053,7 +2053,7 @@ La paginazione, dunque, corrisponde semplicemente ad una forma di \textbf{riloca
 \subsection{Translation Look-aside Buffer (TLB)}
 La \textbf{Translation Look-aside Buffer (TLB)} è una cache di primo livello che viene utilizzata per memorizzare i numeri di pagina e di frame calcolati precedentemente. La TLB contiene i numeri più frequentemente utilizzati o più vicini a quelli già calcolati. Tuttavia, poiché le cache sono più piccole della memoria principale, la TLB conterrà solo una parte dei valori contenuti nella page table.\par
 
-Quando viene richiesto un indirizzo virtuale, il sistema controllerà prima se il numero di pagina associato a tale indirizzo è già presente nella TLB. In caso affermativo (\textbf{TLB hit}), il frame associato verrà subito restituito. Al contrario, se il numero di pagina non è presente nella TLB (TLB \textbf{miss}), il controllo verrà effettuato sulla \textbf{page table} e il dato letto verrà caricato nella TLB per utilizzi futuri.\par
+Quando viene richiesto un indirizzo virtuale, il sistema controllerà prima se il numero di pagina associato a tale indirizzo è già presente nella TLB. In caso affermativo (\textbf{TLB hit}), il frame associato verrà subito restituito. Al contrario, se il numero di pagina non è presente nella TLB (\textbf{TLB miss}), il controllo verrà effettuato sulla \textbf{page table} e il dato letto verrà caricato nella TLB per utilizzi futuri.\par
 
 La TLB è \textbf{condivisa} tra tutti i processi, il che significa che lo stesso numero di pagina può essere mappato su un differente numero di frame in base al processo richiedente.
 
@@ -2108,7 +2108,7 @@ Affinché la traduzione da indirizzo virtuale a fisico sia possibile, quindi, og
 
 Per tenere traccia delle segment table e delle page table dei vari processi, vengono utilizzate due soluzioni:
 \begin{itemize}
-    \item Vengono utilizzati pochi registri per le segment table, mentre le page table ven- gono salvate nella memoria principale con aggiunta di una TLB. Tale soluzione risulta più veloce, ponendo tuttavia un limite al numero di segmenti
+    \item Vengono utilizzati pochi registri per le segment table, mentre le page table vengono salvate nella memoria principale con aggiunta di una TLB. Tale soluzione risulta più veloce, ponendo tuttavia un limite al numero di segmenti
     \item Sia le segment table sia le page table vengono salvate nella memoria principale con aggiunta di una TLB, i cui controlli vengono effettuati utilizzando un indice dei segmenti ed un indice di pagine. Tale soluzione risulta essere più lenta ma più flessibile.
 \end{itemize}
     
@@ -2130,34 +2130,19 @@ Presenta dei vantaggi e dei svantaggi:
 \end{itemize}
 Oltre alla paginazione segmentata, i moderni sistemi operativi sono dotati di una forme più avanzate di paginazione:
 \begin{itemize}
-    \item Paginazione a due livelli, dove una page table viene suddivisa in più page table (dunque si tratta di una paginazione della page table)
-    \item Paginazione con hash, dove vengono utilizzate delle hash table per indicizzare più page table sparse in modo veloce
-    \item Page table invertita, dove vengono conservati i numeri di tutti frame attualmente carichi in memoria
+    \item \textbf{Paginazione a due livelli}, dove una page table viene suddivisa in più page table (dunque si tratta di una paginazione della page table)
+    \item \textbf{Paginazione con hash}, dove vengono utilizzate delle hash table per indicizzare più page table sparse in modo veloce
+    \item \textbf{Page table invertita}, dove vengono conservati i numeri di tutti frame attualmente carichi in memoria
 \end{itemize}
 
-
-
-\pagebreak
-\section{Gestione dei Sistemi di I/O}
-%-------------------------------------------------------%
-\pagebreak
-
-\section{File System}
-%-------------------------------------------------------%
-\pagebreak
-
-\section{Advanced Topics}
-
-
-\pagebreak
-\section{Esercizi}
+\subsection{Memoria Virtuale}
 
 
 
 
-\pagebreak
 
-\section{Formulario}
+
+
 
 \end{document}
 
