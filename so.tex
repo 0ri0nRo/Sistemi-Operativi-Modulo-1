@@ -2014,6 +2014,42 @@ Il sistema operativo necessita di una Page Table per fare ciò.\par
 \pagebreak
 
 
+Quando un processo cerca di accedere a un indirizzo di memoria, il sistema operativo utilizza la tabella delle pagine (\textbf{page table}) per \textbf{tradurre} l'indirizzo virtuale del processo in un indirizzo fisico corrispondente. Ogni indirizzo virtuale è composto da due parti: un numero di pagina $p$ che indica in quale pagina virtuale si trova l'indirizzo e un \textbf{offset} che indica la posizione dell'indirizzo all'interno della pagina.\par
+
+Analogamente, ogni indirizzo fisico è composto da un numero di frame $f$ che indica in quale frame fisico si trova la pagina corrispondente all'indirizzo virtuale e un offset che indica la posizione dell'indirizzo all'interno del frame.
+
+Durante la conversione da indirizzo virtuale a fisico, il sistema operativo utilizza la pagina indicata dal numero di pagina $p$ dell'indirizzo virtuale per trovare il corrispondente frame fisico $f$ nella tabella delle pagine. In questo modo, l'offset dell'indirizzo virtuale rimane lo stesso e viene utilizzato anche nell'indirizzo fisico corrispondente. In sintesi, la traduzione degli indirizzi virtuali in indirizzi fisici avviene utilizzando la page table, in cui ogni pagina virtuale è associata a un frame fisico corrispondente.
+
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.45\textwidth,keepaspectratio]{{im/indvir}}
+        \caption{}
+    \end{center}
+\end{figure}
+
+La paginazione, dunque, corrisponde semplicemente ad una forma di \textbf{rilocazione dinamica} dove ogni indirizzo virtuale è legato ad un indirizzo fisico tramite la page table, la quale può essere interpretata come un insieme di registri base (uno per ogni frame).
+
+
+\subsubsection*{Esempi}
+
+\begin{enumerate}
+    \item Prendiamo il seguente esempio:
+    \begin{itemize}
+        \item Supponiamo che lo spazio di memoria riservato ai processi utente sia $M$ = $50B$ e che la dimensione di ogni pagina/frame sia $S$ = $10B$
+        \item Consideriamo l'indirizzo virtuale $x$ = 27. Il page number sarà $p$ = $\lfloor \frac{x}{S}\rfloor$  = $\lfloor \frac{27}{10}\rfloor$ = 2, 
+        mentre l'offset di word sarà $o$ = 27 mod 10 = 7.
+        \item Dunque, l'indirizzo fisico sarà costituito dal numero di frame contenuto nella seconda pagina della page table e un offset pari a 7
+    \end{itemize}
+    \item Prendiamo il secondo esempio:
+    \begin{enumerate}
+        \item Supponiamo di avere una memoria virtuale e una memoria fisica entrambe di dimensione $M$ = 1024$B$ dove il word size è $W$ = 2$B$. Supponiamo inoltre di utilizzare un paginazione con pagine/frame di dimensione $S$ = 16$B$.
+        \item  Il numero di pagine/frame contenute page table sarà T = $\frac{M}{S}$ = $\frac{1024}{16}$ = 64 dunque saranno necessari $p$ = 6 bit per poter indicizzare ogni pagina della page table ($2^{6}$ = 64)
+        \item Il numero di word contenute in ogni frame sarà F = $\frac{S}{W}$ = $\frac{16}{2}$ = 8 , dunque saranno necessari $o$ = 3 bit per poter indicizzare il word offset ($2^{3}$ = 8).
+        \item Dei 10 bit costituenti un indirizzo fisico, quindi, 6 saranno utilizzati per il
+        numero di pagina, 3 per l'offset di word e il restante bit per l'offset di byte.
+    \end{enumerate}
+\end{enumerate}
 
 
 

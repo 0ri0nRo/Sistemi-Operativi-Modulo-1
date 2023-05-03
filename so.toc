@@ -79,8 +79,8 @@
 \contentsline {subsubsection}{\numberline {4.1.7}Frammentazione interna ed esterna}{67}{subsubsection.4.1.7}%
 \contentsline {subsubsection}{\numberline {4.1.8}Swapping}{68}{subsubsection.4.1.8}%
 \contentsline {subsubsection}{\numberline {4.1.9}Paginazione}{69}{subsubsection.4.1.9}%
-\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{71}{section.5}%
-\contentsline {section}{\numberline {6}File System}{72}{section.6}%
-\contentsline {section}{\numberline {7}Advanced Topics}{73}{section.7}%
-\contentsline {section}{\numberline {8}Esercizi}{74}{section.8}%
-\contentsline {section}{\numberline {9}Formulario}{75}{section.9}%
+\contentsline {section}{\numberline {5}Gestione dei Sistemi di I/O}{72}{section.5}%
+\contentsline {section}{\numberline {6}File System}{73}{section.6}%
+\contentsline {section}{\numberline {7}Advanced Topics}{74}{section.7}%
+\contentsline {section}{\numberline {8}Esercizi}{75}{section.8}%
+\contentsline {section}{\numberline {9}Formulario}{76}{section.9}%
