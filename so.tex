@@ -2453,6 +2453,33 @@ Contro:
 L'algoritmo \textbf{SCAN} è un algoritmo di scheduling del disco in cui la testina viene mossa da un estremo all'altro del piatto (ad esempio dalla traccia 0 alla tracca 100 e viceversa), dove le richieste vengono eseguite durante il passaggio della testina.\par
 L'algoritmo \textbf{LOOK} corrisponde ad una versione ottimizzata dello SCAN, dove durante ogni scansione la testina, piuttosto che proseguire fino all'estremo del piatto, viene fermata alla richiesta più vicina all'estremo.
 
+\subsubsection{Esempio}
+\begin{itemize}
+    \item Supponiamo di effettuare le richieste 65, 40, 18, 78 su un disco avente tracce nume- rate da 0 a 100 in cui la testina è inizialmente posizionata sulla traccia 30 utilizzando l'algoritmo SCAN:
+    \begin{itemize}
+        \item La testina viene mossa da 30 a 18, dunque vengono traversate 12 tracce
+        \item La testina viene mossa da 18 a 0 per poter raggiungere l'estremo, dunque
+        vengono traversate 18 tracce
+        \item Latestinavienemossada0a40,poida40a65einfineda65a78,dunque vengono traversate 78 tracce
+    \end{itemize}
+    \item La distanza percorsa, ossia il numero totale di tracce traversate, corrisponde a
+   \begin{center}
+    12 + 18 + 78 = 108
+   \end{center}
+    \item Se si fosse utilizzato l'algoritmo SCAN ottimizzato, ossia l'algoritmo LOOK, la distanza percorsa corrisponderebbe a:
+    \begin{center}
+        12+78 = 90
+    \end{center}
+\end{itemize}
+
+
+\subsubsection{C-SCAN e C-LOOK}
+
+L'algoritmo C-SCAN (o Circular SCAN) è un algoritmo di scheduling del disco simile all'algoritmo SCAN in cui a testina viene mossa dall'estremo finale fino all'estremo iniziale (ad esempio dalla traccia 100 alla traccia 0), venendo subito dopo "resettata" fino all'estremo finale (venendo spostata nuovamente sulla traccia 100). Le richieste vengono effettuate solo durante lo spostamento dall'estremo finale fino a quello iniziale.
+L'algoritmo C-LOOK (o Circular LOOK) corrisponde ad una versione ottimiz- zata del C-SCAN, dove durante ogni scansione la testina, piuttosto che proseguire fino all'estremo iniziale del piatto, viene fermata alla richiesta più vicina all'estre- mo iniziale, per poi venire resettata fino alla richiesta più vicina all'estremo finale, piuttosto che essere resettata all'estremo finale stesso.
+
+
+
 
 \end{document}
 
