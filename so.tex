@@ -2281,7 +2281,8 @@ Nel caso in cui debba essere caricata una pagina dal disco ma la memoria fisica 
 \begin{itemize}
     \item Rimpiazzo casuale, dove viene rimossa una pagina a caso
     \item \textbf{FIFO} (First in, First out), dove viene rimossa la pagina rimasta in memoria per
-    il tempo maggiore
+    il tempo maggiore. Nell'algoritmo \textbf{second chance} la pagina che dovrebbe essere elliminata viene rimessa in fondo all'elenco e il suo tempo di caricamento aggiornato come se fosse appena arrivata in memoria. Questo secondo algoritmo risulta inefficiente poichè fa scorrere di continuo le pagine lungo la sua lista.
+    \item L'algoritmo detto \textbf{clock} tiene i frame su una lista circolare a forma di orologio. La lancetta indica la pagina più vecchia. Quando avviene un page fault, la pagina indicata dalla lancetta viene controllata. Se il suo bit \textit{R} è 0 allora viene sfrattata, la nuova pagina inserita al suo posto nell'orologio, e la lancetta spostata in avanti di una posizione. Se il suo bit \textit{R} è \ viene azzerrato e la lancetta avanzata alla pagina successiva.
     \item \textbf{MIN (OPT)}, dove viene rimossa la pagina che non verrà acceduta per il lasso di tempo maggiore (richiede di predire il futuro, dunque è un algoritmo ottimale ma molto difficile da implementare)
     \item \textbf{LRU (Least Recently Used)}, dove viene rimossa la pagina non utilizzata per il maggior lasso di tempo. È l'algoritmo più utilizzato dagli OS moderni e può essere implementato in tre modi:
     \begin{itemize}
@@ -2304,15 +2305,31 @@ Nel caso in cui debba essere caricata una pagina dal disco ma la memoria fisica 
 \end{itemize}
 \pagebreak
 
-\subsubsection{Trashing e determinazione del working set}
+\subsection{Trashing e determinazione del working set}
+
+Definiamo come \textbf{trashing} il fenomeno in cui la memoria è utilizzata da troppi processi contemporaneamente, portando le pagine ad essere continuamente rimpiazzate nonostante esse siano ancora in uso dai processi stessi e dunque una forte degradazione delle performance. 
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/trashing}}
+        \caption{}
+    \end{center}
+\end{figure}
 
 
+Per contrastare il trashing, è necessario cedere abbastanza memoria ad ogni processo, rendendo quindi fondamentali le politiche di allocazione e rimpiazzo delle pagine:
+\begin{itemize}
+    \item \textbf{Allocazione e rimpiazzo globale}, dove tutte le pagine di ogni processo sono in una singola pool, ossia una queue LRU dove, durante il rimpiazzo di una pagina, anche le pagine non appartenenti allo stesso processo della nuova pagina possono essere rimpiazzate, portando ad una maggiore flessibilità ma anche ad una maggiore quantità di trashing
+    \item \textbf{Allocazione e rimpiazzo locale}, dove ogni processo possiede la propria pool, dunque il rimpiazzo LRU controllerà solo le pagine appartenenti allo stesso processo della nuova pagina, portando ad un totale isolamento dei processi ma anche ad una minore performance
+    \item \textbf{Allocazione e rimpiazzo proporzionale}, dove viene assunto che ogni processo di grandi dimensioni faccia riferimento anche ad una grande quantità di memoria. Tuttavia, in alcuni casi tale assunzione si rivela errata (ad esempio, un processo potrebbe allocare un array di 1 GB, per poi utilizzarne solo una piccola porzione). In altre parole, non sempre il working set di un processo è correlato al suo impatto sulla memoria.
+\end{itemize}
+L'obiettivo, quindi, è quello di riuscire a dare ad ogni processo abbastanza frame da poter contenere il proprio working set.
 
+Informalmente, il working set di un processo è l'insieme delle pagine che il processo sta attualmente utilizzando. Formalmente, esso corrisponde all'insieme di tutte le pagine a cui esso ha effettuato riferimenti durante le ultime T unità di tempo.
+La scelta della grandezza della finestra di riferimenti di cui tenere traccia, indicata con $\delta$, risulta fondamentale: una finestra troppo piccola non racchiude tutte le pagine della località attualmente richiesta dal processo, mentre una finestra troppo grande include pagine che non sono più accedute frequentemente.\par
+Per evitare di dover gestire una lista delle ultime $\delta$ pagine richieste, il working set viene spesso implementato tramite una semplice campionatura: ogni k riferimenti in memoria, il working set di un processo viene considerato l'insieme di tutte le pagine a cui è stato fatto riferimento in tale periodo temporale.
 
-
-
-
-
+\section{Gestione dell'archiviazione}
 
 
 

@@ -1262,6 +1262,10 @@ INPUT ./im/pformula.png
 INPUT im/pformula.png
 INPUT ./im/pformula.png
 INPUT ./im/pformula.png
+INPUT ./im/trashing.png
+INPUT im/trashing.png
+INPUT ./im/trashing.png
+INPUT ./im/trashing.png
 INPUT so.aux
 INPUT ./so.out
 INPUT ./so.out
