@@ -837,7 +837,7 @@ Il Round Robin è un algoritmo di scheduling \textbf{preemptive} dove viene sele
 Quando un lavoro viene assegnato alla CPU, viene impostato un timer per un determinato valore, se il lavoro termina prima della scadenza del quanto temporale, viene sostituito da CPU proprio come il normale algoritmo FCFS. Se il timer si spegne per primo, il lavoro viene scambiato fuori dalla CPU e spostato nel back-end della coda dei pronti.\\
 Viene utilizzato in molti sistemi di time-sharing in combinazione con gli interrupt del timer. \\
 La queue pronta viene mantenuta come queue circolare. Quando tutti i lavori hanno avuto un turno, lo scheduler ne assegna un altro al primo lavoro girare e così via. L'algoritmo RR viene considerato equo in quanto condivide la CPU equamente tra tutti i lavori. Il tempo medio di attesa può essere più lungo rispetto ad altri algoritmi di scheduling.\\
-Il limite superiore per lo start time di un processo in una coda di n processi utilizzando uno scheduler RR corrisponde a $sup\{T_{i}^{start}\}$ = $\delta$ · (i - 1), dove i $\in$ $[1,n]$ e dove $\delta$ è il time slice.
+Il limite superiore per lo start time di un processo in una coda di n processi utilizzando uno scheduler RR corrisponde a $sup\{T_{i}^{start}\}$ = $\delta$ $\cdot$ (i - 1), dove i $\in$ $[1,n]$ e dove $\delta$ è il time slice.
 
 \subsubsection{Esempi}
 \begin{itemize}
@@ -2249,7 +2249,7 @@ In questo modo, il principio di località dei riferimenti aiuta a minimizzare il
     \end{equation}
     \item  Nel caso in cui volessimo ottenere un tempo di accesso al massimo il 10\% più lento di un normale accesso in memoria, ci basterebbe risolvere la seguente equazione:
     \begin{equation}
-        1.1·100=(1-p)·100+p·20000000 \iff p= 1 \approx 5·10-7 1999990
+        1.1\cdot100=(1-p)\cdot100+p\cdot20000000 \iff p= 1 \approx 5\cdot10-7 1999990
     \end{equation}
     Di conseguenza, possiamo tollerare un massimo di un page fault ogni circa 2 milioni di accessi
 \end{itemize}
@@ -2329,9 +2329,129 @@ Informalmente, il working set di un processo è l'insieme delle pagine che il pr
 La scelta della grandezza della finestra di riferimenti di cui tenere traccia, indicata con $\delta$, risulta fondamentale: una finestra troppo piccola non racchiude tutte le pagine della località attualmente richiesta dal processo, mentre una finestra troppo grande include pagine che non sono più accedute frequentemente.\par
 Per evitare di dover gestire una lista delle ultime $\delta$ pagine richieste, il working set viene spesso implementato tramite una semplice campionatura: ogni k riferimenti in memoria, il working set di un processo viene considerato l'insieme di tutte le pagine a cui è stato fatto riferimento in tale periodo temporale.
 
+\pagebreak
 \section{Gestione dell'archiviazione}
 
 
+Principalmente, i dispositivi di archiviazione di massa si suddividono in tre categorie: 
+\begin{itemize}
+    \item dischi magnetici 
+    \item dischi a stato solido
+    \item nastri magnetici. 
+\end{itemize}
+Le prime due categorie vengono dette memorie secondarie, mentre la rimanente viene detta memoria terziaria.
+Un disco magnetico è una memoria secondaria composta da uno o più piatti ricoperti di materiale magnetico (metallo rigido per gli HDD, plastica flessibile per i floppy disk), dove:
+\begin{itemize}
+    \item Ogni piatto possiede due superfici funzionali, ossia il fronte e il retro, entrambe suddivise in un numero di anelli concentrici, detti tracce. L'insieme di tutte le tracce di ogni piatto poste alla stessa distanza dal bordo viene detto cilindro.
+    \item Ogni traccia è a sua volta suddivisa in settori (solitamente da 512 byte ciascuno), ognuno di essi contenente un'intestazione, un trailer e informazioni di verifica. Una dimensione maggiore per i settori riduce la quantità di spazio sprecata per contenere le intestazioni e i trailer, ma aumenta la frammentazione interna
+    \item Ogni superficie viene letta da una testina di lettura e scrittura agganciata alla fine di un braccio, a sua volta connesso ad un attuatore, il quale muove tutti i bracci simultaneamente da una traccia all'altra
+\end{itemize}
+La capacità totale di memoria di un disco rigido corrisponde a: 
+\begin{equation}
+    C = H \cdot T \cdot S \cdot B
+\end{equation}
+dove $H$ è il numero di superfici, $T$ il numero di tracce per superficie, $S$ il numero di settori per traccia e $B$ il numero di byte per settore\par
+
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/disk}}
+        \caption{}
+    \end{center}
+\end{figure}
+
+La CPU è in grado di interfacciarsi con i dischi magnetici tramite un bus I/O, un canale di comunicazione dove la CPU stessa impartisce comandi al disco tramite un controller posto posto alla fine del bus, ossa l'host controller, il quale a sua volta comunica con il disk controller interno al disco stesso, trasferendo i dati dalle superfici magnetiche del disco prima ad una cache interna al disco, per poi venir trasferiti alla memoria.
+Per via della struttura di un disco magnetico, il tempo di trasferimento dei dati alla memoria principale, indicato come DTT, equivale alla somma tra:
+\begin{itemize}
+    \item \textbf{Tempo di posizionamento (Seek time)}, indicato come ST, ossia il tempo necessario per spostare le testine su una specifica traccia, corrispondente al
+    \item \textbf{Delay di rotazione}, indicato come ROT, ossia il tempo necessario affinché il settore desiderato venga ruotato sotto la testina (in media viene effettuata mezza rotazione del disco)
+    \item \textbf{Tempo di trasferimento}, indicato come TT, ossia il tempo necessario per spo- stare i dati dal disco alla memoria, spesso espresso come rateo di trasferimento (larghezza di banda), ossia come byte al secondo
+\end{itemize}
+
+\begin{equation}
+    DTT = ST + ROT + TT
+\end{equation}
+
+\subsubsection{Esempi}
+\begin{itemize}
+    \item Supponendo un tempo di trasferimento totale pari a 40ms per effettuare una particolare operazione I/O, dove il seek time è 18ms, il rotational delay è 7ms e che il trasfer rate è 5 Gbit/s, la quantità totale di dati trasferita è:
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/disk2}}
+            \caption{}
+        \end{center}
+    \end{figure}
+    \item Supponendo un tempo di trasferimento totale pari a 36ms per effettuare una par- ticolare operazione I/O, dove il seek time è 13ms, il trasfer rate è 1 Gbit/s e sono stati trasferiti 2MB, il rotational delay è:
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/disk3}}
+            \caption{}
+        \end{center}
+    \end{figure}
+\end{itemize}
+
+\subsection{Scheduling del disco}
+Poiché il sistema operativo riceve costanti richieste di lettura e scrittura da parte dei pro- cessi, è necessario gestire in modo efficiente gli accessi al disco, in particolare cercando di ridurre al minimo il seek time. Dunque, al fine di ridurre il seek time, è necessario ridurre al minimo la \textbf{distanza percorsa} dalla testina di lettura e scrittura.
+
+\subsubsection{First Come First Served (FCFS)}
+L'algoritmo \textbf{First Come First Served (FCFS)} è un algoritmo di scheduling del disco in cui le richieste di accesso al disco vengono effettuate nel loro ordine di arrivo nella coda di richieste.\par
+Pro:
+\begin{itemize}
+    \item 
+    \item Facile da implementare
+    \item Utilizzato anche dagli SSD poiché in tali tipologie di memorie non è richiesto alcun movimento meccanico, dunque il seek time è nullo
+\end{itemize}
+Contro:
+\begin{itemize}
+    \item Poco performante nel caso in cui il sistema abbia poche richieste
+\end{itemize}
+\subsubsection{Esempio}
+\begin{itemize}
+    \item Supponiamo di effettuare le richieste 65, 40, 18, 78 su un disco in cui la testina è inizialmente posizionata sulla traccia 30 utilizzando l'algoritmo FCFS:
+    \begin{itemize}
+        \item 
+        \item La testina viene mossa da 30 a 65, dunque vengono traversate 35 tracce 
+        \item La testina viene mossa da 65 a 40, dunque vengono traversate 25 tracce 
+        \item La testina viene mossa da 40 a 18, dunque vengono traversate 22 tracce 
+        \item La testina viene mossa da 18 a 78, dunque vengono traversate 60 tracce
+    \end{itemize}
+    \item La distanza percorsa, ossia il numero totale di tracce traversate, corrisponde a:
+    \begin{center}
+        35 + 25 + 22 + 60 = 142
+    \end{center}
+\end{itemize}
+\subsubsection{Shortest Seek Time First (SSTF)}
+L'\textbf{algoritmo Shortest Seek Time First (SSTF)} è un algoritmo di scheduling del disco inc cui viene eseguita la richiesta di accesso al disco richiedente la minore quantità di tracce da traversare
+Pro:
+\begin{itemize}
+    \item Può essere implementato mantenendo una semplice lista ordinata delle richieste
+    \item Complessità non troppo elevata
+\end{itemize}
+Contro:
+\begin{itemize}
+    \item Potrebbe causare starvation (ad esempio, nel caso in cui una richiesta necessiti di una traccia troppo distante dalla testina)
+    \item L'ottimizzazione avviene solo a livello locale (ad esempio, l'esecuzione della ri- chiesta più vicina alla testina potrebbe portare ad una catena di spostamenti peggiore rispetto al caso in cui si vada a selezionare un'altra richiesta)
+\end{itemize}
+
+
+\subsubsection{Esempio}
+\begin{itemize}
+    \item Supponiamo di effettuare le richieste 65, 40, 18, 78 su un disco in cui la testina è inizialmente posizionata sulla traccia 30 utilizzando l'algoritmo SSTF:
+    \begin{itemize}
+        \item La testina viene mossa da 30 a 40, dunque vengono traversate 10 tracce 
+        \item La testina viene mossa da 40 a 18, dunque vengono traversate 22 tracce 
+        \item La testina viene mossa da 18 a 65, dunque vengono traversate 47 tracce 
+        \item La testina viene mossa da 65 a 78, dunque vengono traversate 13 tracce
+    \end{itemize}
+    \item La distanza percorsa, ossia il numero totale di tracce traversate, corrisponde a:
+    \begin{center}
+        10 + 22 + 47 + 13 = 92
+    \end{center}
+\end{itemize}
+
+\subsubsection{SCAN e LOOK}
+L'algoritmo \textbf{SCAN} è un algoritmo di scheduling del disco in cui la testina viene mossa da un estremo all'altro del piatto (ad esempio dalla traccia 0 alla tracca 100 e viceversa), dove le richieste vengono eseguite durante il passaggio della testina.\par
+L'algoritmo \textbf{LOOK} corrisponde ad una versione ottimizzata dello SCAN, dove durante ogni scansione la testina, piuttosto che proseguire fino all'estremo del piatto, viene fermata alla richiesta più vicina all'estremo.
 
 
 \end{document}
