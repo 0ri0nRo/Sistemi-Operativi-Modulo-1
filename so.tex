@@ -2187,6 +2187,67 @@ Oltre alla paginazione segmentata, i moderni sistemi operativi sono dotati di un
 \pagebreak
 \subsection{Memoria Virtuale}
 
+La maggior parte dei processi reali non ha bisogno che tutte le pagine vengano caricate in memoria, o almeno non tutte in una volta, come il codice di gestione degli errori, gli array sono spesso sovradimensionati per gli scenari peggiori (e nella pratica viene effettivamente utilizzata solo una piccola parte degli array) oppure alcune funzionalità di determinati programmi vengono utilizzate raramente.
+La \textbf{memoria virtuale} utilizza l'archiviazione di supporto (ovvero il disco) per archiviare le pagine inutilizzate e dare l'illusione di uno spazio di indirizzi virtuale infinito.\par
+La possibilità di caricare dal disco solo le porzioni di processi effettivamente \textbf{necessarie} (e solo quando necessarie) presenta numerosi \textbf{vantaggi} infatti i programmi potrebbero essere scritti per uno spazio di indirizzi molto più ampio di quello che esiste fisicamente sul computer e viene lasciata più memoria per altri programmi, migliorando l'utilizzo della CPU. È necessario, perciò, meno I/O per scambiare i processi dentro e fuori la memoria, velocizzando le operazioni. \par
+L'idea della memoria virtuale è di utilizzare la memoria come \textbf{cache} per il disco. La tabella delle pagine deve anche indicare se la pagina è su disco o in memoria (usando solo un singolo bit non valido). Una volta che la pagina è stata caricata dal disco alla memoria, il sistema operativo aggiorna la voce corrispondente della tabella delle pagine insieme al bit valido. \footnote{Ricorda: l'accesso al disco è estremamente più lento dell'accesso alla memoria, pertanto, gli accessi alla memoria devono fare riferimento a pagine che sono in memoria con alta probabilità}
+Tramite la regola del \textbf{90/10}, ossia la regola affermante che un processo spende il 90\% del tempo \textbf{accedendo} solo al 10\% della sua memoria \textbf{allocata}, sappiamo che la maggior parte dei riferimenti alla memoria effettuati da un processo si trova in una piccola zona di memoria, che definiamo come \textbf{working set} del processo.\par
+Siccome tale zona è molto piccola, la probabilità che essa possa essere caricata in memoria è molto alta. Ovviamente, durante l'esecuzione di un processo, il working set potrebbe variare. Tuttavia, tale variazioni avvengono con frequenza bassa, dunque per un determinato lasso di tempo il working set rimarrà lo stesso.
+
+\subsubsection{Gestione page fault}
+Ad ogni riferimento di memoria logica, viene eseguita una ricerca nella tabella delle pagine. Nella tabella delle pagine, il bit \textit{valid-invalid} viene controllato per la voce corrispondente. Se il bit è impostato a 1 significa che l'inserimento della pagina è valido (ovvero, la pagina richiesta è in memoria). In caso contrario, si verifica una trap di errori di pagina e la pagina deve essere caricata (ovvero recuperata) dal disco.
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/pagf}}
+        \caption{Gestione dei Page Fault}
+    \end{center}
+\end{figure}
+
+
+\begin{enumerate}
+    \item L'indirizzo di memoria viene prima controllato, per vedere se è legittimo
+    \item Se l'indirizzo è legittimo, la pagina deve essere recuperata dal disco
+    \item Viene individuato un frame libero, possibilmente da un elenco di frame liberi (il sistema operativo potrebbe dover scegliere un frame da scaricare se tutta la memoria è piena)
+    \item È pianificata un'operazione del disco per portare la pagina necessaria dal disco (questo bloccherà il processo in attesa di I/O, consentendo l'esecuzione di qualche altro processo)
+    \item Al termine dell'operazione di I/O, la tabella delle pagine del processo viene aggiornata con il nuovo numero di frame e il bit viene impostato su valido
+    \item Il processo corrente viene interrotto e l'istruzione che ha causato l'errore di pagina deve essere riavviata dall'inizio
+\end{enumerate}
+
+La Gestione degli errori di pagina utilizza:
+
+\begin{itemize}
+    \item \textbf{Hit TLB}, ovvero il TLB utilizza il bit valido per indicare il fatto che la pagina è nella memoria principale. Se otteniamo un TLB hit ma il frame non è effettivamente nella memoria principale, dobbiamo comunque andare a recuperare la pagina dal disco. Il TLB hit significa che la voce della pagina richiesta è nella cache e anche il frame di riferimento è in memoria.
+    \item Se la pagina richiesta non è nella cache abbiamo un \textbf{TLB miss} ma è in memoria, il sistema operativo seleziona una voce TLB da sostituire e la riempie con la nuova voce. Se la pagina richiesta non è nella cache (TLB miss) e non è nemmeno in memoria (ovvero, si trova su disco) il sistema operativo seleziona una voce TLB da sostituire e la riempie con la nuova voce invalidando la voce TLB come segue:
+    \begin{itemize}
+        \item esegue operazioni di page fault trap
+        \item aggiorna la voce TLB
+        \item riavvia l'istruzione in errore
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Istruzione idempotente}
+Un'\textbf{istruzione idempotente} è quella che può essere eseguita più volte \textbf{senza causare} alcun effetto diverso dalla sua prima esecuzione. Se questa istruzione viene interrotta a causa di un errore come un page fault, può essere facilmente ripetuta senza causare alcun danno.\par
+Al contrario, si dice un'\textbf{istruzione non idempotente}, se la sua riesecuzione dopo un errore può essere molto più difficile poiché potrebbe modificare lo stato del sistema in modo imprevedibile. In questo caso, l'errore potrebbe essere difficile da gestire e potrebbe richiedere un approccio più complesso per correggere il problema.
+Il \textbf{principio di località} dei riferimenti è un principio fondamentale dell'organizzazione della memoria dei computer. Esso afferma che, quando un processo accede a un determinato indirizzo di memoria, è probabile che acceda di nuovo allo stesso indirizzo in futuro (principio temporale) e che acceda anche a indirizzi vicini a quello iniziale (\textbf{principio spaziale}).
+
+Questo significa che, anche se teoricamente un page fault potrebbe verificarsi a seguito di ogni istruzione eseguita, nella pratica ci sono buone probabilità che il sistema operativo debba gestire i page fault solo quando il processo in esecuzione accede a una nuova pagina di memoria. Ciò accade perché il processo ha già accesso a molte delle pagine di memoria richieste, o ad altre pagine che si trovano vicino ad esse, grazie al principio di località dei riferimenti.
+
+In questo modo, il principio di località dei riferimenti aiuta a minimizzare il numero di page fault, riducendo l'overhead del sistema operativo e migliorando le prestazioni complessive del sistema.
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth,keepaspectratio]{{im/pformula}}
+        \caption{Gestione dei Page Fault}
+    \end{center}
+\end{figure}
+\pagebreak
+\subsubsection{Esempio}
+Supponiamo che $t_{MA}$ = 100 ns, $t_{FAULT}$ = 20ms = 20000000ns e che la probabilità di un page fault sia p = 0.0001 = $\frac{1}{10000}$. In tal caso si ha che:\par
+\begin{equation}
+    t_{ACCESS} = (1 - \frac{1}{10000})\cdot 100ns + \frac{1}{10000} \cdot 20000000ns \frac{9999}{100}ns+ 2000ns \approx 20.1 \mu sec
+\end{equation}
+
+
 
 
 

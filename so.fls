@@ -1254,6 +1254,14 @@ INPUT ./im/seg2.png
 INPUT im/seg2.png
 INPUT ./im/seg2.png
 INPUT ./im/seg2.png
+INPUT ./im/pagf.png
+INPUT im/pagf.png
+INPUT ./im/pagf.png
+INPUT ./im/pagf.png
+INPUT ./im/pformula.png
+INPUT im/pformula.png
+INPUT ./im/pformula.png
+INPUT ./im/pformula.png
 INPUT so.aux
 INPUT ./so.out
 INPUT ./so.out
