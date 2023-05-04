@@ -2448,7 +2448,7 @@ Contro:
         10 + 22 + 47 + 13 = 92
     \end{center}
 \end{itemize}
-
+\pagebreak
 \subsection{SCAN e LOOK}
 L'algoritmo \textbf{SCAN} è un algoritmo di scheduling del disco in cui la testina viene mossa da un estremo all'altro del piatto (ad esempio dalla traccia 0 alla tracca 100 e viceversa), dove le richieste vengono eseguite durante il passaggio della testina.\par
 L'algoritmo \textbf{LOOK} corrisponde ad una versione ottimizzata dello SCAN, dove durante ogni scansione la testina, piuttosto che proseguire fino all'estremo del piatto, viene fermata alla richiesta più vicina all'estremo.
@@ -2507,20 +2507,17 @@ L'algoritmo \textbf{C-LOOK} (o Circular LOOK) corrisponde ad una versione ottimi
 
 
 \subsection{Dischi a stato solido}
-I \textbf{dischi a stato solido} sono una memoria secondaria realizzata tramite memoria flash o dei chip DRAM ed una batteria a lungo termine, la quale permette a tali memorie volatili di mantenere l'informazione.
+I \textbf{dischi a stato solido} sono una memoria secondaria realizzata tramite memoria flash o dei chip DRAM ed una batteria a lungo termine, la quale permette a tali memorie volatili di mantenere l'informazione.\par
 Pro:
 \begin{itemize}
-    \item Non hanno meccanismi moventi al loro interno, risultando quindi estrema-
-    mente più veloci rispetto ai dischi magnetici
-    \item L'accesso ai blocchi viene effettuato in modo diretto tramite un riferimento al
-    numero di blocco, rimuovendo la necessità di uno scheduling.
-    \item Le operazioni di lettura sono molto più veloci rispetto ad un normale disco
-    magnetico
+    \item Non hanno meccanismi moventi al loro interno, risultando quindi estremamente più veloci rispetto ai dischi magnetici
+    \item L'accesso ai blocchi viene effettuato in modo diretto tramite un riferimento al numero di blocco, rimuovendo la necessità di uno scheduling.
+    \item Le operazioni di lettura sono molto più veloci rispetto ad un normale disco magnetico
 \end{itemize}
 Contro:
 \begin{itemize}
     \item Costo maggiore rispetto ad un disco magnetico
-    \item Le operazioni di scrittura sono molto più lente rispetto ad un disco mecca- nico, poiché i blocchi non vengono realmente sovrascritti ma solo de-referenziati (ossia resi inaccessibili), rendendo più lento il ciclo di eliminazione dei dati
+    \item Le operazioni di scrittura sono molto più lente rispetto ad un disco meccanico, poiché i blocchi non vengono realmente sovrascritti ma solo dereferenziati (ossia resi inaccessibili), rendendo più lento il ciclo di eliminazione dei dati
     \item Il numero di "scritture" per un blocco è limitato
 \end{itemize}
 \subsection{RAID}
