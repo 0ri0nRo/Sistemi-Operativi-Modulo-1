@@ -878,9 +878,9 @@ Il limite superiore per lo start time di un processo in una coda di n processi u
         \end{center}
     \end{figure} 
     \item Il waiting time medio, quindi, sarà:\par
-    \begin{center}
-        $\bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting}$ = $\frac{5 + 2 + 6}{3} = \frac{13}{3} \simeq 4.3$
-    \end{center}
+    \begin{equation}
+        \bar{T}_{waiting} = \frac{1}{n}\sum\limits_{i=0}^{n} T_{i}^{waiting} = \frac{5 + 2 + 6}{3} = \frac{13}{3} \simeq 4.3
+    \end{equation}
 \end{itemize}
 \pagebreak
 \subsubsection*{FCFS vs RR}
@@ -2242,16 +2242,40 @@ In questo modo, il principio di località dei riferimenti aiuta a minimizzare il
 \end{figure}
 \pagebreak
 \subsubsection{Esempio}
-Supponiamo che $t_{MA}$ = 100 ns, $t_{FAULT}$ = 20ms = 20000000ns e che la probabilità di un page fault sia p = 0.0001 = $\frac{1}{10000}$. In tal caso si ha che:\par
+\begin{itemize}
+    \item Supponiamo che $t_{MA}$ = 100 ns, $t_{FAULT}$ = 20ms = 20000000ns e che la probabilità di un page fault sia p = 0.0001 = $\frac{1}{10000}$. In tal caso si ha che:\par
+    \begin{equation}
+        t_{ACCESS} = (1 - \frac{1}{10000})\cdot 100ns + \frac{1}{10000} \cdot 20000000ns \frac{9999}{100}ns+ 2000ns \approx 20.1 \mu sec
+    \end{equation}
+    \item  Nel caso in cui volessimo ottenere un tempo di accesso al massimo il 10\% più lento di un normale accesso in memoria, ci basterebbe risolvere la seguente equazione:
+    \begin{equation}
+        1.1·100=(1-p)·100+p·20000000 \iff p= 1 \approx 5·10-7 1999990
+    \end{equation}
+    Di conseguenza, possiamo tollerare un massimo di un page fault ogni circa 2 milioni di accessi
+\end{itemize}
+
+Più generalmente, dati $t_{MA}$, $t_{FAULT}$ e una soglia $\epsilon$ > 0 tale che:
 \begin{equation}
-    t_{ACCESS} = (1 - \frac{1}{10000})\cdot 100ns + \frac{1}{10000} \cdot 20000000ns \frac{9999}{100}ns+ 2000ns \approx 20.1 \mu sec
+    t_{ACCESS} =(1+\epsilon) \cdot t_{MA}
 \end{equation}
 
+Per trovare il numero di page fault tollerabili sarà $\frac{1}{p}$, dove si ha che:\par
+\begin{center}
+    $t_{ACCESS} = (1+\epsilon) \cdot t_{MA} \iff (1-p) \cdot t_{MA} + p \cdot t_{FAULT}$ =\par
+    $(1+\epsilon) \cdot t_{MA}\iff p(t_{FAULT} - t_{MA}) = \epsilon \cdot t_{MA} \iff p = \frac{\epsilon \cdot t_{MA}}{t_{FAULT} - t_{MA}}$
+\end{center}
+    
+\pagebreak
+\subsection{Recupero e rimpiazzo delle pagine}
 
-
-
-
-
+Principalmente, esistono tre \textbf{strategie} per poter \textbf{recuperare} le pagine dal disco:
+\begin{itemize}
+    \item \textbf{Recupero all'avvio}, dove tutte le pagine del processo vengono caricare contemporaneamente
+    \item \textbf{Recupero ad overlay}, dove è il programmatore a scegliere quando e quali pagine da caricare
+    \item \textbf{Recupero a richiesta}, dove un processo comunica all'OS quando necessita che una pagina venga recuperata.
+\end{itemize}
+Il recupero a richiesta è il sistema utilizzato da tutti gli OS moderni. Quando un processo viene avviato, nessuna delle sue pagine è carica in memoria, venendo spostate solamente quando il processo richiede di accedervi (dunque tramite i page fault). Tale sistema di recupero delle pagine viene detto \textbf{lazy swapper} o pager.\par
+Un'ulteriore tecnica utilizzata per il recupero delle pagine è il \textbf{prefetching}, dove il pager predice quando le pagine verranno richieste, caricandole in anticipo. Tale tecnica, tuttavia, risulta prettamente impraticabile, poiché predire le future pagine risulta molto difficile. Un possibile approccio consiste nel caricare più di una singola pagina durante un page fault (efficace solo se il programma accede sequenzialmente alla memoria).
 
 
 
