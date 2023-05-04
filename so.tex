@@ -2275,7 +2275,45 @@ Principalmente, esistono tre \textbf{strategie} per poter \textbf{recuperare} le
     \item \textbf{Recupero a richiesta}, dove un processo comunica all'OS quando necessita che una pagina venga recuperata.
 \end{itemize}
 Il recupero a richiesta è il sistema utilizzato da tutti gli OS moderni. Quando un processo viene avviato, nessuna delle sue pagine è carica in memoria, venendo spostate solamente quando il processo richiede di accedervi (dunque tramite i page fault). Tale sistema di recupero delle pagine viene detto \textbf{lazy swapper} o pager.\par
-Un'ulteriore tecnica utilizzata per il recupero delle pagine è il \textbf{prefetching}, dove il pager predice quando le pagine verranno richieste, caricandole in anticipo. Tale tecnica, tuttavia, risulta prettamente impraticabile, poiché predire le future pagine risulta molto difficile. Un possibile approccio consiste nel caricare più di una singola pagina durante un page fault (efficace solo se il programma accede sequenzialmente alla memoria).
+Un'ulteriore tecnica utilizzata per il recupero delle pagine è il \textbf{prefetching}, dove il pager predice quando le pagine verranno richieste, caricandole in anticipo. Tale tecnica, tuttavia, risulta prettamente impraticabile, poiché predire le future pagine risulta molto difficile. Un possibile approccio consiste nel caricare più di una singola pagina durante un page fault (efficace solo se il programma accede sequenzialmente alla memoria).\par
+
+Nel caso in cui debba essere caricata una pagina dal disco ma la memoria fisica sia piena, è necessario \textbf{rimpiazzare} una delle pagine caricate. Gli algoritmi più utilizzati per tale compito sono i seguenti:
+\begin{itemize}
+    \item Rimpiazzo casuale, dove viene rimossa una pagina a caso
+    \item \textbf{FIFO} (First in, First out), dove viene rimossa la pagina rimasta in memoria per
+    il tempo maggiore
+    \item \textbf{MIN (OPT)}, dove viene rimossa la pagina che non verrà acceduta per il lasso di tempo maggiore (richiede di predire il futuro, dunque è un algoritmo ottimale ma molto difficile da implementare)
+    \item \textbf{LRU (Least Recently Used)}, dove viene rimossa la pagina non utilizzata per il maggior lasso di tempo. È l'algoritmo più utilizzato dagli OS moderni e può essere implementato in tre modi:
+    \begin{itemize}
+        \item Tramite un \textbf{singolo bit di riferimento}, dove viene mantenuto un singolo bit per ogni entrata della page table, il quale viene impostato a 0 inizialmente (dunque anche dopo ogni pulizia della page table) e viene impostato ad 1 nel caso in cui venga fatto un accesso alla pagina associata.
+        Durante la rimozione, viene scartata una delle pagine impostate a 0.
+        \item Tramite \textbf{più bit di riferimento}, dove vengono utilizzati 8 bit per ogni entrata della page table, i quali vengono shiftati di un bit ad ogni colpo di clock. Dopo ogni accesso alla pagina associata viene impostato ad 1 il bit più a sinistra.
+        Durante la rimozione, viene scartata la pagina avente il più basso valore negli 8 bit.
+        \item Tramite \textbf{l'algoritmo di seconda chance}, dove viene utilizzato un singolo bit di riferimento ed una politica FIFO: l'OS si occupa di tenere traccia dei frame in una lista FIFO circolare e dove ad ogni accesso alla memoria viene impostato il bit di riferimento ad 1.\par
+
+        Durante un page fault, l'OS analizza l'intera lista delle page table, controllando i bit di riferimento del frame: se il bit è impostato su 0, allora la pagina viene rimpiazzata ed esso viene impostato su 1, altrimenti, esso viene impostato su 0 (seconda chanche) e viene ripetuto il controllo sul frame successivo.
+        Una versione più avanzata di tale algoritmo prevede l'uso di un ulteriore bit di modifica (se 1 allora la pagina è diversa da quella salvata sul disco, altrimenti no), classificando le pagine in quattro categorie:
+        \begin{enumerate}
+            \item Se i bit sono (1,1), allora la pagina è stata utilizzata recentemente ed è stata modificata
+            \item Se i bit sono (1,0), allora la pagina è stata utilizzata recentemente ma non è stata modificata
+            \item Se i bit sono (0,1), allora la pagina non è stata utilizzata recentemente ma è stata modificata
+            \item Se i bit sono (0,0), allora la pagina non è stata utilizzata recentemente e non è stata modificata
+        \end{enumerate}
+        Durante la rimozione, viene scartata la prima pagina trovata avente categoria inferiore (dunque prima (0,0), poi (0,1), \dots)
+    \end{itemize}
+\end{itemize}
+\pagebreak
+
+\subsubsection{Trashing e determinazione del working set}
+
+
+
+
+
+
+
+
+
 
 
 

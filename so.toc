@@ -87,3 +87,4 @@
 \contentsline {subsubsection}{\numberline {4.7.2}Istruzione idempotente}{75}{subsubsection.4.7.2}%
 \contentsline {subsubsection}{\numberline {4.7.3}Esempio}{76}{subsubsection.4.7.3}%
 \contentsline {subsection}{\numberline {4.8}Recupero e rimpiazzo delle pagine}{77}{subsection.4.8}%
+\contentsline {subsubsection}{\numberline {4.8.1}Trashing e determinazione del working set}{78}{subsubsection.4.8.1}%
