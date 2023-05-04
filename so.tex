@@ -2365,14 +2365,14 @@ Per via della struttura di un disco magnetico, il tempo di trasferimento dei dat
 \begin{itemize}
     \item \textbf{Tempo di posizionamento (Seek time)}, indicato come ST, ossia il tempo necessario per spostare le testine su una specifica traccia, corrispondente al
     \item \textbf{Delay di rotazione}, indicato come ROT, ossia il tempo necessario affinché il settore desiderato venga ruotato sotto la testina (in media viene effettuata mezza rotazione del disco)
-    \item \textbf{Tempo di trasferimento}, indicato come TT, ossia il tempo necessario per spo- stare i dati dal disco alla memoria, spesso espresso come rateo di trasferimento (larghezza di banda), ossia come byte al secondo
+    \item \textbf{Tempo di trasferimento}, indicato come TT, ossia il tempo necessario per spo stare i dati dal disco alla memoria, spesso espresso come rateo di trasferimento (larghezza di banda), ossia come byte al secondo
 \end{itemize}
 
 \begin{equation}
     DTT = ST + ROT + TT
 \end{equation}
 
-\subsubsection{Esempi}
+\subsection{Esempi}
 \begin{itemize}
     \item Supponendo un tempo di trasferimento totale pari a 40ms per effettuare una particolare operazione I/O, dove il seek time è 18ms, il rotational delay è 7ms e che il trasfer rate è 5 Gbit/s, la quantità totale di dati trasferita è:
     \begin{figure}[hbt]
@@ -2381,7 +2381,7 @@ Per via della struttura di un disco magnetico, il tempo di trasferimento dei dat
             \caption{}
         \end{center}
     \end{figure}
-    \item Supponendo un tempo di trasferimento totale pari a 36ms per effettuare una par- ticolare operazione I/O, dove il seek time è 13ms, il trasfer rate è 1 Gbit/s e sono stati trasferiti 2MB, il rotational delay è:
+    \item Supponendo un tempo di trasferimento totale pari a 36ms per effettuare una par ticolare operazione I/O, dove il seek time è 13ms, il trasfer rate è 1 Gbit/s e sono stati trasferiti 2MB, il rotational delay è:
     \begin{figure}[hbt]
         \begin{center}
             \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/disk3}}
@@ -2391,9 +2391,9 @@ Per via della struttura di un disco magnetico, il tempo di trasferimento dei dat
 \end{itemize}
 
 \subsection{Scheduling del disco}
-Poiché il sistema operativo riceve costanti richieste di lettura e scrittura da parte dei pro- cessi, è necessario gestire in modo efficiente gli accessi al disco, in particolare cercando di ridurre al minimo il seek time. Dunque, al fine di ridurre il seek time, è necessario ridurre al minimo la \textbf{distanza percorsa} dalla testina di lettura e scrittura.
+Poiché il sistema operativo riceve costanti richieste di lettura e scrittura da parte dei pro cessi, è necessario gestire in modo efficiente gli accessi al disco, in particolare cercando di ridurre al minimo il seek time. Dunque, al fine di ridurre il seek time, è necessario ridurre al minimo la \textbf{distanza percorsa} dalla testina di lettura e scrittura.
 
-\subsubsection{First Come First Served (FCFS)}
+\subsection{First Come First Served (FCFS)}
 L'algoritmo \textbf{First Come First Served (FCFS)} è un algoritmo di scheduling del disco in cui le richieste di accesso al disco vengono effettuate nel loro ordine di arrivo nella coda di richieste.\par
 Pro:
 \begin{itemize}
@@ -2420,7 +2420,7 @@ Contro:
         35 + 25 + 22 + 60 = 142
     \end{center}
 \end{itemize}
-\subsubsection{Shortest Seek Time First (SSTF)}
+\subsection{Shortest Seek Time First (SSTF)}
 L'\textbf{algoritmo Shortest Seek Time First (SSTF)} è un algoritmo di scheduling del disco inc cui viene eseguita la richiesta di accesso al disco richiedente la minore quantità di tracce da traversare
 Pro:
 \begin{itemize}
@@ -2430,7 +2430,7 @@ Pro:
 Contro:
 \begin{itemize}
     \item Potrebbe causare starvation (ad esempio, nel caso in cui una richiesta necessiti di una traccia troppo distante dalla testina)
-    \item L'ottimizzazione avviene solo a livello locale (ad esempio, l'esecuzione della ri- chiesta più vicina alla testina potrebbe portare ad una catena di spostamenti peggiore rispetto al caso in cui si vada a selezionare un'altra richiesta)
+    \item L'ottimizzazione avviene solo a livello locale (ad esempio, l'esecuzione della ri chiesta più vicina alla testina potrebbe portare ad una catena di spostamenti peggiore rispetto al caso in cui si vada a selezionare un'altra richiesta)
 \end{itemize}
 
 
@@ -2449,13 +2449,13 @@ Contro:
     \end{center}
 \end{itemize}
 
-\subsubsection{SCAN e LOOK}
+\subsection{SCAN e LOOK}
 L'algoritmo \textbf{SCAN} è un algoritmo di scheduling del disco in cui la testina viene mossa da un estremo all'altro del piatto (ad esempio dalla traccia 0 alla tracca 100 e viceversa), dove le richieste vengono eseguite durante il passaggio della testina.\par
 L'algoritmo \textbf{LOOK} corrisponde ad una versione ottimizzata dello SCAN, dove durante ogni scansione la testina, piuttosto che proseguire fino all'estremo del piatto, viene fermata alla richiesta più vicina all'estremo.
 
 \subsubsection{Esempio}
 \begin{itemize}
-    \item Supponiamo di effettuare le richieste 65, 40, 18, 78 su un disco avente tracce nume- rate da 0 a 100 in cui la testina è inizialmente posizionata sulla traccia 30 utilizzando l'algoritmo SCAN:
+    \item Supponiamo di effettuare le richieste 65, 40, 18, 78 su un disco avente tracce numerate da 0 a 100 in cui la testina è inizialmente posizionata sulla traccia 30 utilizzando l'algoritmo SCAN:
     \begin{itemize}
         \item La testina viene mossa da 30 a 18, dunque vengono traversate 12 tracce
         \item La testina viene mossa da 18 a 0 per poter raggiungere l'estremo, dunque
@@ -2473,13 +2473,59 @@ L'algoritmo \textbf{LOOK} corrisponde ad una versione ottimizzata dello SCAN, do
 \end{itemize}
 
 
-\subsubsection{C-SCAN e C-LOOK}
+\subsection{C-SCAN e C-LOOK}
 
-L'algoritmo C-SCAN (o Circular SCAN) è un algoritmo di scheduling del disco simile all'algoritmo SCAN in cui a testina viene mossa dall'estremo finale fino all'estremo iniziale (ad esempio dalla traccia 100 alla traccia 0), venendo subito dopo "resettata" fino all'estremo finale (venendo spostata nuovamente sulla traccia 100). Le richieste vengono effettuate solo durante lo spostamento dall'estremo finale fino a quello iniziale.
-L'algoritmo C-LOOK (o Circular LOOK) corrisponde ad una versione ottimiz- zata del C-SCAN, dove durante ogni scansione la testina, piuttosto che proseguire fino all'estremo iniziale del piatto, viene fermata alla richiesta più vicina all'estre- mo iniziale, per poi venire resettata fino alla richiesta più vicina all'estremo finale, piuttosto che essere resettata all'estremo finale stesso.
+L'algoritmo \textbf{C-SCAN} (o Circular SCAN) è un algoritmo di scheduling del disco simile all'algoritmo SCAN in cui a testina viene mossa dall'estremo finale fino all'estremo iniziale (ad esempio dalla traccia 100 alla traccia 0), venendo subito dopo "resettata" fino all'estremo finale (venendo spostata nuovamente sulla traccia 100). Le richieste vengono effettuate solo durante lo spostamento dall'estremo finale fino a quello iniziale.
+L'algoritmo \textbf{C-LOOK} (o Circular LOOK) corrisponde ad una versione ottimizzata del C-SCAN, dove durante ogni scansione la testina, piuttosto che proseguire fino all'estremo iniziale del piatto, viene fermata alla richiesta più vicina all'estremo iniziale, per poi venire resettata fino alla richiesta più vicina all'estremo finale, piuttosto che essere resettata all'estremo finale stesso.
+
+\subsubsection{Esempio}
+\begin{itemize}
+    \item Supponiamo di effettuare le richieste 65, 40, 18, 78 su un disco avente tracce numerate da 0 a 100 in cui la testina è inizialmente posizionata sulla traccia 30 utilizzando l'algoritmo C-SCAN:
+    \begin{itemize}
+        \item La testina viene mossa da 30 a 18, dunque vengono traversate 12 tracce
+        \item La testina viene mossa da 18 a 0 per poter raggiungere l'estremo iniziale,
+        dunque vengono traversate 18 tracce
+        \item La testina viene resettata venendo spostata da 0 a 100, dunque vengono traversate 100 tracce
+        \item La testina viene mossa da 100 a 78, poi da 78 a 65 e infine da 65 a 40,dunque vengono traversate 60 tracce
+    \end{itemize}
+    \item La distanza percorsa, ossia il numero totale di tracce traversate, corrisponde a:
+    \begin{center}
+        12 + 18 + 100 + 60 = 190
+    \end{center}
+    \item Utilizzando l'algoritmo C-SCAN ottimizzato, ossia l'algoritmo C-LOOK, si avrebbe che:
+    \begin{itemize}
+        \item La testina viene mossa da 30 a 18, dunque vengono traversate 12 tracce
+        \item La testina viene resettata venendo spostata da 18 a 78, dunque vengono traversate 60 tracce
+        \item La testina viene mossa da 78 a 65 e infine da 65 a 40, dunque vengono traversate 38 tracce 
+    \end{itemize}
+    \item La distanza percorsa, ossia il numero totale di tracce traversate, corrisponde a
+    \begin{center}
+        12 + 60 + 38 = 110
+    \end{center}
+\end{itemize}
 
 
 
+\subsection{Dischi a stato solido}
+I \textbf{dischi a stato solido} sono una memoria secondaria realizzata tramite memoria flash o dei chip DRAM ed una batteria a lungo termine, la quale permette a tali memorie volatili di mantenere l'informazione.
+Pro:
+\begin{itemize}
+    \item Non hanno meccanismi moventi al loro interno, risultando quindi estrema-
+    mente più veloci rispetto ai dischi magnetici
+    \item L'accesso ai blocchi viene effettuato in modo diretto tramite un riferimento al
+    numero di blocco, rimuovendo la necessità di uno scheduling.
+    \item Le operazioni di lettura sono molto più veloci rispetto ad un normale disco
+    magnetico
+\end{itemize}
+Contro:
+\begin{itemize}
+    \item Costo maggiore rispetto ad un disco magnetico
+    \item Le operazioni di scrittura sono molto più lente rispetto ad un disco mecca- nico, poiché i blocchi non vengono realmente sovrascritti ma solo de-referenziati (ossia resi inaccessibili), rendendo più lento il ciclo di eliminazione dei dati
+    \item Il numero di "scritture" per un blocco è limitato
+\end{itemize}
+\subsection{RAID}
+Un \textbf{RAID (Redundant Array of Inexpensive Disks)} è costituito da un insieme di molti dischi magnetici di basso costo utilizzati come archiviazione di grandi quantità di dati.
+Vengono dotati di una forma di duplicazione dei dati, detto mirroring, rendendoli ridondanti nei vari dischi, in modo da poter aumentare l'affidabilità e la velocità delle operazioni di lettura e scrittura, poiché è richiesta una minore quantità di tempo per ricercare i dati rispetto all'uso di pochi dischi magnetici di grandi dimensioni.
 
 \end{document}
 

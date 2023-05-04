@@ -89,12 +89,15 @@
 \contentsline {subsection}{\numberline {4.8}Recupero e rimpiazzo delle pagine}{77}{subsection.4.8}%
 \contentsline {subsection}{\numberline {4.9}Trashing e determinazione del working set}{78}{subsection.4.9}%
 \contentsline {section}{\numberline {5}Gestione dell'archiviazione}{79}{section.5}%
-\contentsline {subsubsection}{\numberline {5.0.1}Esempi}{80}{subsubsection.5.0.1}%
-\contentsline {subsection}{\numberline {5.1}Scheduling del disco}{80}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}First Come First Served (FCFS)}{80}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Esempio}{81}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Shortest Seek Time First (SSTF)}{81}{subsubsection.5.1.3}%
-\contentsline {subsubsection}{\numberline {5.1.4}Esempio}{81}{subsubsection.5.1.4}%
-\contentsline {subsubsection}{\numberline {5.1.5}SCAN e LOOK}{81}{subsubsection.5.1.5}%
-\contentsline {subsubsection}{\numberline {5.1.6}Esempio}{82}{subsubsection.5.1.6}%
-\contentsline {subsubsection}{\numberline {5.1.7}C-SCAN e C-LOOK}{82}{subsubsection.5.1.7}%
+\contentsline {subsection}{\numberline {5.1}Esempi}{80}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Scheduling del disco}{80}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}First Come First Served (FCFS)}{80}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Esempio}{81}{subsubsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.4}Shortest Seek Time First (SSTF)}{81}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Esempio}{81}{subsubsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.5}SCAN e LOOK}{81}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Esempio}{82}{subsubsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.6}C-SCAN e C-LOOK}{82}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}Esempio}{82}{subsubsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.7}Dischi a stato solido}{83}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}RAID}{83}{subsection.5.8}%
