@@ -2325,7 +2325,7 @@ Per contrastare il trashing, è necessario cedere abbastanza memoria ad ogni pro
 \end{itemize}
 L'obiettivo, quindi, è quello di riuscire a dare ad ogni processo abbastanza frame da poter contenere il proprio working set.
 
-Informalmente, il working set di un processo è l'insieme delle pagine che il processo sta attualmente utilizzando. Formalmente, esso corrisponde all'insieme di tutte le pagine a cui esso ha effettuato riferimenti durante le ultime T unità di tempo.
+Informalmente, il \textbf{working set} di un processo è l'insieme delle pagine che il processo sta attualmente utilizzando. Formalmente, esso corrisponde all'insieme di tutte le pagine a cui esso ha effettuato riferimenti durante le ultime T unità di tempo.
 La scelta della grandezza della finestra di riferimenti di cui tenere traccia, indicata con $\delta$, risulta fondamentale: una finestra troppo piccola non racchiude tutte le pagine della località attualmente richiesta dal processo, mentre una finestra troppo grande include pagine che non sono più accedute frequentemente.\par
 Per evitare di dover gestire una lista delle ultime $\delta$ pagine richieste, il working set viene spesso implementato tramite una semplice campionatura: ogni k riferimenti in memoria, il working set di un processo viene considerato l'insieme di tutte le pagine a cui è stato fatto riferimento in tale periodo temporale.
 
