@@ -85,8 +85,8 @@
 
 \section{Introduzione}
 Il programma con cui si interagisce può essere formato testo (quindi la \textbf{\$SHELL}) oppure modalità \textbf{GUI} (Graphical User Interface) quando ci sono le icone. La maggior parte dei computer ha due modalità operative: kernel e utente. Il sistema operativo è il componente software di maggior importanza e viene eseguito in modalità kernel (detta anche Supervisor). In questo modo ha accesso a tutto l'hardware e può eseguire qualunque istruzione che la macchina sia in  grado di svolgere. La modalità utente ha a sua disposizione solo un sottoinsieme di istruzioni.\\
-Esiste una differenza tra il sistema operativo (che troverete scritto anche OS) e il normale software in modalità utente. Infatti l'utente non è livero di scrivere E.g un gestore degli interrupt ecc\dots perchè esistono protezioni hardware dell'OS stesso \\
-Questa differenza è meno evidente nei sistemi embedded o sistemi integrati (che possono non avere la modalità kernel) o sistemi interpretati che usano interpreti e non hardware per separare i componenti
+Esiste una differenza tra il sistema operativo (che troverete scritto anche OS) e il normale software in modalità utente. Infatti l'utente non è livero di scrivere E.g un gestore degli interrupt ecc\dots perchè esistono protezioni hardware dell'OS stesso. \\
+Questa differenza è meno evidente nei sistemi embedded o sistemi integrati (che possono non avere la modalità kernel) o sistemi interpretati che usano interpreti e non hardware per separare i componenti.
 
 \subsection{Kernel/User mode e protezione della memoria}
 Alcune istruzioni eseguite dalla CPU risultano essere più sensibili di altre. Affinché tali istruzioni privilegiate vengano utilizzate esclusivamente dal sistema operativo, la CPU può essere impostata in due modalità specifiche a seconda del programma in esecuzione.
@@ -162,7 +162,7 @@ La gestione delle risorse include il multiplexing (condivisione) delle risorse i
     \end{itemize}
 
 \subsubsection{Processori}
-La CPU preleva le istruzioni della memoria (esegue il \textbf{fetch}) e le esegue. La CPU si occupa poi di decodifi\textit{Carla} per determinare il tipo e gli operandi , eseguirla e poi prelevare, decodificare ed eseguire le successive. Poichè accedere alla memoria richiede molte risorse tutte le CPU contengono all'interno dei \textbf{registri}  per memorizzare variabili importanti o risultati temporanei. Oltre ai registri i computer contengono il \textbf{program counter (PC)}, contente l'indirizzo di memoria in sui si trova la successiva istruzione da seguire, dopodichè viene il PC viene aggiornato per posizionarsi sulla successiva. \\
+La CPU preleva le istruzioni della memoria (esegue il \textbf{fetch}) e le esegue. La CPU si occupa poi di decodificarla per determinare il tipo e gli operandi , eseguirla e poi prelevare, decodificare ed eseguire le successive. Poichè accedere alla memoria richiede molte risorse tutte le CPU contengono all'interno dei \textbf{registri}  per memorizzare variabili importanti o risultati temporanei. Oltre ai registri i computer contengono il \textbf{program counter (PC)}, contente l'indirizzo di memoria in sui si trova la successiva istruzione da seguire, dopodichè viene il PC viene aggiornato per posizionarsi sulla successiva. \\
 Un altro registro è lo \textbf{stack pointer} che punta alla cima dello stack attuale. Un altro registro è il \textbf{program status word (PSW)} che contiene i bit di condizione, impostati da istruzioni di confronto, la prorità della CPU, la modalità (kernel o utente) e altri bit di controllo. 
 Nelle architetture più moderne, vengono implementati più livelli di protezione, detti \textbf{protection rings}. Ogni ring aggiunge restrizioni sulle istruzioni eseguibili dalla CPU.
 \begin{figure}[hbt]
@@ -189,9 +189,9 @@ L'istruzione \texttt{TRAP} cambia la modalità da utente a kernel e avvia l'OS.
     \item Interrupt, ossia il completamento di una richiesta in attesa, svolte in modo asincrono e innescate dall'hardware
 \end{itemize}
 
-Esistono sei categorie importanti di System call:
+Esistono cinque categorie importanti di System call:
 \begin{itemize}
-    \item \textbf{Gestione dei processi} include \texttt{end}, \texttt{abort}, \texttt{load}, \texttt{execute}, creazione e terminazione di processi, get/set attributi di processi, attesa, signal event, e allocazione di memoria libera. Quando un processo si interrompe o si interrompe, è necessario avviarne o riprenderne un altro. Quando i processi si arrestano in modo anomalo, potrebbe essere necessario fornire core dump e/o altri strumenti diagnostici o di ripristino
+    \item \textbf{Gestione dei processi} include \texttt{end}, \texttt{abort}, \texttt{load}, \texttt{execute}, creazione e terminazione di processi, get/set attributi di processi, attesa, signal event, e allocazione di memoria libera. Quando un processo si interrompe, è necessario avviarne o riprenderne un altro. Quando i processi si arrestano in modo anomalo, potrebbe essere necessario fornire core dump e/o altri strumenti diagnostici o di ripristino
     \item \textbf{Gestione dei file} crea file, elimina file, apri, chiudi, leggi, scrivi, riposiziona, ottieni attributi di file e imposta attributi di file. Queste operazioni possono essere supportate anche per directory e file ordinari. L'effettiva struttura della directory può essere implementata utilizzando file ordinari sul file system o tramite altri mezzi (ne parleremo più avanti)
     \item \textbf{Gestione dei dispositivi} include dispositivi di richiesta, dispositivi di rilascio, lettura, scrittura, riposizionamento, recupero/impostazione degli attributi del dispositivo e collegamento o scollegamento logico dei dispositivi. I dispositivi possono essere fisici (ad es. unità disco) o virtuali/astratti (ad es. file, partizioni e dischi RAM). Alcuni sistemi rappresentano i dispositivi come file speciali nel file system, in modo che l'accesso al "file" richieda il driver di dispositivo del sistema operativo appropriato. E.g la directory \texttt{/dev} su qualsiasi sistema \texttt{UNIX}
     \item \textbf{Informazioni di sistema} include le chiamate per ottenere/impostare l'ora, la data, i dati di sistema e gli attributi di processo, file o dispositivo. I sistemi possono anche fornire la possibilità di eseguire il dump della memoria in qualsiasi momento. Programmi a passo singolo che interrompono l'esecuzione dopo ogni istruzione e tracciano
@@ -211,7 +211,7 @@ Esistono sei categorie importanti di System call:
         \begin{itemize}
             \item  Creare e accedere alla memoria condivisa tra processi (e thread) 
             \item Fornire meccanismi di blocco che limitano l'accesso simultaneo
-            \item Liberare memoria condivisa e/o allo\textit{Carla} dinamicamente secondo necessità
+            \item Liberare memoria condivisa e/o allocarla dinamicamente secondo necessità
         \end{itemize}
     \end{itemize}
 \end{itemize}

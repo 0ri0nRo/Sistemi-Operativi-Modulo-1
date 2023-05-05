@@ -348,7 +348,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
@@ -365,6 +364,19 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
@@ -872,7 +884,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./im/ring.png
 INPUT im/ring.png
 INPUT ./im/ring.png
@@ -929,6 +940,7 @@ INPUT ./im/p4.png
 INPUT im/p4.png
 INPUT ./im/p4.png
 INPUT ./im/p4.png
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT ./im/formule.png
 INPUT im/formule.png
