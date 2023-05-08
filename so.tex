@@ -146,10 +146,10 @@ La gestione delle risorse include il multiplexing (condivisione) delle risorse i
     
     La CPU può comunicare con un controller del dispositivo in due modi:
     \begin{itemize}
-        \item I/O mappati alle porte che fanno riferimento ai registri del controller utilizzando un I/O separato
+        \item \textbf{Port-mapped I/O}: I/O mappati alle porte che fanno riferimento ai registri del controller utilizzando un I/O separato
         spazio degli indirizzi. \\Il registro di ciascun controller del dispositivo I/O è mappato su una porta specifica (indirizzo).\\
         Richiede classi speciali di istruzioni CPU (ad es. IN/OUT). L'istruzione \texttt{IN} legge da un dispositivo I/O, mentre \texttt{OUT} scrive. Quando si usano le istruzioni IN o OUT, l' \texttt{M/\#IO} non viene asserito, quindi la memoria non risponde e il chip I/O sì.
-        \item I registri del controller del Memory-Mapped I/O utilizzano lo stesso spazio di indirizzamento utilizzato dalla memoria principale.\\Il Memory-mapped I/O "spreca" parte dello spazio degli indirizzi ma non necessita di istruzioni speciali. Per le porte del dispositivo I/O della CPU sono proprio come i normali indirizzi di memoria. La CPU utilizza istruzioni simili a \texttt{MOV} per accedere ai registri del dispositivo I/O. In questo modo viene asserito l' \texttt{M/\#IO} indicando l'indirizzo richiesto dalla CPU riferito alla memoria principale
+        \item \textbf{Memory-mapped I/O}: I registri del controller del Memory-Mapped I/O utilizzano lo stesso spazio di indirizzamento utilizzato dalla memoria principale.\\Il Memory-mapped I/O "spreca" parte dello spazio degli indirizzi ma non necessita di istruzioni speciali. Per le porte del dispositivo I/O della CPU sono proprio come i normali indirizzi di memoria. La CPU utilizza istruzioni simili a \texttt{MOV} per accedere ai registri del dispositivo I/O. In questo modo viene asserito l' \texttt{M/\#IO} indicando l'indirizzo richiesto dalla CPU riferito alla memoria principale
     \end{itemize}
     Per eseguire le attività di I/O, vengono utilizzate due modalità di gestione:
     \begin{itemize}
