@@ -2522,6 +2522,147 @@ Contro:
 \subsection{RAID}
 Un \textbf{RAID (Redundant Array of Inexpensive Disks)} è costituito da un insieme di molti dischi magnetici di basso costo utilizzati come archiviazione di grandi quantità di dati.
 Vengono dotati di una forma di duplicazione dei dati, detto mirroring, rendendoli ridondanti nei vari dischi, in modo da poter aumentare l'affidabilità e la velocità delle operazioni di lettura e scrittura, poiché è richiesta una minore quantità di tempo per ricercare i dati rispetto all'uso di pochi dischi magnetici di grandi dimensioni.
+\pagebreak
+\section{Esercitazione}
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Quante e quali modalità di esecuzione deve 
+garantire la CPU (al minimo)?]
+
+Almeno 2: kernel e user mode
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Qual è la differenza tra kernel e user mode?]
+Quando la CPU si trova in kernel mode è in grado di eseguire istruzioni privilegiate; in user mode può eseguire solamente istruzioni non-privilegiate
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=La transizione da user a kernel mode avviene:]
+\begin{itemize}
+    \item Quando scade il quanto di tempo assegnato al processo in esecuzione
+    \item Quando un processo esegue una fork()
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Le chiamate di sistema:]
+\begin{itemize}
+    \item Consentono ad un programma di richiedere l'esecuzione di istruzioni privilegiate
+    \item Devono essere implementate in spazio kernel
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Differenza tra:]
+\begin{itemize}
+    \item Chiamate di sistema iniziate via software per ottenere un servizio dal sistema operativo (ad es., I/O)
+    \item Eccezioni iniziate via software per rispondere ad una situazione anomala (ad es., divisione per 0)
+    \item Interruzioni iniziate da dispositivi hardware per notificare un certo evento (ad es., timer)
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Il System Call Handler:]
+\begin{itemize}
+    \item Utilizza una tabella dedicata che contiene ogni chiamata di sistema supportata
+    \item Salva e ripristina lo stato della computazione su appositi registri
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title= Qual è la principale differenza tra programma e processo]
+Un programma è un'entità statica rappresentata dal codice eseguibile ("testo"); un processo è un'entità dinamica il cui ciclo di vita è interamente gestito dal sistema operativo
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Il Process Control Block (PCB)]    
+    \begin{enumerate}
+        \item È la struttura dati utilizzata dal sistema operativo per rappresentare ogni singolo processo
+        \item Contiene l'identificatore del processo e del relativo processo padre
+        \item Contiene il valore del program counter e dello stack pointer
+    \end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Descrivere cosa si intende per context switch]
+È la procedura con cui un processo attualmente in esecuzione sulla CPU, viene sostituito da un altro processo "schedulabile" (nella coda dei processi pronti). Per fare ciò è necessario che il sistema operativo salvi lo stato del processo corrente (nel suo PCB) e ripristini il PCB del processo da mandare in esecuzione
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Un context switch scaturisce sempre a fronte di:]
+\begin{itemize}
+    \item Un segnale di interruzione da parte del timer
+    \item Una chiamata fork()
+\end{itemize}
+\end{tcolorbox}
+
+Indicare quale gerarchia di processi corrisponde al codice seguente:
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/qc1}}
+        \caption{}
+    \end{center}
+\end{figure}  
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.4\textwidth,keepaspectratio]{{im/qc11}}
+        \caption{}
+    \end{center}
+\end{figure}  
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Descrivere le controindicazioni di un'implementazione user thread "pura":]
+\begin{itemize}
+    \item Nessuna concorrenza/parallelismo reale
+    \item Le politiche di scheduling possono essere non ottimali
+    \item Occorre prevedere chiamate di sistema non bloccanti, altrimenti
+    tutti i thread all'interno dello stesso processo saranno bloccati
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=I sistemi non preemptive lo scheduler della CPU interviene:]
+\begin{itemize}
+    \item Quando un nuovo processo viene creato o un processo esistente termina
+    \item Quando un processo passa dallo stato running a waiting
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Il tempo medio di attesa di un processo:]
+\begin{itemize}
+    \item Dipende dal tempo di arrivo
+    \item È minimo quando i processi arrivano in ordine di CPU-burst
+\end{itemize}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Calcolare il tempo medio d'attesa (average waiting time) dei seguenti processi assumendo una politica di scheduling round robin con time slice = 3 nessuna attività di I/O e context switch trascurabile]
+\end{tcolorbox}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/ex}}
+        \caption{}
+    \end{center}
+\end{figure}  
+\pagebreak
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black, title=Completare la tabella di seguito assumendo che il quanto di tempo sia pari a 2 non vi sia I/O e che tutti i processi arrivino al tempo t=0]
+\end{tcolorbox}
+
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/tabella}}
+        \caption{}
+    \end{center}
+\end{figure}  
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black, title=Lo scheduling Shortest Job First (SJF):]
+\begin{itemize}
+    \item Privilegia implicitamente i processi I/O-bound
+    \item È un esempio di priority scheduling
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black, title= È preferibile progettare un'applicazione multi-thread anziché multi-process perché:]
+\begin{itemize}
+    \item I context switch tra thread sono meno onerosi
+    \item È possibile ottenere parallelismo reale in caso di architetture
+    multi-processor
+    \item La comunicazione intra-thread è più veloce
+\end{itemize}
+\end{tcolorbox}
+
+
+
+
+
 
 \end{document}
 
