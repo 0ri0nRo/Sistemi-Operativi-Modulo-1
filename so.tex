@@ -181,7 +181,7 @@ Un modo semplice per avere una protezione alla memoria è quello di avere due re
 Il sistema operativo carica i rigistri di base e limite all'avvio del programma mentre la CPU controlla che ogni indirizzo di memoria a cui fa riferimento il programma utente rientri tra i valori base e limite.
 
 
-Per ottenere servizi dall'OS un programma utente deve fare una \textbf{system call (chiamata di sistema)} che entra nel kernel e richiama l'OS. Quando il lavoro è stato completato il controllo è restituito al programma utente.\\
+Per ottenere servizi dall'OS un programma utente deve fare una \textbf{system call (chiamata di sistema)} che entra nel kernel e richiama l'OS. Quando il lavoro è stato completato il controllo è restituito al programma utente. Le chiamate di sistema devono essere implementate in spazio kernel.\\
 
 L'istruzione \texttt{TRAP} cambia la modalità da utente a kernel e avvia l'OS. 
 \begin{itemize}
@@ -238,7 +238,7 @@ I metodi block e stack non limitano il numero o la lunghezza dei parametri passa
 \subsubsection{Timer, Istruzioni atomiche, Virtual Memory}
 Il timer è una funzionalità hardware per abilitare la scheduling della CPU. Nei sistemi multi-tasking, permette alla CPU di non essere monopolizzata da processi "egoistici". Il timer genera un interrupt e ad ogni sua interruzione, lo scheduler della CPU prende il sopravvento e decide quale processo da eseguire successivamente.\\
 Gli interrupt possono verificarsi in qualsiasi momento e interferire con i processi in esecuzione e l'OS deve essere in grado di sincronizzare le attività di cooperazione, simultanee processi, garantire che brevi sequenze di istruzioni (ad es. lettura-modifica-scrittura) vengano eseguite atomicamente da disabilitare gli interrupt prima della sequenza e riabilitarli successivamente. \\
-La virtualizzazionde della memoria è un'astrazione (dell'effettiva memoria principale fisica) e conferisce ad ogni processo l'illusione che la memoria fisica sia solo contigua spazio degli indirizzi (spazio degli indirizzi virtuali). Permette di eseguire programmi senza che vengano caricati interamente nella memoria principale. Può essere implementata sia in HW (\textbf{MMU}) che in SW (OS).
+La virtualizzazionde della memoria è un'astrazione (dell'effettiva memoria principale fisica) e conferisce ad ogni processo l'illusione che la memoria fisica sia solo contigua spazio degli indirizzi (spazio degli indirizzi virtuali). Permette di eseguire programmi senza che vengano caricati interamente nella memoria principale. Può essere implementata sia in HW (\textbf{MMU}) che in SW (OS). L'\textbf{allocazione contigua} è fondamentale per l'accesso sequenziale, evita la frammentazione e necessita il mantenimento dei blocchi liberi all'interno di una opportuna struttura dati.
 \begin{itemize}
     \item \textbf{MMU}, associa gli indirizzi virtuali a quelli fisici tramite una tabella delle pagine gestita dal sistema operativo. Utilizza una cache denominata Translation Look-aside Buffer (TLB) con "mappature recenti" per ricerche più rapide. Il sistema operativo deve sapere quali pagine sono caricate nella memoria principale e quali su disco
     \item Il sistema operativo è responsabile della gestione degli spazi di indirizzi virtuali
@@ -635,7 +635,7 @@ Nel 1° e il 4° caso è necessario selezionare un nuovo processo, mentre nel 2�
 \subsection{Scheduling Preemptive e Non-Preemptive}
 Un algoritmo di scheduling \textbf{non-preemptive} assegna la CPU a un processo e non lo interrompe finché non termina o finché non rilascia volontariamente la CPU. Ciò significa che un processo che richiede una quantità considerevole di tempo della CPU può bloccare altri processi che sono in attesa di esecuzione.\\ 
 
-Un algoritmo di scheduling \textbf{preemptive}\footnote{Nota: uno scheduler preemptive viene comunque attivato dalle condizioni 1 e 4, poiché in tali casi deve comunque essere selezionato un processo.}, al contrario, consente al sistema operativo di interrompere l'esecuzione di un processo in qualsiasi momento per consentire l'esecuzione di un altro processo in coda. Questo significa che i processi con un tempo di esecuzione più breve possono essere eseguiti più rapidamente, anche se ci sono altri processi in attesa di esecuzione. 
+Un algoritmo di scheduling \textbf{preemptive}\footnote{Nota: uno scheduler preemptive viene comunque attivato dalle condizioni 1 e 4, poiché in tali casi deve comunque essere selezionato un processo.}, al contrario, consente al sistema operativo di interrompere l'esecuzione di un processo in qualsiasi momento per consentire l'esecuzione di un altro processo in coda. Questo significa che i processi con un tempo di esecuzione più breve possono essere eseguiti più rapidamente, anche se ci sono altri processi in attesa di esecuzione. In caso di un scheduling preemptive lo scheduler passa dai stati sia di running che di waiting per passare agli stati di ready o waiting stesso.  
 \subsubsection{Problemi}
 Preemption potrebbe causare problemi se si verifica mentre il kernel è impegnato nell'implementazione di una system call (ad esempio, l'aggiornamento dei dati critici del kernel strutture) oppure due processi condividono dati, uno può essere interrotto durante l'aggiornamento di strutture dati condivise. Ci sono però possibili \textbf{soluzioni}, si può fare in modo che il processo attenda finché la chiamata di sistema non è stata completata o bloccata prima di concedere la preemption (problematico per i sistemi in tempo reale, poiché la risposta in tempo reale non può più essere garantita) oppure disabilitare gli interrupt prima di entrare nella sezione del codice critico e riabilitarli subito dopo (dovrebbe essere fatto solo in rare situazioni e solo su parti di codice molto brevi che finiranno rapidamente). \\
 \subsection{Il Dispatcher}
@@ -1352,7 +1352,7 @@ Per poter sincronizzare i processi/thread tra di loro, i linguaggi di programmaz
 
 
 \subsection{I Lock}
-Fornire l'esclusione reciproca ai dati condivisi utilizzando due primitive atomiche: 
+Fornire l'esclusione reciproca ai dati condivisi utilizzando due primitive atomiche. L'acquisizione di una lick deve avvenire in modo atomico, evidanto che lo scheduler interrompa l'acquisizione: 
 \begin{itemize}
     \item \texttt{Lock.acquire()} à attendere che il blocco sia libero, quindi acquisirlo
     \item \texttt{Lock.release()} per sbloccare e riattivare qualsiasi thread di attesa in \texttt{acquire()}
@@ -2188,7 +2188,7 @@ Oltre alla paginazione segmentata, i moderni sistemi operativi sono dotati di un
 \pagebreak
 \subsection{Memoria Virtuale}
 
-La maggior parte dei processi reali non ha bisogno che tutte le pagine vengano caricate in memoria, o almeno non tutte in una volta, come il codice di gestione degli errori, gli array sono spesso sovradimensionati per gli scenari peggiori (e nella pratica viene effettivamente utilizzata solo una piccola parte degli array) oppure alcune funzionalità di determinati programmi vengono utilizzate raramente.
+La maggior parte dei processi reali non ha bisogno che tutte le pagine vengano caricate in memoria, o almeno non tutte in una volta, come il codice di gestione degli errori, gli array sono spesso sovradimensionati per gli scenari peggiori (e nella pratica viene effettivamente utilizzata solo una piccola parte degli array) oppure alcune funzionalità di determinati programmi vengono utilizzate raramente. La memoria virtuale consente di mantenere allocate in memoria fisica solo alcune pagine dello spazio di indirizzamento logico di un processo.
 La \textbf{memoria virtuale} utilizza l'archiviazione di supporto (ovvero il disco) per archiviare le pagine inutilizzate e dare l'illusione di uno spazio di indirizzi virtuale infinito.\par
 La possibilità di caricare dal disco solo le porzioni di processi effettivamente \textbf{necessarie} (e solo quando necessarie) presenta numerosi \textbf{vantaggi} infatti i programmi potrebbero essere scritti per uno spazio di indirizzi molto più ampio di quello che esiste fisicamente sul computer e viene lasciata più memoria per altri programmi, migliorando l'utilizzo della CPU. È necessario, perciò, meno I/O per scambiare i processi dentro e fuori la memoria, velocizzando le operazioni. \par
 L'idea della memoria virtuale è di utilizzare la memoria come \textbf{cache} per il disco. La tabella delle pagine deve anche indicare se la pagina è su disco o in memoria (usando solo un singolo bit non valido). Una volta che la pagina è stata caricata dal disco alla memoria, il sistema operativo aggiorna la voce corrispondente della tabella delle pagine insieme al bit valido. \footnote{Ricorda: l'accesso al disco è estremamente più lento dell'accesso alla memoria, pertanto, gli accessi alla memoria devono fare riferimento a pagine che sono in memoria con alta probabilità}
@@ -2364,7 +2364,7 @@ dove $H$ è il numero di superfici, $T$ il numero di tracce per superficie, $S$ 
 La CPU è in grado di interfacciarsi con i dischi magnetici tramite un bus I/O, un canale di comunicazione dove la CPU stessa impartisce comandi al disco tramite un controller posto posto alla fine del bus, ossa l'host controller, il quale a sua volta comunica con il disk controller interno al disco stesso, trasferendo i dati dalle superfici magnetiche del disco prima ad una cache interna al disco, per poi venir trasferiti alla memoria.
 Per via della struttura di un disco magnetico, il tempo di trasferimento dei dati alla memoria principale, indicato come DTT, equivale alla somma tra:
 \begin{itemize}
-    \item \textbf{Tempo di posizionamento (Seek time)}, indicato come ST, ossia il tempo necessario per spostare le testine su una specifica traccia, corrispondente al
+    \item \textbf{Tempo di posizionamento (Seek time)}, indicato come ST, ossia il tempo necessario per spostare le testine su una specifica traccia. Indica il tempo necessario al disco per posizionare le proprie testine su uno specifico \textbf{cilindro}.
     \item \textbf{Delay di rotazione}, indicato come ROT, ossia il tempo necessario affinché il settore desiderato venga ruotato sotto la testina (in media viene effettuata mezza rotazione del disco)
     \item \textbf{Tempo di trasferimento}, indicato come TT, ossia il tempo necessario per spo stare i dati dal disco alla memoria, spesso espresso come rateo di trasferimento (larghezza di banda), ossia come byte al secondo
 \end{itemize}
