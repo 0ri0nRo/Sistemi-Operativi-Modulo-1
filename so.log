@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.5)  11 MAY 2023 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.5)  11 MAY 2023 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1264,83 +1264,64 @@ Package pdftex.def Info: im/paginazione.png  used on input line 2005.
 <im/indvir.png, id=1266, 710.655pt x 319.1925pt>
 File: im/indvir.png Graphic file (type png)
 <use im/indvir.png>
-Package pdftex.def Info: im/indvir.png  used on input line 2028.
+Package pdftex.def Info: im/indvir.png  used on input line 2026.
 (pdftex.def)             Requested size: 217.66211pt x 97.76512pt.
  [70 <./im/indvir.png>]
 <im/tlb.png, id=1276, 627.34375pt x 690.58pt>
 File: im/tlb.png Graphic file (type png)
 <use im/tlb.png>
-Package pdftex.def Info: im/tlb.png  used on input line 2065.
+Package pdftex.def Info: im/tlb.png  used on input line 2063.
 (pdftex.def)             Requested size: 386.95897pt x 425.98447pt.
  [71 <./im/tlb.png>]
 <im/stable.png, id=1283, 552.0625pt x 461.725pt>
 File: im/stable.png Graphic file (type png)
 <use im/stable.png>
-Package pdftex.def Info: im/stable.png  used on input line 2080.
+Package pdftex.def Info: im/stable.png  used on input line 2078.
 (pdftex.def)             Requested size: 241.84843pt x 202.27191pt.
  [72 <./im/stable.png>]
 <im/seg1.png, id=1291, 709.65125pt x 360.34625pt>
 File: im/seg1.png Graphic file (type png)
 <use im/seg1.png>
-Package pdftex.def Info: im/seg1.png  used on input line 2096.
+Package pdftex.def Info: im/seg1.png  used on input line 2094.
 (pdftex.def)             Requested size: 290.22107pt x 147.36902pt.
 <im/seg2.png, id=1292, 716.6775pt x 326.21875pt>
 File: im/seg2.png Graphic file (type png)
 <use im/seg2.png>
-Package pdftex.def Info: im/seg2.png  used on input line 2106.
+Package pdftex.def Info: im/seg2.png  used on input line 2104.
 (pdftex.def)             Requested size: 290.22107pt x 132.10292pt.
  [73 <./im/seg1.png> <./im/seg2.png>] [74]
 <im/pagf.png, id=1306, 302.12875pt x 278.03876pt>
 File: im/pagf.png Graphic file (type png)
 <use im/pagf.png>
-Package pdftex.def Info: im/pagf.png  used on input line 2203.
+Package pdftex.def Info: im/pagf.png  used on input line 2201.
 (pdftex.def)             Requested size: 290.22107pt x 267.07962pt.
  [75 <./im/pagf.png>]
 <im/pformula.png, id=1314, 620.3175pt x 266.9975pt>
 File: im/pformula.png Graphic file (type png)
 <use im/pformula.png>
-Package pdftex.def Info: im/pformula.png  used on input line 2240.
+Package pdftex.def Info: im/pformula.png  used on input line 2238.
 (pdftex.def)             Requested size: 386.95897pt x 166.55524pt.
  [76] [77 <./im/pformula.png>] [78]
 <im/trashing.png, id=1345, 426.59375pt x 243.91125pt>
 File: im/trashing.png Graphic file (type png)
 <use im/trashing.png>
-Package pdftex.def Info: im/trashing.png  used on input line 2315.
+Package pdftex.def Info: im/trashing.png  used on input line 2313.
 (pdftex.def)             Requested size: 290.22107pt x 165.94676pt.
  [79 <./im/trashing.png>]
 <im/disk.png, id=1352, 396.48125pt x 287.0725pt>
 File: im/disk.png Graphic file (type png)
 <use im/disk.png>
-Package pdftex.def Info: im/disk.png  used on input line 2359.
+Package pdftex.def Info: im/disk.png  used on input line 2357.
 (pdftex.def)             Requested size: 290.22107pt x 210.13939pt.
  [80 <./im/disk.png>]
 <im/disk2.png, id=1360, 402.50375pt x 91.34125pt>
 File: im/disk2.png Graphic file (type png)
 <use im/disk2.png>
-Package pdftex.def Info: im/disk2.png  used on input line 2381.
+Package pdftex.def Info: im/disk2.png  used on input line 2379.
 (pdftex.def)             Requested size: 290.22107pt x 65.86041pt.
 <im/disk3.png, id=1361, 415.5525pt x 97.36375pt>
 File: im/disk3.png Graphic file (type png)
 <use im/disk3.png>
-Package pdftex.def Info: im/disk3.png  used on input line 2388.
+Package pdftex.def Info: im/disk3.png  used on input line 2386.
 (pdftex.def)             Requested size: 290.22107pt x 68.00111pt.
- [81 <./im/disk2.png> <./im/disk3.png>] [82] [83] [84] (./so.aux)
-Package rerunfilecheck Info: File `so.out' has not changed.
-(rerunfilecheck)             Checksum: 369520632C7A59C6EB5DC1F5E953090A;17831.
- ) 
-Here is how much of TeX's memory you used:
- 25848 strings out of 476025
- 472550 string characters out of 5790018
- 1883388 words of memory out of 5000000
- 45389 multiletter control sequences out of 15000+600000
- 518991 words of font info for 54 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 83i,13n,89p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on so.pdf (85 pages, 11055892 bytes).
-PDF statistics:
- 1575 PDF objects out of 1728 (max. 8388607)
- 1229 compressed objects within 13 object streams
- 444 named destinations out of 1000 (max. 500000)
- 1326 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ [81 <./im/disk2.png> <./im

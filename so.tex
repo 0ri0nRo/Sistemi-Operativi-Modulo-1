@@ -320,7 +320,7 @@ In ogni momento un processo può trovarsi in uno dei seguenti cinque stati:
     \item \textbf{New}, il processo appena avviato
     \item \textbf{Ready}, il processo è pronto per essere eseguito ma attende di essere programmato sulla CPU
     \item \textbf{Running}, il processo sta effettivamente eseguendo istruzioni sulla CPU 
-    \item \textbf{Waiting}, il processo è sospeso in attesa che una risorsa sia disponibile o un
+    \item \textbf{Waiting}, il processo è sospeso in attesa che una risorsa sia disponibile oppure fa richista di input da parte dell'utente
     evento da completare/verificare (ad es. input da tastiera, accesso al disco, timer, ecc.)
     \item \textbf{Terminated}, il processo è terminato e il sistema operativo può distruggerlo
 \end{itemize}
@@ -1128,7 +1128,7 @@ Possiamo scrivere di quattro importanti vantaggi:
 \end{itemize}
 
 \subsubsection{Programmazione Multi-core}
-Una tendenza recente nell'architettura dei computer è quella di produrre chip con più core, o CPU su un singolo chip. Un'applicazione multi-thread in esecuzione su un tradizionale chip single-core dovrebbe intercalare i thread. Su un chip multi-core, tuttavia, i thread potrebbero essere distribuiti tra i core disponibili, consentendo una vera \textbf{elaborazione parallela}.\footnote{Le CPU sono state sviluppate per supportare più thread simultanei per core nell'hardware (ad esempio, l'hyper-threading di Intel). Ogni core fisico appare come due processori al sistema operativo, consentendo la pianificazione simultanea di due processi per core}
+Una tendenza recente nell'architettura dei computer è quella di produrre chip con più core, o CPU su un singolo chip. Un'applicazione multi-thread in esecuzione su un tradizionale chip single-core dovrebbe intercalare i thread. Su un chip multi-core, tuttavia, i thread potrebbero essere distribuiti tra i core disponibili, consentendo una vera \textbf{elaborazione parallela}.Si parla di \textbf{concorrenza} infatti quandono vengono eseguiti processi multi-threaded su CPU single core.\footnote{Le CPU sono state sviluppate per supportare più thread simultanei per core nell'hardware (ad esempio, l'hyper-threading di Intel). Ogni core fisico appare come due processori al sistema operativo, consentendo la pianificazione simultanea di due processi per core}
 
 \begin{figure}[hbt]
     \begin{center}
@@ -2012,9 +2012,7 @@ Responsabilità di base del sistema operativo per il paging:
     \item \textbf{mapping} tra pagine logiche e frame fisici
     \item \textbf{traduzione} di indirizzi logici in indirizzi fisici
 \end{itemize}
-Il sistema operativo necessita di una Page Table per fare ciò.\par
-
-
+Il sistema operativo necessita di una Page Table per fare ciò. La dimensione della page table (ovvero il numero di entry) dipende dalla dimensione fissata delle pagine.\par
 
 Quando un processo cerca di accedere a un indirizzo di memoria, il sistema operativo utilizza la tabella delle pagine (\textbf{page table}) per \textbf{tradurre} l'indirizzo virtuale del processo in un indirizzo fisico corrispondente. Ogni indirizzo virtuale è composto da due parti: un numero di pagina $p$ che indica in quale pagina virtuale si trova l'indirizzo e un \textbf{offset} che indica la posizione dell'indirizzo all'interno della pagina.\par
 
