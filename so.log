@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.5)  12 MAY 2023 09:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.12)  12 MAY 2023 09:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **"/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex"
 (/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-22> (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2023-05-11> (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
@@ -94,7 +94,7 @@ Package caption Info: New subtype `subfigure' on input line 239.
 Package caption Info: New subtype `subtable' on input line 239.
 \c@subtable=\count199
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/02/13 3.86 The Babel package
+Package: babel 2023/05/11 v3.89 The Babel package
 \babel@savecnt=\count266
 \U@D=\dimen164
 \l@unhyphenated=\language87
@@ -113,7 +113,7 @@ Package babel Info: Importing font and identification data for italian
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count271
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
+Package: hyperref 2023-04-22 v7.00x Hypertext links for LaTeX
  (/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -151,33 +151,31 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \Hy@linkcounter=\count273
 \Hy@pagecounter=\count274
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2023-04-22 v7.00x Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count275
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2023-04-22 v7.00x Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4177.
-Package hyperref Info: Link nesting OFF on input line 4182.
-Package hyperref Info: Hyper index ON on input line 4185.
-Package hyperref Info: Plain pages OFF on input line 4192.
-Package hyperref Info: Backreferencing OFF on input line 4197.
+Package hyperref Info: Hyper figures OFF on input line 4182.
+Package hyperref Info: Link nesting OFF on input line 4187.
+Package hyperref Info: Hyper index ON on input line 4190.
+Package hyperref Info: Plain pages OFF on input line 4197.
+Package hyperref Info: Backreferencing OFF on input line 4202.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4425.
+Package hyperref Info: Bookmarks ON on input line 4449.
 \c@Hy@tempcnt=\count276
  (/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4763.
+LaTeX Info: Redefining \url on input line 4787.
 \XeTeXLinkMargin=\dimen166
  (/usr/local/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -187,13 +185,13 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 \Fld@menulength=\count277
 \Field@Width=\dimen167
 \Fld@charsize=\dimen168
-Package hyperref Info: Hyper figures OFF on input line 6042.
-Package hyperref Info: Link nesting OFF on input line 6047.
-Package hyperref Info: Hyper index ON on input line 6050.
-Package hyperref Info: backreferencing OFF on input line 6057.
-Package hyperref Info: Link coloring OFF on input line 6062.
-Package hyperref Info: Link coloring with OCG OFF on input line 6067.
-Package hyperref Info: PDF/A mode OFF on input line 6072.
+Package hyperref Info: Hyper figures OFF on input line 6066.
+Package hyperref Info: Link nesting OFF on input line 6071.
+Package hyperref Info: Hyper index ON on input line 6074.
+Package hyperref Info: backreferencing OFF on input line 6081.
+Package hyperref Info: Link coloring OFF on input line 6086.
+Package hyperref Info: Link coloring with OCG OFF on input line 6091.
+Package hyperref Info: PDF/A mode OFF on input line 6096.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
@@ -204,7 +202,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
+File: hpdftex.def 2023-04-22 v7.00x Hyperref driver for pdfTeX
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -275,7 +273,7 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmargin=\skip63
 \droptitle=\skip64
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2023/02/12 version 6.0.1 text color boxes
+Package: tcolorbox 2023/03/17 version 6.0.3 text color boxes
  (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks20
 \pgfutil@tempdima=\dimen174
@@ -495,7 +493,7 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \c@nlinenum=\count311
 \TeXr@lab=\toks34
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count312
 \l__pdf_internal_box=\box72
 ) (./so.aux)
@@ -1347,15 +1345,15 @@ Package rerunfilecheck Info: File `so.out' has not changed.
 (rerunfilecheck)             Checksum: 6BD146F05CAC389F6258C4F4293C798E;17941.
  ) 
 Here is how much of TeX's memory you used:
- 25971 strings out of 476025
- 474831 string characters out of 5790018
- 1883388 words of memory out of 5000000
- 45498 multiletter control sequences out of 15000+600000
+ 26153 strings out of 476047
+ 479346 string characters out of 5790044
+ 1884999 words of memory out of 5000000
+ 45662 multiletter control sequences out of 15000+600000
  518991 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,13n,89p,2085b,1242s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,13n,89p,2085b,1243s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on so.pdf (88 pages, 11154520 bytes).
+Output written on so.pdf (88 pages, 11154530 bytes).
 PDF statistics:
  1609 PDF objects out of 1728 (max. 8388607)
  1252 compressed objects within 13 object streams
