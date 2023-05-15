@@ -219,7 +219,7 @@ Esistono cinque categorie importanti di System call:
 
 \subsubsection{Protezione delle system call}
 Fornisce meccanismi per controllare quali utenti/processi hanno accesso a quali risorse di sistema. Le chiamate di sistema consentono di regolare i meccanismi di accesso secondo necessità. Agli utenti non privilegiati può essere concesso temporaneamente un accesso elevato autorizzazioni in circostanze specifiche. 
-Quando un programma utente richiede l'esecuzione di una syscall tramite un'API fornita dal sistema operativo, tale richiesta viene prima convertita in linguaggio macchina, per poi venir gestita dal \textbf{System call Handler}, il quale si occuperà di salvare lo stato precedente dei registri, i quali verranno poi alterati durante l'esecuzione della syscall, per poi essere ripristinati. 
+Quando un programma utente richiede l'esecuzione di una syscall tramite un'API fornita dal sistema operativo, tale richiesta viene prima convertita in linguaggio macchina, per poi venir gestita dal \textbf{System call Handler}, il quale si occuperà di salvare lo stato precedente dei registri, i quali verranno poi alterati durante l'esecuzione della syscall, per poi essere ripristinati. Inoltre il codice generico è indicizzato tramite la interrupt vector table (IVT).
 
 \subsubsection{Passaggio di parametri}
 Esistono tre metodi usati per passare parametri :
@@ -321,7 +321,7 @@ In ogni momento un processo può trovarsi in uno dei seguenti cinque stati:
     \item \textbf{Ready}, il processo è pronto per essere eseguito ma attende di essere programmato sulla CPU
     \item \textbf{Running}, il processo sta effettivamente eseguendo istruzioni sulla CPU 
     \item \textbf{Waiting}, il processo è sospeso in attesa che una risorsa sia disponibile oppure fa richista di input da parte dell'utente
-    evento da completare/verificare (ad es. input da tastiera, accesso al disco, timer, ecc.)
+    evento da completare/verificare (ad es. input da tastiera, accesso al disco, timer, ecc.). Un processo è in esecuzione sulla CPU passa in stato waiting quando fa richiesta di input da parte dell'utente. 
     \item \textbf{Terminated}, il processo è terminato e il sistema operativo può distruggerlo
 \end{itemize}
 
@@ -2280,7 +2280,7 @@ Nel caso in cui debba essere caricata una pagina dal disco ma la memoria fisica 
     \item Rimpiazzo casuale, dove viene rimossa una pagina a caso
     \item \textbf{FIFO} (First in, First out), dove viene rimossa la pagina rimasta in memoria per
     il tempo maggiore. Nell'algoritmo \textbf{second chance} la pagina che dovrebbe essere eliminata viene rimessa in fondo all'elenco e il suo tempo di caricamento aggiornato come se fosse appena arrivata in memoria. Questo secondo algoritmo risulta inefficiente poichè fa scorrere di continuo le pagine lungo la sua lista.
-    \item L'algoritmo detto \textbf{clock} tiene i frame su una lista circolare a forma di orologio. La lancetta indica la pagina più vecchia. Quando avviene un page fault, la pagina indicata dalla lancetta viene controllata. Se il suo bit \textit{R} è 0 allora viene sfrattata, la nuova pagina inserita al suo posto nell'orologio, e la lancetta spostata in avanti di una posizione. Se il suo bit \textit{R} è \ viene azzerrato e la lancetta avanzata alla pagina successiva.
+    \item L'algoritmo detto \textbf{clock} tiene i frame su una lista circolare a forma di orologio. La lancetta indica la pagina più vecchia. Quando avviene un page fault, la pagina indicata dalla lancetta viene controllata. Se il suo bit \textit{R} è 0 allora viene sfrattata, la nuova pagina inserita al suo posto nell'orologio, e la lancetta spostata in avanti di una posizione. Il reference bit viene impostato a 0 e l'algoritmo prosegue ad esaminare il frame successivo nella lista. Se il suo bit \textit{R} è \ viene azzerrato e la lancetta avanzata alla pagina successiva. 
     \item \textbf{MIN (OPT)}, dove viene rimossa la pagina che non verrà acceduta per il lasso di tempo maggiore (richiede di predire il futuro, dunque è un algoritmo ottimale ma molto difficile da implementare)
     \item \textbf{LRU (Least Recently Used)}, dove viene rimossa la pagina non utilizzata per il maggior lasso di tempo. È l'algoritmo più utilizzato dagli OS moderni e può essere implementato in tre modi:
     \begin{itemize}
