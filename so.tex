@@ -374,7 +374,7 @@ Il PCB contiene:
 \subsection{Creazione di processi}
 I processi possono creare altri processi tramite specifiche chiamate di sistema. Il processo creatore è chiamato genitore del nuovo processo, chiamato figlio. Il genitore condivide risorse e privilegi con i suoi figli. Un genitore può aspettare che un figlio finisca o continuare in parallelo.\\
 A ogni processo viene assegnato un identificatore intero (noto anche come identificatore di processo o PID) e per ogni processo viene memorizzato anche il PID genitore (PPID).\\
-Sui tipici sistemi UNIX lo scheduler del processo è denominato \texttt{sched} e riceve il PID 0. La prima cosa che fa all'avvio del sistema è lanciare \texttt{init}, che dà a quel processo il PID 1. Successivamente \texttt{init} avvia tutti i daemons di sistema e i login degli utenti e diventa il genitore ultimo di tutti gli altri processi. I processi vengono creati attraverso la chiamata di sistema \texttt{\texttt{fork()}}.\\
+Sui tipici sistemi UNIX lo scheduler del processo è denominato \texttt{sched} e riceve il PID 0. La prima cosa che fa all'avvio del sistema è lanciare \texttt{init}, che dà a quel processo il PID 1. Successivamente \texttt{init} avvia tutti i daemons di sistema e i login degli utenti e diventa il genitore ultimo di tutti gli altri processi. I processi vengono creati attraverso la chiamata di sistema \texttt{fork()}.\\
 
 Tutti i processi sono uguali. L'unico indizio di gerarchia dei processi è che quando viene creato un processo, al genitore viene dato uno speciale gettone o token (detto \textbf{handle}) che può controllare il figlio invalidando la gerarchia.\\
 \begin{figure}[hbt]
@@ -409,7 +409,7 @@ Consideriamo ora questo esempio:
     int main(){
         pid_t pid;
         /* fork a child process */
-        pid = \texttt{fork()};
+        pid = fork();
         if (pid < 0) { 
             /* if the returned PID is < 0, an error occurred */
             fprintf(stderr, "Fork Failed");
@@ -421,7 +421,7 @@ Consideriamo ora questo esempio:
         }
         else {
         /* execute parent process code */
-            \dots
+            ...
             /* wait for child to terminate */
             wait(NULL)
             printf("Child terminated");
@@ -439,20 +439,20 @@ Consideriamo ora questo esempio:
 \pagebreak
 Consideriamo ora quest'altro esempio:
 \begin{lstlisting}
-    int pid = \texttt{fork()};
+    int pid = fork();
     if(pid == 0) {      // A's child (B)
-        pid = \texttt{fork()};
+        pid = fork();
         
     if(pid == 0) {      // B's child (C)
-        \dots
-        execlp(\dots);
+        ...
+        execlp(...);
     }
     else { // B 
-        \dots
+        ...
     } 
 }
 else { // A 
-    \dots
+    ...
 }
 \end{lstlisting}
 \begin{figure}[hbt]
@@ -466,16 +466,16 @@ else { // A
 
 Consideriamo ora questo esempio:
 \begin{lstlisting}
-    int pid = \texttt{fork()};
+    int pid = fork();
     if(pid == 0) {          // A's child (B)
-        \dots
-        execlp(\dots);
+        ...
+        execlp(...);
     }
     else { // A
-        pid = \texttt{fork()};
+        pid = fork();
         if(pid == 0) {      // A's child (C)
-            \dots
-            execlp(\dots);
+            ...
+            execlp(...);
         }
     }
 \end{lstlisting}
@@ -489,9 +489,9 @@ Consideriamo ora questo esempio:
 Consideriamo ora quest'altro esempio:
 \begin{lstlisting}
     for(int i=0;i<n;i++) {
-        if(\texttt{fork()} == 0) { // A0's child
-            \dots
-            execlp(\dots);
+        if(fork() == 0) { // A0's child
+            ...
+            execlp(...);
         }
   }
   // back in the parent A0
