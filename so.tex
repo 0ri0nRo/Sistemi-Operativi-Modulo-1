@@ -2662,7 +2662,7 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
 \section{Esercizi \& Hack}
 \begin{itemize}
     \item Il tempo di trasferimento totale per un'operazione di I/O da disco magnetico è pari a 30 msec. Sapendo che il seek time complessivo è pari a 18 msec, il rotational delay complessivo è pari a 7 msec e che il transfer rate è pari a 1.5 Gbit/sec, qual è la quantità totale di dati trasferita? \par(Si ricordi che 1 B = 1 byte = 8 bit e 1 MB =$10^{3}$ KB = $10^{6}$ B)\par
-    Svolgimento:\par
+    \textbf{Svolgimento:}:\par
     DTT = 30 msec\par
     Seek Time: 10 msec\par
     Rotation Delay: 7 msec\par
@@ -2680,8 +2680,25 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
     \end{center}
 
     \item Data una memoria fisica composta da 3 frame fisici e un processo composto da 5 pagine virtuali: A, B, C, D, E, si calcoli il numero di page fault che si verificano a fronte delle seguenti richieste da parte del processo: A, B, E, C, E, D, D, A, B. Si assuma che nessuna pagina del processo sia inizialmente caricata in memoria e che si utilizzi un algoritmo FIFO di sostiuzione delle pagine.\par
-    Svolgimento:\par
+    \textbf{Svolgimento:}:\par
     Leggiamo il numero di caratteri e inseriamo nei nostri 3 frame fisici i primi tre elmenti: A, B, E. Il nostro contatore $\alpha$ dei page fault si trova a +3. Successivamente togliamo A che sta dentro da più tempo e inseriamo il prossimo carattere (che non deve essere già presente nei nostri 3 frame). In questo caso inseriamo C. Quindi ora abbiamo C B E e incrementiamo $\alpha$ +1. Leggiamo il prossimo carattere D e lo sostituiamo a B che sta dentro da più tempo e incrementiamo $\alpha$ +1. Ora abbiamo C D E e sostituiamo C con con A e incrementiamo $\alpha$ +1, e ora abbiamo nei nostre 3 frame A D E. Infine togliamo E e leggiamo B e incrementiamo $\alpha$ +1. Il contatore dei page fault $\alpha$ = 7.
+    \item Si consideri un sistema operativo che utilizza indirizzi logici da 21 bit, indirizzo fisico da 16 bit e memoria paginata in cui ciascuna pagina ha dimensione 2 KiB (2048 bytes). Qual è la dimensione massima di memoria fisica supportata dal sistema?\par
+    \textbf{Svolgimento:}:\par
+    \begin{center}
+        $21-16 = 5$ \par
+        $2^{5} = 32$\par
+        $\frac{2048}{32} = 64$\par
+    \end{center}
+    \item Si supponga di avere una memoria M di capacità pari a 4 KiB, ossia 4,096 bytes. Assumendo che l'indirizzamento avvenga con lunghezza di parola (word size) pari 2 bytes e che M utilizzi una gestione paginata con blocchi di dimensione pari a S = 128 bytes, quanti bit sono necessari per identificare l'indice di pagina (p) e l'offset (interno alla pagina), rispettivamente?\par
+    \textbf{Svolgimento:}\par
+    4096 = $2^{12}$\par
+    128 = $2^{7}$\par
+    $p$ = 12 - 7 = 5\par
+    $offset$ = 128 / 2 = 64 = $2^{6}$\par
+    \pagebreak
+    \item Si consideri una memoria M di capacità pari a 100 bytes con frame di dimensione pari a 10 bytes. Dato l'indirizzo del byte 37, quale sarà l'indirizzo di pagina (p) e l'offset (interno alla pagina).
+    \textbf{Svolgimento:}\par
+
 \end{itemize}
 \end{document}
 
