@@ -2700,6 +2700,23 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
     \textbf{Svolgimento:}\par
     $p$ = 37 / 10 = 3\par
     $offset$ = 37 - (3 $\cdot$ 10) = 7\par
+    \item Si supponga che il tempo di accesso alla memoria fisica sia $t_{MA}$ = 50 nsec. e che il tempo per la gestione di un page fault $t_{FAULT}$ sia pari a 15 msec.Assumendo che la probabilità che si verifichi un page fault sia P = 0.0002, qual è il tempo complessivo atteso di accesso alla memoria?\par
+    \textbf{Svolgimento:}\par
+    $t_{MA}$ = 50 nsec\par
+    $t_{FAULT}$ = 15 msec = 15 $\cdot$ 1000000 = 15000000 microsec\par
+    p = 0.0002\par
+    \begin{equation}
+        t_{ACCESS} = (1 - p) \cdot t_{MA} + p \cdot t_{FAULT}
+    \end{equation}
+    Quindi:\par
+    $t_{ACCESS}$ = (1 - 0,0002) $\cdot$ 50 ns + 0,0002 $\cdot$ (15 $\cdot$ 1000000) = 3050 ns = 3.05 microsec
+
 \end{itemize}
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/conversioni}}
+        \caption{Tabella conversioni}d
+    \end{center}
+\end{figure}  
 \end{document}
 
