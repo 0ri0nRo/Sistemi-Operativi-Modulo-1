@@ -2668,7 +2668,7 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
     Rotation Delay: 7 msec\par
     Transfer Rate: 1.5 Gbit/sec\par
     \begin{equation}
-        DTT = Seek Time + Rotation Delau + \frac{x}{Transfer Rate}
+        DTT = Seek Time\ + Rotation\ Delay +\ \frac{x}{Transfer\ Rate}
     \end{equation}
     quindi:\par
     \begin{center}
@@ -2678,6 +2678,10 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
         x = 5 $\cdot$ $10^{-3}$ $\cdot$ 1.5 $\cdot$ $10^{9}$ bit/s\par
         x = 7.5 $\cdot$ $10^{6}$ bit/s = 7.5 mb/s
     \end{center}
+
+    \item Data una memoria fisica composta da 3 frame fisici e un processo composto da 5 pagine virtuali: A, B, C, D, E, si calcoli il numero di page fault che si verificano a fronte delle seguenti richieste da parte del processo: A, B, E, C, E, D, D, A, B. Si assuma che nessuna pagina del processo sia inizialmente caricata in memoria e che si utilizzi un algoritmo FIFO di sostiuzione delle pagine.\par
+    Svolgimento:\par
+    Leggiamo il numero di caratteri e inseriamo nei nostri 3 frame fisici i primi tre elmenti: A, B, E. Il nostro contatore $\alpha$ dei page fault si trova a +3. Successivamente togliamo A che sta dentro da più tempo e inseriamo il prossimo carattere (che non deve essere già presente nei nostri 3 frame). In questo caso inseriamo C. Quindi ora abbiamo C B E e incrementiamo $\alpha$ +1. Leggiamo il prossimo carattere D e lo sostituiamo a B che sta dentro da più tempo e incrementiamo $\alpha$ +1. Ora abbiamo C D E e sostituiamo E con con A e incrementiamo $\alpha$ +1, e ora abbiamo nei nostre 3 frame C D A. Infine togliamo C e leggiamo B e incrementiamo $\alpha$ +1. Il contatore dei page fault $\alpha$ = 7.
 \end{itemize}
 \end{document}
 
