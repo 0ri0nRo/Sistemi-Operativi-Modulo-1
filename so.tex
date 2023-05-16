@@ -1606,7 +1606,7 @@ Consideriamo il famoso problema dei filosofi a cena:
     \item Tale soluzione presenta alcune problematiche: nel caso in cui ogni filosofo prenda in mano la bacchetta sinistra in contemporaneamente agli altri, si andrebbe a creare un \textbf{deadlock}, dove ogni filosofo rimarrebbe in attesa che la bacchetta destra sia libera.
     \item Per far si che non si crei un deadlock e che vi sia concorrenza tra i filosofi, una terza soluzione prevede l'uso dei \textbf{monitor}: prima di prendere in mano una delle due bacchette, è necessario assicurarsi che la seconda sia libera, altrimenti sarà necessario aspettare che entrambe siano libere. Dunque, sarà necessario controllare se il filosofo alla propria destra e il filosofo alla propria sinistra stiano mangiano oppure no (variabili condizionate), portando nessun filosofo a prender in mano una singola bacchetta.
 \end{itemize}
-I problemi che abbiamo visto finora sono interessanti perché identificano alcuni modelli che sono molto comuni nella pratica: \textbf{Produttore-Consumatore},  \textbf{Lettore audio/video} incorporato in un browser Web che contiene un buffer dati condiviso + rete e rendering, Lettore-Scrittore (E.g sistema bancario: read vs. update account balances), oppure i \textbf{Filosofi a tavola} che bloccano più risorse: (ad esempio, prenotazioni di viaggi (hotel, compagnie aeree, database di autonoleggio)).
+I problemi che abbiamo visto finora sono interessanti perché identificano alcuni modelli che sono molto comuni nella pratica: \textbf{Produttore-Consumatore},  \textbf{Lettore audio/video} incorporato in un browser Web che contiene un buffer dati condiviso + rete e rendering, Lettore-Scrittore (E.g sistema bancario: read vs. update account balances), oppure i \textbf{Filosofi a tavola} che bloccano più risorse: (ad esempio, prenotazioni di viaggi (hotel, compagnie aeree, database di autonoleggio)). 
 
 \subsubsection{Cos'è un deadlock}
 Intuitivamente, una condizione in cui due o più thread sono in attesa di un evento che può essere generato solo dagli stessi thread. I deadlock possono verificarsi sia su risorse hardware sia su risorse software. Si può verificare quando più thread competono per un numero finito di risorse:
@@ -1616,7 +1616,7 @@ Intuitivamente, una condizione in cui due o più thread sono in attesa di un eve
     programmi senza deadlock
     \item Evitamento dei deadlock (online): il supporto runtime controlla le richieste di risorse effettuate dai thread per evitare i deadlock
 \end{itemize}
-Il \textbf{deadlock} è diverso dalla \textbf{starvation} i termini correlati ma ognuno si riferisce a una situazione specifica. La starvation si verifica quando un thread attende a tempo indeterminato una risorsa, ma altri thread stanno effettivamente facendo progressi utilizzando quella risorsa. La \textbf{differenza principale} con deadlock è che il sistema non è completamente bloccato. \\
+Il \textbf{deadlock} è diverso dalla \textbf{starvation} i termini correlati ma ognuno si riferisce a una situazione specifica. La starvation si verifica quando un thread attende a tempo indeterminato una risorsa, ma altri thread stanno effettivamente facendo progressi utilizzando quella risorsa. La \textbf{differenza principale} con deadlock è che il sistema non è completamente bloccato (starvation), mentre con il deadlock il sistema rimane completamente bloccato \\
 
 Il deadlock può verificarsi se tutte e quattro le condizioni sottostanti sono soddisfatte:
 \begin{itemize}
@@ -2395,7 +2395,6 @@ Poiché il sistema operativo riceve costanti richieste di lettura e scrittura da
 L'algoritmo \textbf{First Come First Served (FCFS)} è un algoritmo di scheduling del disco in cui le richieste di accesso al disco vengono effettuate nel loro ordine di arrivo nella coda di richieste.\par
 Pro:
 \begin{itemize}
-    \item 
     \item Facile da implementare
     \item Utilizzato anche dagli SSD poiché in tali tipologie di memorie non è richiesto alcun movimento meccanico, dunque il seek time è nullo
 \end{itemize}
