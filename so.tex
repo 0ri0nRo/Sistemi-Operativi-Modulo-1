@@ -2722,7 +2722,7 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
     \end{center}
     \item Si consideri un disco magnetico composto da 100 cilindri/tracce, numerati da 0 a 99 (0 indice del cilindro/traccia più esterno/a rispetto al centro del disco), la cui testina si trova inizialmente sul cilindro 11. Si calcoli il numero di cilindri/tracce attraversate dalla testina del disco, assumendo che la sequenza di richieste: 24, 16, 77, 49, 82 venga gestita da un algoritmo di scheduling \textbf{SCAN (non-ottimizzato)}, che la testina si stia muovendo verso l'esterno (i.e., verso i cilindri con numeri più bassi) e trascurando il tempo di rotazione.\par
     \textbf{Svolgimento:}\par
-    Si parte da 11 e si scende verso il valore più piccolo (in questo caso 11) e poi si risale:
+    Si parte da 11 e si scende verso lo 0 e poi si risale:
     \begin{center}
         D = 0 +  $|$ 0 - 11$|$  = 11\par
         D = 11 + $|$ 16 - 0$|$  = 27\par
@@ -2731,6 +2731,31 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
         D = 60 + $|$ 77 - 49$|$ = 88\par
         D = 88 + $|$ 82 - 77$|$ = 93\par
     \end{center}
+    \pagebreak
+    \item Si consideri un disco magnetico composto da 128 cilindri/tracce, numerati da 0 a 127 (O indice del cilindro/traccia pi esterno/a rispetto al centro del disco), la cui testina si trova inizialmente sul cilindro 31. Si calcoli il numero di cilindri attraversate dalla testina del disco, assumendo che la sequenza di richieste: 42, 37, 27, 104, 68 venga gestita da un algoritmo di scheduling \textbf{SCAN (ottimizzato)}, che la testina si stia muovendo verso l'esterno (i.e., verso i cilindri con numeri più bassi)trascurando il tempo di rotazione.\par
+    \textbf{Svolgimento:}\par
+    \begin{center}    
+        D = 0 + $|$ 31 - 27 $|$   = 45\par
+        D = 4 + $|$ 37 - 27 $|$  = 130 \par
+        D = 14 + $|$ 42 - 37 $|$ = 276 \par
+        D = 19 + $|$ 68 - 42 $|$ = 361\par
+        D = 45 + $|$ 104 - 68 $|$ = 469 \par
+    \end{center}
+
+    \item Si consideri un disco magnetico composto da 200 cilindri/tracce, numerati da 0 a 199(0 indice del cilindro/traccia più esterno/a rispetto al centro del disco), la cui testina si trova inizialmente sul cilindro 53. Si calcoli il numero di cilindri/tracce attraversate dalla testina del disco, assumendo che la sequenza di richieste: 98,183,37, 122, 14,65,67 venga gestita da un algoritmo di scheduling \textbf{FCFS (First Come First Served)} e trascurando il tempo di rotazione.\par
+    \textbf{Svolgimento:}\par
+    L'algoritmo FCFS prevede che vengano analizzate le pagine in ordine 98, 183, 37, 122, 14, 65, 67 partendo da 53:\par
+    \begin{center}
+        D = 0 + $|$ 53 - 98 $|$   = 45\par
+        D = 45 + $|$ 98 - 183 $|$  = 130 \par
+        D = 130 + $|$ 183 - 37 $|$ = 276 \par
+        D = 276 + $|$ 37 - 122 $|$ = 361\par
+        D = 361 + $|$ 122 - 14 $|$ = 469 \par
+        D = 469 + $|$ 14 - 65 $|$ = 520 \par
+        D = 520 + $|$ 65 - 67 $|$  = 522 \par
+    \end{center}
+
+
 
 \end{itemize}
 \begin{figure}[hbt]
