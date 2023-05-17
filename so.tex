@@ -2457,7 +2457,7 @@ L'algoritmo \textbf{LOOK} corrisponde ad una versione ottimizzata dello SCAN, do
         \item La testina viene mossa da 30 a 18, dunque vengono traversate 12 tracce
         \item La testina viene mossa da 18 a 0 per poter raggiungere l'estremo, dunque
         vengono traversate 18 tracce
-        \item Latestinavienemossada0a40,poida40a65einfineda65a78,dunque vengono traversate 78 tracce
+        \item La testina viene mossa da 0 a 40, poi da 40 a 65 e infine da 65 a 78,dunque vengono traversate 78 tracce
     \end{itemize}
     \item La distanza percorsa, ossia il numero totale di tracce traversate, corrisponde a
    \begin{center}
@@ -2719,6 +2719,17 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
         D = 13 + $|$ 74 - 55$|$  = 32\par
         D = 32 + $|$ 81 - 74$|$  = 39\par
         D = 39 + $|$ 81 - 32$|$  = 88\par
+    \end{center}
+    \item Si consideri un disco magnetico composto da 100 cilindri/tracce, numerati da 0 a 99 (0 indice del cilindro/traccia più esterno/a rispetto al centro del disco), la cui testina si trova inizialmente sul cilindro 11. Si calcoli il numero di cilindri/tracce attraversate dalla testina del disco, assumendo che la sequenza di richieste: 24, 16, 77, 49, 82 venga gestita da un algoritmo di scheduling \textbf{SCAN (non-ottimizzato)}, che la testina si stia muovendo verso l'esterno (i.e., verso i cilindri con numeri più bassi) e trascurando il tempo di rotazione.\par
+    \textbf{Svolgimento:}\par
+    Si parte da 11 e si scende verso il valore più piccolo (in questo caso 11) e poi si risale:
+    \begin{center}
+        D = 0 +  $|$ 0 - 11$|$  = 11\par
+        D = 11 + $|$ 16 - 0$|$  = 27\par
+        D = 27 + $|$ 24 - 16$|$ = 35\par
+        D = 35 + $|$ 49 - 24$|$ = 60\par
+        D = 60 + $|$ 77 - 49$|$ = 88\par
+        D = 88 + $|$ 82 - 77$|$ = 93\par
     \end{center}
 
 \end{itemize}
