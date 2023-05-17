@@ -2710,13 +2710,23 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
     \end{equation}
     Quindi:\par
     $t_{ACCESS}$ = (1 - 0,0002) $\cdot$ 50 ns + 0,0002 $\cdot$ (15 $\cdot$ 1000000) = 3050 ns = 3.05 microsec
-
-\end{itemize}
-\begin{figure}[hbt]
+    \end{itemize}
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/conversioni}}
+            \caption{Tabella conversioni}
+        \end{center}
+    \end{figure}    
+    \item Si consideri un disco magnetico composto da 128 cilindri/tracce, numerati da O a 127 (O indice del cilindro/traccia più esterno/a rispetto al centro del disco), la cui testina si trova inizialmente sul cilindro 42. Si calcoli il numero di cilindri/tracce attraversate dalla testina del disco, assumendo che la sequenza di richieste: 74, 50, 32, 55, 81 venga gestita da un algoritmo di scheduling \textbf{SSTF} (Shortest Seek Time First) e trascurando il tempo di rotazione.
+    \textbf{Svolgimento:}\par
+    Sceglie la richiesta più vicina alla posizione della testina. Abbiamo le richieste: 74, 50, 32, 55, 81 con posizione attuale a 42: 
     \begin{center}
-        \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/conversioni}}
-        \caption{Tabella conversioni}
+        D = 0 + |50 - 42| = 8\par
+        D = 8 + |50 - 55| = 13\par
+        D = 13 + |74 - 55| = 32\par
+        D = 32 + |81 - 74| = 39\par
+        D = 39 + |81 - 32| = 88\par
     \end{center}
-\end{figure}  
+
 \end{document}
 
