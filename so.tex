@@ -638,7 +638,7 @@ Un algoritmo di scheduling \textbf{preemptive}\footnote{Nota: uno scheduler pree
 \subsubsection{Problemi}
 Preemption potrebbe causare problemi se si verifica mentre il kernel è impegnato nell'implementazione di una system call (ad esempio, l'aggiornamento dei dati critici del kernel strutture) oppure due processi condividono dati, uno può essere interrotto durante l'aggiornamento di strutture dati condivise. Ci sono però possibili \textbf{soluzioni}, si può fare in modo che il processo attenda finché la chiamata di sistema non è stata completata o bloccata prima di concedere la preemption (problematico per i sistemi in tempo reale, poiché la risposta in tempo reale non può più essere garantita) oppure disabilitare gli interrupt prima di entrare nella sezione del codice critico e riabilitarli subito dopo (dovrebbe essere fatto solo in rare situazioni e solo su parti di codice molto brevi che finiranno rapidamente). \\
 \subsection{Il Dispatcher}
-Il dispatcher è il modulo che dà il controllo della CPU al processo selezionato dallo scheduler. Esso legge le richieste di lavoro in arrivo e dopo aver esaminato la richiesta, sceglie un \textbf{thread worker inattivo} (cioè bloccato) e gli fa gestier la richiesta scrivendo eventualmente un puntatore al messaggio all'interno di una parola seciale associata a ogni thread. Il dispatcher risveglia così il worker dormiente facnedo passare dallo stato di "\textit{bloccato}" a quello di "\textit{ready}".\\
+Il dispatcher è il modulo che dà il controllo della CPU al processo selezionato dallo scheduler. Esso legge le richieste di lavoro in arrivo e dopo aver esaminato la richiesta, sceglie un \textbf{thread worker inattivo} (cioè bloccato) e gli fa gestier la richiesta scrivendo eventualmente un puntatore al messaggio all'interno di una parola seciale associata a ogni thread. Il dispatcher risveglia così il worker dormiente facendo passare dallo stato di "\textit{bloccato}" a quello di "\textit{ready}".\\
 Ha il compito di:
 \begin{itemize}
     \item Cambio di contesto
@@ -2715,7 +2715,7 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
 \begin{figure}[hbt]
     \begin{center}
         \includegraphics[width=0.6\textwidth,keepaspectratio]{{im/conversioni}}
-        \caption{Tabella conversioni}d
+        \caption{Tabella conversioni}
     \end{center}
 \end{figure}  
 \end{document}
