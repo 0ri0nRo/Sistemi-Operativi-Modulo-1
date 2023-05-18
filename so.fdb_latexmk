@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1684391661 "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" "so.pdf" "so" 1684391668 0
-  "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" 1684391660 208297 b324fa19e0b38595fff3cb9e4decb21d ""
+["pdflatex"] 1684416942 "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" "so.pdf" "so" 1684416949 0
+  "/Users/alex/Desktop/informatica/Secondo Anno/SO1/Sistemi-Operativi1-Appunti/so.tex" 1684416936 211227 4ea8014f5e21f5b4b58ec0de28e404de ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcbx1000.tfm" 1136768653 1536 30fde759286ded71559881bfa2623939 ""
@@ -173,12 +173,14 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1684082542 4643411 5ced174c6d521e21dd58a10751c00482 ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1683877111 7890103 72e55b3e106fb89cfef298da55425427 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
+  "im/153322.png" 1684416808 150807 4bd08988eff875ec28f649a1ca3e99a0 ""
   "im/1_3.png" 1681892917 111157 ea76df958fe43c0dd42bd268055a5a31 ""
   "im/1m.png" 1682581735 84506 f901ef7fcf9a1fb905051e69cbb5c465 ""
   "im/2m.png" 1682581740 72082 ddd58e6e274699ad85e67a8d5c28776d ""
   "im/3m.png" 1682581746 96003 82c69ed1e3fad8a857e8220ff65494c7 ""
   "im/4m.png" 1682581753 101138 b09737cf19a4d71f92550adfd2eb707a ""
   "im/PCB.png" 1682000129 161757 6e48306f5697b25f7c15ae3c56a0b027 ""
+  "im/SJF.png" 1684416352 39801 2c5d06245fcc3b70624e5410ea29f904 ""
   "im/bob.png" 1682586974 100942 8331ae11777d94ab84b27aa8e15fb045 ""
   "im/bw.png" 1682588293 122586 32c6ed1d1f049090f0243134c09e4cfa ""
   "im/compa1.png" 1683102798 111975 9e0b35c56d34b49b29d30d18e1de83e3 ""
@@ -279,10 +281,10 @@
   "im/ut.png" 1682581144 129830 1f9fb4569c291a9598094dba0686dfb9 ""
   "im/virtualaddress.png" 1681994681 1024441 5ef66f39822b99a35e5f1bb198f34118 ""
   "im/virtualm.png" 1681897518 67346 963e98360eb2884c03b77eff11019f46 ""
-  "so.aux" 1684391668 29967 b35fffc415ec841fd7de61658c7be247 "pdflatex"
-  "so.out" 1684391668 18070 bbd3f39362d6ff723b76145954a407ec "pdflatex"
-  "so.tex" 1684391660 208297 b324fa19e0b38595fff3cb9e4decb21d ""
-  "so.toc" 1684391668 9679 a92a1fd632d17c9e4f50bc75f74f2ee3 "pdflatex"
+  "so.aux" 1684416949 30260 139ef3e895c0ddfdf8322ea2d9f51f77 "pdflatex"
+  "so.out" 1684416949 18032 5ca78d05f18c368d008b46a9989b83b3 "pdflatex"
+  "so.tex" 1684416936 211227 4ea8014f5e21f5b4b58ec0de28e404de ""
+  "so.toc" 1684416949 9672 5b324aab4bd0529d3edd2fa672b73509 "pdflatex"
   (generated)
   "so.aux"
   "so.log"

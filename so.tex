@@ -1079,7 +1079,7 @@ Per gestire gli spostamenti, l'algoritmo utilizza le seguenti regole:
     \end{itemize}
 \end{enumerate}
 
-\subsubsection{Extra: Lottery scheduling}
+\subsubsection{Lottery scheduling}
 L'algoritmo \textbf{lottery scheduling} è un algoritmo di scheduling basato sulla casualità:
 \begin{enumerate}
     \item Ad ogni job vengono assegnati un determinato numero di biglietti. I job attivi da poco riceverrano più biglietti, mentre quelli attivi da molto ne riceveranno di meno. Per evitare la starvation, ad ogni job viene assegnato almeno un biglietto
@@ -2252,7 +2252,7 @@ In questo modo, il principio di località dei riferimenti aiuta a minimizzare il
     Di conseguenza, possiamo tollerare un massimo di un page fault ogni circa 2 milioni di accessi
 \end{itemize}
 
-Più generalmente, dati $t_{MA}$, $t_{FAULT}$ e una soglia $\epsilon$ > 0 tale che:
+Più generalmente, dati $t_{MA}$, $t_{FAULT}$ e una soglia $\epsilon >$ 0 tale che:
 \begin{equation}
     t_{ACCESS} =(1+\epsilon) \cdot t_{MA}
 \end{equation}
@@ -2700,10 +2700,24 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
             \item E B D = 1
         \end{itemize}
     \end{center}
+    \item Si consideri un sistema che utilizza uno scheduler randomizzato (lottery scheduler) e che suddivide i processi in A, B e C. A ciascun processo di ogni categoria vengono assegnati rispettivamente 5, 3 e 1 ticket. Assumendo che vi siano 10 processi di tipo A, 5 di tipo B e 3 di tipo C, qual è la stima della probabilità che lo scheduler assegni al processo di tipo A?\par
+    \textbf{Svolgimento:}:\par
+    Per calcolare la probabilità che uno scheduler randomizzato (lottery scheduler) assegni un processo di tipo A, dobbiamo considerare il numero totale di biglietti nel sistema.
 
+    Nello scenario, ci sono 10 processi di tipo A, a ciascuno dei quali sono assegnati 5 biglietti, quindi il totale di biglietti per i processi di tipo A è 10 * 5 = 50.
+    
+    Allo stesso modo, ci sono 5 processi di tipo B con 3 biglietti ciascuno, per un totale di 5 * 3 = 15 biglietti, e 3 processi di tipo C con 1 biglietto ciascuno, per un totale di 3 * 1 = 3 biglietti.
+    
+    In totale, ci sono 50 + 15 + 3 = 68 biglietti nel sistema.
+    
+    La probabilità che uno scheduler randomizzato assegni un processo di tipo A sarà quindi il rapporto tra il numero di biglietti assegnati ai processi di tipo A e il numero totale di biglietti nel sistema.
+    \begin{center}
+        Probabilità = $\frac{Biglietti di tipo A}{Totale dei biglietti nel sistema}$
+    \end{center}
+    In questo caso avremo = $\frac{50}{68}$ $\approx$ 0.735 (o 73.5\%)
 
     \item Si consideri un sistema operativo che utilizza indirizzi logici da 21 bit, indirizzo fisico da 16 bit e memoria paginata in cui ciascuna pagina ha dimensione 2 KiB (2048 bytes). Qual è la dimensione massima di memoria fisica supportata dal sistema?\par
-    \textbf{Svolgimento:}:\par
+    \textbf{Svolgimento:}\par
     \begin{center}
         $21-16 = 5$ \par
         $2^{5} = 32$\par
@@ -2761,7 +2775,7 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
         D = 19 + $|$ 68 - 42 $|$ = 361\par
         D = 45 + $|$ 104 - 68 $|$ = 469 \par
     \end{center}
-    
+    \pagebreak
     
     \item Si consideri un disco magnetico composto da 200 cilindri/tracce, numerati da 0 a 199(0 indice del cilindro/traccia più esterno/a rispetto al centro del disco), la cui testina si trova inizialmente sul cilindro 53. Si calcoli il numero di cilindri/tracce attraversate dalla testina del disco, assumendo che la sequenza di richieste: 98,183,37, 122, 14,65,67 venga gestita da un algoritmo di scheduling \textbf{FCFS (First Come First Served)} e trascurando il tempo di rotazione.\par
     \textbf{Svolgimento:}\par
@@ -2775,9 +2789,27 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
         D = 469 + $|$ 14 - 65 $|$ = 520 \par
         D = 520 + $|$ 65 - 67 $|$  = 522 \par
     \end{center}
+    \item Calcolare il tempo medio di attesa (average waiting time) dei seguenti processi, assumendo una politica di scheduling Shortest Job First preemptive (SJF). Nel calcolo, si consideri trascurabile il tempo necessario ad eseguire il
+    context switch:\par
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.3\textwidth,keepaspectratio]{{im/SJF}}
+            \caption{Tabella conversioni}
+        \end{center}
+    \end{figure}  
+    \textbf{Svolgimento:}\par
+    Iniziamo da A e inseriamo i sue valori fino all'inizio di B. Una volta che il processo B viene creato, il suo CPU burst stimato, ossia 4, viene comparato con il CPU burst rimanente del processo A, ossia 7. Poichè 4 $<$ 7, allora il processo B prende controllo della CPU. Analogamente, nell'istante in cui il processo C viene creato, il suo CPU burst stimato, ossia 9, viene comparato con quello rimanente del processo A, ossia 6, e quello del processo B, ossia 3. Siccome 3 $<$ 7 $<$ 9, allora il processo B mantiene il controllo della CPU. Lo stesso ragionamento viene effettuato anche dopo la creazione del processo D, dove il processo B mantiene il controllo (2 $<$ 7 $<$ 5 $<$ 9).\par
+    Di conseguenza, il processo B verr`a eseguito fino al suo completamento.\par
+    \begin{figure}[hbt]
+        \begin{center}
+            \includegraphics[width=0.3\textwidth,keepaspectratio]{{im/153322}}
+            \caption{Tabella conversioni}
+        \end{center}
+    \end{figure}  
 
 
 
+    
 \end{itemize}
 \begin{figure}[hbt]
     \begin{center}

@@ -40,7 +40,7 @@
 \contentsline {subsubsection}{\numberline {2.12.8}Multilevel Queue (MLQ e MLFQ)}{34}{subsubsection.2.12.8}%
 \contentsline {subsubsection}{\numberline {2.12.9}Esempio di suddivisione tramite MLQ e MLFQ:}{34}{subsubsection.2.12.9}%
 \contentsline {subsubsection}{\numberline {2.12.10}Esempio}{35}{subsubsection.2.12.10}%
-\contentsline {subsubsection}{\numberline {2.12.11}Extra: Lottery scheduling}{36}{subsubsection.2.12.11}%
+\contentsline {subsubsection}{\numberline {2.12.11}Lottery scheduling}{36}{subsubsection.2.12.11}%
 \contentsline {subsection}{\numberline {2.13}Thread e Multi-threading}{37}{subsection.2.13}%
 \contentsline {subsubsection}{\numberline {2.13.1}Vantaggi}{37}{subsubsection.2.13.1}%
 \contentsline {subsubsection}{\numberline {2.13.2}Programmazione Multi-core}{38}{subsubsection.2.13.2}%
