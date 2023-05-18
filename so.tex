@@ -2282,7 +2282,11 @@ Nel caso in cui debba essere caricata una pagina dal disco ma la memoria fisica 
     il tempo maggiore. Nell'algoritmo \textbf{second chance} la pagina che dovrebbe essere eliminata viene rimessa in fondo all'elenco e il suo tempo di caricamento aggiornato come se fosse appena arrivata in memoria. Questo secondo algoritmo risulta inefficiente poichè fa scorrere di continuo le pagine lungo la sua lista.
     \item L'algoritmo detto \textbf{clock} tiene i frame su una lista circolare a forma di orologio. La lancetta indica la pagina più vecchia. Quando avviene un page fault, la pagina indicata dalla lancetta viene controllata. Se il suo bit \textit{R} è 0 allora viene sfrattata, la nuova pagina inserita al suo posto nell'orologio, e la lancetta spostata in avanti di una posizione. Il reference bit viene impostato a 0 e l'algoritmo prosegue ad esaminare il frame successivo nella lista. Se il suo bit \textit{R} è \ viene azzerrato e la lancetta avanzata alla pagina successiva. 
     \item \textbf{MIN (OPT)}, dove viene rimossa la pagina che non verrà acceduta per il lasso di tempo maggiore (richiede di predire il futuro, dunque è un algoritmo ottimale ma molto difficile da implementare)
-    \item \textbf{LRU (Least Recently Used)}, dove viene rimossa la pagina non utilizzata per il maggior lasso di tempo. È l'algoritmo più utilizzato dagli OS moderni e può essere implementato in tre modi:
+    \item \textbf{LRU (Least Recently Used)\footnote{Indipendentemente da come LRU venga implementato, noi facciamo riferimento all'algoritmo LRU esatto che è piuttosto semplice. Dato lo stato attuale della memoria (piena) e una nuova richiesta di una pagina che non è presente in memoria, si rimpiazza quella pagina che è stata riferita meno recentemente. 
+    Ad esempio, supponi che la memoria, a un certo istante t, contenga i frame: A, B, C. Inoltre, la memoria è piena, per cui se all'istante t+1 viene richiesta la pagina D (che non si trova in memoria!) le si deve "far posto", rimpiazzandola con uno dei frame allocati, ossia uno tra A, B e C.
+    A questo punto, LRU controlla cos'è accaduto in passato: t-1, t-2, ...
+    Supponi che la sequenza di accessi fino al tempo t-1 sia: B, C, C, A, B, C, A
+    Dobbiamo trovare il frame che è stato riferito meno recentemente. Ebbene, A è stato riferito al tempo t-1, C al tempo t-2 e B al tempo t-3. Ne segue che la pagina "sacrificabile" è proprio B, in quanto è stata richiesta più indietro nel tempo. Fonte: Prof}}, dove viene rimossa la pagina non utilizzata per il maggior lasso di tempo. È l'algoritmo più utilizzato dagli OS moderni e può essere implementato in tre modi:
     \begin{itemize}
         \item Tramite un \textbf{singolo bit di riferimento}, dove viene mantenuto un singolo bit per ogni entrata della page table, il quale viene impostato a 0 inizialmente (dunque anche dopo ogni pulizia della page table) e viene impostato ad 1 nel caso in cui venga fatto un accesso alla pagina associata.
         Durante la rimozione, viene scartata una delle pagine impostate a 0.
@@ -2679,9 +2683,25 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
         x = 7.5 $\cdot$ $10^{6}$ bit/s = 7.5 mb/s
     \end{center}
 
-    \item Data una memoria fisica composta da 3 frame fisici e un processo composto da 5 pagine virtuali: A, B, C, D, E, si calcoli il numero di page fault che si verificano a fronte delle seguenti richieste da parte del processo: A, B, E, C, E, D, D, A, B. Si assuma che nessuna pagina del processo sia inizialmente caricata in memoria e che si utilizzi un algoritmo FIFO di sostiuzione delle pagine.\par
+    \item Data una memoria fisica composta da 3 frame fisici e un processo composto da 5 pagine virtuali: A, B, C, D, E, si calcoli il numero di page fault che si verificano a fronte delle seguenti richieste da parte del processo: A, B, E, C, E, D, D, A, B. Si assuma che nessuna pagina del processo sia inizialmente caricata in memoria e che si utilizzi un algoritmo \textbf{FIFO} di sostiuzione delle pagine.\par
     \textbf{Svolgimento:}:\par
     Leggiamo il numero di caratteri e inseriamo nei nostri 3 frame fisici i primi tre elmenti: A, B, E. Il nostro contatore $\alpha$ dei page fault si trova a +3. Successivamente togliamo A che sta dentro da più tempo e inseriamo il prossimo carattere (che non deve essere già presente nei nostri 3 frame). In questo caso inseriamo C. Quindi ora abbiamo C B E e incrementiamo $\alpha$ +1. Leggiamo il prossimo carattere D e lo sostituiamo a B che sta dentro da più tempo e incrementiamo $\alpha$ +1. Ora abbiamo C D E e sostituiamo C con con A e incrementiamo $\alpha$ +1, e ora abbiamo nei nostre 3 frame A D E. Infine togliamo E e leggiamo B e incrementiamo $\alpha$ +1. Il contatore dei page fault $\alpha$ = 7.
+    \item Data una memoria composta da 3 frame fisici e un processo composto da 5 pagine virtuali: A, B, C, D, E, si calcoli il numero di page fault che si verificano a fronte delle seguenti richieste da parte del processo: B, C, C, B, A, E, B, A, E, D, B. Si assuma che nessuna pagina del processo sia inizialmente caricata in memoria e che si utilizzi un algoritmo \textbf{LRU} di sostituzione delle pagine.\par
+    \textbf{Svolgimento:}\par
+    Se la sequenza è: B C C B A E B A E D B\par
+    Inizialmente abbiamo 3 page fault, derivanti dal fatto che carichi B, C e A.
+    Alla richiesta di E, hai un page fault ma la pagina che LRU rimpiazza non è B, bensì C. Infatti, tra le tre pagine candidate ad essere rimpiazzate (A, B, C), A è quella che viene richiesta immediatamente prima di E, B viene richiesta subito prima di A e, infine, la terzultima è C. Quindi il nuovo stato della memoria sarà E B A e non C A E.
+    Una confusione derivi dal fatto che B viene richiesta in assoluto per prima, ma quello a cui bisogna fare attenzione è che B viene richiesta anche successivamente e dopo C.\par
+    \begin{center}
+        \begin{itemize}
+            \item B C A = 3
+            \item C A E = 1
+            \item A E B = 1
+            \item E B D = 1
+        \end{itemize}
+    \end{center}
+
+
     \item Si consideri un sistema operativo che utilizza indirizzi logici da 21 bit, indirizzo fisico da 16 bit e memoria paginata in cui ciascuna pagina ha dimensione 2 KiB (2048 bytes). Qual è la dimensione massima di memoria fisica supportata dal sistema?\par
     \textbf{Svolgimento:}:\par
     \begin{center}
@@ -2689,14 +2709,14 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
         $2^{5} = 32$\par
         $\frac{2048}{32} = 64$\par
     \end{center}
+
     \item Si supponga di avere una memoria M di capacità pari a 4 KiB, ossia 4,096 bytes. Assumendo che l'indirizzamento avvenga con lunghezza di parola (word size) pari 2 bytes e che M utilizzi una gestione paginata con blocchi di dimensione pari a S = 128 bytes, quanti bit sono necessari per identificare l'indice di pagina (p) e l'offset (interno alla pagina), rispettivamente?\par
     \textbf{Svolgimento:}\par
     4096 = $2^{12}$\par
     128 = $2^{7}$\par
     $p$ = 12 - 7 = 5\par
     $offset$ = 128 / 2 = 64 = $2^{6}$\par
-    \pagebreak
-    \item Si consideri una memoria M di capacità pari a 100 bytes con frame di dimensione pari a 10 bytes. Dato l'indirizzo del byte 37, quale sarà l'indirizzo di pagina (p) e l'offset (interno alla pagina).
+    \item Si consideri una memoria M di capacità pari a 100 bytes con frame di dimensione pari a 10 bytes. Dato l'indirizzo del byte 37, quale sarà l'indirizzo di pagina (p) e l'offset (interno alla pagina).\par
     \textbf{Svolgimento:}\par
     $p$ = 37 / 10 = 3\par
     $offset$ = 37 - (3 $\cdot$ 10) = 7\par
@@ -2731,7 +2751,7 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
         D = 60 + $|$ 77 - 49$|$ = 88\par
         D = 88 + $|$ 82 - 77$|$ = 93\par
     \end{center}
-    \pagebreak
+
     \item Si consideri un disco magnetico composto da 128 cilindri/tracce, numerati da 0 a 127 (O indice del cilindro/traccia pi esterno/a rispetto al centro del disco), la cui testina si trova inizialmente sul cilindro 31. Si calcoli il numero di cilindri attraversate dalla testina del disco, assumendo che la sequenza di richieste: 42, 37, 27, 104, 68 venga gestita da un algoritmo di scheduling \textbf{SCAN (ottimizzato)}, che la testina si stia muovendo verso l'esterno (i.e., verso i cilindri con numeri più bassi)trascurando il tempo di rotazione.\par
     \textbf{Svolgimento:}\par
     \begin{center}    
@@ -2741,7 +2761,8 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
         D = 19 + $|$ 68 - 42 $|$ = 361\par
         D = 45 + $|$ 104 - 68 $|$ = 469 \par
     \end{center}
-
+    
+    
     \item Si consideri un disco magnetico composto da 200 cilindri/tracce, numerati da 0 a 199(0 indice del cilindro/traccia più esterno/a rispetto al centro del disco), la cui testina si trova inizialmente sul cilindro 53. Si calcoli il numero di cilindri/tracce attraversate dalla testina del disco, assumendo che la sequenza di richieste: 98,183,37, 122, 14,65,67 venga gestita da un algoritmo di scheduling \textbf{FCFS (First Come First Served)} e trascurando il tempo di rotazione.\par
     \textbf{Svolgimento:}\par
     L'algoritmo FCFS prevede che vengano analizzate le pagine in ordine 98, 183, 37, 122, 14, 65, 67 partendo da 53:\par
