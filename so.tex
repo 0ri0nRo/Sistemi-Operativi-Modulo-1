@@ -2678,9 +2678,9 @@ Indicare quale gerarchia di processi corrisponde al codice seguente:
     \begin{center}
         30 msec = 18 msec + 7 msec + $\frac{x}{1.5 Gbit/s}$\par
         5 msec = $\frac{x}{1.5 Gbit/s}$\par
-        x = 5 msec $\cdot$ 1.5 Gbit/s\par
-        x = 5 $\cdot$ $10^{-3}$ $\cdot$ 1.5 $\cdot$ $10^{9}$ bit/s\par
-        x = 7.5 $\cdot$ $10^{6}$ bit/s = 7.5 mb/s
+        x = 5 msec $\cdot$ 1.5 $\cdot$ $\frac{1}{8}$ Gbit/s\par
+        x = 5 $\cdot$ $10^{-3}$ $\cdot$ 1.5 $\cdot$ $10^{9}$ byte/s\par
+        x = 0,9375 byte/sec = 935,5 KB
     \end{center}
 
     \item Data una memoria fisica composta da 3 frame fisici e un processo composto da 5 pagine virtuali: A, B, C, D, E, si calcoli il numero di page fault che si verificano a fronte delle seguenti richieste da parte del processo: A, B, E, C, E, D, D, A, B. Si assuma che nessuna pagina del processo sia inizialmente caricata in memoria e che si utilizzi un algoritmo \textbf{FIFO} di sostiuzione delle pagine.\par
