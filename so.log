@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.28)  29 MAY 2023 13:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.28)  29 MAY 2023 13:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1361,7 +1361,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 <im/conversioni.png, id=1464, 502.87875pt x 364.36125pt>
 File: im/conversioni.png Graphic file (type png)
 <use im/conversioni.png>
-Package pdftex.def Info: im/conversioni.png  used on input line 2834.
+Package pdftex.def Info: im/conversioni.png  used on input line 2832.
 (pdftex.def)             Requested size: 290.22107pt x 210.27888pt.
 [93 <./im/conversioni.png>] (./so.aux)
 Package rerunfilecheck Info: File `so.out' has not changed.
