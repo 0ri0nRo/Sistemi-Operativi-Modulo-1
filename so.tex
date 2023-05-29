@@ -914,7 +914,7 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
 
 \subsubsection{Esempi}
 \begin{enumerate}
-    \item Consideriamo la seguente coda di processi gestita da uno scheduler SJF non preemptive. In tal caso, si ha che:\\
+    \item Consideriamo la seguente coda di processi gestita da uno scheduler \textbf{SJF non preemptive}. In tal caso, si ha che:\\
         \begin{figure}[hbt]
             \begin{center}
                 \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/sjf1}}
@@ -925,12 +925,12 @@ Per stimare la lunghezza del prossimo CPU burst, viene utilizzato l'exponential 
             $\bar{T}_{ave.waiting}$ = $\frac{3 + 16 + 9 + 0}{4}$ = $\frac{28}{4} = 7$
         \end{center}
     \pagebreak
-    \item Consideriamo la seguente coda di processi gestita da uno scheduler SJF preemptive, ossia uno scheduler SRTF.
+    \item Consideriamo la seguente coda di processi gestita da uno scheduler \textbf{SJF preemptive}, ossia uno scheduler \textbf{SRTF}.
     \begin{itemize}
         \item \begin{figure}[hbt]
             \begin{center}
                 \includegraphics[width=0.7\textwidth,keepaspectratio]{{im/sjf2}}
-                \caption{}    
+                \caption{}    1
             \end{center}
         \end{figure} 
         \item Il primo job ad essere eseguito è il processo A, poiché il primo ad essere creato ed inserito nella ready queue.
