@@ -172,7 +172,7 @@ Nelle architetture più moderne, vengono implementati più livelli di protezione
         \caption{Protection Rings}    
     \end{center}
     \end{figure}
-
+\pagebreak
 Un modo semplice per avere una protezione alla memoria è quello di avere due registri dedicati:
 \begin{itemize}
     \item \textbf{Base} $\rightarrow$ contenente il primo address di partenza 
@@ -190,7 +190,7 @@ L'istruzione \texttt{TRAP} cambia la modalità da utente a kernel e avvia l'OS.
     \item Interrupt, ossia il completamento di una richiesta in attesa, svolte in modo asincrono e innescate dall'hardware
 \end{itemize}
 
-Esistono cinque categorie importanti di System call:
+Esistono sei categorie importanti di System call:
 \begin{itemize}
     \item \textbf{Gestione dei processi} include \texttt{end}, \texttt{abort}, \texttt{load}, \texttt{execute}, creazione e terminazione di processi, get/set attributi di processi, attesa, signal event, e allocazione di memoria libera. Quando un processo si interrompe, è necessario avviarne o riprenderne un altro. Quando i processi si arrestano in modo anomalo, potrebbe essere necessario fornire core dump e/o altri strumenti diagnostici o di ripristino
     \item \textbf{Gestione dei file} crea file, elimina file, apri, chiudi, leggi, scrivi, riposiziona, ottieni attributi di file e imposta attributi di file. Queste operazioni possono essere supportate anche per directory e file ordinari. L'effettiva struttura della directory può essere implementata utilizzando file ordinari sul file system o tramite altri mezzi (ne parleremo più avanti)
@@ -208,18 +208,18 @@ Esistono cinque categorie importanti di System call:
             \item Attendere i messaggi in arrivo, in stato di blocco o non blocco
             \item Eliminare la connessione quando non è più necessaria
         \end{itemize}
+        \pagebreak
         \item \textbf{memoria condivisa}\footnote{Più veloce e generalmente l'approccio migliore in cui devono essere condivise grandi quantità di dati. Ideale quando la maggior parte dei processi deve leggere i dati anziché scriverli}, il modello di memoria condivisa deve supportare le chiamate a:
         \begin{itemize}
             \item  Creare e accedere alla memoria condivisa tra processi (e thread) 
             \item Fornire meccanismi di blocco che limitano l'accesso simultaneo
             \item Liberare memoria condivisa e/o allocarla dinamicamente secondo necessità
         \end{itemize}
+
+        \item \textbf{Protezione delle system call} Fornisce meccanismi per controllare quali utenti/processi hanno accesso a quali risorse di sistema. Le chiamate di sistema consentono di regolare i meccanismi di accesso secondo necessità. Agli utenti non privilegiati può essere concesso temporaneamente un accesso elevato autorizzazioni in circostanze specifiche. \par
+        Quando un programma utente richiede l'esecuzione di una syscall tramite un'API fornita dal sistema operativo, tale richiesta viene prima convertita in linguaggio macchina, per poi venir gestita dal \textbf{System call Handler}, il quale si occuperà di salvare lo stato precedente dei registri, i quali verranno poi alterati durante l'esecuzione della syscall, per poi essere ripristinati. Inoltre il codice generico è indicizzato tramite la interrupt vector table (IVT). La \textbf{System-call table} contiene tante entry quante sono le chiamate di sistema supportate.
     \end{itemize}
 \end{itemize}
-
-\subsubsection{Protezione delle system call}
-Fornisce meccanismi per controllare quali utenti/processi hanno accesso a quali risorse di sistema. Le chiamate di sistema consentono di regolare i meccanismi di accesso secondo necessità. Agli utenti non privilegiati può essere concesso temporaneamente un accesso elevato autorizzazioni in circostanze specifiche. 
-Quando un programma utente richiede l'esecuzione di una syscall tramite un'API fornita dal sistema operativo, tale richiesta viene prima convertita in linguaggio macchina, per poi venir gestita dal \textbf{System call Handler}, il quale si occuperà di salvare lo stato precedente dei registri, i quali verranno poi alterati durante l'esecuzione della syscall, per poi essere ripristinati. Inoltre il codice generico è indicizzato tramite la interrupt vector table (IVT). La \textbf{System-call table} contiene tante entry quante sono le chiamate di sistema supportate.
 
 \subsubsection{Passaggio di parametri}
 Esistono tre metodi usati per passare parametri :

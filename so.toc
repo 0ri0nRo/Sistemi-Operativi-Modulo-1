@@ -9,9 +9,8 @@
 \contentsline {subsubsection}{\numberline {1.3.1}System Bus}{4}{subsubsection.1.3.1}%
 \contentsline {subsubsection}{\numberline {1.3.2}Dispostivi di I/O}{4}{subsubsection.1.3.2}%
 \contentsline {subsubsection}{\numberline {1.3.3}Processori}{5}{subsubsection.1.3.3}%
-\contentsline {subsubsection}{\numberline {1.3.4}Protezione delle system call}{7}{subsubsection.1.3.4}%
-\contentsline {subsubsection}{\numberline {1.3.5}Passaggio di parametri}{7}{subsubsection.1.3.5}%
-\contentsline {subsubsection}{\numberline {1.3.6}Timer, Istruzioni atomiche, Virtual Memory}{7}{subsubsection.1.3.6}%
+\contentsline {subsubsection}{\numberline {1.3.4}Passaggio di parametri}{7}{subsubsection.1.3.4}%
+\contentsline {subsubsection}{\numberline {1.3.5}Timer, Istruzioni atomiche, Virtual Memory}{7}{subsubsection.1.3.5}%
 \contentsline {subsection}{\numberline {1.4}Progettazione e implementazione del sistema operativo}{9}{subsection.1.4}%
 \contentsline {section}{\numberline {2}Gestione dei Processi e thread}{10}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Stato di esecuzione del processo}{11}{subsection.2.1}%
